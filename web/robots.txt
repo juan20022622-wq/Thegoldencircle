@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /gracias.html
 Disallow: /ir.html
+
+Sitemap: https://REEMPLAZAR-DOMINIO/sitemap.xml

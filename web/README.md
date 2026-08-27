@@ -152,6 +152,38 @@ atmósfera; en oro sería el degradado metálico que `marca/identidad.md` prohí
 Todo el movimiento se apaga con `prefers-reduced-motion`, y un bloque
 `<noscript>` deja la página visible si el JS no carga.
 
+## Auditoría
+
+El arnés vive en `herramientas/auditoria.js`. Se pega en la consola del
+navegador y devuelve fallos, avisos y cifras. Mide contraste real componiendo
+las capas translúcidas sobre lo que tienen debajo: sin eso, un
+`rgba(255,255,255,0.015)` se lee como blanco puro y reporta fallos que no
+existen (pasó en la primera corrida, cuatro falsos positivos).
+
+Última corrida, 390 px:
+
+| | |
+|---|---|
+| Fallos | 0 |
+| Avisos | 3 (dos rótulos de 11 px y el `og:image` sin dominio) |
+| Peor contraste | 4,92:1 sobre 93 textos medidos (AA pide 4,5) |
+| Objetivos táctiles bajo 44 px | 0 de 27 |
+| Desborde horizontal | ninguno a 320, 390, 768 y 1280 |
+| Encabezados | un solo h1, sin saltos de nivel |
+| Manejadores `on*` en línea | 0 |
+| Recursos de terceros | 1 dominio (Google Fonts) |
+| Datos estructurados | Organization, WebSite y FAQPage, válidos |
+
+## Seguridad
+
+Cabeceras en `netlify.toml`. La CSP prohíbe todo script en línea, y por eso los
+scripts de `gracias.html` e `ir.html` viven en `assets/js/`. `style-src` conserva
+`unsafe-inline` porque los retrasos del revelado viajan en el atributo
+`style="--retraso:120ms"`: son estilos, no código.
+
+⚠️ **Verificar la CSP con el píxel de Meta ya instalado.** Una CSP mal puesta lo
+bloquea en silencio y la pauta se queda sin medición sin que nadie se entere.
+
 ## Medición
 
 - El píxel no carga si `pixelId` está vacío: nada se rompe mientras no exista.

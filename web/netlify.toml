@@ -24,10 +24,33 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options        = "SAMEORIGIN"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy        = "strict-origin-when-cross-origin"
-    Permissions-Policy     = "geolocation=(), microphone=(), camera=()"
+    X-Frame-Options           = "DENY"
+    X-Content-Type-Options    = "nosniff"
+    Referrer-Policy           = "strict-origin-when-cross-origin"
+    Permissions-Policy        = "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+    # No hay ni un script en línea en el sitio: los de gracias.html e ir.html
+    # se sacaron a archivo justamente para poder prohibirlos aquí.
+    #
+    # style-src conserva unsafe-inline porque los retrasos del revelado viajan
+    # como style="--retraso:120ms" en el atributo. Son estilos, no código: no
+    # ejecutan nada. Quitarlo exigiría mover cada retraso a una clase.
+    #
+    # connect.facebook.net y www.facebook.com son para el píxel de Meta.
+    # VERIFICAR ESTA CABECERA con el píxel ya instalado: una CSP mal puesta lo
+    # bloquea en silencio y la pauta se queda sin medición.
+    Content-Security-Policy = """default-src 'self'; \
+      script-src 'self' https://connect.facebook.net; \
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; \
+      font-src 'self' https://fonts.gstatic.com; \
+      img-src 'self' data: https://www.facebook.com; \
+      connect-src 'self' https://www.facebook.com; \
+      form-action 'self'; \
+      frame-ancestors 'none'; \
+      base-uri 'self'; \
+      object-src 'none'"""
 
 [[headers]]
   for = "/assets/*"

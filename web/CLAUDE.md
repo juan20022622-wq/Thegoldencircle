@@ -101,6 +101,34 @@ El dominio se compra a nombre de Cristian. `[POR CONFIRMAR]` cuál.
 
 Ver `README.md` para desplegar y para la lista de lo que falta antes de publicar.
 
+## Tipografía
+
+Cinzel y Jost quedaron descartadas: capitales romanas doradas sobre negro son el
+uniforme de la página de lujo generada, y Jost es una Futura genérica. En su
+lugar, tres voces con trabajos distintos:
+
+- **Bodoni Moda** (600/700) titulares. Didona, gravedad editorial sin disfraz
+  heráldico. Caja natural, interletrado ligeramente negativo, interlineado corto.
+- **Archivo** (300/400/500) texto de lectura.
+- **IBM Plex Mono** (400/500) rótulos, cifras, contadores y etiquetas de campo.
+  Es la voz del terminal, y es lo que ancla la página en el mundo del sujeto.
+
+Nada de la página baja de 11 px, y los rótulos pegados al texto de lectura van
+a 12 px.
+
+`marca/identidad.md` todavía propone Cinzel y Jost: **está desactualizado en
+este punto** y hay que validarlo con Cristian.
+
+## Auditoría antes de dar nada por bueno
+
+`herramientas/auditoria.js` se pega en la consola y mide contraste real,
+objetivos táctiles, jerarquía, desborde, SEO, seguridad y tics de página
+generada. Correrlo después de cualquier cambio de estilo. La meta es cero fallos.
+
+Un aviso sobre el propio arnés: mide contraste componiendo las capas
+translúcidas. Cualquier medidor que lea `rgba(255,255,255,0.015)` como blanco
+puro reporta fallos que no existen.
+
 ## Reglas heredadas que aquí no se negocian
 
 **Nada de promesas de rentabilidad** en ningún texto de esta página. Ni en el
