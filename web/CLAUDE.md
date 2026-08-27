@@ -14,6 +14,11 @@ Es una página, un scroll, una acción repetida.
 
 ## Estructura, en orden
 
+**La regla del gráfico:** ningún gráfico de esta página puede subir. Un gráfico
+ascendente en una landing de trading es una promesa de rentabilidad dibujada, y
+cae en la misma prohibición que el copy. Lo que se dibuja es el método: dónde se
+invalida una idea, no cuánto se gana. El del héroe termina perdiendo el nivel.
+
 **La regla de forma:** si todas las secciones tienen antetítulo + titular +
 párrafo + lista, la página huele a plantilla por mucho que se recorte. Cada
 momento tiene una forma distinta.
@@ -25,13 +30,18 @@ momento tiene una forma distinta.
    no necesita cinco bloques de texto para decirlo.
 3. **La cara** — el video de Cristian y quién es él, en la misma sección. Sin
    el video la página es de cualquiera; sin la bio, el video no se sostiene.
-4. **La consola** — el camino de la membresía en un solo bloque: entrar al
+4. **La anatomía** — el cotejo de mensajes: lo que publica un canal de señales
+   contra lo que se publica aquí. Es el argumento de la marca mostrado en vez de
+   descrito, y la pieza que más trabaja de la página. Los niveles van en blanco
+   y el sello «Ejemplo» va **dentro** de cada tarjeta: se van a capturar para
+   anuncios y el descargo tiene que viajar con la captura.
+5. **La consola** — el camino de la membresía en un solo bloque: entrar al
    canal, abrir cuenta en el broker, replicar lo que se quiera, y con el tiempo
    leer por cuenta propia. Un paso a la vez, con botón «siguiente».
    **La comisión del broker se declara en el paso 02**, no en letra pequeña.
-5. **Dudas** — las objeciones de frente, empezando por "¿dónde está el truco?".
-6. **Formulario** — nombre, correo, WhatsApp. Máximo tres campos.
-7. **Pie** — descargo de riesgo, declaración de partner independiente, contacto.
+6. **Dudas** — las objeciones de frente, empezando por "¿dónde está el truco?".
+7. **Formulario** — nombre, correo, WhatsApp. Máximo tres campos.
+8. **Pie** — descargo de riesgo, declaración de partner independiente, contacto.
 
 El botón se repite: barra flotante, héroe, tras la consola y formulario.
 Un solo tipo de botón. Nunca dos acciones distintas compitiendo.

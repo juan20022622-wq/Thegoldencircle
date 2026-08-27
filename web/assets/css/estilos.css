@@ -762,3 +762,226 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   .barra { backdrop-filter: blur(12px) saturate(140%); -webkit-backdrop-filter: blur(12px) saturate(140%); }
   .ambiente { animation-duration: 60s; filter: blur(48px); }
 }
+
+/* ==========================================================================
+   Lo que se dice, mostrado
+   La página hablaba de "cada idea con su razonamiento" sin enseñar jamás un
+   mensaje. Estas dos piezas lo enseñan.
+   ========================================================================== */
+
+/* ---------- el gráfico del héroe ---------- */
+
+.heroe__grafico { margin: 3rem 0 0; }
+.heroe__grafico .grafico { width: 100%; height: auto; overflow: visible; }
+
+.heroe__grafico figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--gris);
+}
+
+.vela line { stroke: var(--gris); stroke-width: 1; }
+.vela rect { fill: var(--gris); stroke: none; }
+.vela rect.hueca { fill: var(--negro); stroke: var(--gris); stroke-width: 1; }
+
+/* Las velas posteriores a la pérdida del nivel se apagan: el ojo entiende
+   solo con el valor, sin depender del color. */
+.vela--fuera line, .vela--fuera rect { opacity: 0.4; }
+
+.vela--idea line { stroke: var(--oro); stroke-width: 1.5; }
+.vela--idea rect { fill: var(--oro); }
+.vela--idea rect.hueca { fill: var(--negro); stroke: var(--oro); stroke-width: 1.5; }
+
+.nivel__linea {
+  stroke: var(--oro);
+  stroke-width: 1;
+  stroke-dasharray: 5 4;      /* punteada: la distingue la forma, no solo el color */
+}
+
+.marca__punto { fill: var(--oro); }
+
+/* Los rótulos son HTML, no <text> del SVG: dentro del SVG escalarían con el
+   viewBox y a 390 px quedarían en 6,6 px reales. Con ancho se cuelgan del punto
+   exacto usando --y-nivel, --y-idea y --x-idea, que dejó el generador. */
+/* En pantalla estrecha los rótulos van debajo, como leyenda: encima se montan
+   sobre las velas. Solo cuando hay ancho se cuelgan del punto exacto. */
+.rotulo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--gris);
+}
+
+.rotulo::before {
+  content: "";
+  flex: none;
+  width: 1.25rem;
+  margin-top: 0.45rem;
+  align-self: flex-start;
+}
+
+.rotulo--nivel::before {
+  height: 0;
+  border-top: 1px dashed var(--oro);
+}
+
+.rotulo--idea::before {
+  width: 0.4375rem;
+  height: 0.4375rem;
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
+  border-radius: 50%;
+  background: var(--oro);
+}
+
+.rotulo span {
+  flex: none;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid var(--oro-profundo);
+  border-radius: 2px;
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oro);
+}
+
+@media (min-width: 46rem) {
+  .grafico__caja { position: relative; }
+
+  .rotulo {
+    position: absolute;
+    margin: 0;
+    font-size: 0.75rem;
+    pointer-events: none;
+  }
+
+  .rotulo::before { display: none; }
+
+  .rotulo--nivel {
+    top: var(--y-nivel);
+    right: 0;
+    transform: translateY(0.4rem);
+    max-width: 20rem;
+    justify-content: flex-end;
+  }
+
+  .rotulo--idea {
+    top: var(--y-idea);
+    left: var(--x-idea);
+    transform: translate(-50%, -150%);
+    width: 9rem;
+    justify-content: center;
+    text-align: center;
+    color: var(--oro-claro);
+  }
+}
+
+/* ---------- el cotejo de mensajes ---------- */
+
+.cotejo { display: grid; gap: 1.25rem; margin-top: 2.5rem; }
+
+@media (min-width: 46rem) {
+  .cotejo { grid-template-columns: 0.85fr 1.15fr; gap: 1.75rem; align-items: start; }
+}
+
+.tarjeta {
+  border: 1px solid var(--borde-tenue);
+  border-radius: 6px;
+  background: var(--superficie);
+  overflow: hidden;
+}
+
+.tarjeta--nuestra { border-color: var(--borde); }
+
+.tarjeta__cabeza {
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--borde-tenue);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.tarjeta__sello {
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+
+.tarjeta__sello--oro { color: var(--oro); }
+
+.tarjeta__cuerpo { padding: 1.25rem; }
+
+.mensaje__par {
+  font-family: var(--titular);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--hueso);
+  margin: 0 0 1rem;
+}
+
+.mensaje__dir { color: var(--oro); }
+
+.mensaje { margin: 0; display: grid; gap: 0.4rem; }
+.mensaje > div { display: flex; align-items: baseline; gap: 0.75rem; }
+
+.mensaje dt {
+  flex: none;
+  min-width: 5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+
+.mensaje dd {
+  margin: 0;
+  flex: 1;
+  border-bottom: 1px dashed rgba(242, 237, 227, 0.16);
+  color: var(--gris);
+}
+
+.tarjeta__nota {
+  margin: 1.25rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--borde-tenue);
+  font-size: 0.875rem;
+  color: var(--gris);
+  font-style: italic;
+}
+
+.mensaje__porques { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 1rem; }
+
+.mensaje__porques li {
+  padding-left: 0.9rem;
+  border-left: 1px solid var(--oro-profundo);
+}
+
+.porque__rotulo {
+  display: block;
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oro);
+  margin-bottom: 0.2rem;
+}
+
+.mensaje__porques span:last-child { color: var(--hueso); font-size: 0.9375rem; }
+
+/* El sello va dentro de la tarjeta, no al pie de la sección: estas tarjetas se
+   van a capturar para anuncios y el descargo tiene que viajar con la captura. */
+.tarjeta__cabeza { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+
+.tarjeta__ejemplo {
+  flex: none;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--borde-tenue);
+  border-radius: 2px;
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
