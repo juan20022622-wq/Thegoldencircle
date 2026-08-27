@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Golden Syndicate — el canal de Cristian</title>
-<meta name="description" content="Canal de Telegram gratuito. Las operaciones que Cristian opera él mismo, con el porqué de cada una, y lo que las sostiene: cuerpo, cabeza y estudio.">
+<title>The Golden Syndicate — el club donde nadie opera a ciegas</title>
+<meta name="description" content="Un club de trading con canal de Telegram gratuito. Cada idea se publica con su razonamiento: qué la sostiene, qué la invalida y qué se hace si falla.">
 <meta name="theme-color" content="#0A0A0B">
 <link rel="canonical" href="https://REEMPLAZAR-DOMINIO/">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
-<meta property="og:title" content="The Golden Syndicate — el canal de Cristian">
-<meta property="og:description" content="Las operaciones que opero yo, con el porqué de cada una. Gratis, en Telegram.">
+<meta property="og:title" content="The Golden Syndicate — el club donde nadie opera a ciegas">
+<meta property="og:description" content="Canal de Telegram gratuito. Cada idea, con el porqué completo detrás.">
 <meta property="og:image" content="https://REEMPLAZAR-DOMINIO/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -22,45 +22,63 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Jost:wght@300;400;500&display=swap">
 <link rel="stylesheet" href="/assets/css/estilos.css">
+
+<!-- Red de seguridad: el revelado por scroll depende de JS. Si el JS está
+     bloqueado o falla, la página tiene que verse entera igual. -->
+<noscript><style>
+  .revelar { opacity: 1 !important; transform: none !important; }
+  .linea > span { opacity: 1 !important; filter: none !important; transform: none !important; }
+  .filete { transform: scaleX(1) !important; }
+  .barra { opacity: 1 !important; translate: 0 0 !important; }
+  .anillo { stroke-dashoffset: 0 !important; }
+  .camino::before { transform: scaleY(1) !important; }
+</style></noscript>
 </head>
 
 <body>
+<div class="ambiente" aria-hidden="true"></div>
 <a class="saltar" href="#registro">Saltar al formulario</a>
 
-<header class="contenedor marca">
-  <!-- [POR CONFIRMAR] símbolo primario sin decidir · ver marca/identidad.md.
-       Provisional: monograma en oro plano. Sustituir por el SVG definitivo. -->
-  <svg class="marca__simbolo" viewBox="0 0 48 48" role="img" aria-label="The Golden Syndicate">
-    <rect x="1" y="1" width="46" height="46" rx="2" fill="none" stroke="#8C6A22"></rect>
-    <text x="24" y="31" text-anchor="middle" fill="#D2A64B"
-          font-family="Cinzel, serif" font-size="19" font-weight="700" letter-spacing="1">GS</text>
-  </svg>
-  <span class="marca__nombre">The Golden Syndicate</span>
-</header>
+<!-- Barra flotante: no es un menú, es el símbolo y la única acción, siempre a mano. -->
+<nav class="barra" aria-label="Principal">
+  <a class="barra__marca" href="#contenido">
+    <!-- [POR CONFIRMAR] símbolo primario sin decidir · ver marca/identidad.md -->
+    <svg viewBox="0 0 48 48" role="img" aria-label="The Golden Syndicate">
+      <rect x="1" y="1" width="46" height="46" rx="2" fill="none" stroke="#8C6A22"></rect>
+      <text x="24" y="31" text-anchor="middle" fill="#D2A64B"
+            font-family="Cinzel, serif" font-size="19" font-weight="700" letter-spacing="1">GS</text>
+    </svg>
+    <span class="barra__nombre">The Golden Syndicate</span>
+  </a>
+  <a class="boton" href="#registro">Entrar</a>
+</nav>
 
 <main id="contenido">
 
   <!-- 1 · HÉROE -->
   <section class="contenedor heroe">
-    <p class="antetitulo">Canal de Telegram · gratis</p>
-    <h1>Las operaciones que opero yo, con el porqué de cada una.</h1>
-    <hr class="filete">
-    <p class="entradilla">
-      Cada día de mercado publico lo que estoy viendo: qué me haría entrar, qué invalida
-      la idea y qué hago si falla. Sin números sueltos y sin adornos. Y junto a eso, lo que
-      sostiene todo lo demás — el cuerpo, la cabeza y el estudio.
+    <p class="antetitulo revelar" style="--retraso:600ms">El club · canal gratuito</p>
+    <h1>
+      <span class="linea"><span style="--retraso:80ms">Un club donde</span></span>
+      <span class="linea"><span style="--retraso:200ms">nadie opera</span></span>
+      <span class="linea linea--acento"><span style="--retraso:320ms">a ciegas.</span></span>
+    </h1>
+    <hr class="filete revelar" style="--retraso:700ms">
+    <p class="entradilla revelar" style="--retraso:780ms">
+      The Golden Syndicate publica cada día de mercado una idea completa: qué la
+      sostiene, qué la invalida y qué se hace si el mercado va en contra. Nunca el
+      nivel a secas.
       <!-- [POR CONFIRMAR] frecuencia real de publicación · docs/contexto-cliente.md -->
     </p>
-    <a class="boton" href="#registro">Entrar al canal</a>
-    <p class="heroe__micro">Nombre, correo y WhatsApp. Nada más.</p>
+    <p class="revelar" style="--retraso:880ms"><a class="boton" href="#registro">Entrar al canal</a></p>
+    <p class="heroe__micro revelar" style="--retraso:960ms">Gratis. Tres datos, sin tarjeta.</p>
   </section>
 
   <!-- 2 · VIDEO -->
   <section class="contenedor seccion" aria-labelledby="t-video">
     <h2 id="t-video" class="solo-lectores">Cristian presenta el Syndicate</h2>
-    <div class="video">
-      <!-- [PENDIENTE] video de Cristian presentando el Syndicate. Sin él la página
-           es de cualquiera. Sustituir este bloque por:
+    <div class="video revelar">
+      <!-- [PENDIENTE] video de Cristian presentando el Syndicate. Sustituir por:
            <video controls preload="none" poster="/assets/img/poster.webp" playsinline>
              <source src="/assets/video/presentacion.mp4" type="video/mp4">
            </video> -->
@@ -71,124 +89,284 @@
     </div>
   </section>
 
-  <!-- 3 · LAS CINCO LLAVES -->
+  <!-- 3 · EL CÍRCULO DORADO -->
+  <section class="contenedor seccion" aria-labelledby="t-circulo">
+    <p class="antetitulo revelar">El círculo dorado</p>
+    <h2 id="t-circulo" class="revelar" style="--retraso:60ms">El círculo.</h2>
+
+    <div class="circulo" style="margin-top:2.5rem">
+      <div class="circulo__anillos revelar" data-anillos>
+        <svg viewBox="0 0 240 240" role="img"
+             aria-label="Tres anillos concéntricos: por qué en el centro, cómo en el medio, qué afuera">
+          <circle class="anillo" cx="120" cy="120" r="112" style="--largo:704; --retraso:340ms"></circle>
+          <circle class="anillo" cx="120" cy="120" r="80"  style="--largo:503; --retraso:180ms"></circle>
+          <circle class="anillo anillo--activo" cx="120" cy="120" r="48" style="--largo:302; --retraso:0ms"></circle>
+          <text class="circulo__centro" x="120" y="118" text-anchor="middle">POR QUÉ</text>
+          <text class="circulo__centro" x="120" y="72"  text-anchor="middle" opacity="0.55">CÓMO</text>
+          <text class="circulo__centro" x="120" y="24"  text-anchor="middle" opacity="0.55">QUÉ</text>
+        </svg>
+      </div>
+
+      <div>
+        <div class="capa revelar">
+          <p class="capa__titulo">Por qué <small>el centro</small></p>
+          <p>Casi nadie pierde por no tener la señal. Se pierde por no entender qué
+             estaba haciendo. Un club se mide por lo que aprenden sus miembros, no
+             por lo que publica.</p>
+        </div>
+        <div class="capa revelar" style="--retraso:120ms">
+          <p class="capa__titulo">Cómo <small>el método</small></p>
+          <p>Cada idea sale con su razonamiento completo y a la misma hora. Alrededor,
+             los cinco frentes que sostienen a quien opera: dinero, propósito, cuerpo,
+             mentalidad y educación.</p>
+        </div>
+        <div class="capa revelar" style="--retraso:240ms">
+          <p class="capa__titulo">Qué <small>lo que recibes</small></p>
+          <p>Un canal de Telegram gratuito, abierto, sin niveles de membresía ni sala
+             VIP de pago. Se entra, se lee y se pregunta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · LAS CINCO LLAVES -->
   <section class="contenedor seccion" aria-labelledby="t-llaves">
-    <p class="antetitulo">Las cinco llaves</p>
-    <h2 id="t-llaves">Un gráfico no se opera solo con el gráfico.</h2>
-    <p>
-      La mayoría de los canales te dan un nivel y te dejan solo con lo difícil: sostenerlo.
-      Aquí se trabajan cinco frentes porque en la práctica se caen juntos.
+    <p class="antetitulo revelar">Las cinco llaves</p>
+    <h2 id="t-llaves" class="revelar" style="--retraso:60ms">Un gráfico no se opera solo con el gráfico.</h2>
+    <p class="revelar" style="--retraso:120ms">
+      La mayoría de los canales dan un nivel y dejan al miembro solo con lo difícil:
+      sostenerlo. Aquí se trabajan cinco frentes porque en la práctica se caen juntos.
     </p>
 
     <ul class="llaves">
-      <li>
+      <li class="revelar">
         <p class="llave__nombre">Dinero</p>
-        <p>Gestión de riesgo antes que tamaño de cuenta: cuánto arriesgas por operación
-           y por qué esa cifra y no otra.</p>
+        <p>Gestión de riesgo antes que tamaño de cuenta: cuánto se arriesga por
+           operación y por qué esa cifra y no otra.</p>
       </li>
-      <li>
+      <li class="revelar" style="--retraso:80ms">
         <p class="llave__nombre">Propósito</p>
         <p>Para qué quieres esto. Sin una respuesta clara, la primera racha mala te saca.</p>
       </li>
-      <li>
+      <li class="revelar" style="--retraso:160ms">
         <p class="llave__nombre">Cuerpo</p>
         <p>La disciplina del entreno y la del gráfico son la misma disciplina.
            Se entrena igual.</p>
       </li>
-      <li>
+      <li class="revelar" style="--retraso:240ms">
         <p class="llave__nombre">Mentalidad</p>
         <p>Qué hacer con una pérdida, con tres seguidas, y con el exceso de confianza
            que llega justo después de que algo sale bien.</p>
       </li>
-      <li>
+      <li class="revelar" style="--retraso:320ms">
         <p class="llave__nombre">Educación</p>
         <p>Cada idea viene con su razonamiento. La meta es que con el tiempo no
            necesites la señal de nadie.</p>
       </li>
     </ul>
-
-    <p style="margin-top:2.5rem"><a class="boton" href="#registro">Entrar al canal</a></p>
   </section>
 
-  <!-- 4 · QUÉ PASA DENTRO -->
-  <section class="contenedor seccion" aria-labelledby="t-dentro">
-    <p class="antetitulo">Dentro del canal</p>
-    <h2 id="t-dentro">Con qué te vas a encontrar.</h2>
+  <!-- 5 · EL CAMINO -->
+  <section class="contenedor seccion" aria-labelledby="t-camino">
+    <p class="antetitulo revelar">Cómo funciona</p>
+    <h2 id="t-camino" class="revelar" style="--retraso:60ms">El camino.</h2>
+    <p class="revelar" style="--retraso:120ms">
+      Nadie tiene que adivinar nada. Es el mismo recorrido para todo el que entra,
+      y cada paso está dicho de frente — incluido de qué vive el club.
+    </p>
 
-    <ul class="dentro">
-      <li>
+    <ol class="camino" data-camino>
+      <li class="paso revelar">
+        <span class="paso__marca" aria-hidden="true">01</span>
+        <h3>Entras al canal</h3>
+        <p>Dejas nombre, correo y WhatsApp, y recibes la invitación al canal de
+           Telegram. Gratis, sin tarjeta y sin periodo de prueba.</p>
+      </li>
+
+      <li class="paso revelar">
+        <span class="paso__marca" aria-hidden="true">02</span>
+        <h3>Abres tu cuenta en el broker</h3>
+        <p>Para operar en los mercados hace falta una cuenta en un broker. El club
+           trabaja con Exness.</p>
+        <p><strong>Aquí va la parte que casi nadie dice:</strong> si abres esa cuenta
+           por el enlace del Syndicate, el broker nos paga una comisión. Así se
+           sostiene el club y por eso el canal puede ser gratis. Puedes quedarte en
+           el canal sin abrir ninguna cuenta.</p>
+      </li>
+
+      <li class="paso revelar">
+        <span class="paso__marca" aria-hidden="true">03</span>
+        <h3>Replicas las operaciones que quieras</h3>
+        <p>Cada publicación trae la idea entera. Tú decides cuáles tomas, con cuánto
+           entras y cuándo sales: la cuenta es tuya y las órdenes las pones tú.
+           Nadie del club opera por ti.</p>
+      </li>
+
+      <li class="paso revelar">
+        <span class="paso__marca" aria-hidden="true">04</span>
+        <h3>Dejas de copiar y empiezas a leer</h3>
+        <p>Ese es el punto del camino. Al principio replicas; con el tiempo reconoces
+           por qué se tomó la decisión y empiezas a discutirla. El club está para que
+           las reglas terminen siendo tuyas.</p>
+      </li>
+    </ol>
+
+    <p class="nota-riesgo revelar">
+      Ni el club ni Cristian operan tu cuenta, gestionan tu capital ni garantizan
+      ningún resultado. El trading conlleva riesgo de pérdida. El contenido es
+      educativo y no constituye asesoría de inversión. Los resultados pasados no
+      garantizan resultados futuros. Opera solo con capital que puedas permitirte
+      perder.
+    </p>
+
+    <p class="revelar" style="margin-top:2.5rem"><a class="boton" href="#registro">Entrar al canal</a></p>
+  </section>
+
+  <!-- 6 · DENTRO DEL CANAL -->
+  <section class="contenedor seccion" aria-labelledby="t-dentro">
+    <p class="antetitulo revelar">Dentro del canal</p>
+    <h2 id="t-dentro" class="revelar" style="--retraso:60ms">Adentro.</h2>
+
+    <ul class="dentro-canal">
+      <li class="revelar">
         <strong>Publicación a la misma hora</strong>
         <span>Los días de mercado, aunque el mensaje del día sea «hoy no hay nada que
               valga la pena». La previsibilidad es parte del método.</span>
         <!-- [POR CONFIRMAR] hora y días exactos -->
       </li>
-      <li>
+      <li class="revelar" style="--retraso:80ms">
         <strong>Contexto con cada idea</strong>
-        <span>Por qué la veo, qué la invalida y qué hago si el mercado va en contra.
+        <span>Por qué se ve, qué la invalida y qué se hace si el mercado va en contra.
               Nunca el nivel a secas.</span>
       </li>
-      <li>
-        <strong>Lo que opero yo</strong>
-        <span>No hay señales revendidas ni copiadas de otro canal. Si no la tomo,
-              no la publico.</span>
+      <li class="revelar" style="--retraso:160ms">
+        <strong>Lo que se opera de verdad</strong>
+        <span>No hay señales revendidas ni copiadas de otro canal. Si Cristian no la
+              toma, no se publica.</span>
       </li>
-      <li>
+      <li class="revelar" style="--retraso:240ms">
         <strong>Los errores también</strong>
         <span>Las que salen mal se comentan igual que las otras. Ahí es donde
               normalmente está el aprendizaje.</span>
       </li>
-      <li>
+      <li class="revelar" style="--retraso:320ms">
         <strong>Rutina, entreno y cabeza</strong>
-        <span>Cómo gestiono una semana difícil, qué hago antes de abrir la plataforma
-              y por qué eso cambia cómo opero.</span>
+        <span>Cómo se gestiona una semana difícil, qué se hace antes de abrir la
+              plataforma y por qué eso cambia la forma de operar.</span>
       </li>
-      <li>
+      <li class="revelar" style="--retraso:400ms">
         <strong>Preguntas abiertas</strong>
-        <span>Se pregunta y se responde. Sin asesoría personalizada:
-              esto es formación, no recomendaciones de inversión.</span>
+        <span>Se pregunta y se responde. Sin asesoría personalizada: esto es
+              formación, no recomendaciones de inversión.</span>
       </li>
     </ul>
   </section>
 
-  <!-- 5 · QUIÉN ES CRISTIAN -->
+  <!-- 7 · QUIÉN ESTÁ DETRÁS -->
   <section class="contenedor seccion" aria-labelledby="t-cristian">
     <div class="cristian">
-      <div class="cristian__retrato">
+      <div class="cristian__retrato revelar">
         <!-- [PENDIENTE] retrato de Cristian. Luz dura, sombras profundas, sin filtros
              dorados. Gimnasio, escritorio o calle. Nunca carros, fajos ni relojes.
              Exportar en WebP con width/height explícitos. -->
         Retrato de Cristian
       </div>
       <div>
-        <p class="antetitulo">Quién está detrás</p>
-        <h2 id="t-cristian">Cristian</h2>
-        <p>
-          Lleva <!-- [POR CONFIRMAR] años exactos -->[X] años operando y varios más
-          equivocándose antes de eso. Empezó como empieza casi todo el mundo: siguiendo
-          señales que nadie explicaba, sin saber qué hacer cuando el mercado se giraba.
+        <p class="antetitulo revelar">Quién lleva la mesa</p>
+        <h2 id="t-cristian" class="revelar" style="--retraso:60ms">Quién.</h2>
+        <p class="revelar" style="--retraso:120ms">
+          El club lo lleva <strong>Cristian</strong>. Lleva
+          <!-- [POR CONFIRMAR] años exactos -->[X] años operando y varios más
+          equivocándose antes de eso. Empezó como empieza casi todo el mundo:
+          siguiendo señales que nadie explicaba, sin saber qué hacer cuando el
+          mercado se giraba.
         </p>
-        <p>
+        <p class="revelar" style="--retraso:180ms">
           Hoy enseña lo que le habría servido entonces — un método propio, escrito,
           repetible, con reglas de riesgo que no se cambian a mitad de una operación.
           Publica lo que opera porque no hay otra forma honesta de enseñarlo.
         </p>
-        <p class="apunte">
-          Cristian es educador y opera su propia cuenta. No es asesor de inversión y no
-          da recomendaciones personalizadas.
+        <p class="apunte revelar" style="--retraso:240ms">
+          Cristian es educador y opera su propia cuenta. No es asesor de inversión y
+          no da recomendaciones personalizadas.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- 6 · FORMULARIO -->
+  <!-- 8 · DUDAS -->
+  <section class="contenedor seccion" aria-labelledby="t-dudas">
+    <p class="antetitulo revelar">Antes de entrar</p>
+    <h2 id="t-dudas" class="revelar" style="--retraso:60ms">Dudas.</h2>
+
+    <div class="preguntas revelar" style="--retraso:120ms">
+      <details class="pregunta">
+        <summary>¿De verdad es gratis? ¿Dónde está el truco?</summary>
+        <div class="pregunta__cuerpo"><div>
+          <p>Es gratis y no hay versión de pago del canal. El club se sostiene con la
+             comisión que paga el broker cuando alguien abre cuenta por nuestro enlace
+             y opera. Preferimos decirlo aquí que dejar que lo descubras después.</p>
+        </div></div>
+      </details>
+
+      <details class="pregunta">
+        <summary>¿Tengo que abrir cuenta en el broker para entrar?</summary>
+        <div class="pregunta__cuerpo"><div>
+          <p>No. Puedes estar en el canal, leer y preguntar sin abrir ninguna cuenta y
+             sin poner un peso. La cuenta hace falta el día que quieras operar tú.</p>
+        </div></div>
+      </details>
+
+      <details class="pregunta">
+        <summary>¿Necesito saber de trading?</summary>
+        <div class="pregunta__cuerpo"><div>
+          <p>No para entrar. Cada publicación explica el razonamiento, así que se puede
+             leer desde cero. Si llevas tiempo, la parte que suele servir más es la de
+             gestión de riesgo y la de cabeza.</p>
+        </div></div>
+      </details>
+
+      <details class="pregunta">
+        <summary>¿Con cuánto capital debería empezar?</summary>
+        <div class="pregunta__cuerpo"><div>
+          <p>Esa cifra la decides tú con tu situación, y en el canal no se recomienda
+             un monto ni se gestiona el dinero de nadie. Lo que sí se explica es cómo
+             se calcula cuánto arriesgar por operación una vez que decidiste tu cifra.</p>
+        </div></div>
+      </details>
+
+      <details class="pregunta">
+        <summary>¿Esto es asesoría de inversión?</summary>
+        <div class="pregunta__cuerpo"><div>
+          <p>No. Es formación y divulgación de lo que Cristian opera en su propia
+             cuenta. No hay recomendaciones personalizadas, no se gestionan cuentas de
+             terceros y no se prometen resultados. El trading conlleva riesgo de
+             pérdida.</p>
+        </div></div>
+      </details>
+
+      <details class="pregunta">
+        <summary>¿Me van a llenar el WhatsApp de mensajes?</summary>
+        <div class="pregunta__cuerpo"><div>
+          <p>No hay lista de difusión diaria. Por WhatsApp solo escribimos si el canal
+             cambia de enlace o si se abren cupos en los cursos. Todo lo demás pasa
+             dentro del canal.</p>
+        </div></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 9 · FORMULARIO -->
   <section class="captura" id="registro">
     <div class="contenedor seccion">
-      <p class="antetitulo">Entrar</p>
-      <h2>Tres datos y estás dentro.</h2>
-      <p>El canal es gratuito y se entra por invitación directa. No hay periodo de prueba
-         ni cobro después: es gratis y se queda gratis.</p>
+      <p class="antetitulo revelar">Entrar</p>
+      <h2 class="revelar" style="--retraso:60ms">Tres datos y estás dentro.</h2>
+      <p class="revelar" style="--retraso:120ms">
+        Al enviar te llevamos directo al canal, sin esperar aprobación. El club es
+        gratuito y se queda gratuito.
+      </p>
 
-      <form class="formulario" name="leads" method="POST"
+      <form class="formulario revelar" style="--retraso:180ms" name="leads" method="POST"
             data-netlify="true" netlify-honeypot="empresa" novalidate>
         <input type="hidden" name="form-name" value="leads">
         <p class="trampa" aria-hidden="true">
@@ -226,16 +404,16 @@
                  aria-describedby="e-whatsapp ayuda-whatsapp">
           <span class="campo__error" id="e-whatsapp" role="alert"></span>
           <span class="apunte" id="ayuda-whatsapp">
-            Por WhatsApp solo escribimos si el canal cambia de enlace o si se abren cupos
-            en los cursos. No hay lista de difusión diaria.
+            Solo para avisarte si el canal cambia de enlace o si se abren cupos en los
+            cursos. No hay lista de difusión diaria.
           </span>
         </div>
 
         <button class="boton boton--ancho" type="submit" data-envio>Entrar al canal</button>
 
         <p class="formulario__aviso">
-          Al enviar aceptas recibir mensajes de The Golden Syndicate. Puedes salir cuando
-          quieras. No compartimos ni vendemos tus datos.
+          Al enviar aceptas recibir mensajes de The Golden Syndicate. Puedes salir
+          cuando quieras. No compartimos ni vendemos tus datos.
         </p>
         <p class="formulario__fallo" data-fallo hidden></p>
       </form>
@@ -244,7 +422,7 @@
 
 </main>
 
-<!-- 7 · PIE -->
+<!-- PIE -->
 <footer class="pie">
   <div class="contenedor">
     <p class="pie__descargo">
@@ -266,6 +444,7 @@
 </footer>
 
 <script src="/assets/js/config.js"></script>
+<script src="/assets/js/movimiento.js" defer></script>
 <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

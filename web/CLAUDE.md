@@ -18,17 +18,29 @@ Es una página, un scroll, una acción repetida.
    gratis. Botón. El símbolo, no un menú.
 2. **Video de Cristian** presentando el Syndicate. El elemento de confianza más
    barato que existe. Sin él la página es de cualquiera.
-3. **Las cinco llaves** — dinero, propósito, cuerpo, mentalidad, educación.
+3. **El círculo** — por qué existe el club, cómo trabaja, qué recibe el miembro.
+   Es la tesis, y va antes que la mecánica.
+4. **Las cinco llaves** — dinero, propósito, cuerpo, mentalidad, educación.
    Es lo que hace que esta página no sea otra página de señales.
-4. **Qué pasa dentro del canal** — con qué se va a encontrar, en concreto.
+5. **El camino** — los cuatro pasos de la membresía: entrar al canal, abrir
+   cuenta en el broker, replicar las operaciones que se quieran, y con el tiempo
+   leer por cuenta propia. **Aquí se declara la comisión del broker**, no en
+   letra pequeña. Sin esta sección el visitante no sabe en qué se está metiendo.
+6. **Qué pasa dentro del canal** — con qué se va a encontrar, en concreto.
    Capturas reales o descripción honesta, nunca resultados.
-5. **Quién es Cristian** — años operando `[POR CONFIRMAR]`, qué opera, por qué
+7. **Quién es Cristian** — años operando `[POR CONFIRMAR]`, qué opera, por qué
    enseña. Sin cifras de rentabilidad.
-6. **Formulario** — nombre, correo, WhatsApp. Máximo tres campos.
-7. **Pie** — descargo de riesgo, declaración de partner independiente, contacto.
+8. **Dudas** — las objeciones de frente, empezando por "¿dónde está el truco?".
+9. **Formulario** — nombre, correo, WhatsApp. Máximo tres campos.
+10. **Pie** — descargo de riesgo, declaración de partner independiente, contacto.
 
-El botón se repite: héroe, después de las cinco llaves, y en el formulario.
+El botón se repite: barra flotante, héroe, final de El camino, y formulario.
 Un solo tipo de botón. Nunca dos acciones distintas compitiendo.
+
+**La voz de la página es la del club, no la de Cristian.** De El círculo a
+Adentro habla el Syndicate. La primera persona se reserva para el video y para
+"Quién". El producto es el club; si todo lo dice Cristian, el día que no pueda
+grabar la página se queda sin voz. Ver `README.md`.
 
 ## Requisitos técnicos
 

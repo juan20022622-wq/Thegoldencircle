@@ -10,7 +10,8 @@ gracias.html      confirmación + salto al canal (noindex)
 ir.html           redirect propio al broker, con registro de origen (noindex)
 privacidad.html   BORRADOR, pendiente de abogado
 assets/css/       estilos.css
-assets/js/        config.js (lo que se toca) · main.js (lo que no)
+assets/js/        config.js (lo que se toca) · main.js (formulario) ·
+                  movimiento.js (revelados y trazados)
 netlify.toml      build, redirects y cabeceras
 ```
 
@@ -60,6 +61,47 @@ Todo esto está marcado en el código y **bloquea el lanzamiento**:
 | Correo de contacto | pie y `privacidad.html` | `[POR CONFIRMAR]` |
 | Imagen para compartir (`og.jpg`, 1200×630) | `assets/img/` | pendiente |
 | Revisión legal de `privacidad.html` | — | pendiente |
+
+## Estructura de la página
+
+1. **Héroe** — la promesa, en voz de club
+2. **Video de Cristian** — el elemento de confianza
+3. **El círculo** — por qué / cómo / qué, sobre los tres anillos concéntricos
+4. **Las cinco llaves** — dinero, propósito, cuerpo, mentalidad, educación
+5. **El camino** — los cuatro pasos: entrar, abrir cuenta en el broker, replicar,
+   leer por cuenta propia. Aquí se declara la comisión del broker
+6. **Adentro** — con qué se encuentra el miembro en el canal
+7. **Quién** — Cristian, como quien lleva la mesa, no como la marca
+8. **Dudas** — seis objeciones, incluida "¿dónde está el truco?"
+9. **Formulario** — tres campos
+
+El botón aparece cuatro veces: barra flotante, héroe, final de El camino y
+formulario. Siempre el mismo botón y siempre la misma acción.
+
+**La voz.** De la sección 3 a la 6 habla el club, no Cristian. La primera persona
+solo aparece en el video y en la sección 7. Fue una decisión: el producto es el
+Syndicate, y un club que se explica a sí mismo aguanta mejor el día que Cristian
+no pueda grabar.
+
+## Movimiento
+
+El vocabulario viene de iagination.co, leído de su CSS en producción:
+
+- Curva única: `cubic-bezier(0.16, 1, 0.3, 1)`
+- Revelado al entrar en pantalla, escalonado con `--retraso`
+- Titular que entra desenfocado y se afila, con la última línea en oro
+- Barra flotante de vidrio con `backdrop-filter`
+- Trazado de SVG por `stroke-dashoffset` en los anillos
+- Subrayado que barre en los enlaces del pie, y `scale(0.975)` al pulsar
+- En móvil baja el desenfoque y se ralentiza el ambiente, como hacen ellos
+
+**Lo que no se trajo:** el campo aurora de degradados de color. En turquesa es
+atmósfera; en oro sería el degradado metálico que `marca/identidad.md` prohíbe.
+En su lugar hay una deriva cálida casi negra más una capa de grano.
+
+Todo el movimiento se apaga con `prefers-reduced-motion`, y un bloque
+`<noscript>` deja la página entera visible si el JS no carga — sin eso, tráfico
+pagado caería en una pantalla en negro.
 
 ## Medición
 
