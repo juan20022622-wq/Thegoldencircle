@@ -65,32 +65,25 @@ Todo esto está marcado en el código y **bloquea el lanzamiento**:
 
 ## Estructura de la página
 
-Cada momento tiene una forma distinta. Si todas las secciones llevan antetítulo
-+ titular + párrafo + lista, la página huele a plantilla por mucho que se
-recorte.
+Cada momento tiene una forma distinta, y **ninguno lleva rótulo encima del
+titular**. Un eyebrow por sección es el tic mejor documentado de las páginas
+generadas: deja la página perpetuamente sobre-anunciada.
 
-1. **Héroe** — titular grande y ligero, una línea, botón. Detrás, el campo de
-   velas en movimiento; debajo, el gráfico de la invalidación.
+1. **Héroe** — titular grande y ligero. Detrás corre el campo de velas; debajo,
+   el gráfico de la invalidación, que se dibuja al bajar.
 2. **La banda** — las cinco llaves como cinco palabras que se encienden.
-3. **La anatomía** — el cotejo de mensajes. El argumento de la marca mostrado
-   en vez de descrito.
+3. **La anatomía** — el cotejo de mensajes.
 4. **La consola** — el camino en un solo bloque, un paso a la vez.
-   La comisión del broker se declara en el paso 02.
-5. **Dudas** — cuatro objeciones en acordeón.
-6. **Entrar** — formulario de tres campos.
+5. **Dudas** — cuatro objeciones, abriendo por dónde está el truco.
+6. **Entrar** — formulario de tres campos, con el león dibujándose detrás.
 
-Sin líneas divisorias entre secciones: separan el espacio y el fondo, no una
-regla horizontal.
+Sin líneas divisorias: separan el espacio y el fondo.
 
-**La voz es la del club, sin nombres.** No hay sección de persona. Los
-descargos hablan de "quien lleva el canal", no de alguien a quien la página
-nunca presentó.
+**La voz es la del club, sin nombres.** No hay sección de persona.
 
 ⚠️ **Hueco de confianza abierto.** `estrategia/00-marco-estrategico.md` llama al
 video de presentación "el elemento de confianza más barato que existe" y avisa
-de que sin él "la página es de cualquiera". Hoy no está. Un club de trading sin
-una cara identificable es el perfil que el visitante escéptico lee como estafa.
-Decidir dónde vuelve.
+de que sin él "la página es de cualquiera". Hoy no está.
 
 ## Movimiento
 

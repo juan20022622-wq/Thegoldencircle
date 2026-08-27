@@ -27,7 +27,13 @@ El eje conceptual de toda la marca. Entrar desbloquea cinco áreas:
 Se escriben en ese orden, siempre. En minúscula cuando van seguidas separadas
 por puntos medios; en versal cuando son etiquetas sueltas.
 
-## Símbolo — decisión abierta
+## Símbolo — DECIDIDO (2026-08-27)
+
+**León coronado de trazo continuo**, el del PDF de marca. Extraído a
+`web/assets/img/simbolo.svg`. Lo de abajo queda como registro de las opciones
+que se descartaron.
+
+## Las cinco propuestas descartadas
 
 Cinco direcciones dibujadas y comparadas en el lienzo:
 https://claude.ai/code/artifact/2f0d7f16-dbe8-4bb7-ba6a-f4f3be86261a
@@ -113,8 +119,10 @@ Ejemplos:
 
 ## Qué falta
 
-- [ ] Elegir símbolo primario
+- [x] Elegir símbolo primario · león coronado, del PDF de marca
 - [ ] Decidir fondo canónico (negro o azul noche)
-- [ ] Validar tipografías con Cristian
+- [x] Tipografías de la landing: Manrope + IBM Plex Mono (Cinzel y Jost
+      descartadas por leerse como plantilla de lujo generada)
+- [ ] Validar esas tipografías con Cristian para el resto de la marca
 - [ ] Validar la frase de posicionamiento
 - [ ] Producir el paquete final: SVG, PNG, favicon, avatar, versión monocromo

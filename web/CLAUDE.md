@@ -19,6 +19,15 @@ ascendente en una landing de trading es una promesa de rentabilidad dibujada, y
 cae en la misma prohibición que el copy. Lo que se dibuja es el método: dónde se
 invalida una idea, no cuánto se gana. El del héroe termina perdiendo el nivel.
 
+**Nada de rótulos sobre los titulares.** Un eyebrow por sección es el tic mejor
+documentado de las páginas generadas: la página queda perpetuamente
+sobre-anunciada y ninguna sección puede simplemente existir. Tampoco la línea
+que los acompañaba. Las secciones se separan por espacio y ritmo.
+
+**Los titulares no pueden tener todos la misma forma.** Seis titulares de dos
+palabras con punto es tan patrón como seis eyebrows. Se varía el largo: uno es
+una frase completa, otro una pregunta.
+
 **La regla de forma:** si todas las secciones tienen antetítulo + titular +
 párrafo + lista, la página huele a plantilla por mucho que se recorte. Cada
 momento tiene una forma distinta.
@@ -114,6 +123,23 @@ dibujada. El del héroe pierde el nivel; el campo del fondo oscila sin tendencia
 
 Coste a vigilar: el reloj debe quedarse por debajo de 1 ms por fotograma.
 Medido hoy: 0,027 ms.
+
+## El símbolo
+
+**León coronado, de trazo continuo**, extraído del PDF de marca convirtiendo sus
+operadores vectoriales a SVG con `herramientas/pdf-a-svg.mjs`. Vive en
+`assets/img/simbolo.svg`.
+
+Lleva `vector-effect="non-scaling-stroke"`: el grosor se mantiene en píxeles de
+pantalla, así el mismo archivo lee a 22 px en la barra y a 640 px de fondo. Sin
+eso, a tamaño de barra el trazo mediría 0,2 px y no cumpliría la regla de
+`marca/identidad.md` de leer a 16 px.
+
+Aparece pequeño en la barra y **una sola vez grande**, dibujándose con `--p`, en
+la sección de registro. Es el único momento donde el símbolo manda.
+
+`marca/identidad.md` sigue listando cinco propuestas sin decidir: **está
+desactualizado**, el símbolo ya existe.
 
 ## Tipografía
 

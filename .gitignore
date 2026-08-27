@@ -6,5 +6,4 @@ project-claude/knowledge/*
 !project-claude/knowledge/.gitkeep
 *.bak
 _to_delete/
-web/_logo.pdf
-web/_logo.svg
+web/_*

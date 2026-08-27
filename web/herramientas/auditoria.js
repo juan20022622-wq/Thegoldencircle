@@ -121,6 +121,39 @@
   if (grads.length) tics.push('texto con degradado');
   const centrado = [...document.querySelectorAll('section')].filter(s => getComputedStyle(s).textAlign === 'center');
   if (centrado.length > 1) tics.push('secciones centradas en cadena');
+
+  /* Un rótulo encima de cada titular. Es el tic mejor documentado: la página
+     queda perpetuamente sobre-anunciada y nada puede simplemente existir.
+     Uno suelto orienta; uno por sección delata. */
+  const secciones = [...document.querySelectorAll('section')];
+  const conRotulo = secciones.filter(s => {
+    const h = s.querySelector('h1, h2');
+    if (!h) return false;
+    let p = h.previousElementSibling;
+    if (!p || !p.textContent.trim()) return false;
+    const cs = getComputedStyle(p);
+    return parseFloat(cs.fontSize) <= 14 && (cs.textTransform === 'uppercase' || parseFloat(cs.letterSpacing) > 1);
+  });
+  if (conRotulo.length > 1) tics.push(`rótulos sobre ${conRotulo.length} de ${secciones.length} titulares`);
+
+  /* Radios y paddings idénticos en todo: la marca de que nadie decidió nada.
+     Un sistema real varía a propósito. */
+  const cajas = [...document.querySelectorAll('section div, article, form, ul')].filter(e => e.offsetParent !== null);
+  const radios = new Set(), paddings = new Set();
+  cajas.forEach(e => {
+    const cs = getComputedStyle(e);
+    if (cs.borderRadius !== '0px') radios.add(cs.borderRadius);
+    if (cs.padding !== '0px') paddings.add(cs.padding);
+  });
+  R.datos.radiosDistintos = radios.size;
+  R.datos.paddingsDistintos = paddings.size;
+  if (cajas.length > 12 && radios.size === 1) tics.push('un solo radio en toda la página');
+  if (cajas.length > 12 && paddings.size <= 2) tics.push('un solo padding en toda la página');
+
+  /* Titulares todos con la misma forma también es patrón. */
+  const h2 = [...document.querySelectorAll('h2')].map(e => e.textContent.trim());
+  const palabras = h2.map(t => t.split(/\s+/).length);
+  if (h2.length > 3 && new Set(palabras).size === 1) tics.push('todos los titulares del mismo largo');
   R.datos.ticsIA = tics.length ? tics : 'ninguno';
 
   /* ---------- volumen ---------- */
