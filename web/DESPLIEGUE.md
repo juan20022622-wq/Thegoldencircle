@@ -11,22 +11,21 @@ marcadores cerrados**, no antes.
 
 ## Pasos
 
-### 1 · GitHub
+### 1 · GitHub — hecho
 
-Crear el repo **privado** en github.com. Sin README, sin .gitignore: ya existen.
+Repo: **https://github.com/juan20022622-wq/Thegoldencircle** (privado)
+Remoto: `git@github.com:juan20022622-wq/Thegoldencircle.git`
 
-Después, desde la raíz del proyecto:
+La autenticación va por **deploy key con permiso de escritura**, no por clave de
+cuenta: la cuenta tiene otros proyectos y así esta clave solo alcanza a este
+repo. Está en Settings → Deploy keys del repositorio, con "Allow write access"
+marcado; sin esa casilla el push devuelve `read only`.
 
-```bash
-git remote add origin git@github.com:TU-USUARIO/cristian.git
-```
+GitHub ya no acepta contraseña por HTTPS, así que el remoto va por SSH. La clave
+privada vive en `~/.ssh/id_ed25519` y no sale del equipo.
 
-```bash
-git push -u origin main
-```
-
-Si no hay clave SSH configurada, usar la URL HTTPS que da GitHub. La primera vez
-pedirá autenticación en el navegador.
+Si algún día hace falta otro repo con su propia deploy key, hay que decirle a
+SSH cuál usar para cuál en `~/.ssh/config`.
 
 ### 2 · Netlify
 
