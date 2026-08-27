@@ -22,8 +22,11 @@
   /* Bodoni Moda da la gravedad sin el disfraz heráldico de las capitales
      romanas, que es el uniforme de la página de lujo generada.
      IBM Plex Mono es la voz del terminal: rótulos, cifras y estados. */
-  --titular: "Bodoni Moda", Georgia, "Times New Roman", serif;
-  --texto:   "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* Una sola familia para leer, con dos pesos de trabajo. Manrope tiene el flow
+     que pediste sin ser Inter ni Poppins, que son literalmente la tipografía por
+     defecto de las páginas generadas. */
+  --titular: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --texto:   "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --ancho: 64rem;
@@ -88,15 +91,23 @@ a { color: var(--oro-claro); text-decoration-thickness: 1px; text-underline-offs
 
 h1, h2, h3 {
   font-family: var(--titular);
-  font-weight: 700;
-  line-height: 1.06;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
   margin: 0 0 1rem;
   text-wrap: balance;
 }
 
-h1 { font-size: clamp(2.35rem, 9.5vw, 4.25rem); letter-spacing: -0.02em; }
-h2 { font-size: clamp(1.75rem, 6vw, 2.75rem); }
+/* Grande y ligero, como lo hace Topstep con su h1 de 80 px a peso 500.
+   El peso alto a tamaño grande se lee como grito, no como autoridad. */
+h1 {
+  font-size: clamp(2.6rem, 10vw, 4.75rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+h2 { font-size: clamp(1.9rem, 6.5vw, 3rem); letter-spacing: -0.03em; }
 h3 { font-size: 1.0625rem; letter-spacing: 0.16em; text-transform: uppercase; }
 
 p { margin: 0 0 1.15rem; max-width: 40rem; }
@@ -215,9 +226,10 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 .linea--acento > span { color: var(--oro); }
 
 .filete {
-  width: 4.5rem;
-  height: 1px;
-  background: var(--oro-profundo);
+  width: 2.5rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--oro);
   border: 0;
   margin: 0 0 2rem;
   transform: scaleX(0);
@@ -278,7 +290,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 /* Las llaves no son cinco bloques de texto: son cinco palabras que se encienden.
    Ocupan una pantalla en vez de cinco. */
 
-.banda { border-block: 1px solid var(--borde-tenue); }
+.banda { position: relative; }
 
 .banda__frase {
   font-family: var(--titular);
@@ -554,7 +566,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 
 /* ---------- preguntas ---------- */
 
-.preguntas { margin-top: 2.5rem; border-top: 1px solid var(--borde-tenue); }
+.preguntas { margin-top: 2.5rem; }
 
 .pregunta { border-bottom: 1px solid var(--borde-tenue); }
 
@@ -594,7 +606,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 
 /* ---------- formulario ---------- */
 
-.captura { border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); background: var(--superficie); }
+.captura { position: relative; }
 
 .formulario { margin-top: 2rem; max-width: 30rem; }
 
@@ -644,7 +656,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 
 /* ---------- pie ---------- */
 
-.pie { padding-block: 3.5rem; border-top: 1px solid var(--borde-tenue); }
+.pie { padding-block: 4rem 3rem; }
 .pie p { font-size: 0.875rem; color: var(--gris); max-width: 44rem; }
 .pie a { color: var(--gris); }
 .pie a:hover { color: var(--oro-claro); }

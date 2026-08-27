@@ -27,7 +27,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&family=Bodoni+Moda:opsz,wght@6..96,600;6..96,700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/assets/css/estilos.css">
 
 <script type="application/ld+json">
@@ -42,11 +43,11 @@
       "logo": "https://REEMPLAZAR-DOMINIO/assets/img/favicon.svg",
       "description": "Club de formación en trading con canal de Telegram gratuito. Cada idea se publica con su razonamiento completo.",
       "disambiguatingDescription": "Partner independiente de Exness. No presta servicios de asesoría de inversión ni gestiona cuentas de terceros. El trading conlleva riesgo de pérdida. El contenido es educativo y no constituye asesoría de inversión. Los resultados pasados no garantizan resultados futuros.",
-      "founder": {
-        "@type": "Person",
-        "name": "Cristian",
-        "jobTitle": "Educador en trading"
-      }
+      "knowsAbout": [
+        "gestión de riesgo",
+        "análisis técnico",
+        "formación en trading"
+      ]
     },
     {
       "@type": "WebSite",
@@ -122,7 +123,7 @@
     <svg viewBox="0 0 48 48" role="img" aria-label="The Golden Syndicate">
       <rect x="1" y="1" width="46" height="46" rx="2" fill="none" stroke="#8C6A22"></rect>
       <text x="24" y="31" text-anchor="middle" fill="#D2A64B"
-            font-family="Bodoni Moda, Georgia, serif" font-size="19" font-weight="700" letter-spacing="1">GS</text>
+            font-family="Manrope, sans-serif" font-size="18" font-weight="700" letter-spacing="0.5">GS</text>
     </svg>
     <span class="barra__nombre">The Golden Syndicate</span>
   </a>
@@ -291,102 +292,6 @@
         <p id="texto-4" role="tabpanel" aria-labelledby="llave-4"><span class="llave__nombre">Educación. </span>Cada idea con su razonamiento, hasta que no necesites la de nadie.</p>
       </div>
     </div>
-  </section>
-
-  <!-- LA CARA · video y Cristian, juntos -->
-  <section class="contenedor seccion" aria-labelledby="t-cristian">
-    <div class="cristian">
-      <div class="video revelar">
-        <!-- [PENDIENTE] video de Cristian presentando el Syndicate. Sustituir por:
-             <video controls preload="none" poster="/assets/img/poster.webp" playsinline>
-               <source src="/assets/video/presentacion.mp4" type="video/mp4">
-             </video> -->
-        <p class="video__pendiente">
-          <strong>Aquí va el video de Cristian.</strong>
-          <span>De 60 a 90 segundos presentando el Syndicate.</span>
-        </p>
-      </div>
-      <div>
-        <h2 id="t-cristian" class="revelar">Cristian.</h2>
-        <p class="revelar" style="--retraso:120ms">
-          <!-- [POR CONFIRMAR] años exactos -->[X] años operando, y varios más
-          equivocándose antes de eso. Empezó siguiendo señales que nadie explicaba,
-          sin saber qué hacer cuando el mercado se giraba.
-        </p>
-        <p class="revelar" style="--retraso:180ms">
-          Hoy enseña lo que le habría servido entonces: un método escrito, con reglas
-          de riesgo que no se cambian a mitad de una operación. Publica lo que opera
-          porque no hay otra forma honesta de enseñarlo.
-        </p>
-        <p class="apunte revelar" style="--retraso:240ms">
-          Es educador y opera su propia cuenta. No es asesor de inversión y no da
-          recomendaciones personalizadas.
-        </p>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- LA ANATOMÍA · lo que se dice, mostrado -->
-  <section class="contenedor seccion" aria-labelledby="t-anatomia">
-    <p class="antetitulo revelar">La diferencia, en un mensaje</p>
-    <h2 id="t-anatomia" class="revelar" style="--retraso:60ms">Mismo gráfico. Otro mensaje.</h2>
-    <p class="revelar" style="--retraso:120ms">
-      Un canal de señales te manda un nivel. Aquí llega el nivel y las tres cosas
-      que hacen que puedas decidir por ti.
-    </p>
-
-    <div class="cotejo">
-      <article class="tarjeta tarjeta--otros revelar" style="--retraso:180ms">
-        <header class="tarjeta__cabeza">
-          <span class="tarjeta__sello">Un canal de señales</span>
-          <span class="tarjeta__ejemplo">Ejemplo</span>
-        </header>
-        <div class="tarjeta__cuerpo">
-          <p class="mensaje__par">XAUUSD &middot; <span class="mensaje__dir">COMPRA</span></p>
-          <dl class="mensaje">
-            <div><dt>Entrada</dt><dd><i class="tachado" style="--largo:4.5rem"></i></dd></div>
-            <div><dt>Objetivo</dt><dd><i class="tachado" style="--largo:3.75rem"></i></dd></div>
-            <div><dt>Stop</dt><dd><i class="tachado" style="--largo:4.25rem"></i></dd></div>
-          </dl>
-          <p class="tarjeta__nota">Y ya. Si el mercado se gira, estás solo.</p>
-        </div>
-      </article>
-
-      <article class="tarjeta tarjeta--nuestra revelar" style="--retraso:280ms">
-        <header class="tarjeta__cabeza">
-          <span class="tarjeta__sello tarjeta__sello--oro">The Golden Syndicate</span>
-          <span class="tarjeta__ejemplo">Ejemplo</span>
-        </header>
-        <div class="tarjeta__cuerpo">
-          <p class="mensaje__par">XAUUSD &middot; <span class="mensaje__dir">COMPRA</span></p>
-          <dl class="mensaje">
-            <div><dt>Entrada</dt><dd><i class="tachado" style="--largo:4.5rem"></i></dd></div>
-            <div><dt>Stop</dt><dd><i class="tachado" style="--largo:4.25rem"></i></dd></div>
-          </dl>
-
-          <ul class="mensaje__porques">
-            <li>
-              <span class="porque__rotulo">Por qué la veo</span>
-              <span>Tercer rechazo en la misma zona y el volumen bajando en cada intento.</span>
-            </li>
-            <li>
-              <span class="porque__rotulo">Qué la invalida</span>
-              <span>Un cierre por debajo del nivel marcado. Ahí la idea deja de servir, sin discusión.</span>
-            </li>
-            <li>
-              <span class="porque__rotulo">Qué hago si falla</span>
-              <span>Salgo y no promedio. Lo comento en el canal el mismo día, salga como salga.</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-    </div>
-
-    <p class="apunte revelar" style="--retraso:340ms; margin-top:1.5rem">
-      Ejemplo del formato de los mensajes. No es una señal. Los niveles van tapados
-      a propósito: las operaciones no se publican fuera del canal.
-    </p>
   </section>
 
   <!-- LA CONSOLA · el camino, en un solo bloque -->
