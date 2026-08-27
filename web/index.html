@@ -639,17 +639,18 @@
       </svg></div>
     </div>
     <h1>
-      <span class="linea"><span>Un club donde</span></span>
-      <span class="linea"><span>nadie opera</span></span>
-      <span class="linea linea--acento"><span>a ciegas.</span></span>
+      <span class="linea"><span style="--retraso:80ms">No se trata</span></span>
+      <span class="linea"><span style="--retraso:200ms">de operar más.</span></span>
+      <span class="linea linea--acento"><span style="--retraso:340ms">Se trata de operar mejor.</span></span>
     </h1>
     <hr class="filete" data-flujo="traza">
     <p class="entradilla" data-flujo="lento">
-      Casi nadie pierde por no tener la señal. Se pierde por no entender qué está
-      haciendo. Aquí se opera oro, y cada idea sale con su razonamiento completo.
+      Un club de trading de oro. Cada día de mercado, antes de la apertura, publicamos
+      qué estamos mirando, qué invalidaría la idea y qué se hace si el mercado va en
+      contra.
     </p>
-    <p data-flujo><a class="boton" href="#registro">Entrar al canal</a></p>
-    <p class="heroe__micro" data-flujo="rotulo">Tres datos. Sin tarjeta y sin cuenta de broker.</p>
+    <p data-flujo><a class="boton" href="#registro">Entrar al canal gratis</a></p>
+    <p class="heroe__micro" data-flujo="rotulo">Tres datos y estás dentro. Sin tarjeta y sin cuenta de broker.</p>
 
     <!-- El gráfico no sube: lateraliza y pierde el nivel. Un gráfico ascendente
          en una landing de trading es una promesa de rentabilidad dibujada.
@@ -903,8 +904,7 @@
         <div class="paso" data-titulo-paso="Recibes los análisis">
           <p class="paso__rotulo">03 · Recibes los análisis y decides tú</p>
           <p>Cada día de mercado, una idea de oro con su razonamiento completo: por qué
-             se ve, qué la invalida y qué se hace si el mercado va en contra. Las que
-             salen mal se comentan igual que las otras.</p>
+             se ve, qué la invalida y qué se hace si el mercado va en contra.</p>
           <p>Tú decides cuáles tomas, con cuánto entras y cuándo sales. La cuenta es
              tuya y las órdenes las pones tú. <strong>Nadie opera por ti.</strong></p>
         </div>
@@ -934,7 +934,7 @@
       puedas permitirte perder.
     </p>
 
-    <p data-flujo style="margin-top:2rem"><a class="boton" href="#registro">Entrar al canal</a></p>
+    <p data-flujo style="margin-top:2rem"><a class="boton" href="#registro">Entrar al canal gratis</a></p>
   </section>
 
   <!-- DUDAS -->
@@ -1039,6 +1039,7 @@
           <label for="nombre">Nombre</label>
           <input id="nombre" name="nombre" type="text" autocomplete="given-name"
                  required maxlength="60" placeholder="Cómo te llamamos"
+                 enterkeyhint="next" autocapitalize="words" spellcheck="false"
                  aria-describedby="e-nombre">
           <span class="campo__error" id="e-nombre" role="alert"></span>
         </div>
@@ -1047,14 +1048,16 @@
           <label for="correo">Correo</label>
           <input id="correo" name="correo" type="email" autocomplete="email"
                  inputmode="email" required maxlength="120" placeholder="tu@correo.com"
+                 enterkeyhint="next" autocapitalize="none" autocorrect="off" spellcheck="false"
                  aria-describedby="e-correo">
           <span class="campo__error" id="e-correo" role="alert"></span>
         </div>
 
         <div class="campo">
-          <label for="whatsapp">WhatsApp</label>
+          <label for="whatsapp">WhatsApp <span class="campo__nota">por si el canal cambia de enlace</span></label>
           <input id="whatsapp" name="whatsapp" type="tel" autocomplete="tel"
                  inputmode="tel" required maxlength="24" placeholder="+57 300 000 0000"
+                 enterkeyhint="go" autocorrect="off" spellcheck="false"
                  aria-describedby="e-whatsapp ayuda-whatsapp">
           <span class="campo__error" id="e-whatsapp" role="alert"></span>
           <span class="apunte" id="ayuda-whatsapp">
@@ -1063,7 +1066,7 @@
           </span>
         </div>
 
-        <button class="boton boton--ancho" type="submit" data-envio>Entrar al canal</button>
+        <button class="boton boton--ancho" type="submit" data-envio>Entrar al canal gratis</button>
 
         <p class="formulario__aviso">
           Al enviar aceptas recibir mensajes de The Golden Syndicate. Puedes salir cuando
