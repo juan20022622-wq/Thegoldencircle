@@ -3,8 +3,8 @@
    Lo marcado POR CONFIRMAR bloquea la publicación. */
 
 window.GS = {
-  // Enlace de invitación al canal de Telegram.  [POR CONFIRMAR]
-  telegram: 'https://t.me/REEMPLAZAR',
+  // Enlace de invitación al canal de Telegram.
+  telegram: 'https://t.me/TheGoldenSyndicateFree',
 
   // Enlace de partner de Exness. NO se enlaza desde la landing:
   // se usa desde /ir (bio de Instagram y canal).

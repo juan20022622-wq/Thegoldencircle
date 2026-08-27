@@ -80,7 +80,7 @@ cualquier POST. La captura real solo se prueba en Netlify:
 
 | Qué | Dónde | Por qué bloquea |
 |---|---|---|
-| Enlace del canal de Telegram | `assets/js/config.js` → `telegram` | **Crítico.** Hoy manda a `t.me/REEMPLAZAR`. El lead se guarda pero la persona acaba en un enlace muerto |
+| ~~Enlace del canal de Telegram~~ | `assets/js/config.js` → `telegram` | ✅ Puesto: `t.me/TheGoldenSyndicateFree` |
 | ID del píxel de Meta | `assets/js/config.js` → `pixelId` | Sin él no hay medición y la pauta va a ciegas |
 | Dominio | `canonical`, `og:*`, `sitemap.xml`, JSON-LD | Hoy dice `REEMPLAZAR-DOMINIO` en 12 sitios |
 | Correo de contacto | pie y `privacidad.html` | Obligatorio para la baja de datos |
