@@ -52,6 +52,27 @@
       base-uri 'self'; \
       object-src 'none'"""
 
+# Mientras el sitio viva en la URL de Netlify y todavía tenga marcadores sin
+# rellenar, no debe indexarse. Los previews y las ramas nunca; producción se
+# desbloquea quitando este bloque el día que el dominio esté puesto.
+[context.deploy-preview.headers]
+[[context.deploy-preview.headers]]
+  for = "/*"
+  [context.deploy-preview.headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[context.branch-deploy.headers]]
+  for = "/*"
+  [context.branch-deploy.headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# BORRAR este bloque cuando el dominio propio esté configurado y los
+# [POR CONFIRMAR] estén cerrados. Hasta entonces, la URL .netlify.app no se indexa.
+[[context.production.headers]]
+  for = "/*"
+  [context.production.headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 [[headers]]
   for = "/assets/*"
   [headers.values]
