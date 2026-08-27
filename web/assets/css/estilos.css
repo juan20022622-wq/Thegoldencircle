@@ -40,7 +40,7 @@
 
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 
-html { background: var(--negro); }
+html { background: var(--negro); overflow-x: clip; }
 
 body {
   margin: 0;
@@ -51,7 +51,7 @@ body {
   font-size: 1.0625rem;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Grano: rompe el plano digital. Es lo único puramente atmosférico de la página
@@ -735,7 +735,11 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 /* Los campos viven dentro del héroe, no a página completa. */
 .campos {
   position: absolute;
-  inset: -2rem -50vw 0;
+  top: -2rem;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  translate: -50% 0;
   z-index: -1;
   overflow: hidden;
   pointer-events: none;

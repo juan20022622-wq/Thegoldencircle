@@ -101,17 +101,33 @@ El dominio se compra a nombre de Cristian. `[POR CONFIRMAR]` cuál.
 
 Ver `README.md` para desplegar y para la lista de lo que falta antes de publicar.
 
+## Movimiento
+
+**Una sola línea de tiempo, nunca revelados por umbral.** Un IntersectionObserver
+que enciende elementos de a uno produce el "va apareciendo según bajas", que es
+un tic de página generada. Todo el movimiento cuelga de `--respiro` y `--p`, que
+publica el reloj de `assets/js/movimiento.js`.
+
+**Ningún gráfico de esta página puede subir**, tampoco los decorativos. Un
+gráfico ascendente en una landing de trading es una promesa de rentabilidad
+dibujada. El del héroe pierde el nivel; el campo del fondo oscila sin tendencia.
+
+Coste a vigilar: el reloj debe quedarse por debajo de 1 ms por fotograma.
+Medido hoy: 0,027 ms.
+
 ## Tipografía
 
-Cinzel y Jost quedaron descartadas: capitales romanas doradas sobre negro son el
-uniforme de la página de lujo generada, y Jost es una Futura genérica. En su
-lugar, tres voces con trabajos distintos:
+Descartadas por orden: Cinzel y Jost (capitales romanas doradas = uniforme de
+página de lujo generada), después Bodoni Moda (astas finas ilegibles a tamaño de
+titular). Lo que hay:
 
-- **Bodoni Moda** (600/700) titulares. Didona, gravedad editorial sin disfraz
-  heráldico. Caja natural, interletrado ligeramente negativo, interlineado corto.
-- **Archivo** (300/400/500) texto de lectura.
+- **Manrope** (300–700) todo lo que se lee. Tiene flow y se lee, sin ser Inter
+  ni Poppins, que son la tipografía por defecto de las páginas generadas.
 - **IBM Plex Mono** (400/500) rótulos, cifras, contadores y etiquetas de campo.
   Es la voz del terminal, y es lo que ancla la página en el mundo del sujeto.
+
+Titulares grandes y ligeros: peso 500, no 700. El peso alto a tamaño grande se
+lee como grito.
 
 Nada de la página baja de 11 px, y los rótulos pegados al texto de lectura van
 a 12 px.

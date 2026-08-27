@@ -65,31 +65,72 @@ Todo esto está marcado en el código y **bloquea el lanzamiento**:
 
 ## Estructura de la página
 
-Cada momento tiene una forma distinta. Esa es la regla: si todas las
-secciones tienen antetítulo + titular + párrafo + lista, la página huele a
-plantilla por mucho que se recorte.
+Cada momento tiene una forma distinta. Si todas las secciones llevan antetítulo
++ titular + párrafo + lista, la página huele a plantilla por mucho que se
+recorte.
 
-1. **Héroe** — titular grande, una línea, botón. Sin párrafo de relleno.
-2. **La banda** — las cinco llaves como cinco palabras que se encienden. Una
-   pantalla en vez de cinco bloques.
-3. **La cara** — video de Cristian y su bio, juntos. No dos secciones.
-4. **La anatomía** — el cotejo de mensajes. El argumento de la marca mostrado
-   en vez de descrito; la pieza que más trabaja de la página.
-5. **La consola** — el camino en un solo bloque: cuatro pasos, uno a la vez,
-   con botón «siguiente», arco de progreso y deslizamiento en móvil.
-   Aquí se declara la comisión del broker, en el paso 02.
-6. **Dudas** — cuatro objeciones en acordeón.
-7. **Entrar** — formulario de tres campos.
+1. **Héroe** — titular grande y ligero, una línea, botón. Detrás, el campo de
+   velas en movimiento; debajo, el gráfico de la invalidación.
+2. **La banda** — las cinco llaves como cinco palabras que se encienden.
+3. **La anatomía** — el cotejo de mensajes. El argumento de la marca mostrado
+   en vez de descrito.
+4. **La consola** — el camino en un solo bloque, un paso a la vez.
+   La comisión del broker se declara en el paso 02.
+5. **Dudas** — cuatro objeciones en acordeón.
+6. **Entrar** — formulario de tres campos.
 
-El botón aparece cuatro veces: barra flotante, héroe, tras la consola y en el
-formulario. Siempre el mismo botón, siempre la misma acción.
+Sin líneas divisorias entre secciones: separan el espacio y el fondo, no una
+regla horizontal.
 
-**La voz es la del club.** La primera persona se reserva para el video y para
-la bio de Cristian. El producto es el Syndicate.
+**La voz es la del club, sin nombres.** No hay sección de persona. Los
+descargos hablan de "quien lleva el canal", no de alguien a quien la página
+nunca presentó.
 
-**Todo el contenido está en el DOM.** La consola y la banda esconden con CSS lo
-que no toca, nunca lo generan desde JS: sin JavaScript se ven los cuatro pasos
-y las cinco llaves, uno debajo de otro. El buscador también los ve.
+⚠️ **Hueco de confianza abierto.** `estrategia/00-marco-estrategico.md` llama al
+video de presentación "el elemento de confianza más barato que existe" y avisa
+de que sin él "la página es de cualquiera". Hoy no está. Un club de trading sin
+una cara identificable es el perfil que el visitante escéptico lee como estafa.
+Decidir dónde vuelve.
+
+## Movimiento
+
+**Una sola línea de tiempo.** Antes había un IntersectionObserver que encendía
+cada elemento al cruzar un umbral: se bajaba y las cosas iban apareciendo de a
+una, con el mismo fade-in en todas. Ese es uno de los tics que delatan a una
+página generada.
+
+Ahora un único `requestAnimationFrame` publica dos variables CSS:
+
+| | |
+|---|---|
+| `--respiro` | onda continua de 11 s, igual para todo el documento. Hace que el fondo, el oro y el reflejo del vidrio latan juntos |
+| `--p` | avance de cada pieza por el encuadre, 0 a 1, recalculado en continuo. Nadie "aparece": todo interpola siempre |
+
+Cuatro modos de entrada, no uno (`rotulo`, `lento`, `lateral`, `hondo`), todos
+contra el mismo reloj. Coste medido: **0,027 ms por fotograma, el 0,2 % del
+presupuesto de 16,7 ms.**
+
+**El campo de velas** vive dentro del héroe, no a página completa: un fondo
+global pelea contra el texto en todas partes y hay que apagarlo tanto que deja
+de verse. Dos capas a distinta velocidad, enmascaradas para disolverse antes de
+llegar al titular. Se regenera con `node web/herramientas/campo.mjs`.
+
+**Vidrio líquido** en la consola, las tarjetas y la barra: una receta, tres
+intensidades, con un reflejo que se desplaza con `--respiro`.
+
+Todo se apaga con `prefers-reduced-motion`, y `<noscript>` deja `--p` en 1.
+
+## Tipografía
+
+**Manrope** para todo lo que se lee, **IBM Plex Mono** para rótulos y cifras.
+
+Bodoni Moda quedó descartada: sus astas finas a tamaño de titular no se leían.
+Manrope tiene el flow que se pidió sin ser Inter ni Poppins, que son
+literalmente la tipografía por defecto de las páginas generadas — el mismo
+artículo que lista los tics de IA recomienda evitarlas.
+
+Titulares grandes y ligeros (peso 500 a 76 px), como los hace Topstep. El peso
+alto a tamaño grande se lee como grito, no como autoridad.
 
 ## Mostrar, no describir
 

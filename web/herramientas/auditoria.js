@@ -77,11 +77,11 @@
   [...document.querySelectorAll('button')].forEach(b => { if (!b.textContent.trim() && !b.getAttribute('aria-label')) fallo('a11y', 'botón sin nombre accesible'); });
 
   /* ---------- estados atascados ---------- */
-  const invisibles = [...document.querySelectorAll('.revelar')].filter(e => {
+  const invisibles = [...document.querySelectorAll('[data-flujo]')].filter(e => {
     const b = e.getBoundingClientRect();
     return b.top < window.innerHeight && b.bottom > 0 && getComputedStyle(e).opacity === '0';
   });
-  R.datos.revelarPendientes = invisibles.length;
+  R.datos.piezasSinPintar = invisibles.length;
 
   /* ---------- desborde ---------- */
   R.datos.desbordeX = document.documentElement.scrollWidth > window.innerWidth + 1;
