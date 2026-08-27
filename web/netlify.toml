@@ -29,6 +29,13 @@
     Referrer-Policy           = "strict-origin-when-cross-origin"
     Permissions-Policy        = "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
     Cross-Origin-Opener-Policy = "same-origin"
+
+    # QUITAR ESTA LÍNEA cuando el dominio propio esté puesto y los [POR CONFIRMAR]
+    # cerrados. Mientras el sitio viva en la URL .netlify.app con REEMPLAZAR-DOMINIO
+    # en el canonical y en el JSON-LD, no puede indexarse.
+    # Nota: Netlify NO aplica cabeceras dentro de [[context.X.headers]]; por eso
+    # va aquí, en el bloque global, y no por contexto.
+    X-Robots-Tag              = "noindex, nofollow"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
 
     # No hay ni un script en línea en el sitio: los de gracias.html e ir.html
@@ -51,26 +58,6 @@
       frame-ancestors 'none'; \
       base-uri 'self'; \
       object-src 'none'"""
-
-# Mientras el sitio viva en la URL de Netlify y todavía tenga marcadores sin
-# rellenar, no debe indexarse. Los previews y las ramas nunca; producción se
-# desbloquea quitando este bloque el día que el dominio esté puesto.
-[[context.deploy-preview.headers]]
-  for = "/*"
-  [context.deploy-preview.headers.values]
-    X-Robots-Tag = "noindex, nofollow"
-
-[[context.branch-deploy.headers]]
-  for = "/*"
-  [context.branch-deploy.headers.values]
-    X-Robots-Tag = "noindex, nofollow"
-
-# BORRAR este bloque cuando el dominio propio esté configurado y los
-# [POR CONFIRMAR] estén cerrados. Hasta entonces, la URL .netlify.app no se indexa.
-[[context.production.headers]]
-  for = "/*"
-  [context.production.headers.values]
-    X-Robots-Tag = "noindex, nofollow"
 
 [[headers]]
   for = "/assets/*"
