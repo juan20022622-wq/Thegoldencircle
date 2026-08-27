@@ -64,44 +64,29 @@ Todo esto está marcado en el código y **bloquea el lanzamiento**:
 
 ## Estructura de la página
 
-1. **Héroe** — la promesa, en voz de club
-2. **Video de Cristian** — el elemento de confianza
-3. **El círculo** — por qué / cómo / qué, sobre los tres anillos concéntricos
-4. **Las cinco llaves** — dinero, propósito, cuerpo, mentalidad, educación
-5. **El camino** — los cuatro pasos: entrar, abrir cuenta en el broker, replicar,
-   leer por cuenta propia. Aquí se declara la comisión del broker
-6. **Adentro** — con qué se encuentra el miembro en el canal
-7. **Quién** — Cristian, como quien lleva la mesa, no como la marca
-8. **Dudas** — seis objeciones, incluida "¿dónde está el truco?"
-9. **Formulario** — tres campos
+Cuatro momentos, cada uno con una forma distinta. Esa es la regla: si todas las
+secciones tienen antetítulo + titular + párrafo + lista, la página huele a
+plantilla por mucho que se recorte.
 
-El botón aparece cuatro veces: barra flotante, héroe, final de El camino y
-formulario. Siempre el mismo botón y siempre la misma acción.
+1. **Héroe** — titular grande, una línea, botón. Sin párrafo de relleno.
+2. **La banda** — las cinco llaves como cinco palabras que se encienden. Una
+   pantalla en vez de cinco bloques.
+3. **La cara** — video de Cristian y su bio, juntos. No dos secciones.
+4. **La consola** — el camino en un solo bloque: cuatro pasos, uno a la vez,
+   con botón «siguiente», arco de progreso y deslizamiento en móvil.
+   Aquí se declara la comisión del broker, en el paso 02.
+5. **Dudas** — cuatro objeciones en acordeón.
+6. **Entrar** — formulario de tres campos.
 
-**La voz.** De la sección 3 a la 6 habla el club, no Cristian. La primera persona
-solo aparece en el video y en la sección 7. Fue una decisión: el producto es el
-Syndicate, y un club que se explica a sí mismo aguanta mejor el día que Cristian
-no pueda grabar.
+El botón aparece cuatro veces: barra flotante, héroe, tras la consola y en el
+formulario. Siempre el mismo botón, siempre la misma acción.
 
-## Movimiento
+**La voz es la del club.** La primera persona se reserva para el video y para
+la bio de Cristian. El producto es el Syndicate.
 
-El vocabulario viene de iagination.co, leído de su CSS en producción:
-
-- Curva única: `cubic-bezier(0.16, 1, 0.3, 1)`
-- Revelado al entrar en pantalla, escalonado con `--retraso`
-- Titular que entra desenfocado y se afila, con la última línea en oro
-- Barra flotante de vidrio con `backdrop-filter`
-- Trazado de SVG por `stroke-dashoffset` en los anillos
-- Subrayado que barre en los enlaces del pie, y `scale(0.975)` al pulsar
-- En móvil baja el desenfoque y se ralentiza el ambiente, como hacen ellos
-
-**Lo que no se trajo:** el campo aurora de degradados de color. En turquesa es
-atmósfera; en oro sería el degradado metálico que `marca/identidad.md` prohíbe.
-En su lugar hay una deriva cálida casi negra más una capa de grano.
-
-Todo el movimiento se apaga con `prefers-reduced-motion`, y un bloque
-`<noscript>` deja la página entera visible si el JS no carga — sin eso, tráfico
-pagado caería en una pantalla en negro.
+**Todo el contenido está en el DOM.** La consola y la banda esconden con CSS lo
+que no toca, nunca lo generan desde JS: sin JavaScript se ven los cuatro pasos
+y las cinco llaves, uno debajo de otro. El buscador también los ve.
 
 ## Medición
 

@@ -29,11 +29,6 @@
 
   cargarPixel(CFG.pixelId);
 
-  /* ---------- año del pie ---------- */
-
-  var anio = document.querySelector('[data-anio]');
-  if (anio) anio.textContent = String(new Date().getFullYear());
-
   /* ---------- origen del tráfico ---------- */
 
   var formulario = document.querySelector('form[name="' + (CFG.formulario || 'leads') + '"]');

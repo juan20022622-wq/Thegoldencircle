@@ -14,33 +14,35 @@ Es una página, un scroll, una acción repetida.
 
 ## Estructura, en orden
 
-1. **Héroe** — la promesa concreta arriba: qué recibe, con qué frecuencia,
-   gratis. Botón. El símbolo, no un menú.
-2. **Video de Cristian** presentando el Syndicate. El elemento de confianza más
-   barato que existe. Sin él la página es de cualquiera.
-3. **El círculo** — por qué existe el club, cómo trabaja, qué recibe el miembro.
-   Es la tesis, y va antes que la mecánica.
-4. **Las cinco llaves** — dinero, propósito, cuerpo, mentalidad, educación.
-   Es lo que hace que esta página no sea otra página de señales.
-5. **El camino** — los cuatro pasos de la membresía: entrar al canal, abrir
-   cuenta en el broker, replicar las operaciones que se quieran, y con el tiempo
-   leer por cuenta propia. **Aquí se declara la comisión del broker**, no en
-   letra pequeña. Sin esta sección el visitante no sabe en qué se está metiendo.
-6. **Qué pasa dentro del canal** — con qué se va a encontrar, en concreto.
-   Capturas reales o descripción honesta, nunca resultados.
-7. **Quién es Cristian** — años operando `[POR CONFIRMAR]`, qué opera, por qué
-   enseña. Sin cifras de rentabilidad.
-8. **Dudas** — las objeciones de frente, empezando por "¿dónde está el truco?".
-9. **Formulario** — nombre, correo, WhatsApp. Máximo tres campos.
-10. **Pie** — descargo de riesgo, declaración de partner independiente, contacto.
+**La regla de forma:** si todas las secciones tienen antetítulo + titular +
+párrafo + lista, la página huele a plantilla por mucho que se recorte. Cada
+momento tiene una forma distinta.
 
-El botón se repite: barra flotante, héroe, final de El camino, y formulario.
+1. **Héroe** — la promesa arriba y el botón. Una línea de apoyo, no un párrafo.
+   El símbolo, no un menú.
+2. **La banda** — las cinco llaves como cinco palabras que se encienden al
+   tocarlas. Es lo que hace que esta página no sea otra página de señales, pero
+   no necesita cinco bloques de texto para decirlo.
+3. **La cara** — el video de Cristian y quién es él, en la misma sección. Sin
+   el video la página es de cualquiera; sin la bio, el video no se sostiene.
+4. **La consola** — el camino de la membresía en un solo bloque: entrar al
+   canal, abrir cuenta en el broker, replicar lo que se quiera, y con el tiempo
+   leer por cuenta propia. Un paso a la vez, con botón «siguiente».
+   **La comisión del broker se declara en el paso 02**, no en letra pequeña.
+5. **Dudas** — las objeciones de frente, empezando por "¿dónde está el truco?".
+6. **Formulario** — nombre, correo, WhatsApp. Máximo tres campos.
+7. **Pie** — descargo de riesgo, declaración de partner independiente, contacto.
+
+El botón se repite: barra flotante, héroe, tras la consola y formulario.
 Un solo tipo de botón. Nunca dos acciones distintas compitiendo.
 
-**La voz de la página es la del club, no la de Cristian.** De El círculo a
-Adentro habla el Syndicate. La primera persona se reserva para el video y para
-"Quién". El producto es el club; si todo lo dice Cristian, el día que no pueda
-grabar la página se queda sin voz. Ver `README.md`.
+**La voz de la página es la del club, no la de Cristian.** La primera persona se
+reserva para el video y para su bio. El producto es el Syndicate; si todo lo
+dice Cristian, el día que no pueda grabar la página se queda sin voz.
+
+**Todo el contenido va en el DOM.** La consola y la banda esconden con CSS lo
+que no toca mostrar; nunca generan texto desde JS. Sin JavaScript se ven los
+cuatro pasos y las cinco llaves apilados, y el buscador los indexa igual.
 
 ## Requisitos técnicos
 

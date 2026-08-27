@@ -265,166 +265,261 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   font-size: 0.9375rem;
 }
 
-/* ---------- el círculo dorado ---------- */
+/* ---------- la banda de las cinco llaves ---------- */
 
-.circulo { display: grid; gap: 3rem; }
+/* Las llaves no son cinco bloques de texto: son cinco palabras que se encienden.
+   Ocupan una pantalla en vez de cinco. */
 
-@media (min-width: 54rem) {
-  .circulo { grid-template-columns: 1fr 1.15fr; gap: 4.5rem; align-items: start; }
-  .circulo__anillos { position: sticky; top: 5rem; }
-}
+.banda { border-block: 1px solid var(--borde-tenue); }
 
-.circulo__anillos svg { width: 100%; height: auto; max-width: 22rem; margin-inline: auto; }
-
-.anillo {
-  fill: none;
-  stroke: var(--oro-profundo);
-  stroke-width: 1;
-  stroke-dasharray: var(--largo);
-  stroke-dashoffset: var(--largo);
-  transform: rotate(-90deg);
-  transform-origin: center;
-  transition: stroke-dashoffset 1.4s var(--salida), stroke 0.5s ease;
-  transition-delay: var(--retraso, 0ms);
-}
-
-.dentro .anillo { stroke-dashoffset: 0; }
-.anillo--activo { stroke: var(--oro); stroke-width: 1.5; }
-
-.circulo__centro {
+.banda__frase {
   font-family: var(--titular);
-  font-size: 0.5rem;
+  font-size: clamp(1.25rem, 4.5vw, 1.75rem);
   font-weight: 700;
-  letter-spacing: 0.22em;
-  fill: var(--hueso);
+  line-height: 1.25;
+  color: var(--hueso);
+  margin: 0 0 2.5rem;
+  max-width: 30rem;
 }
 
-.capa { border-top: 1px solid var(--borde-tenue); padding-block: 1.75rem; }
-.capa:first-of-type { border-top: 0; padding-top: 0; }
-
-.capa__titulo {
+.llaves {
+  list-style: none;
   display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-  font-family: var(--titular);
-  font-size: 1.375rem;
-  font-weight: 700;
-  color: var(--oro);
-  margin: 0 0 0.6rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  margin: 0 0 2rem;
+  padding: 0;
 }
 
-.capa__titulo small {
-  font-family: var(--texto);
-  font-size: 0.6875rem;
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+.llaves button {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0.35rem 0;
+  cursor: pointer;
+  font-family: var(--titular);
+  font-size: clamp(1rem, 3.2vw, 1.375rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
   color: var(--gris);
+  position: relative;
+  transition: color 0.35s var(--salida);
 }
 
-.capa p { margin: 0; }
-
-/* ---------- las cinco llaves ---------- */
-
-.llaves { list-style: none; margin: 2.75rem 0 0; padding: 0; display: grid; gap: 1px; background: var(--borde-tenue); }
-
-@media (min-width: 48rem) {
-  .llaves { grid-template-columns: repeat(2, 1fr); }
-  .llaves > li:first-child { grid-column: 1 / -1; }
-}
-
-.llaves > li { background: var(--negro); padding: 1.75rem 0.25rem; }
-
-.llave__nombre {
-  font-family: var(--titular);
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--oro);
-  margin: 0 0 0.6rem;
-}
-
-.llaves p { margin: 0; color: var(--hueso); }
-
-/* ---------- el camino ---------- */
-
-.camino { list-style: none; margin: 3rem 0 0; padding: 0; position: relative; }
-
-/* La línea que baja es el camino. Se dibuja al ritmo del scroll. */
-.camino::before {
+.llaves button::after {
   content: "";
   position: absolute;
-  left: 0.9375rem;
-  top: 0.5rem;
-  bottom: 4rem;
-  width: 1px;
-  background: var(--oro-profundo);
-  transform: scaleY(var(--avance, 0));
-  transform-origin: top;
-  transition: transform 0.25s linear;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: var(--oro);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--salida);
 }
 
-@media (min-width: 48rem) { .camino::before { left: 1.375rem; } }
+.llaves button:hover { color: var(--oro-claro); }
+.llaves button[aria-selected="true"] { color: var(--oro); }
+.llaves button[aria-selected="true"]::after { transform: scaleX(1); }
 
-.paso { position: relative; padding: 0 0 3rem 3.25rem; }
-@media (min-width: 48rem) { .paso { padding-left: 4.5rem; } }
-.paso:last-child { padding-bottom: 0; }
+.llave__texto { max-width: 34rem; }
 
-.paso__marca {
+.llave__texto p {
+  font-size: 1.15rem;
+  color: var(--hueso);
+  margin: 0 0 1rem;
+}
+
+.llave__nombre { color: var(--oro); }
+
+/* Con JS se ve una a la vez, con altura fija para que la página no salte. */
+.llave__texto--viva { min-height: 5rem; }
+.llave__texto--viva p { display: none; margin: 0; }
+
+/* Con JS el botón ya dice el nombre; el rótulo solo hace falta sin JS. */
+.llave__texto--viva .llave__nombre { display: none; }
+
+.llave__texto--viva p[data-visible] {
+  display: block;
+  animation: entra-llave 0.32s var(--salida) both;
+}
+
+@keyframes entra-llave {
+  from { opacity: 0; transform: translateY(7px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- la consola: el camino en un solo bloque ---------- */
+
+.consola {
+  margin-top: 2.5rem;
+  border: 1px solid var(--borde);
+  border-radius: 4px;
+  background: var(--superficie);
+  overflow: hidden;
+}
+
+.consola__cabeza {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem 1.5rem 0;
+}
+
+@media (min-width: 40rem) { .consola__cabeza { padding: 2rem 2.5rem 0; gap: 1.75rem; } }
+
+/* El arco de progreso lleva el número del paso dentro. */
+.dial { position: relative; flex: none; width: 4rem; height: 4rem; }
+@media (min-width: 40rem) { .dial { width: 5rem; height: 5rem; } }
+
+.dial svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.dial circle { fill: none; stroke-width: 2; }
+.dial__pista { stroke: rgba(210, 166, 75, 0.18); }
+
+.dial__avance {
+  stroke: var(--oro);
+  stroke-linecap: round;
+  stroke-dasharray: 182.2;   /* 2·π·29, el radio del círculo del dial */
+  transition: stroke-dashoffset 0.55s var(--salida);
+}
+
+.dial__numero {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 1.875rem;
-  height: 1.875rem;
+  inset: 0;
   display: grid;
   place-items: center;
-  border: 1px solid var(--oro-profundo);
-  border-radius: 50%;
-  background: var(--negro);
   font-family: var(--titular);
-  font-size: 0.75rem;
+  font-size: 1.125rem;
   font-weight: 700;
+  color: var(--oro);
+}
+
+@media (min-width: 40rem) { .dial__numero { font-size: 1.375rem; } }
+
+.consola__etiqueta {
+  font-size: 0.6875rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
   color: var(--gris);
-  transition: color 0.4s ease, border-color 0.4s ease, background-color 0.4s ease;
+  margin: 0 0 0.35rem;
 }
 
-@media (min-width: 48rem) { .paso__marca { width: 2.75rem; height: 2.75rem; font-size: 0.875rem; } }
-
-.paso.activo .paso__marca { color: var(--negro); background: var(--oro); border-color: var(--oro); }
-
-.paso h3 {
-  font-size: clamp(1.15rem, 4vw, 1.5rem);
-  letter-spacing: 0.02em;
-  text-transform: none;
-  margin: 0 0 0.55rem;
+.consola__titulo {
+  font-family: var(--titular);
+  font-size: clamp(1.2rem, 4.2vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.2;
   color: var(--hueso);
+  margin: 0;
 }
 
-.paso p { margin: 0; color: var(--gris); }
-.paso p + p { margin-top: 0.75rem; }
-.paso strong { color: var(--hueso); font-weight: 400; }
+.consola__cuerpo { padding: 1.5rem; }
+@media (min-width: 40rem) { .consola__cuerpo { padding: 1.75rem 2.5rem 2rem; } }
+
+.consola__cuerpo p { color: var(--gris); margin: 0 0 1rem; max-width: 38rem; }
+.consola__cuerpo p:last-child { margin-bottom: 0; }
+.consola__cuerpo strong { color: var(--hueso); font-weight: 400; }
+
+.consola__lista { margin: 0; padding-left: 1.1rem; color: var(--gris); }
+.consola__lista li { margin-bottom: 0.4rem; }
+
+/* Con JS: se ve un paso a la vez y entra deslizando. */
+.consola--viva .paso { display: none; }
+.consola--viva .paso[data-visible] { display: block; animation: entra-paso 0.45s var(--salida) both; }
+
+@keyframes entra-paso {
+  from { opacity: 0; transform: translateX(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.consola--viva .paso[data-atras] { animation-name: entra-paso-atras; }
+
+@keyframes entra-paso-atras {
+  from { opacity: 0; transform: translateX(-14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Sin JS los cuatro pasos quedan uno debajo de otro, con su número. */
+.consola:not(.consola--viva) .consola__cabeza,
+.consola:not(.consola--viva) .consola__pie { display: none; }
+.consola:not(.consola--viva) .paso { padding-bottom: 1.5rem; }
+.consola:not(.consola--viva) .paso__rotulo { display: block; }
+.paso__rotulo {
+  display: none;
+  font-family: var(--titular);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--oro);
+  margin: 0 0 0.5rem;
+}
+
+.consola__pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--borde-tenue);
+}
+
+@media (min-width: 40rem) { .consola__pie { padding: 1.25rem 2.5rem; } }
+
+.puntos { display: flex; gap: 0.5rem; }
+
+.puntos button {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.puntos button::before {
+  content: "";
+  width: 0.4375rem;
+  height: 0.4375rem;
+  border-radius: 50%;
+  background: rgba(210, 166, 75, 0.28);
+  transition: background-color 0.35s ease, transform 0.35s var(--salida);
+}
+
+.puntos button[aria-current="true"]::before { background: var(--oro); transform: scale(1.35); }
+
+.mandos { display: flex; gap: 0.5rem; }
+
+.mando {
+  appearance: none;
+  min-height: 2.75rem;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--borde);
+  border-radius: 100px;
+  background: none;
+  color: var(--hueso);
+  font-family: var(--texto);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease, transform 0.15s ease;
+}
+
+.mando:hover:not(:disabled) { border-color: var(--oro); color: var(--oro-claro); }
+.mando:active:not(:disabled) { transform: scale(0.97); }
+.mando:disabled { opacity: 0.3; cursor: default; }
+
+.mando--siguiente { background: var(--oro); border-color: var(--oro); color: var(--negro); font-weight: 500; }
+.mando--siguiente:hover:not(:disabled) { background: var(--oro-claro); border-color: var(--oro-claro); color: var(--negro); }
 
 .nota-riesgo {
-  margin: 2.5rem 0 0;
-  padding: 1.25rem 1.5rem;
-  border: 1px solid var(--borde);
-  border-radius: 3px;
-  background: var(--superficie);
-  font-size: 0.9375rem;
+  margin: 1.75rem 0 0;
+  padding: 1.15rem 1.35rem;
+  border-left: 1px solid var(--oro-profundo);
+  font-size: 0.875rem;
   color: var(--gris);
   max-width: none;
 }
-
-/* ---------- dentro del canal ---------- */
-
-.dentro-canal { list-style: none; margin: 2.75rem 0 0; padding: 0; display: grid; gap: 1.75rem; }
-
-@media (min-width: 48rem) { .dentro-canal { grid-template-columns: repeat(2, 1fr); gap: 2.25rem 3rem; } }
-
-.dentro-canal > li { padding-left: 1.5rem; border-left: 1px solid var(--oro-profundo); }
-.dentro-canal strong { display: block; font-weight: 500; color: var(--hueso); margin-bottom: 0.3rem; }
-.dentro-canal span { color: var(--gris); font-size: 0.9375rem; }
 
 /* ---------- quién está detrás ---------- */
 
