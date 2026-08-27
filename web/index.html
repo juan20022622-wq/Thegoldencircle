@@ -106,15 +106,234 @@
 
 <!-- Red de seguridad: el revelado depende de JS. Si falla, se ve todo igual. -->
 <noscript><style>
-  .revelar { opacity: 1 !important; transform: none !important; }
+  [data-flujo] { --p: 1 !important; }
   .linea > span { opacity: 1 !important; filter: none !important; transform: none !important; }
-  .filete { transform: scaleX(1) !important; }
   .barra { opacity: 1 !important; translate: 0 0 !important; }
+  .ambiente { display: none; }
 </style></noscript>
 </head>
 
 <body>
-<div class="ambiente" aria-hidden="true"></div>
+<div class="ambiente" aria-hidden="true">
+  <div class="ambiente__aliento"></div>
+  <div class="campo campo--lejos"><svg class="campo__svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <g opacity="1">
+    <line x1="12.5" y1="446.0" x2="12.5" y2="456.0"/>
+    <rect x="7.0" y="450.0" width="11.0" height="2.0" rx="1"/>
+    <line x1="37.5" y1="442.0" x2="37.5" y2="518.0"/>
+    <rect x="32.0" y="450.0" width="11.0" height="60.0" rx="1"/>
+    <line x1="62.5" y1="498.0" x2="62.5" y2="575.8"/>
+    <rect x="57.0" y="510.0" width="11.0" height="53.9" rx="1"/>
+    <line x1="87.5" y1="557.8" x2="87.5" y2="612.2"/>
+    <rect x="82.0" y="563.8" width="11.0" height="42.4" rx="1"/>
+    <line x1="112.5" y1="596.2" x2="112.5" y2="643.2"/>
+    <rect x="107.0" y="606.2" width="11.0" height="27.0" rx="1"/>
+    <line x1="137.5" y1="629.2" x2="137.5" y2="646.9"/>
+    <rect x="132.0" y="633.2" width="11.0" height="9.7" rx="1"/>
+    <line x1="162.5" y1="627.6" x2="162.5" y2="650.9"/>
+    <rect x="157.0" y="635.6" width="11.0" height="7.4" rx="1"/>
+    <line x1="187.5" y1="601.5" x2="187.5" y2="647.6"/>
+    <rect x="182.0" y="613.5" width="11.0" height="22.1" rx="1"/>
+    <line x1="212.5" y1="574.7" x2="212.5" y2="619.5"/>
+    <rect x="207.0" y="580.7" width="11.0" height="32.7" rx="1"/>
+    <line x1="237.5" y1="532.6" x2="237.5" y2="590.7"/>
+    <rect x="232.0" y="542.6" width="11.0" height="38.1" rx="1"/>
+    <line x1="262.5" y1="500.8" x2="262.5" y2="546.6"/>
+    <rect x="257.0" y="504.8" width="11.0" height="37.8" rx="1"/>
+    <line x1="287.5" y1="464.8" x2="287.5" y2="512.8"/>
+    <rect x="282.0" y="472.8" width="11.0" height="32.1" rx="1"/>
+    <line x1="312.5" y1="438.7" x2="312.5" y2="484.8"/>
+    <rect x="307.0" y="450.7" width="11.0" height="22.1" rx="1"/>
+    <line x1="337.5" y1="435.3" x2="337.5" y2="456.7"/>
+    <rect x="332.0" y="441.3" width="11.0" height="9.4" rx="1"/>
+    <line x1="362.5" y1="431.3" x2="362.5" y2="455.1"/>
+    <rect x="357.0" y="441.3" width="11.0" height="3.9" rx="1"/>
+    <line x1="387.5" y1="441.1" x2="387.5" y2="464.8"/>
+    <rect x="382.0" y="445.1" width="11.0" height="15.7" rx="1"/>
+    <line x1="412.5" y1="452.8" x2="412.5" y2="493.1"/>
+    <rect x="407.0" y="460.8" width="11.0" height="24.3" rx="1"/>
+    <line x1="437.5" y1="473.1" x2="437.5" y2="525.2"/>
+    <rect x="432.0" y="485.1" width="11.0" height="28.1" rx="1"/>
+    <line x1="462.5" y1="507.2" x2="462.5" y2="545.8"/>
+    <rect x="457.0" y="513.2" width="11.0" height="26.6" rx="1"/>
+    <line x1="487.5" y1="529.8" x2="487.5" y2="569.5"/>
+    <rect x="482.0" y="539.8" width="11.0" height="19.7" rx="1"/>
+    <line x1="512.5" y1="555.5" x2="512.5" y2="571.7"/>
+    <rect x="507.0" y="559.5" width="11.0" height="8.2" rx="1"/>
+    <line x1="537.5" y1="553.4" x2="537.5" y2="575.7"/>
+    <rect x="532.0" y="561.4" width="11.0" height="6.3" rx="1"/>
+    <line x1="562.5" y1="527.5" x2="562.5" y2="573.4"/>
+    <rect x="557.0" y="539.5" width="11.0" height="21.9" rx="1"/>
+    <line x1="587.5" y1="496.9" x2="587.5" y2="545.5"/>
+    <rect x="582.0" y="502.9" width="11.0" height="36.6" rx="1"/>
+    <line x1="612.5" y1="444.6" x2="612.5" y2="512.9"/>
+    <rect x="607.0" y="454.6" width="11.0" height="48.2" rx="1"/>
+    <line x1="637.5" y1="395.5" x2="637.5" y2="458.6"/>
+    <rect x="632.0" y="399.5" width="11.0" height="55.2" rx="1"/>
+    <line x1="662.5" y1="335.2" x2="662.5" y2="407.5"/>
+    <rect x="657.0" y="343.2" width="11.0" height="56.3" rx="1"/>
+    <line x1="687.5" y1="279.9" x2="687.5" y2="355.2"/>
+    <rect x="682.0" y="291.9" width="11.0" height="51.3" rx="1"/>
+    <line x1="712.5" y1="245.3" x2="712.5" y2="297.9"/>
+    <rect x="707.0" y="251.3" width="11.0" height="40.6" rx="1"/>
+    <line x1="737.5" y1="215.8" x2="737.5" y2="261.3"/>
+    <rect x="732.0" y="225.8" width="11.0" height="25.5" rx="1"/>
+    <line x1="762.5" y1="214.2" x2="762.5" y2="229.8"/>
+    <rect x="757.0" y="218.2" width="11.0" height="7.6" rx="1"/>
+    <line x1="787.5" y1="210.2" x2="787.5" y2="236.9"/>
+    <rect x="782.0" y="218.2" width="11.0" height="10.8" rx="1"/>
+    <line x1="812.5" y1="216.9" x2="812.5" y2="268.5"/>
+    <rect x="807.0" y="228.9" width="11.0" height="27.5" rx="1"/>
+    <line x1="837.5" y1="250.5" x2="837.5" y2="303.2"/>
+    <rect x="832.0" y="256.5" width="11.0" height="40.7" rx="1"/>
+    <line x1="862.5" y1="287.2" x2="862.5" y2="356.0"/>
+    <rect x="857.0" y="297.2" width="11.0" height="48.8" rx="1"/>
+    <line x1="887.5" y1="342.0" x2="887.5" y2="401.0"/>
+    <rect x="882.0" y="346.0" width="11.0" height="51.0" rx="1"/>
+    <line x1="912.5" y1="389.0" x2="912.5" y2="452.4"/>
+    <rect x="907.0" y="397.0" width="11.0" height="47.3" rx="1"/>
+    <line x1="937.5" y1="432.4" x2="937.5" y2="494.8"/>
+    <rect x="932.0" y="444.4" width="11.0" height="38.5" rx="1"/>
+    <line x1="962.5" y1="476.8" x2="962.5" y2="514.7"/>
+    <rect x="957.0" y="482.8" width="11.0" height="25.8" rx="1"/>
+    <line x1="987.5" y1="498.7" x2="987.5" y2="530.1"/>
+    <rect x="982.0" y="508.7" width="11.0" height="11.4" rx="1"/>
+    <line x1="1012.5" y1="513.2" x2="1012.5" y2="524.1"/>
+    <rect x="1007.0" y="517.2" width="11.0" height="2.8" rx="1"/>
+    <line x1="1037.5" y1="494.5" x2="1037.5" y2="525.2"/>
+    <rect x="1032.0" y="502.5" width="11.0" height="14.7" rx="1"/>
+    <line x1="1062.5" y1="467.9" x2="1062.5" y2="514.5"/>
+    <rect x="1057.0" y="479.9" width="11.0" height="22.7" rx="1"/>
+    <line x1="1087.5" y1="448.3" x2="1087.5" y2="485.9"/>
+    <rect x="1082.0" y="454.3" width="11.0" height="25.5" rx="1"/>
+    <line x1="1112.5" y1="421.3" x2="1112.5" y2="464.3"/>
+    <rect x="1107.0" y="431.3" width="11.0" height="23.0" rx="1"/>
+    <line x1="1137.5" y1="411.9" x2="1137.5" y2="435.3"/>
+    <rect x="1132.0" y="415.9" width="11.0" height="15.5" rx="1"/>
+    <line x1="1162.5" y1="403.8" x2="1162.5" y2="423.9"/>
+    <rect x="1157.0" y="411.8" width="11.0" height="4.0" rx="1"/>
+    <line x1="1187.5" y1="399.8" x2="1187.5" y2="433.4"/>
+    <rect x="1182.0" y="411.8" width="11.0" height="9.5" rx="1"/>
+    <line x1="1212.5" y1="415.4" x2="1212.5" y2="450.6"/>
+    <rect x="1207.0" y="421.4" width="11.0" height="23.3" rx="1"/>
+    <line x1="1237.5" y1="434.6" x2="1237.5" y2="489.7"/>
+    <rect x="1232.0" y="444.6" width="11.0" height="35.0" rx="1"/>
+    <line x1="1262.5" y1="475.7" x2="1262.5" y2="526.7"/>
+    <rect x="1257.0" y="479.7" width="11.0" height="43.0" rx="1"/>
+    <line x1="1287.5" y1="514.7" x2="1287.5" y2="576.6"/>
+    <rect x="1282.0" y="522.7" width="11.0" height="45.9" rx="1"/>
+    <line x1="1312.5" y1="556.6" x2="1312.5" y2="623.5"/>
+    <rect x="1307.0" y="568.6" width="11.0" height="42.9" rx="1"/>
+    <line x1="1337.5" y1="605.5" x2="1337.5" y2="651.6"/>
+    <rect x="1332.0" y="611.5" width="11.0" height="34.2" rx="1"/>
+    <line x1="1362.5" y1="635.6" x2="1362.5" y2="676.2"/>
+    <rect x="1357.0" y="645.6" width="11.0" height="20.6" rx="1"/>
+    <line x1="1387.5" y1="662.2" x2="1387.5" y2="674.0"/>
+    <rect x="1382.0" y="666.2" width="11.0" height="3.7" rx="1"/>
+    <line x1="1412.5" y1="647.5" x2="1412.5" y2="678.0"/>
+    <rect x="1407.0" y="655.5" width="11.0" height="14.4" rx="1"/>
+    <line x1="1437.5" y1="611.8" x2="1437.5" y2="667.5"/>
+    <rect x="1432.0" y="623.8" width="11.0" height="31.7" rx="1"/>
+    <line x1="1462.5" y1="571.8" x2="1462.5" y2="629.8"/>
+    <rect x="1457.0" y="577.8" width="11.0" height="46.0" rx="1"/>
+    <line x1="1487.5" y1="512.2" x2="1487.5" y2="587.8"/>
+    <rect x="1482.0" y="522.2" width="11.0" height="55.6" rx="1"/>
+    <line x1="1512.5" y1="458.9" x2="1512.5" y2="526.2"/>
+    <rect x="1507.0" y="462.9" width="11.0" height="59.4" rx="1"/>
+    <line x1="1537.5" y1="397.9" x2="1537.5" y2="470.9"/>
+    <rect x="1532.0" y="405.9" width="11.0" height="56.9" rx="1"/>
+    <line x1="1562.5" y1="345.2" x2="1562.5" y2="417.9"/>
+    <rect x="1557.0" y="357.2" width="11.0" height="48.7" rx="1"/>
+    <line x1="1587.5" y1="315.3" x2="1587.5" y2="363.2"/>
+    <rect x="1582.0" y="321.3" width="11.0" height="35.9" rx="1"/>
+  </g>
+</svg></div>
+  <div class="campo campo--cerca"><svg class="campo__svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <g opacity="1">
+    <line x1="20.0" y1="362.3" x2="20.0" y2="456.0"/>
+    <rect x="11.2" y="368.3" width="17.6" height="81.7" rx="1"/>
+    <line x1="60.0" y1="356.7" x2="60.0" y2="378.7"/>
+    <rect x="51.2" y="366.7" width="17.6" height="2.0" rx="1"/>
+    <line x1="100.0" y1="362.7" x2="100.0" y2="383.7"/>
+    <rect x="91.2" y="366.7" width="17.6" height="13.0" rx="1"/>
+    <line x1="140.0" y1="371.7" x2="140.0" y2="415.5"/>
+    <rect x="131.2" y="379.7" width="17.6" height="27.7" rx="1"/>
+    <line x1="180.0" y1="395.5" x2="180.0" y2="459.9"/>
+    <rect x="171.2" y="407.5" width="17.6" height="40.4" rx="1"/>
+    <line x1="220.0" y1="441.9" x2="220.0" y2="503.2"/>
+    <rect x="211.2" y="447.9" width="17.6" height="49.3" rx="1"/>
+    <line x1="260.0" y1="487.2" x2="260.0" y2="560.0"/>
+    <rect x="251.2" y="497.2" width="17.6" height="52.9" rx="1"/>
+    <line x1="300.0" y1="546.0" x2="300.0" y2="604.5"/>
+    <rect x="291.2" y="550.0" width="17.6" height="50.5" rx="1"/>
+    <line x1="340.0" y1="592.5" x2="340.0" y2="650.7"/>
+    <rect x="331.2" y="600.5" width="17.6" height="42.2" rx="1"/>
+    <line x1="380.0" y1="630.7" x2="380.0" y2="683.5"/>
+    <rect x="371.2" y="642.7" width="17.6" height="28.8" rx="1"/>
+    <line x1="420.0" y1="665.5" x2="420.0" y2="689.4"/>
+    <rect x="411.2" y="671.5" width="17.6" height="11.9" rx="1"/>
+    <line x1="460.0" y1="666.9" x2="460.0" y2="693.4"/>
+    <rect x="451.2" y="676.9" width="17.6" height="6.5" rx="1"/>
+    <line x1="500.0" y1="648.5" x2="500.0" y2="680.9"/>
+    <rect x="491.2" y="652.5" width="17.6" height="24.4" rx="1"/>
+    <line x1="540.0" y1="605.1" x2="540.0" y2="660.5"/>
+    <rect x="531.2" y="613.1" width="17.6" height="39.4" rx="1"/>
+    <line x1="580.0" y1="551.1" x2="580.0" y2="625.1"/>
+    <rect x="571.2" y="563.1" width="17.6" height="50.0" rx="1"/>
+    <line x1="620.0" y1="502.2" x2="620.0" y2="569.1"/>
+    <rect x="611.2" y="508.2" width="17.6" height="54.9" rx="1"/>
+    <line x1="660.0" y1="444.6" x2="660.0" y2="518.2"/>
+    <rect x="651.2" y="454.6" width="17.6" height="53.7" rx="1"/>
+    <line x1="700.0" y1="403.8" x2="700.0" y2="458.6"/>
+    <rect x="691.2" y="407.8" width="17.6" height="46.7" rx="1"/>
+    <line x1="740.0" y1="364.6" x2="740.0" y2="415.8"/>
+    <rect x="731.2" y="372.6" width="17.6" height="35.2" rx="1"/>
+    <line x1="780.0" y1="339.9" x2="780.0" y2="384.6"/>
+    <rect x="771.2" y="351.9" width="17.6" height="20.7" rx="1"/>
+    <line x1="820.0" y1="340.5" x2="820.0" y2="357.9"/>
+    <rect x="811.2" y="346.5" width="17.6" height="5.4" rx="1"/>
+    <line x1="860.0" y1="336.5" x2="860.0" y2="365.2"/>
+    <rect x="851.2" y="346.5" width="17.6" height="8.7" rx="1"/>
+    <line x1="900.0" y1="351.2" x2="900.0" y2="378.8"/>
+    <rect x="891.2" y="355.2" width="17.6" height="19.6" rx="1"/>
+    <line x1="940.0" y1="366.8" x2="940.0" y2="408.7"/>
+    <rect x="931.2" y="374.8" width="17.6" height="25.9" rx="1"/>
+    <line x1="980.0" y1="388.7" x2="980.0" y2="439.6"/>
+    <rect x="971.2" y="400.7" width="17.6" height="26.9" rx="1"/>
+    <line x1="1020.0" y1="421.6" x2="1020.0" y2="456.0"/>
+    <rect x="1011.2" y="427.6" width="17.6" height="22.5" rx="1"/>
+    <line x1="1060.0" y1="440.0" x2="1060.0" y2="473.5"/>
+    <rect x="1051.2" y="450.0" width="17.6" height="13.5" rx="1"/>
+    <line x1="1100.0" y1="459.5" x2="1100.0" y2="469.5"/>
+    <rect x="1091.2" y="463.5" width="17.6" height="2.0" rx="1"/>
+    <line x1="1140.0" y1="444.6" x2="1140.0" y2="472.8"/>
+    <rect x="1131.2" y="452.6" width="17.6" height="12.2" rx="1"/>
+    <line x1="1180.0" y1="415.8" x2="1180.0" y2="464.6"/>
+    <rect x="1171.2" y="427.8" width="17.6" height="24.8" rx="1"/>
+    <line x1="1220.0" y1="387.2" x2="1220.0" y2="433.8"/>
+    <rect x="1211.2" y="393.2" width="17.6" height="34.7" rx="1"/>
+    <line x1="1260.0" y1="343.1" x2="1260.0" y2="403.2"/>
+    <rect x="1251.2" y="353.1" width="17.6" height="40.1" rx="1"/>
+    <line x1="1300.0" y1="309.0" x2="1300.0" y2="357.1"/>
+    <rect x="1291.2" y="313.0" width="17.6" height="40.1" rx="1"/>
+    <line x1="1340.0" y1="270.7" x2="1340.0" y2="321.0"/>
+    <rect x="1331.2" y="278.7" width="17.6" height="34.3" rx="1"/>
+    <line x1="1380.0" y1="243.5" x2="1380.0" y2="290.7"/>
+    <rect x="1371.2" y="255.5" width="17.6" height="23.2" rx="1"/>
+    <line x1="1420.0" y1="241.4" x2="1420.0" y2="261.5"/>
+    <rect x="1411.2" y="247.4" width="17.6" height="8.1" rx="1"/>
+    <line x1="1460.0" y1="237.4" x2="1460.0" y2="266.6"/>
+    <rect x="1451.2" y="247.4" width="17.6" height="9.2" rx="1"/>
+    <line x1="1500.0" y1="252.6" x2="1500.0" y2="287.4"/>
+    <rect x="1491.2" y="256.6" width="17.6" height="26.7" rx="1"/>
+    <line x1="1540.0" y1="275.4" x2="1540.0" y2="333.6"/>
+    <rect x="1531.2" y="283.4" width="17.6" height="42.2" rx="1"/>
+    <line x1="1580.0" y1="313.6" x2="1580.0" y2="391.3"/>
+    <rect x="1571.2" y="325.6" width="17.6" height="53.8" rx="1"/>
+  </g>
+</svg></div>
+  <div class="ambiente__velo"></div>
+</div>
 <a class="saltar" href="#registro">Saltar al formulario</a>
 
 <nav class="barra" aria-label="Principal">
@@ -134,24 +353,24 @@
 
   <!-- HÉROE -->
   <section class="contenedor heroe">
-    <p class="antetitulo revelar" style="--retraso:600ms">El club · canal gratuito</p>
+    <p class="antetitulo" data-flujo="rotulo">El club · canal gratuito</p>
     <h1>
-      <span class="linea"><span style="--retraso:80ms">Un club donde</span></span>
-      <span class="linea"><span style="--retraso:200ms">nadie opera</span></span>
-      <span class="linea linea--acento"><span style="--retraso:320ms">a ciegas.</span></span>
+      <span class="linea"><span>Un club donde</span></span>
+      <span class="linea"><span>nadie opera</span></span>
+      <span class="linea linea--acento"><span>a ciegas.</span></span>
     </h1>
-    <hr class="filete revelar" style="--retraso:700ms">
-    <p class="entradilla revelar" style="--retraso:780ms">
+    <hr class="filete" data-flujo="traza">
+    <p class="entradilla" data-flujo="lento">
       Casi nadie pierde por no tener la señal. Se pierde por no entender qué estaba
       haciendo. Aquí cada idea sale con su razonamiento completo.
     </p>
-    <p class="revelar" style="--retraso:880ms"><a class="boton" href="#registro">Entrar al canal</a></p>
-    <p class="heroe__micro revelar" style="--retraso:960ms">Gratis. Tres datos, sin tarjeta.</p>
+    <p data-flujo><a class="boton" href="#registro">Entrar al canal</a></p>
+    <p class="heroe__micro" data-flujo="rotulo">Gratis. Tres datos, sin tarjeta.</p>
 
     <!-- El gráfico no sube: lateraliza y pierde el nivel. Un gráfico ascendente
          en una landing de trading es una promesa de rentabilidad dibujada.
          Lo que se destaca es dónde la idea deja de servir. -->
-    <figure class="heroe__grafico revelar" style="--retraso:1040ms">
+    <figure class="heroe__grafico" data-flujo="hondo">
       <div class="grafico__caja" style="--y-nivel:45.57%; --y-idea:11.00%; --x-idea:68.28%">
         <svg class="grafico" viewBox="0 0 480 240" role="img"
              aria-label="Gráfico de velas ilustrativo: el precio sube, es rechazado tres veces en la misma zona y termina perdiendo el nivel marcado como invalidación.">
@@ -267,11 +486,11 @@
   <!-- LAS CINCO LLAVES · una banda, no cinco bloques -->
   <section class="banda" aria-labelledby="t-llaves">
     <div class="contenedor seccion">
-      <h2 id="t-llaves" class="banda__frase revelar">
+      <h2 id="t-llaves" class="banda__frase" data-flujo>
         Se entra por el gráfico.<br>Se queda por todo lo demás.
       </h2>
 
-      <ul class="llaves revelar" style="--retraso:100ms" role="tablist" aria-label="Las cinco llaves">
+      <ul class="llaves" data-flujo="lateral" role="tablist" aria-label="Las cinco llaves">
         <li role="presentation"><button type="button" role="tab" id="llave-0"
                 aria-selected="true" aria-controls="texto-0">Dinero</button></li>
         <li role="presentation"><button type="button" role="tab" id="llave-1"
@@ -284,7 +503,7 @@
                 aria-selected="false" aria-controls="texto-4">Educación</button></li>
       </ul>
 
-      <div class="llave__texto revelar" style="--retraso:180ms" data-textos aria-live="polite">
+      <div class="llave__texto" data-flujo="lento" data-textos aria-live="polite">
         <p id="texto-0" role="tabpanel" aria-labelledby="llave-0"><span class="llave__nombre">Dinero. </span>Cuánto arriesgas por operación, y por qué esa cifra y no otra.</p>
         <p id="texto-1" role="tabpanel" aria-labelledby="llave-1"><span class="llave__nombre">Propósito. </span>Para qué quieres esto. Sin una respuesta, la primera racha mala te saca.</p>
         <p id="texto-2" role="tabpanel" aria-labelledby="llave-2"><span class="llave__nombre">Cuerpo. </span>La disciplina del entreno y la del gráfico son la misma disciplina.</p>
@@ -294,15 +513,77 @@
     </div>
   </section>
 
+  <!-- LA ANATOMÍA · lo que se dice, mostrado -->
+  <section class="contenedor seccion" aria-labelledby="t-anatomia">
+    <p class="antetitulo" data-flujo="rotulo">La diferencia, en un mensaje</p>
+    <h2 id="t-anatomia" data-flujo>Mismo gráfico. Otro mensaje.</h2>
+    <p data-flujo>
+      Un canal de señales te manda un nivel. Aquí llega el nivel y las tres cosas
+      que hacen que puedas decidir por ti.
+    </p>
+
+    <div class="cotejo">
+      <article class="tarjeta tarjeta--otros vidrio vidrio--sutil" data-flujo="lateral">
+        <header class="tarjeta__cabeza">
+          <span class="tarjeta__sello">Un canal de señales</span>
+          <span class="tarjeta__ejemplo">Ejemplo</span>
+        </header>
+        <div class="tarjeta__cuerpo">
+          <p class="mensaje__par">XAUUSD &middot; <span class="mensaje__dir">COMPRA</span></p>
+          <dl class="mensaje">
+            <div><dt>Entrada</dt><dd><i class="tachado" style="--largo:4.5rem"></i></dd></div>
+            <div><dt>Objetivo</dt><dd><i class="tachado" style="--largo:3.75rem"></i></dd></div>
+            <div><dt>Stop</dt><dd><i class="tachado" style="--largo:4.25rem"></i></dd></div>
+          </dl>
+          <p class="tarjeta__nota">Y ya. Si el mercado se gira, estás solo.</p>
+        </div>
+      </article>
+
+      <article class="tarjeta tarjeta--nuestra vidrio" data-flujo="hondo">
+        <header class="tarjeta__cabeza">
+          <span class="tarjeta__sello tarjeta__sello--oro">The Golden Syndicate</span>
+          <span class="tarjeta__ejemplo">Ejemplo</span>
+        </header>
+        <div class="tarjeta__cuerpo">
+          <p class="mensaje__par">XAUUSD &middot; <span class="mensaje__dir">COMPRA</span></p>
+          <dl class="mensaje">
+            <div><dt>Entrada</dt><dd><i class="tachado" style="--largo:4.5rem"></i></dd></div>
+            <div><dt>Stop</dt><dd><i class="tachado" style="--largo:4.25rem"></i></dd></div>
+          </dl>
+
+          <ul class="mensaje__porques">
+            <li>
+              <span class="porque__rotulo">Por qué la veo</span>
+              <span>Tercer rechazo en la misma zona y el volumen bajando en cada intento.</span>
+            </li>
+            <li>
+              <span class="porque__rotulo">Qué la invalida</span>
+              <span>Un cierre por debajo del nivel marcado. Ahí la idea deja de servir, sin discusión.</span>
+            </li>
+            <li>
+              <span class="porque__rotulo">Qué hago si falla</span>
+              <span>Salgo y no promedio. Lo comento en el canal el mismo día, salga como salga.</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <p class="apunte" data-flujo="rotulo" style="margin-top:1.5rem">
+      Ejemplo del formato de los mensajes. No es una señal. Los niveles van tapados
+      a propósito: las operaciones no se publican fuera del canal.
+    </p>
+  </section>
+
   <!-- LA CONSOLA · el camino, en un solo bloque -->
   <section class="contenedor seccion" aria-labelledby="t-camino">
-    <p class="antetitulo revelar">Cómo funciona</p>
-    <h2 id="t-camino" class="revelar" style="--retraso:60ms">El camino.</h2>
-    <p class="revelar" style="--retraso:120ms">
+    <p class="antetitulo" data-flujo="rotulo">Cómo funciona</p>
+    <h2 id="t-camino" data-flujo>El camino.</h2>
+    <p data-flujo>
       Cuatro pasos, el mismo para todos, y sin letra pequeña.
     </p>
 
-    <div class="consola revelar" style="--retraso:180ms" data-consola>
+    <div class="consola vidrio vidrio--fuerte" data-flujo="hondo" data-consola>
       <div class="consola__cabeza">
         <div class="dial" aria-hidden="true">
           <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
@@ -363,7 +644,7 @@
       </div>
     </div>
 
-    <p class="nota-riesgo revelar">
+    <p class="nota-riesgo" data-flujo="lento">
       Ni el club ni Cristian operan tu cuenta, gestionan tu capital ni garantizan ningún
       resultado. El trading conlleva riesgo de pérdida. El contenido es educativo y no
       constituye asesoría de inversión. Los
@@ -371,15 +652,15 @@
       puedas permitirte perder.
     </p>
 
-    <p class="revelar" style="margin-top:2rem"><a class="boton" href="#registro">Entrar al canal</a></p>
+    <p data-flujo style="margin-top:2rem"><a class="boton" href="#registro">Entrar al canal</a></p>
   </section>
 
   <!-- DUDAS -->
   <section class="contenedor seccion" aria-labelledby="t-dudas">
-    <p class="antetitulo revelar">Antes de entrar</p>
-    <h2 id="t-dudas" class="revelar" style="--retraso:60ms">Dudas.</h2>
+    <p class="antetitulo" data-flujo="rotulo">Antes de entrar</p>
+    <h2 id="t-dudas" data-flujo>Dudas.</h2>
 
-    <div class="preguntas revelar" style="--retraso:120ms">
+    <div class="preguntas" data-flujo>
       <details class="pregunta">
         <summary>¿De verdad es gratis? ¿Dónde está el truco?</summary>
         <div class="pregunta__cuerpo"><div>
@@ -420,15 +701,15 @@
   <!-- ENTRAR -->
   <section class="captura" id="registro">
     <div class="contenedor seccion">
-      <p class="antetitulo revelar">Entrar</p>
-      <h2 class="revelar" style="--retraso:60ms">Tres datos y estás dentro.</h2>
-      <p class="revelar" style="--retraso:120ms">
+      <p class="antetitulo" data-flujo="rotulo">Entrar</p>
+      <h2 data-flujo>Tres datos y estás dentro.</h2>
+      <p data-flujo>
         Al enviar te llevamos directo al canal, sin esperar aprobación.
       </p>
 
       <!-- Qué pasa al pulsar. Es el punto de más ansiedad de la página y hasta
            ahora solo se decía con una frase. -->
-      <ol class="pasos-envio revelar" style="--retraso:150ms">
+      <ol class="pasos-envio" data-flujo="lateral">
         <li>
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <rect x="3.5" y="5.5" width="17" height="13" rx="2"></rect>
@@ -444,7 +725,7 @@
         </li>
       </ol>
 
-      <form class="formulario revelar" style="--retraso:180ms" name="leads" method="POST"
+      <form class="formulario" data-flujo="lento" name="leads" method="POST"
             data-netlify="true" netlify-honeypot="empresa" novalidate>
         <input type="hidden" name="form-name" value="leads">
         <p class="trampa" aria-hidden="true">
