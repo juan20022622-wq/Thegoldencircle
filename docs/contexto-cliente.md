@@ -121,3 +121,6 @@ broker.
 | 2026-08-21 | Se crea el proyecto y el marco estratégico v0 | Juan / IAGINATION |
 | 2026-08-21 | Marca de comunidad: The Golden Syndicate. Negro/dorado, león | Cristian |
 | 2026-08-21 | Broker: Exness, con enlace de partner ya activo | Cristian |
+| 2026-08-26 | Stack de la landing: HTML plano, GitHub + Netlify | Juan |
+| 2026-08-26 | Captura de leads: Netlify Forms, con tope de 100/mes asumido | Juan |
+| 2026-08-26 | Cuentas a nombre de Juan, con transferencia a Cristian al cierre | Juan |

@@ -56,18 +56,26 @@ pesadas, imágenes en WebP, el video con póster y carga diferida.
 texto (el oro `#D2A64B` sobre `#0A0A0B` no pasa AA en tamaños pequeños — para
 texto usar hueso `#F2EDE3`, el oro para acentos y elementos grandes).
 
-## Stack — decisión abierta
+## Stack — decidido 2026-08-26
 
-`[POR CONFIRMAR]` con Juan y Cristian. El costo de hosting depende de esto y
-está declarado como abierto en la propuesta.
+**HTML, CSS y JS planos, sin framework.** Repo privado en GitHub, desplegado en
+Netlify con base directory `web`. Es una página; un framework solo añade peso y
+superficie de mantenimiento. Si más adelante hace falta blog o varias páginas,
+Astro.
 
-Recomendación por defecto: **HTML, CSS y JS planos, sin framework**, servidos en
-Vercel o Netlify (plan gratuito suficiente), formulario a una función serverless
-que escribe en una hoja o en Airtable. Es una página; un framework solo añade
-peso y superficie de mantenimiento. Si más adelante hace falta blog o varias
-páginas, Astro.
+**Captura: Netlify Forms.** Rápido de montar y sin backend. Tiene tope de 100
+envíos al mes en el plan gratuito — riesgo vivo en cuanto arranque la pauta. El
+envío va por `fetch` contra `GS.endpoint`, así que migrar a una función
+serverless que escriba en una hoja de Cristian es cambiar una línea de
+`assets/js/config.js`, no rehacer el formulario.
+
+**Cuentas:** GitHub y Netlify a nombre de Juan por ahora, con transferencia a
+Cristian al cierre del proyecto. Anotarlo como pendiente: si se olvida, queda
+una dependencia incómoda sobre un activo que es de él.
 
 El dominio se compra a nombre de Cristian. `[POR CONFIRMAR]` cuál.
+
+Ver `README.md` para desplegar y para la lista de lo que falta antes de publicar.
 
 ## Reglas heredadas que aquí no se negocian
 

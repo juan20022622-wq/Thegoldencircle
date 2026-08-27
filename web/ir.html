@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abriendo el broker…</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A0A0B">
+<link rel="stylesheet" href="/assets/css/estilos.css">
+</head>
+<body>
+<!--
+  Redirect propio al broker. Existe para poder saber de qué contenido viene cada
+  registro: registra el origen (píxel + UTM) y de ahí manda a Exness.
+  NO se enlaza desde la landing — la landing tiene una sola acción.
+  Se usa en la bio de Instagram y dentro del canal: /ir?utm_source=ig&utm_content=reel-12
+-->
+<main class="contenedor seccion">
+  <p class="antetitulo">The Golden Syndicate</p>
+  <h1>Abriendo el broker…</h1>
+  <hr class="filete">
+  <p class="entradilla">Si no se abre en un segundo, <a id="destino" href="#">toca aquí</a>.</p>
+  <p class="apunte" style="border-left:1px solid var(--oro-profundo); padding-left:1.25rem; margin-top:2rem">
+    The Golden Syndicate es partner independiente de Exness y no forma parte del broker.
+    Cuando alguien abre cuenta y opera a través de este enlace, recibimos una comisión
+    del broker. El trading conlleva riesgo de pérdida. El contenido es educativo y no
+    constituye asesoría de inversión. Los resultados pasados no garantizan resultados
+    futuros. Opera solo con capital que puedas permitirte perder.
+  </p>
+</main>
+
+<script src="/assets/js/config.js"></script>
+<script>
+(function () {
+  var CFG = window.GS || {};
+  var params = new URLSearchParams(window.location.search);
+  var origen = params.get('utm_source') || params.get('o') || 'directo';
+  var pieza  = params.get('utm_content') || '';
+
+  if (CFG.pixelId) {
+    /* eslint-disable */
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    /* eslint-enable */
+    window.fbq('init', CFG.pixelId);
+    window.fbq('trackCustom', 'ClicBroker', { origen: origen, pieza: pieza });
+  }
+
+  /* [POR CONFIRMAR] si el enlace de partner de Exness admite un parámetro de
+     sub-afiliado para cerrar la atribución del lado del broker. Verificar en el
+     panel de partner antes de activar esta línea. */
+  var destino = CFG.exness;
+
+  var enlace = document.getElementById('destino');
+  enlace.setAttribute('href', destino);
+  enlace.setAttribute('rel', 'nofollow sponsored noopener');
+  setTimeout(function () { window.location.replace(destino); }, 900);
+})();
+</script>
+</body>
+</html>

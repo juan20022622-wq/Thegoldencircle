@@ -1,0 +1,35 @@
+# Netlify · The Golden Syndicate
+# El sitio vive en web/. Configurar "Base directory: web" en la UI de Netlify
+# o dejar que este archivo lo resuelva si el repo se conecta desde la raíz.
+
+[build]
+  base    = "web"
+  publish = "."
+  command = ""
+
+# Redirect propio al broker. NO se enlaza desde la landing:
+# se usa en la bio de Instagram y dentro del canal de Telegram.
+# ir.html registra el origen (píxel + UTM) y de ahí manda a Exness.
+[[redirects]]
+  from   = "/broker"
+  to     = "/ir.html"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/ir"
+  to     = "/ir.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "geolocation=(), microphone=(), camera=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

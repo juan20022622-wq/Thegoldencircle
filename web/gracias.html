@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estás dentro — The Golden Syndicate</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A0A0B">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="/assets/css/estilos.css">
+</head>
+<body>
+
+<header class="contenedor marca">
+  <svg class="marca__simbolo" viewBox="0 0 48 48" role="img" aria-label="The Golden Syndicate">
+    <rect x="1" y="1" width="46" height="46" rx="2" fill="none" stroke="#8C6A22"></rect>
+    <text x="24" y="31" text-anchor="middle" fill="#D2A64B"
+          font-family="Cinzel, serif" font-size="19" font-weight="700" letter-spacing="1">GS</text>
+  </svg>
+  <span class="marca__nombre">The Golden Syndicate</span>
+</header>
+
+<main class="contenedor seccion">
+  <p class="antetitulo">Registro recibido</p>
+  <h1>Estás dentro.</h1>
+  <hr class="filete">
+  <p class="entradilla">
+    Falta un paso: abrir el canal. Si no se abrió solo, toca el botón.
+  </p>
+
+  <p><a class="boton" id="canal" href="#" rel="noopener">Abrir el canal en Telegram</a></p>
+
+  <p class="apunte" style="margin-top:2rem">
+    ¿No tienes Telegram? Se instala gratis desde la tienda de tu teléfono y con el
+    mismo botón entras.
+  </p>
+
+  <p class="apunte" style="margin-top:2.5rem; border-left:1px solid var(--oro-profundo); padding-left:1.25rem">
+    El trading conlleva riesgo de pérdida. El contenido es educativo y no constituye
+    asesoría de inversión. Los resultados pasados no garantizan resultados futuros.
+    Opera solo con capital que puedas permitirte perder.
+  </p>
+</main>
+
+<script src="/assets/js/config.js"></script>
+<script>
+(function () {
+  var url = (window.GS && window.GS.telegram) || '#';
+  var boton = document.getElementById('canal');
+  boton.setAttribute('href', url);
+
+  if (window.GS && window.GS.pixelId) {
+    /* eslint-disable */
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    /* eslint-enable */
+    window.fbq('init', window.GS.pixelId);
+    window.fbq('track', 'PageView');
+    window.fbq('trackCustom', 'AbreCanal');
+  }
+
+  /* Apertura automática, con el botón siempre visible como respaldo. */
+  if (url.indexOf('http') === 0) {
+    setTimeout(function () { window.location.assign(url); }, 1200);
+  }
+})();
+</script>
+</body>
+</html>
