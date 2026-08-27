@@ -116,26 +116,9 @@ h3 { font-size: 1.0625rem; letter-spacing: 0.16em; text-transform: uppercase; }
 
 p { margin: 0 0 1.15rem; max-width: 40rem; }
 
-.antetitulo {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--oro);
-  margin: 0 0 1.25rem;
-}
-
-.antetitulo::before {
-  content: "";
-  width: 1.75rem;
-  height: 1px;
-  background: var(--oro-profundo);
-  flex: none;
-}
+/* Los rótulos encima de cada titular se quitaron: un eyebrow por sección es el
+   tic que más delata a una página generada. La página queda sin nada que la
+   "anuncie" y las secciones se separan por espacio y ritmo. */
 
 .entradilla { font-size: 1.15rem; color: var(--hueso); }
 .apunte { font-size: 0.9375rem; color: var(--gris); }
@@ -150,7 +133,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   padding-block: 1.75rem;
 }
 
-.marca__simbolo { width: 46px; height: 46px; }
+.marca .marca__leon { width: 30px; height: 49px; color: var(--oro); stroke-width: 1.5; }
 
 .marca__nombre {
   font-family: var(--mono);
@@ -733,7 +716,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 }
 
 /* Los campos viven dentro del héroe, no a página completa. */
-.campos {
+.mareas {
   position: absolute;
   top: -2rem;
   bottom: 0;
@@ -754,7 +737,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   mask-composite: intersect;
 }
 
-.campo {
+.marea {
   display: flex;
   position: absolute;
   top: 0;
@@ -763,18 +746,18 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   height: 100%;
 }
 
-.campo__svg { width: 50%; height: 100%; flex: none; }
-.campo__svg line { stroke: var(--oro); stroke-width: 1; }
-.campo__svg rect { fill: var(--oro); }
+.marea__svg { width: 50%; height: 100%; flex: none; }
+.marea__svg line { stroke: var(--oro); stroke-width: 1; }
+.marea__svg rect { fill: var(--oro); }
 
 /* Dos velocidades: la de atrás casi no se mueve, la de delante corre.
    Eso da profundidad sin usar una sola imagen de fondo. */
-.campo--lejos {
+.marea--lejos {
   opacity: calc(0.1 + var(--respiro, 0.5) * 0.04);
   animation: corre 150s linear infinite;
 }
 
-.campo--cerca {
+.marea--cerca {
   opacity: calc(0.07 + var(--respiro, 0.5) * 0.03);
   height: 62%;
   top: 20%;
@@ -834,7 +817,12 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   padding-right: 0.5rem;
   text-decoration: none;
 }
-.barra__marca svg { width: 26px; height: 26px; flex: none; }
+.barra__marca .marca__leon { width: 22px; height: 36px; flex: none; color: var(--oro); }
+
+/* El trazo no escala con el símbolo: así el mismo archivo lee a 22 px y a
+   200 px. Sin esto, a tamaño de barra el trazo mediría 0,2 px. */
+.marca__leon { stroke-width: 1.3; }
+.marca__leon:hover { color: var(--oro-claro); }
 
 .barra__nombre {
   font-family: var(--mono);
@@ -1253,5 +1241,129 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 }
 
 /* Los acentos de oro laten con la misma onda que el ambiente. */
-.antetitulo::before,
 .filete { opacity: calc(0.72 + var(--respiro, 0.5) * 0.28); }
+
+
+/* ---------- el gráfico del héroe ----------
+   Se dibuja con el mismo reloj que el resto: --p lo hereda de la figura y las
+   velas van apareciendo de izquierda a derecha según se lee. Encima, dos
+   movimientos continuos que no dependen del scroll: el nivel de invalidación
+   avanza como hormigas y la marca late. */
+
+.heroe__grafico .vela {
+  /* 24 velas: con --p en 1 están todas; el barrido va de la primera a la última. */
+  opacity: calc((var(--p, 1) * 30 - var(--i)) * 0.5);
+}
+
+.heroe__grafico .nivel__linea {
+  stroke-dasharray: 5 4;
+  animation: hormigas 3.2s linear infinite;
+  opacity: calc(min(1, max(0, (var(--p, 1) - 0.55) * 4)));
+}
+
+@keyframes hormigas {
+  to { stroke-dashoffset: -18; }
+}
+
+.heroe__grafico .marca__punto {
+  opacity: calc(min(1, max(0, (var(--p, 1) - 0.7) * 5)));
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: late 2.6s ease-in-out infinite;
+}
+
+@keyframes late {
+  0%, 100% { r: 4; }
+  50%      { r: 5.4; }
+}
+
+.heroe__grafico .rotulo {
+  opacity: calc(min(1, max(0, (var(--p, 1) - 0.72) * 5)));
+}
+
+/* La vela comentada respira con el resto de la página. */
+.heroe__grafico .vela--idea rect { fill: var(--oro); }
+.heroe__grafico .vela--idea { filter: drop-shadow(0 0 calc(2px + var(--respiro, 0.5) * 5px) rgba(210, 166, 75, 0.5)); }
+
+/* ---------- más movimiento donde hacía falta ---------- */
+
+/* El dial de la consola lleva un anillo exterior que gira despacio: la consola
+   deja de verse congelada entre paso y paso. */
+.dial::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px dashed rgba(210, 166, 75, 0.22);
+  animation: gira 46s linear infinite;
+}
+
+@keyframes gira {
+  to { transform: rotate(1turn); }
+}
+
+/* Un pulso recorre el enlace entre los dos pasos del envío. */
+.pasos-envio li + li::before {
+  background: linear-gradient(90deg, var(--oro-profundo) 0 40%, var(--oro) 50%, var(--oro-profundo) 60% 100%);
+  background-size: 300% 100%;
+  animation: recorre 3.4s linear infinite;
+}
+
+@keyframes recorre {
+  from { background-position: 150% 0; }
+  to   { background-position: -150% 0; }
+}
+
+/* El subrayado de la llave elegida se desliza en vez de aparecer. */
+.llaves button::after { transition: transform 0.45s var(--salida), opacity 0.3s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .heroe__grafico .nivel__linea,
+  .heroe__grafico .marca__punto,
+  .heroe__grafico .vela--idea,
+  .dial::after,
+  .pasos-envio li + li::before { animation: none; }
+  .heroe__grafico .vela,
+  .heroe__grafico .nivel__linea,
+  .heroe__grafico .marca__punto,
+  .heroe__grafico .rotulo { opacity: 1; }
+}
+
+
+/* ---------- el león que se dibuja ----------
+   Ocupa el fondo de la sección de registro y traza su contorno según avanza
+   --p. No es un adorno suelto: es el único momento de la página donde el
+   símbolo aparece a tamaño grande, y llega justo cuando toca decidir. */
+
+.captura { overflow: hidden; }
+
+.leon-agua {
+  position: absolute;
+  top: 50%;
+  right: -2rem;
+  height: 118%;
+  width: auto;
+  translate: 0 -50%;
+  z-index: 0;
+  pointer-events: none;
+  color: var(--oro);
+  opacity: calc(0.1 + var(--respiro, 0.5) * 0.05);
+}
+
+@media (min-width: 46rem) {
+  .leon-agua { right: 4%; height: 128%; opacity: calc(0.13 + var(--respiro, 0.5) * 0.06); }
+}
+
+/* El trazo avanza con el reloj. La longitud se fija por encima de la real de
+   cada trazado; sobrar no se ve, faltar dejaría el dibujo cortado. */
+.leon-agua path {
+  stroke-width: 2.5;
+  stroke-dasharray: 2600;
+  stroke-dashoffset: calc(2600 * (1 - var(--p, 1)));
+}
+
+.captura .contenedor { position: relative; z-index: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .leon-agua path { stroke-dashoffset: 0; }
+}

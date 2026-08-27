@@ -30,7 +30,7 @@ const A = 1600, H = 900;
 
 function svg(semilla, n) {
   const marcas = capa(semilla, n, H, A);
-  return `<svg class="campo__svg" viewBox="0 0 ${A} ${H}" preserveAspectRatio="none" aria-hidden="true" focusable="false">\n${marcas}    </svg>`;
+  return `<svg class="marea__svg" viewBox="0 0 ${A} ${H}" preserveAspectRatio="none" aria-hidden="true" focusable="false">\n${marcas}    </svg>`;
 }
 
 const lejos = svg(0, 76);
@@ -38,7 +38,7 @@ const cerca = svg(11, 46);
 
 console.log(`<div class="ambiente" aria-hidden="true">
   <div class="ambiente__aliento"></div>
-  <div class="campo campo--lejos">${lejos}${lejos}</div>
-  <div class="campo campo--cerca">${cerca}${cerca}</div>
+  <div class="marea marea--lejos">${lejos}${lejos}</div>
+  <div class="marea marea--cerca">${cerca}${cerca}</div>
   <div class="ambiente__velo"></div>
 </div>`);

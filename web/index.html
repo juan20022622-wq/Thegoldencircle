@@ -68,7 +68,7 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "¿De verdad es gratis? ¿Dónde está el truco?",
+          "name": "¿De verdad es gratis?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Es gratis y no hay versión de pago del canal. El club se sostiene con la comisión que paga el broker cuando alguien abre cuenta por nuestro enlace y opera. El trading conlleva riesgo de pérdida."
@@ -122,12 +122,15 @@
 
 <nav class="barra" aria-label="Principal">
   <a class="barra__marca" href="#contenido">
-    <!-- [POR CONFIRMAR] símbolo primario sin decidir · ver marca/identidad.md -->
-    <svg viewBox="0 0 48 48" role="img" aria-label="The Golden Syndicate">
-      <rect x="1" y="1" width="46" height="46" rx="2" fill="none" stroke="#8C6A22"></rect>
-      <text x="24" y="31" text-anchor="middle" fill="#D2A64B"
-            font-family="Manrope, sans-serif" font-size="18" font-weight="700" letter-spacing="0.5">GS</text>
-    </svg>
+    <!-- Símbolo definitivo: león coronado, extraído del PDF de marca. -->
+    <svg class="marca__leon" role="img" aria-label="The Golden Syndicate" viewBox="391 475 250 393" fill="none"
+     stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+  <g transform="matrix(1 0 0 -1 0 1350)">
+    <path d="M501.74 727.4L477.25 729.58L487.21 716.92C493.61 718.24 497.95 721.37 501.74 727.4ZM519.12 624.46C538.71 635.56 545.88 655.77 538.95 676.48C535.01 656.28 522.54 636.81 500.96 630.33C484.46 625.38 463.5 632.42 436.1 623.24C427.97 625.95 429.65 640.35 432.02 647L435.79 657.56C445.83 651.42 454.64 644.89 465.66 649.07C472.89 651.8 477.16 661.32 477.02 668.2C476.87 676.05 473.42 685.13 465.07 689.5C458.23 693.07 436.56 688.35 434.86 671.26C426.43 677.87 417.02 690.12 419.5 703C420.37 707.45 428.1 713.68 431.48 717.3L421.22 716.07C418.67 715.76 415.56 722.04 415.86 724.64L416.88 733.62C417.15 735.93 423.25 737.74 425.87 737.8L467.47 738.76C471.44 741.11 478.91 749.49 483.48 749.74L599.92 749.58C597.6 740.12 593.94 735.71 588.53 729.57C605.62 727.49 620.91 712.65 617.73 697.13C605.17 698.15 591.96 696.75 586.49 684.26C608.72 685.79 628.27 669.73 627.28 646.31C612.44 650.45 597.97 652.19 583.71 647.3C611.04 641.02 625.25 616.97 616.75 592.32C602 602.19 585.52 609.8 566.88 604.25C608.28 583.78 624.41 537.01 604.43 495.56C585.25 535.09 549.25 560.1 507.62 561.86C464.89 563.67 426.39 540.58 404.99 502.82C405.69 550.06 423.49 568.34 461.43 591.95C453.44 593.42 445.42 592.56 434.95 590.68C457.79 628.35 479.78 602.18 519.12 624.46Z" vector-effect="non-scaling-stroke"/>
+    <path d="M544.71 765.54L531.04 765.28L531.05 807.66C531.05 813.12 528.59 816.81 522.85 817.58C517.02 818.37 511.21 817.04 507.79 812.09C505 808.05 503.55 801.15 506.94 796.32L528.61 765.45L510.82 765.26L494.55 788.47C490.32 794.51 489.4 801.54 490.38 808.58C486.35 808.95 482.25 806.91 481.18 803.28C479.46 797.46 481.66 791.68 484.95 786.95L499.94 765.46L482.53 765.27C472.58 779.27 457.31 797.09 469.89 813.76C476.14 822.03 486.31 825.63 497.13 822.48C507.58 834.34 524.3 835.56 537.75 827.63C551.06 835.14 567.49 834.88 578.26 822.46C588.13 825.26 597.82 822.8 604.22 815.63C619.16 798.89 603.79 780.26 593.3 765.26L575.49 765.35L590.12 786.15C592.54 789.6 594.57 794.07 595.12 798.27C595.91 804.33 591.53 809.25 585.01 808.63C586.66 800.32 584.54 793.33 580.09 787.04L564.81 765.44L547.03 765.72L567.37 794.35C572.11 801.03 571.54 808.98 565.45 814.68C561.22 818.64 547.51 820.08 545.85 812.56C543.33 797.09 545.76 782.04 544.71 765.54Z" vector-effect="non-scaling-stroke"/>
+    <path d="M533.51 859.94C539.98 862.56 546.25 858.94 548.59 853.22C550.93 847.52 547.98 840.59 541.79 838.16C536.36 836.03 529.85 838.6 527.22 844.38C524.73 849.85 526.6 857.15 533.51 859.94Z" vector-effect="non-scaling-stroke"/>
+  </g>
+</svg>
     <span class="barra__nombre">The Golden Syndicate</span>
   </a>
   <a class="boton" href="#registro">Entrar</a>
@@ -139,8 +142,8 @@
   <section class="contenedor heroe">
     <!-- El campo corre detrás del héroe a dos velocidades. Oscila, no sube:
          un gráfico ascendente aquí sería una promesa de rentabilidad dibujada. -->
-    <div class="campos" aria-hidden="true">
-      <div class="campo campo--lejos"><svg class="campo__svg" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <div class="mareas" aria-hidden="true">
+      <div class="marea marea--lejos"><svg class="marea__svg" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true" focusable="false">
         <line x1="10.5" y1="442.0" x2="10.5" y2="468.0"/>
         <rect x="6.3" y="450.0" width="8.4" height="10.0" rx="1.5"/>
         <line x1="31.6" y1="432.0" x2="31.6" y2="652.3"/>
@@ -293,7 +296,7 @@
         <rect x="1564.2" y="558.4" width="8.4" height="153.5" rx="1.5"/>
         <line x1="1589.5" y1="703.9" x2="1589.5" y2="730.0"/>
         <rect x="1585.3" y="711.9" width="8.4" height="10.1" rx="1.5"/>
-      </svg><svg class="campo__svg" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      </svg><svg class="marea__svg" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true" focusable="false">
         <line x1="10.5" y1="442.0" x2="10.5" y2="468.0"/>
         <rect x="6.3" y="450.0" width="8.4" height="10.0" rx="1.5"/>
         <line x1="31.6" y1="432.0" x2="31.6" y2="652.3"/>
@@ -447,7 +450,7 @@
         <line x1="1589.5" y1="703.9" x2="1589.5" y2="730.0"/>
         <rect x="1585.3" y="711.9" width="8.4" height="10.1" rx="1.5"/>
       </svg></div>
-    <div class="campo campo--cerca"><svg class="campo__svg" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <div class="marea marea--cerca"><svg class="marea__svg" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true" focusable="false">
         <line x1="17.4" y1="395.8" x2="17.4" y2="463.0"/>
         <rect x="10.4" y="408.8" width="13.9" height="41.2" rx="1.5"/>
         <line x1="52.2" y1="337.1" x2="52.2" y2="431.8"/>
@@ -540,7 +543,7 @@
         <rect x="1540.9" y="458.2" width="13.9" height="24.2" rx="1.5"/>
         <line x1="1582.6" y1="379.6" x2="1582.6" y2="495.4"/>
         <rect x="1575.7" y="392.6" width="13.9" height="89.9" rx="1.5"/>
-      </svg><svg class="campo__svg" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      </svg><svg class="marea__svg" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true" focusable="false">
         <line x1="17.4" y1="395.8" x2="17.4" y2="463.0"/>
         <rect x="10.4" y="408.8" width="13.9" height="41.2" rx="1.5"/>
         <line x1="52.2" y1="337.1" x2="52.2" y2="431.8"/>
@@ -635,7 +638,6 @@
         <rect x="1575.7" y="392.6" width="13.9" height="89.9" rx="1.5"/>
       </svg></div>
     </div>
-    <p class="antetitulo" data-flujo="rotulo">El club · canal gratuito</p>
     <h1>
       <span class="linea"><span>Un club donde</span></span>
       <span class="linea"><span>nadie opera</span></span>
@@ -797,8 +799,7 @@
 
   <!-- LA ANATOMÍA · lo que se dice, mostrado -->
   <section class="contenedor seccion" aria-labelledby="t-anatomia">
-    <p class="antetitulo" data-flujo="rotulo">La diferencia, en un mensaje</p>
-    <h2 id="t-anatomia" data-flujo>Mismo gráfico. Otro mensaje.</h2>
+    <h2 id="t-anatomia" data-flujo>Dos canales miran el mismo gráfico y publican<br>cosas muy distintas.</h2>
     <p data-flujo>
       Un canal de señales te manda un nivel. Aquí llega el nivel y las tres cosas
       que hacen que puedas decidir por ti.
@@ -859,11 +860,8 @@
 
   <!-- LA CONSOLA · el camino, en un solo bloque -->
   <section class="contenedor seccion" aria-labelledby="t-camino">
-    <p class="antetitulo" data-flujo="rotulo">Cómo funciona</p>
-    <h2 id="t-camino" data-flujo>El camino.</h2>
-    <p data-flujo>
-      Cuatro pasos, el mismo para todos, y sin letra pequeña.
-    </p>
+    <h2 id="t-camino" data-flujo>Cómo funciona, paso a paso.</h2>
+    <p data-flujo="lento">El mismo para todos, y sin letra pequeña.</p>
 
     <div class="consola vidrio vidrio--fuerte" data-flujo="hondo" data-consola>
       <div class="consola__cabeza">
@@ -939,12 +937,11 @@
 
   <!-- DUDAS -->
   <section class="contenedor seccion" aria-labelledby="t-dudas">
-    <p class="antetitulo" data-flujo="rotulo">Antes de entrar</p>
-    <h2 id="t-dudas" data-flujo>Dudas.</h2>
+    <h2 id="t-dudas" data-flujo>¿Dónde está el truco?</h2>
 
     <div class="preguntas" data-flujo>
       <details class="pregunta">
-        <summary>¿De verdad es gratis? ¿Dónde está el truco?</summary>
+        <summary>¿De verdad es gratis?</summary>
         <div class="pregunta__cuerpo"><div>
           <p>Es gratis y no hay versión de pago del canal. El club se sostiene con la
              comisión que paga el broker cuando alguien abre cuenta por nuestro enlace
@@ -982,9 +979,18 @@
   </section>
 
   <!-- ENTRAR -->
-  <section class="captura" id="registro">
+  <section class="captura" id="registro" data-flujo="lento">
+    <!-- El león se dibuja solo según se baja: el trazo avanza con --p, el mismo
+         reloj que mueve todo lo demás. -->
+    <svg class="leon-agua" aria-hidden="true" focusable="false" viewBox="391 475 250 393" fill="none"
+         stroke="currentColor" stroke-linejoin="round" stroke-linecap="round">
+      <g transform="matrix(1 0 0 -1 0 1350)">
+        <path d="M501.74 727.4L477.25 729.58L487.21 716.92C493.61 718.24 497.95 721.37 501.74 727.4ZM519.12 624.46C538.71 635.56 545.88 655.77 538.95 676.48C535.01 656.28 522.54 636.81 500.96 630.33C484.46 625.38 463.5 632.42 436.1 623.24C427.97 625.95 429.65 640.35 432.02 647L435.79 657.56C445.83 651.42 454.64 644.89 465.66 649.07C472.89 651.8 477.16 661.32 477.02 668.2C476.87 676.05 473.42 685.13 465.07 689.5C458.23 693.07 436.56 688.35 434.86 671.26C426.43 677.87 417.02 690.12 419.5 703C420.37 707.45 428.1 713.68 431.48 717.3L421.22 716.07C418.67 715.76 415.56 722.04 415.86 724.64L416.88 733.62C417.15 735.93 423.25 737.74 425.87 737.8L467.47 738.76C471.44 741.11 478.91 749.49 483.48 749.74L599.92 749.58C597.6 740.12 593.94 735.71 588.53 729.57C605.62 727.49 620.91 712.65 617.73 697.13C605.17 698.15 591.96 696.75 586.49 684.26C608.72 685.79 628.27 669.73 627.28 646.31C612.44 650.45 597.97 652.19 583.71 647.3C611.04 641.02 625.25 616.97 616.75 592.32C602 602.19 585.52 609.8 566.88 604.25C608.28 583.78 624.41 537.01 604.43 495.56C585.25 535.09 549.25 560.1 507.62 561.86C464.89 563.67 426.39 540.58 404.99 502.82C405.69 550.06 423.49 568.34 461.43 591.95C453.44 593.42 445.42 592.56 434.95 590.68C457.79 628.35 479.78 602.18 519.12 624.46Z"/>
+        <path d="M544.71 765.54L531.04 765.28L531.05 807.66C531.05 813.12 528.59 816.81 522.85 817.58C517.02 818.37 511.21 817.04 507.79 812.09C505 808.05 503.55 801.15 506.94 796.32L528.61 765.45L510.82 765.26L494.55 788.47C490.32 794.51 489.4 801.54 490.38 808.58C486.35 808.95 482.25 806.91 481.18 803.28C479.46 797.46 481.66 791.68 484.95 786.95L499.94 765.46L482.53 765.27C472.58 779.27 457.31 797.09 469.89 813.76C476.14 822.03 486.31 825.63 497.13 822.48C507.58 834.34 524.3 835.56 537.75 827.63C551.06 835.14 567.49 834.88 578.26 822.46C588.13 825.26 597.82 822.8 604.22 815.63C619.16 798.89 603.79 780.26 593.3 765.26L575.49 765.35L590.12 786.15C592.54 789.6 594.57 794.07 595.12 798.27C595.91 804.33 591.53 809.25 585.01 808.63C586.66 800.32 584.54 793.33 580.09 787.04L564.81 765.44L547.03 765.72L567.37 794.35C572.11 801.03 571.54 808.98 565.45 814.68C561.22 818.64 547.51 820.08 545.85 812.56C543.33 797.09 545.76 782.04 544.71 765.54Z"/>
+        <path d="M533.51 859.94C539.98 862.56 546.25 858.94 548.59 853.22C550.93 847.52 547.98 840.59 541.79 838.16C536.36 836.03 529.85 838.6 527.22 844.38C524.73 849.85 526.6 857.15 533.51 859.94Z"/>
+      </g>
+    </svg>
     <div class="contenedor seccion">
-      <p class="antetitulo" data-flujo="rotulo">Entrar</p>
       <h2 data-flujo>Tres datos y estás dentro.</h2>
       <p data-flujo>
         Al enviar te llevamos directo al canal, sin esperar aprobación.
