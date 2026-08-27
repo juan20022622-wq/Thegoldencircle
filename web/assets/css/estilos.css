@@ -264,7 +264,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 
 /* ---------- héroe ---------- */
 
-.heroe { padding-block: 1.5rem 4.5rem; }
+.heroe { position: relative; isolation: isolate; padding-block: 1.5rem 4.5rem; }
 .heroe h1 { margin-bottom: 1.5rem; }
 .heroe .entradilla { margin-bottom: 2.25rem; }
 .heroe__micro { margin: 0.9rem 0 0; font-size: 0.875rem; color: var(--gris); }
@@ -732,30 +732,49 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   to   { translate: 4% 3%; }
 }
 
-.campo {
+/* Los campos viven dentro del héroe, no a página completa. */
+.campos {
   position: absolute;
-  top: 50%;
-  left: 0;
-  width: 200%;
-  height: 78vh;
-  translate: 0 -50%;
+  inset: -2rem -50vw 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  /* Se disuelve hacia abajo y hacia los lados: nunca llega al texto. */
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent, #000 26%, #000 62%, transparent 96%),
+    linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, transparent, #000 26%, #000 62%, transparent 96%),
+    linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  mask-composite: intersect;
 }
 
-.campo__svg { width: 50%; height: 100%; }
+.campo {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+}
+
+.campo__svg { width: 50%; height: 100%; flex: none; }
 .campo__svg line { stroke: var(--oro); stroke-width: 1; }
 .campo__svg rect { fill: var(--oro); }
 
 /* Dos velocidades: la de atrás casi no se mueve, la de delante corre.
    Eso da profundidad sin usar una sola imagen de fondo. */
 .campo--lejos {
-  opacity: calc(0.11 + var(--respiro, 0.5) * 0.04);
-  animation: corre 190s linear infinite;
+  opacity: calc(0.1 + var(--respiro, 0.5) * 0.04);
+  animation: corre 150s linear infinite;
 }
 
 .campo--cerca {
   opacity: calc(0.07 + var(--respiro, 0.5) * 0.03);
-  height: 52vh;
-  animation: corre 96s linear infinite;
+  height: 62%;
+  top: 20%;
+  animation: corre 74s linear infinite;
 }
 
 @keyframes corre {
@@ -767,9 +786,9 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 .ambiente__velo {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(56% 40% at 50% 45%, rgba(10, 10, 11, 0.78), rgba(10, 10, 11, 0.42) 62%, transparent),
-    linear-gradient(to bottom, var(--negro), transparent 18%, transparent 82%, var(--negro));
+  /* Se hunde detrás del texto pero se deja ver en los huecos. Vertical, no
+     radial: en móvil no hay márgenes laterales donde asomar. */
+  background: linear-gradient(to bottom, rgba(10, 10, 11, 0.55), transparent 30%, transparent 70%, rgba(10, 10, 11, 0.55));
 }
 
 /* ---------- barra flotante ---------- */
