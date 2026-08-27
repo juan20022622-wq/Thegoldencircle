@@ -42,6 +42,20 @@ En la configuración de build:
 No hay build: es HTML plano. Netlify sirve `web/` tal cual y lee `netlify.toml`
 desde ahí.
 
+### 2.5 · Validar el netlify.toml antes de subir
+
+Un `netlify.toml` mal formado hace fallar el deploy en **Initializing**, antes
+de construir nada, y el mensaje del panel no dice cuál es la línea. Se valida en
+un comando:
+
+```bash
+npx -y smol-toml -e "require('smol-toml').parse(require('fs').readFileSync('web/netlify.toml','utf8'))" && echo TOML OK
+```
+
+El error que ya nos pasó una vez: declarar `[context.X.headers]` como tabla y
+`[[context.X.headers]]` como array de tablas. Misma clave, dos tipos, TOML
+inválido. A la vista no se nota.
+
 ### 3 · Comprobar que las cabeceras llegaron
 
 ```bash

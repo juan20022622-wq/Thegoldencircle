@@ -55,7 +55,6 @@
 # Mientras el sitio viva en la URL de Netlify y todavía tenga marcadores sin
 # rellenar, no debe indexarse. Los previews y las ramas nunca; producción se
 # desbloquea quitando este bloque el día que el dominio esté puesto.
-[context.deploy-preview.headers]
 [[context.deploy-preview.headers]]
   for = "/*"
   [context.deploy-preview.headers.values]
