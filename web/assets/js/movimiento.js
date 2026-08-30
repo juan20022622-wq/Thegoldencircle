@@ -7,19 +7,17 @@
    las cosas van apareciendo de a una, con el mismo fade-in en todas. Es uno de
    los tics que delatan a una página generada.
 
-   Ahora un único requestAnimationFrame calcula cada fotograma dos cosas y las
-   publica como variables CSS:
+   Ahora una sola pasada, disparada por el scroll, publica --p en cada pieza:
+   su avance por el encuadre de 0 a 1. Nadie "aparece": todo está siempre
+   interpolando y el scroll mueve un campo entero.
 
-     --respiro   una onda lenta y continua, igual para todo el documento. Es lo
-                 que hace que el fondo, el oro y los acentos se muevan en la
-                 misma respiración en vez de cada uno por su lado.
+   La respiración compartida vive en keyframes CSS con el mismo ciclo de 11 s.
+   Arrancan todas con la página, así que siguen sincronizadas, pero corren en
+   el compositor y no cuestan recálculo de estilo.
 
-     --p         el avance de cada pieza por el encuadre, de 0 a 1, recalculado
-                 en continuo. Nadie "aparece": todo está siempre interpolando y
-                 el scroll mueve un campo entero.
-
-   Coste: solo se recorren las piezas cercanas al encuadre, y solo se escribe
-   en el DOM cuando el valor redondeado cambia.
+   Coste: cero con la página quieta. Al hacer scroll, una pasada por fotograma
+   como mucho, solo sobre las piezas cercanas al encuadre, y solo se escribe en
+   el DOM cuando el valor redondeado cambia.
    --------------------------------------------------------------------------- */
 
 (function () {
@@ -50,9 +48,8 @@
      cubic-bezier(0.16, 1, 0.3, 1) que usa el resto de la página. */
   function curva(t) { return 1 - Math.pow(1 - t, 3); }
 
-  function fotograma(ahora) {
-    /* Once segundos por ciclo. Lento a propósito: si se nota, molesta. */
-    raiz.style.setProperty('--respiro', (Math.sin(ahora / 11000 * Math.PI * 2) * 0.5 + 0.5).toFixed(4));
+  function pasada() {
+    pendiente = false;
 
     for (var i = 0; i < piezas.length; i++) {
       var p = piezas[i];
@@ -70,17 +67,35 @@
         p.el.style.setProperty('--p', red);
       }
     }
+  }
 
-    requestAnimationFrame(fotograma);
+  /* El bucle solo corre mientras hay scroll, y como mucho una vez por
+     fotograma. Con la página quieta no cuesta nada.
+
+     La versión anterior corría siempre y además escribía --respiro en <html>
+     sesenta veces por segundo. Cada escritura invalidaba el estilo del
+     documento entero: 1,33 ms medidos, o sea 80 ms de cada 1000 quemados sin
+     que nadie estuviera mirando. En un teléfono eso es la mayor parte del
+     presupuesto de fotograma, sostenido, y el navegador acaba matando la
+     pestaña y recargándola. La respiración vive ahora en keyframes CSS. */
+  var pendiente = false;
+
+  function pedirPasada() {
+    if (pendiente) return;
+    pendiente = true;
+    requestAnimationFrame(pasada);
   }
 
   if (quieto) {
-    raiz.style.setProperty('--respiro', '0.5');
     document.querySelectorAll('[data-flujo]').forEach(function (el) { el.style.setProperty('--p', '1'); });
   } else {
     censar();
-    window.addEventListener('resize', censar, { passive: true });
-    requestAnimationFrame(fotograma);
+    pedirPasada();
+    window.addEventListener('scroll', pedirPasada, { passive: true });
+    window.addEventListener('resize', function () { censar(); pedirPasada(); }, { passive: true });
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) pedirPasada();
+    });
   }
 
   /* ================= las cinco llaves ================= */

@@ -704,10 +704,11 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   background:
     radial-gradient(38% 44% at 24% 22%, rgba(140, 106, 34, 0.16), transparent 70%),
     radial-gradient(32% 40% at 76% 68%, rgba(210, 166, 75, 0.08), transparent 70%);
-  filter: blur(70px);
-  opacity: calc(0.62 + var(--respiro, 0.5) * 0.38);
-  transform: scale(calc(1 + var(--respiro, 0.5) * 0.06));
-  animation: deriva 34s ease-in-out infinite alternate;
+  filter: blur(70px);          /* estático: animarlo obliga a re-rasterizar */
+  opacity: 0.62;
+  animation:
+    deriva 34s ease-in-out infinite alternate,
+    respira-aliento 5.5s ease-in-out infinite alternate;
 }
 
 @keyframes deriva {
@@ -753,15 +754,15 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 /* Dos velocidades: la de atrás casi no se mueve, la de delante corre.
    Eso da profundidad sin usar una sola imagen de fondo. */
 .marea--lejos {
-  opacity: calc(0.1 + var(--respiro, 0.5) * 0.04);
-  animation: corre 150s linear infinite;
+  opacity: 0.1;
+  animation: corre 150s linear infinite, respira-lejos 5.5s ease-in-out infinite alternate;
 }
 
 .marea--cerca {
-  opacity: calc(0.07 + var(--respiro, 0.5) * 0.03);
+  opacity: 0.07;
   height: 62%;
   top: 20%;
-  animation: corre 74s linear infinite;
+  animation: corre 74s linear infinite, respira-cerca 5.5s ease-in-out infinite alternate;
 }
 
 @keyframes corre {
@@ -1216,7 +1217,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
     rgba(242, 237, 227, 0.045) 50%,
     transparent 58%
   );
-  translate: calc((var(--respiro, 0.5) - 0.5) * 26%) 0;
+  animation: respira-reflejo 5.5s ease-in-out infinite alternate;
 }
 
 .vidrio--sutil {
@@ -1241,7 +1242,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 }
 
 /* Los acentos de oro laten con la misma onda que el ambiente. */
-.filete { opacity: calc(0.72 + var(--respiro, 0.5) * 0.28); }
+.filete { opacity: 0.72; animation: respira-filete 5.5s ease-in-out infinite alternate; }
 
 
 /* ---------- el gráfico del héroe ----------
@@ -1283,7 +1284,13 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 
 /* La vela comentada respira con el resto de la página. */
 .heroe__grafico .vela--idea rect { fill: var(--oro); }
-.heroe__grafico .vela--idea { filter: drop-shadow(0 0 calc(2px + var(--respiro, 0.5) * 5px) rgba(210, 166, 75, 0.5)); }
+/* El radio del drop-shadow ya no se anima: cambiarlo obliga a re-rasterizar el
+   grupo entero en cada fotograma. Queda fijo, y late la opacidad, que sí es
+   barata porque la resuelve el compositor. */
+.heroe__grafico .vela--idea {
+  filter: drop-shadow(0 0 4px rgba(210, 166, 75, 0.45));
+  animation: respira-vela 5.5s ease-in-out infinite alternate;
+}
 
 /* ---------- más movimiento donde hacía falta ---------- */
 
@@ -1347,11 +1354,12 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   z-index: 0;
   pointer-events: none;
   color: var(--oro);
-  opacity: calc(0.1 + var(--respiro, 0.5) * 0.05);
+  opacity: 0.1;
+  animation: respira-leon 5.5s ease-in-out infinite alternate;
 }
 
 @media (min-width: 46rem) {
-  .leon-agua { right: 4%; height: 128%; opacity: calc(0.13 + var(--respiro, 0.5) * 0.06); }
+  .leon-agua { right: 4%; height: 128%; opacity: 0.13; }
 }
 
 /* El trazo avanza con el reloj. La longitud se fija por encima de la real de
@@ -1366,4 +1374,47 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 
 @media (prefers-reduced-motion: reduce) {
   .leon-agua path { stroke-dashoffset: 0; }
+}
+
+
+/* ---------- la respiración ----------
+   Un ciclo de 11 s (5,5 s de ida y 5,5 de vuelta), el mismo para todos y
+   arrancando todos con la página: siguen en sincronía sin que nadie tenga que
+   escribir una variable en cada fotograma. */
+
+@keyframes respira-aliento { to { opacity: 1; } }
+@keyframes respira-lejos   { to { opacity: 0.14; } }
+@keyframes respira-cerca   { to { opacity: 0.1; } }
+@keyframes respira-filete  { to { opacity: 1; } }
+@keyframes respira-leon    { to { opacity: 0.15; } }
+@keyframes respira-vela    { to { opacity: 0.75; } }
+
+@keyframes respira-reflejo {
+  from { translate: -13% 0; }
+  to   { translate: 13% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambiente__aliento, .marea, .vidrio::before, .filete,
+  .heroe__grafico .vela--idea, .leon-agua { animation: none !important; }
+}
+
+/* ---------- seguro para móvil ----------
+   Dos capas de velas animándose a la vez, sobre un fondo con desenfoque y
+   máscara, es mucha rasterización sostenida para un teléfono. En pantalla
+   pequeña se queda una sola capa y más lenta: la textura sigue leyéndose y el
+   navegador deja de tener motivo para matar la pestaña. */
+
+@media (max-width: 48rem) {
+  .marea--cerca { display: none; }
+  .marea--lejos { animation-duration: 240s, 5.5s; }
+
+  /* El aliento no necesita 70px de desenfoque en una pantalla de 390px. */
+  .ambiente__aliento { filter: blur(48px); }
+}
+
+/* Y si el equipo avisa de que va justo de recursos, se apaga el ambiente. */
+@media (update: slow), (prefers-reduced-motion: reduce) {
+  .mareas { display: none; }
+  .ambiente__aliento { animation: none; }
 }

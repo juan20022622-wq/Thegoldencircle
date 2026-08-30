@@ -114,15 +114,27 @@ Ver `README.md` para desplegar y para la lista de lo que falta antes de publicar
 
 **Una sola línea de tiempo, nunca revelados por umbral.** Un IntersectionObserver
 que enciende elementos de a uno produce el "va apareciendo según bajas", que es
-un tic de página generada. Todo el movimiento cuelga de `--respiro` y `--p`, que
-publica el reloj de `assets/js/movimiento.js`.
+un tic de página generada. El revelado cuelga de `--p`, que publica el reloj de
+`assets/js/movimiento.js` **solo cuando hay scroll**.
+
+**Nada de variables CSS escritas en cada fotograma.** Escribir una custom
+property en `<html>` invalida el estilo del documento entero: medido, 1,33 ms
+por escritura. A 60 fps eso son 80 ms de cada 1000 quemados en reposo, y en un
+teléfono es la mayor parte del presupuesto de fotograma. El navegador móvil
+acaba matando la pestaña y recargándola, que es como se manifestó: "la página
+se reinicia de la nada". La respiración compartida vive en keyframes CSS con el
+mismo ciclo, que corren en el compositor y no cuestan recálculo.
+
+**Nunca animar el radio de un `blur()` ni de un `drop-shadow()`.** Obliga a
+re-rasterizar en cada fotograma. Si algo tiene que latir, que sea la opacidad.
 
 **Ningún gráfico de esta página puede subir**, tampoco los decorativos. Un
 gráfico ascendente en una landing de trading es una promesa de rentabilidad
 dibujada. El del héroe pierde el nivel; el campo del fondo oscila sin tendencia.
 
-Coste a vigilar: el reloj debe quedarse por debajo de 1 ms por fotograma.
-Medido hoy: 0,027 ms.
+Coste a vigilar: con la página quieta, **cero fotogramas pedidos**. Se comprueba
+interceptando `requestAnimationFrame` y contando llamadas durante dos segundos
+sin tocar nada; si sale distinto de cero, algo volvió a correr en bucle.
 
 ## El símbolo
 
