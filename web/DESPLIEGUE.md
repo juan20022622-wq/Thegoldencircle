@@ -65,6 +65,29 @@ curl -sI https://TU-SITIO.netlify.app | grep -i "content-security-policy\|x-robo
 Si la CSP no aparece, Netlify no encontró `netlify.toml` — casi siempre es que
 el base directory quedó mal.
 
+### 3.5 · Activar la detección de formularios
+
+**Netlify no detecta formularios por defecto en los sitios nuevos.** Hay que
+activarlo a mano:
+
+*Site configuration → Forms → Form detection → **Enable form detection***
+
+Y después **volver a desplegar**, porque Netlify escanea el HTML en el momento
+del deploy: activarlo sin redesplegar no sirve de nada.
+
+Se comprueba con un POST directo:
+
+```bash
+curl -sS -o /dev/null -w "%{http_code}\n" -X POST https://TU-SITIO.netlify.app/ --data "form-name=leads&nombre=prueba&correo=p@p.com&whatsapp=1"
+```
+
+Con la detección activa responde **200 o 303**. Un **404** significa que el
+envío no llega a ninguna parte, y así estuvo el sitio hasta que se detectó.
+
+El marcado del formulario no tiene nada que ver: `data-netlify="true"`,
+`name="leads"`, el `form-name` oculto y el honeypot estaban correctos desde el
+principio. Es solo el interruptor.
+
 ### 4 · Probar el formulario de verdad
 
 En local **parece** que funciona porque el servidor estático responde 200 a
