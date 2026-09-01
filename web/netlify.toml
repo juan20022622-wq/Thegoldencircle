@@ -59,7 +59,14 @@
       base-uri 'self'; \
       object-src 'none'"""
 
+# Los archivos de assets NO llevan hash en el nombre, así que no pueden
+# cachearse como inmutables: el navegador se quedaría con la versión vieja para
+# siempre y ningún arreglo llegaría a quien ya visitó la página. Pasó.
+#
+# Con max-age=0 y ETag, el navegador pregunta y Netlify responde 304 si no
+# cambió: el coste es un viaje mínimo y la corrección está garantizada.
+# El día que haya build con nombres hasheados, se puede volver a immutable.
 [[headers]]
   for = "/assets/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
