@@ -1464,3 +1464,63 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   .banda .seccion { padding-block: 8rem; }
   .llaves p { font-size: 1.15rem; }
 }
+
+/* ---------- testimonios ----------
+   El destacado ocupa el ancho y va con cita grande: es el del error de lotaje,
+   el único que no es una captura de ganancia y el que sostiene la sección. */
+
+.testimonios {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 46rem) {
+  .testimonios { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .testimonio--destacado { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: 2rem; align-items: center; }
+}
+
+.testimonio {
+  margin: 0;
+  border: 1px solid var(--borde-tenue);
+  border-radius: 6px;
+  background: var(--superficie);
+  overflow: hidden;
+}
+
+.testimonio--destacado { border-color: var(--borde); }
+
+.testimonio img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--negro);
+}
+
+/* En la rejilla las capturas se recortan a una proporción común para que las
+   tarjetas no queden de alturas distintas. */
+@media (min-width: 46rem) {
+  .testimonio:not(.testimonio--destacado) img { aspect-ratio: 3 / 4; object-fit: cover; object-position: top; }
+  .testimonio--destacado img { border-radius: 6px 0 0 6px; }
+}
+
+.testimonio figcaption { padding: 1.25rem; }
+@media (min-width: 46rem) { .testimonio--destacado figcaption { padding: 0 2rem 0 0; } }
+
+.testimonio blockquote {
+  margin: 0 0 0.9rem;
+  font-size: 1rem;
+  color: var(--hueso);
+}
+
+.testimonio--destacado blockquote { font-size: clamp(1.05rem, 3vw, 1.35rem); }
+.testimonio blockquote strong { color: var(--oro); font-weight: 500; }
+
+.testimonio cite {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
