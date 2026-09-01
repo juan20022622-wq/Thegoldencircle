@@ -1418,3 +1418,67 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   .mareas { display: none; }
   .ambiente__aliento { animation: none; }
 }
+
+/* ---------- cómo se ejecuta ----------
+   Rejilla, no panel. La consola muestra un paso a la vez y esta se ve entera:
+   dos secuencias numeradas con la misma forma serían patrón. */
+
+.ejecucion {
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: var(--borde-tenue);
+  border: 1px solid var(--borde-tenue);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+@media (min-width: 34rem) { .ejecucion { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 60rem) { .ejecucion { grid-template-columns: repeat(3, 1fr); } }
+
+.paso-corto { background: var(--negro); padding: 1.5rem 1.35rem; }
+
+.paso-corto__n {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--oro);
+  margin-bottom: 0.75rem;
+}
+
+.paso-corto h3 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--hueso);
+  margin: 0 0 0.4rem;
+}
+
+.paso-corto p { margin: 0; font-size: 0.9375rem; color: var(--gris); }
+
+/* La regla va aparte y con otro peso: es la que de verdad importa. */
+.regla {
+  margin-top: 1.75rem;
+  padding: 1.75rem;
+  border-left: 2px solid var(--oro);
+  background: var(--superficie);
+  border-radius: 0 4px 4px 0;
+}
+
+@media (min-width: 48rem) { .regla { padding: 2rem 2.25rem; } }
+
+.regla__titulo {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oro);
+  margin: 0 0 0.75rem;
+}
+
+.regla__texto { font-size: 1.15rem; color: var(--hueso); margin: 0 0 0.75rem; max-width: 42rem; }
+.regla__pie { margin: 0; font-size: 0.9375rem; color: var(--gris); max-width: 42rem; }
