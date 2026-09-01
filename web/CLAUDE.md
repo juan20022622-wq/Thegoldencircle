@@ -173,6 +173,25 @@ a 12 px.
 `marca/identidad.md` todavía propone Cinzel y Jost: **está desactualizado en
 este punto** y hay que validarlo con Cristian.
 
+## Caché de los assets
+
+Los archivos de `assets/` **no llevan hash en el nombre**, así que sus URLs van
+versionadas a mano: `/assets/js/main.js?v=2`.
+
+**Al tocar cualquier archivo de assets hay que subir ese número** en las cuatro
+páginas. Si no, quien ya visitó el sitio sigue ejecutando la versión vieja.
+
+Por qué importa tanto: durante un tiempo se sirvieron con
+`Cache-Control: immutable` y un año de vida. `immutable` significa "no vuelvas
+a preguntar nunca", así que esos navegadores no revalidan **ni recargando**.
+Cambiar la cabecera solo arregla a los visitantes nuevos; a los que tienen la
+caché envenenada solo se los alcanza cambiando la URL. Pasó, y costó descubrirlo:
+el arreglo del formulario estaba desplegado y verificado por curl mientras el
+navegador seguía ejecutando el código anterior.
+
+El día que haya un build con nombres hasheados, esto se puede automatizar y
+volver a `immutable`.
+
 ## Auditoría antes de dar nada por bueno
 
 `herramientas/auditoria.js` se pega en la consola y mide contraste real,
