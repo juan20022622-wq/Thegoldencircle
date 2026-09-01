@@ -137,19 +137,29 @@
        el lead queda en el dispositivo y se reintenta en la próxima visita. */
     try { localStorage.setItem(CLAVE_PENDIENTE, payload); } catch (_) {}
 
+    /* Si el guardado falla, se reintenta una vez y, si vuelve a fallar, la
+       persona entra igual al canal. Perder a alguien que ya rellenó tres campos
+       es peor que retrasar su registro — y el registro no se pierde: queda en
+       el dispositivo y se reintenta en la próxima visita.
+
+       La versión anterior le mostraba un error y lo dejaba ahí parado. Con
+       Netlify Forms sin detectar el formulario, eso significaba cero entradas
+       al canal aunque la gente sí estuviera rellenando. */
     guardar(payload)
+      .catch(function () {
+        return new Promise(function (r) { setTimeout(r, 900); }).then(function () {
+          return guardar(payload);
+        });
+      })
       .then(function () {
         try { localStorage.removeItem(CLAVE_PENDIENTE); } catch (_) {}
-        evento('Lead', { content_name: 'canal-telegram' });
-        irAlCanal();
       })
       .catch(function () {
-        boton.disabled = false;
-        boton.textContent = 'Reintentar';
-        if (fallo) {
-          fallo.hidden = false;
-          fallo.textContent = 'No se pudo guardar tu registro. Revisa la conexión y vuelve a tocar el botón.';
-        }
+        /* Queda en cola. No se le dice nada: no es su problema. */
+      })
+      .then(function () {
+        evento('Lead', { content_name: 'canal-telegram' });
+        irAlCanal();
       });
   });
 
