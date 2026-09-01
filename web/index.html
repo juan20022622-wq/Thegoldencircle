@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/css/estilos.css?v=3">
+<link rel="stylesheet" href="/assets/css/estilos.css?v=4">
 
 <script type="application/ld+json">
 {
@@ -646,11 +646,10 @@
     <hr class="filete" data-flujo="traza">
     <p class="entradilla" data-flujo="lento">
       Un club de trading de oro. Cada día de mercado, antes de la apertura, publicamos
-      qué estamos mirando, qué invalidaría la idea y qué se hace si el mercado va en
-      contra.
+      lo que estamos mirando y el razonamiento entero que hay detrás.
     </p>
-    <p data-flujo><a class="boton" href="#registro">Entrar al canal gratis</a></p>
-    <p class="heroe__micro" data-flujo="rotulo">Tres datos y estás dentro. Sin tarjeta y sin cuenta de broker.</p>
+    <p data-flujo><a class="boton" href="#registro">Quiero entrar gratis</a></p>
+    <p class="heroe__micro" data-flujo="rotulo">Acceso inmediato · Sin tarjeta · Sin compromiso</p>
 
     <!-- El gráfico no sube: lateraliza y pierde el nivel. Un gráfico ascendente
          en una landing de trading es una promesa de rentabilidad dibujada.
@@ -768,33 +767,42 @@
     </figure>
   </section>
 
-  <!-- LAS CINCO LLAVES · una banda, no cinco bloques -->
+  <!-- LAS CINCO LLAVES · el eje conceptual, a la vista -->
   <section class="banda" aria-labelledby="t-llaves">
     <div class="contenedor seccion">
-      <h2 id="t-llaves" class="banda__frase" data-flujo>
-        Cinco llaves, no una.<br>El gráfico abre la primera.
-      </h2>
+      <h2 id="t-llaves" data-flujo>Cinco áreas.<br>Una sola filosofía.</h2>
+      <p data-flujo="lento">
+        El gráfico abre la primera. Las otras cuatro son las que sostienen a quien
+        opera, y son la razón de que esto no sea un canal de señales.
+      </p>
 
-      <ul class="llaves" data-flujo="lateral" role="tablist" aria-label="Las cinco llaves">
-        <li role="presentation"><button type="button" role="tab" id="llave-0"
-                aria-selected="true" aria-controls="texto-0">Dinero</button></li>
-        <li role="presentation"><button type="button" role="tab" id="llave-1"
-                aria-selected="false" aria-controls="texto-1">Propósito</button></li>
-        <li role="presentation"><button type="button" role="tab" id="llave-2"
-                aria-selected="false" aria-controls="texto-2">Cuerpo</button></li>
-        <li role="presentation"><button type="button" role="tab" id="llave-3"
-                aria-selected="false" aria-controls="texto-3">Mentalidad</button></li>
-        <li role="presentation"><button type="button" role="tab" id="llave-4"
-                aria-selected="false" aria-controls="texto-4">Educación</button></li>
-      </ul>
-
-      <div class="llave__texto" data-flujo="lento" data-textos aria-live="polite">
-        <p id="texto-0" role="tabpanel" aria-labelledby="llave-0"><span class="llave__nombre">Dinero. </span>Cuánto arriesgas por operación, y por qué esa cifra y no otra.</p>
-        <p id="texto-1" role="tabpanel" aria-labelledby="llave-1"><span class="llave__nombre">Propósito. </span>Para qué quieres esto. Sin una respuesta, la primera racha mala te saca.</p>
-        <p id="texto-2" role="tabpanel" aria-labelledby="llave-2"><span class="llave__nombre">Cuerpo. </span>Entrenas la misma disciplina en el gimnasio y delante del gráfico.</p>
-        <p id="texto-3" role="tabpanel" aria-labelledby="llave-3"><span class="llave__nombre">Mentalidad. </span>Qué haces con una pérdida, con tres seguidas, y con el exceso de confianza.</p>
-        <p id="texto-4" role="tabpanel" aria-labelledby="llave-4"><span class="llave__nombre">Educación. </span>Cada idea con su razonamiento, hasta que no necesites la de nadie.</p>
-      </div>
+      <ol class="llaves">
+        <li data-flujo="lateral">
+          <span class="llave__orden">01</span>
+          <h3>Dinero</h3>
+          <p>Gestionar el riesgo antes de pensar en el resultado.</p>
+        </li>
+        <li data-flujo="lateral">
+          <span class="llave__orden">02</span>
+          <h3>Propósito</h3>
+          <p>Operar con dirección, no por impulso.</p>
+        </li>
+        <li data-flujo="lateral">
+          <span class="llave__orden">03</span>
+          <h3>Cuerpo</h3>
+          <p>Disciplina física para sostener disciplina mental.</p>
+        </li>
+        <li data-flujo="lateral">
+          <span class="llave__orden">04</span>
+          <h3>Mentalidad</h3>
+          <p>Paciencia, ejecución y control emocional.</p>
+        </li>
+        <li data-flujo="lateral">
+          <span class="llave__orden">05</span>
+          <h3>Educación</h3>
+          <p>Entender el porqué detrás de cada decisión.</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -973,10 +981,8 @@
 
         <div class="paso" data-titulo-paso="Recibes los análisis">
           <p class="paso__rotulo">03 · Recibes los análisis y decides tú</p>
-          <p>Cada día de mercado, una idea de oro con su razonamiento completo: por qué
-             se ve, qué la invalida y qué se hace si el mercado va en contra.</p>
-          <p>Tú decides cuáles tomas, con cuánto entras y cuándo sales. La cuenta es
-             tuya y las órdenes las pones tú. <strong>Nadie opera por ti.</strong></p>
+          <p>Empiezan a llegarte los set-ups completos, con el razonamiento que ya viste
+             más arriba. La cuenta es tuya y las órdenes las pones tú.</p>
         </div>
 
         <div class="paso" data-titulo-paso="Dejas de copiar">
@@ -1004,7 +1010,7 @@
       puedas permitirte perder.
     </p>
 
-    <p data-flujo style="margin-top:2rem"><a class="boton" href="#registro">Entrar al canal gratis</a></p>
+    <p data-flujo style="margin-top:2rem"><a class="boton" href="#registro">Quiero entrar gratis</a></p>
   </section>
 
   <!-- DUDAS -->
@@ -1070,7 +1076,8 @@
     <div class="contenedor seccion">
       <h2 data-flujo>Tres datos y estás dentro.</h2>
       <p data-flujo>
-        Al enviar te llevamos directo al canal, sin esperar aprobación.
+        Dos datos y estás dentro. Te llevamos al canal al instante, sin esperar
+        aprobación de nadie.
       </p>
 
       <!-- Qué pasa al pulsar. Es el punto de más ansiedad de la página y hasta
@@ -1115,9 +1122,9 @@
         </div>
 
         <div class="campo">
-          <label for="correo">Correo</label>
+          <label for="correo">Correo <span class="campo__nota">opcional</span></label>
           <input id="correo" name="correo" type="email" autocomplete="email"
-                 inputmode="email" required maxlength="120" placeholder="tu@correo.com"
+                 inputmode="email" maxlength="120" placeholder="Si quieres que te avisemos por aquí"
                  enterkeyhint="next" autocapitalize="none" autocorrect="off" spellcheck="false"
                  aria-describedby="e-correo">
           <span class="campo__error" id="e-correo" role="alert"></span>
@@ -1136,7 +1143,7 @@
           </span>
         </div>
 
-        <button class="boton boton--ancho" type="submit" data-envio>Entrar al canal gratis</button>
+        <button class="boton boton--ancho" type="submit" data-envio>Quiero entrar gratis</button>
 
         <p class="formulario__aviso">
           Al enviar aceptas recibir mensajes de The Golden Syndicate. Puedes salir cuando
@@ -1168,8 +1175,8 @@
   </div>
 </footer>
 
-<script src="/assets/js/config.js?v=3"></script>
-<script src="/assets/js/movimiento.js?v=3" defer></script>
-<script src="/assets/js/main.js?v=3" defer></script>
+<script src="/assets/js/config.js?v=4"></script>
+<script src="/assets/js/movimiento.js?v=4" defer></script>
+<script src="/assets/js/main.js?v=4" defer></script>
 </body>
 </html>

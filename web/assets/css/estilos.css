@@ -281,89 +281,6 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   font-size: 0.9375rem;
 }
 
-/* ---------- la banda de las cinco llaves ---------- */
-
-/* Las llaves no son cinco bloques de texto: son cinco palabras que se encienden.
-   Ocupan una pantalla en vez de cinco. */
-
-.banda { position: relative; }
-
-.banda__frase {
-  font-family: var(--titular);
-  font-size: clamp(1.25rem, 4.5vw, 1.75rem);
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--hueso);
-  margin: 0 0 2.5rem;
-  max-width: 30rem;
-}
-
-.llaves {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.75rem;
-  margin: 0 0 2rem;
-  padding: 0;
-}
-
-.llaves button {
-  appearance: none;
-  border: 0;
-  background: none;
-  padding: 0.35rem 0;
-  cursor: pointer;
-  font-family: var(--titular);
-  font-size: clamp(1rem, 3.2vw, 1.375rem);
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--gris);
-  position: relative;
-  transition: color 0.35s var(--salida);
-}
-
-.llaves button::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 1px;
-  background: var(--oro);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s var(--salida);
-}
-
-.llaves button:hover { color: var(--oro-claro); }
-.llaves button[aria-selected="true"] { color: var(--oro); }
-.llaves button[aria-selected="true"]::after { transform: scaleX(1); }
-
-.llave__texto { max-width: 34rem; }
-
-.llave__texto p {
-  font-size: 1.15rem;
-  color: var(--hueso);
-  margin: 0 0 1rem;
-}
-
-.llave__nombre { color: var(--oro); }
-
-/* Con JS se ve una a la vez, con altura fija para que la página no salte. */
-.llave__texto--viva { min-height: 5rem; }
-.llave__texto--viva p { display: none; margin: 0; }
-
-/* Con JS el botón ya dice el nombre; el rótulo solo hace falta sin JS. */
-.llave__texto--viva .llave__nombre { display: none; }
-
-.llave__texto--viva p[data-visible] {
-  display: block;
-  animation: entra-llave 0.32s var(--salida) both;
-}
-
-@keyframes entra-llave {
-  from { opacity: 0; transform: translateY(7px); }
-  to   { opacity: 1; transform: none; }
-}
-
 /* ---------- la consola: el camino en un solo bloque ---------- */
 
 .consola {
@@ -1482,3 +1399,68 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 
 .regla__texto { font-size: 1.15rem; color: var(--hueso); margin: 0 0 0.75rem; max-width: 42rem; }
 .regla__pie { margin: 0; font-size: 0.9375rem; color: var(--gris); max-width: 42rem; }
+
+/* ---------- las cinco llaves ----------
+   Antes estaban detrás de una interacción: había que tocar cada palabra para
+   leer su línea, y por eso pasaban desapercibidas. Ahora se ven las cinco.
+
+   Sin iconos: una fila de emojis o pictogramas es la rejilla de features que
+   delata a una página generada, y el de dinero además está prohibido por
+   marca/identidad.md. Lo que ordena aquí es la tipografía. */
+
+.banda { position: relative; }
+
+.llaves {
+  list-style: none;
+  counter-reset: llave;
+  margin: 3rem 0 0;
+  padding: 0;
+}
+
+.llaves > li {
+  display: grid;
+  gap: 0.25rem 1.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--borde-tenue);
+}
+
+.llaves > li:last-child { border-bottom: 1px solid var(--borde-tenue); }
+
+/* Con ancho, el número y el nombre a la izquierda y la frase alineada aparte:
+   una columna editorial, no tres tarjetas iguales. */
+@media (min-width: 44rem) {
+  .llaves > li {
+    grid-template-columns: 3.5rem minmax(0, 11rem) minmax(0, 1fr);
+    align-items: baseline;
+    padding: 1.75rem 0;
+  }
+}
+
+.llave__orden {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--gris);   /* el oro profundo daba 3,96:1 y no pasa AA */
+}
+
+.llaves h3 {
+  font-size: clamp(1.35rem, 5vw, 1.9rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--oro);
+  margin: 0;
+}
+
+.llaves p {
+  margin: 0;
+  font-size: 1.0625rem;
+  color: var(--hueso);
+  max-width: 30rem;
+}
+
+/* El aire crece con el ancho: la sección tiene que sentirse protagonista. */
+@media (min-width: 60rem) {
+  .banda .seccion { padding-block: 8rem; }
+  .llaves p { font-size: 1.15rem; }
+}

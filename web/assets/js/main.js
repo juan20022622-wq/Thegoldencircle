@@ -52,8 +52,9 @@
       valida: function (v) { return v.trim().length >= 2; },
       error: 'Escribe tu nombre.'
     },
+    /* Opcional: vacío pasa, pero si escriben algo tiene que ser un correo. */
     correo: {
-      valida: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); },
+      valida: function (v) { return !v.trim() || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); },
       error: 'Revisa el correo: falta algo.'
     },
     whatsapp: {

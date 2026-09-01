@@ -98,41 +98,8 @@
     });
   }
 
-  /* ================= las cinco llaves ================= */
-
-  (function llaves() {
-    var lista = document.querySelector('.llaves');
-    var caja  = document.querySelector('[data-textos]');
-    if (!lista || !caja) return;
-
-    var botones = [].slice.call(lista.querySelectorAll('button'));
-    var textos  = [].slice.call(caja.querySelectorAll('p'));
-    if (botones.length !== textos.length) return;
-
-    caja.classList.add('llave__texto--viva');
-
-    function elegir(i, foco) {
-      botones.forEach(function (b, k) { b.setAttribute('aria-selected', String(k === i)); });
-      textos.forEach(function (p, k) {
-        if (k === i) p.setAttribute('data-visible', ''); else p.removeAttribute('data-visible');
-      });
-      if (foco) botones[i].focus();
-    }
-
-    botones.forEach(function (boton, i) {
-      boton.addEventListener('click', function () { elegir(i, false); });
-
-      /* Flechas para recorrer las llaves con teclado, como pide el rol tablist. */
-      boton.addEventListener('keydown', function (e) {
-        var paso = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
-        if (!paso) return;
-        e.preventDefault();
-        elegir((i + paso + botones.length) % botones.length, true);
-      });
-    });
-
-    elegir(0, false);
-  })();
+  /* Las cinco llaves ya no son una pestaña: se ven las cinco a la vez, así que
+     el bloque que las alternaba se retiró. */
 
   /* ================= la consola del camino ================= */
 

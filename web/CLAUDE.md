@@ -34,9 +34,12 @@ momento tiene una forma distinta.
 
 1. **Héroe** — la promesa arriba y el botón. Una línea de apoyo, no un párrafo.
    El símbolo, no un menú.
-2. **La banda** — las cinco llaves como cinco palabras que se encienden al
-   tocarlas. Es lo que hace que esta página no sea otra página de señales, pero
-   no necesita cinco bloques de texto para decirlo.
+2. **Las cinco llaves** — dinero, propósito, cuerpo, mentalidad, educación,
+   las cinco a la vista con su línea. Es el eje conceptual de la marca y lo que
+   hace que esto no sea otra página de señales, así que es sección protagonista.
+   **Sin iconos ni emojis:** una fila de pictogramas es la rejilla de features
+   que delata a una página generada, y el de dinero está prohibido por
+   `marca/identidad.md`. Lo que ordena aquí es la tipografía.
 3. **La cara** — el video de Cristian y quién es él, en la misma sección. Sin
    el video la página es de cualquiera; sin la bio, el video no se sostiene.
 4. **La anatomía** — el cotejo de mensajes: lo que publica un canal de señales
@@ -68,7 +71,9 @@ cuatro pasos y las cinco llaves apilados, y el buscador los indexa igual.
 **Móvil primero.** El tráfico viene de Instagram. Diseñar a 390 px y crecer
 desde ahí, no al revés.
 
-**Formulario:** tres campos, validación en cliente, y el lead se guarda ANTES
+**Formulario:** nombre y WhatsApp obligatorios, correo opcional. El correo sigue
+en el formulario porque la base de correos es el activo que sobrevive al broker;
+lo que se quitó es el muro. Validación en cliente, y el lead se guarda ANTES
 de redirigir a Telegram — si la redirección falla, el dato no se pierde. La base
 de datos es de Cristian, es el activo que sobrevive al broker.
 
