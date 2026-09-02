@@ -1476,7 +1476,9 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 }
 
 @media (min-width: 46rem) {
-  .testimonios { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  /* Dos columnas, no tres: con el destacado a ancho completo quedan dos
+     tarjetas y una tercera columna vacía. */
+  .testimonios { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
   .testimonio--destacado { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: 2rem; align-items: center; }
 }
 

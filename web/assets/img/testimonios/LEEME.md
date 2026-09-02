@@ -1,47 +1,37 @@
 # Capturas de testimonios
 
-Poner aquí los archivos con estos nombres exactos:
+## Qué hay
 
 | Archivo | Cuál |
 |---|---|
-| `lotaje.jpg` | La del error de lotaje. **Es la más importante de todas.** |
-| `tp-4-minutos.jpg` | "Se fue a TP en cuestión de 4 mins" |
-| `historial-01.jpg` | Un historial |
-| `historial-02.jpg` | Otro historial |
+| `lotaje.jpg` | La del error de lotaje. **Es la que sostiene la sección.** |
+| `historial-01.jpg` | Historial del 25 de agosto |
+| `historial-02.jpg` | Historial del 21 de agosto |
 
-## Antes de subirlas
+Originales en `~/Downloads/WhatsApp Image 2026-09-01 at 02.53.*`.
 
-**Recortar los nombres de terceros.** Varias capturas llevan nombres visibles de
-otras personas del canal. Eso es dato personal ajeno: o se recorta, o se tiene su
-permiso por escrito. No es lo mismo que la decisión de mostrar resultados, que es
-del club; esto es de otra gente.
+## Qué se les hizo
 
-**Recortar también los saldos de cuenta** si aparecen. Un balance es información
-financiera personal de quien la compartió.
+**Recortado el pie de cada una.** Las tres llevaban abajo la foto de perfil de
+quien las compartió, y en un caso la de otra persona más. Eso es dato personal
+ajeno: se eliminó del archivo, no se tapó con CSS. La captura publicada no
+contiene esos píxeles.
 
-**Comprimir.** Son capturas de teléfono y pesan mucho. Exportar a JPG de calidad
-80 con un ancho máximo de 900 px, o mejor a WebP. La página entera pesa hoy 31 KB
-comprimida; cuatro capturas sin optimizar pueden multiplicar eso por veinte y
-tirarse el presupuesto de 2 s en 4G.
+**Descartada la de "GRACIAS LEE".** Lleva el nombre "Anthoinne Kock" dos veces y
+fotos de perfil de dos personas. Para usarla haría falta su permiso por escrito.
 
-Con `sips`, que ya viene en el Mac:
+**Comprimidas** a 900 px de ancho y calidad 82. Las tres suman 348 KB.
+
+## Si se cambian
 
 ```bash
-sips -Z 900 -s format jpeg -s formatOptions 80 entrada.png --out lotaje.jpg
+sips -c <alto> <ancho> --cropOffset 0 0 origen.jpeg --out _r.jpg
+sips -Z 900 -s format jpeg -s formatOptions 82 _r.jpg --out destino.jpg
 ```
 
-## Ahora mismo
+`--cropOffset 0 0` recorta desde arriba; sin él, `sips` recorta centrado y deja
+el pie dentro. Después hay que actualizar `width` y `height` en `index.html` y
+subir el `?v=` de los assets.
 
-Hay marcadores `.svg` que dicen "captura pendiente", para que el sitio en vivo
-no muestre imágenes rotas. Cuando dejes los `.jpg` reales aquí, hay que cambiar
-la extensión en `index.html`:
-
-```bash
-sed -i "" "s|testimonios/\([a-z0-9-]*\)\.svg|testimonios/\1.jpg|g" web/index.html
-```
-
-Y borrar los `.svg`.
-
-## Si falta alguna
-
-Mejor quitar del HTML la tarjeta que sobre que dejar un marcador publicado.
+Y siempre: **abrir el resultado y mirarlo** antes de publicar. Los dos primeros
+recortes que hice dejaban todavía media cara asomando.
