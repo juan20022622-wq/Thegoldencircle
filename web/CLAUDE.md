@@ -148,11 +148,16 @@ navegaran igual, volvería la plantilla.
 `<cite>` al lado queda atribuido a la persona, y son palabras que no dijo. Las
 citas van verbatim o no van.
 
-**Las capturas van todas a 600x750 (4:5) y en WebP.** Son capturas de texto
+**Las capturas van todas a 600x800 (3:4), en WebP y con su marco.** Son capturas de texto
 plano: comprimen fatal en JPEG y muy bien en WebP — las nueve pasan de 744 KB a
-348 KB. La proporción tiene que ser idéntica o la fila se descuadra, y 4:5 en
-lugar de 3:4 porque los paneles de historial son más anchos que altos: en 3:4
-había que sacrificar la columna de valores o la mitad de las filas.
+376 KB. La proporción tiene que ser idéntica o la fila se descuadra.
+
+Y van **con el marco de la conversación**: fondo de Telegram a los lados,
+esquinas redondeadas, la hora superpuesta, la barra de estado del móvil.
+Recortadas al panel limpio parecen capturas de cualquiera, y eso vacía la
+sección entera. Lo que se recorta son nombres, caras y saldos, no el contexto.
+Se generan con \`herramientas/testimonios.mjs\`; **nunca con \`sips -c\`**, que
+recorta centrado y mide el offset desde el centro.
 
 **El orden del mazo de capturas no es el que llegaron.** Las tres primeras son
 las que no salieron bien: el error de gestión, la posición en rojo y el cierre

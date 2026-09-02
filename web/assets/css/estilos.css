@@ -1378,7 +1378,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 .carta {
   --d: 0;
   --e: 0;
-  flex: 0 0 min(78vw, 17rem);
+  flex: 0 0 min(84vw, 18.5rem);
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
@@ -1391,7 +1391,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   opacity: calc(1 - var(--e) * 0.55);
 }
 
-@media (min-width: 46rem) { .carta { flex-basis: 19rem; } }
+@media (min-width: 46rem) { .carta { flex-basis: 21rem; } }
 
 /* Al frente: el borde se enciende. Es la única señal de "esta es la que estás
    leyendo" que no depende de que se perciba la inclinación. */
@@ -1641,9 +1641,10 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   display: block;
   width: 100%;
   height: auto;
-  /* 4:5, no 3:4: los paneles de historial son más anchos que altos y en 3:4
-     había que sacrificar la columna de valores o la mitad de las filas. */
-  aspect-ratio: 4 / 5;
+  /* 3:4: es la forma de una captura de móvil compartida en un chat, y las
+     capturas se recortan con su marco —fondo de Telegram, esquinas, hora— para
+     que se vea de dónde salieron. */
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: top;
   background: var(--negro);

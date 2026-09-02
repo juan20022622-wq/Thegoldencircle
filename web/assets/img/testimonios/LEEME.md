@@ -1,7 +1,14 @@
 # Capturas de testimonios
 
-Nueve archivos WebP, **todos a 600x750 (4:5) exactos**. Van en un mazo
+Nueve archivos WebP, **todos a 600x800 (3:4) exactos**. Van en un mazo
 deslizable y una proporción distinta rompe la fila.
+
+**Las capturas van con su marco, no recortadas al panel.** Fondo de Telegram a
+los lados, esquinas redondeadas, la hora superpuesta, la barra de estado del
+móvil. Recortadas al panel limpio parecían capturas de cualquiera —de hecho eso
+fue lo primero que se hizo, y era el problema: sin el marco no hay nada que diga
+que salieron del canal. Lo que se recorta son los nombres, las caras y los
+saldos, no el contexto.
 
 | Archivo | Qué muestra |
 |---|---|
@@ -47,20 +54,22 @@ fila de resumen.
 
 ## Cómo se generan
 
-`sips` recorta **centrado** por defecto: sin `--cropOffset` se lleva justo lo que
-quieres conservar. El orden es `--cropOffset <y> <x>`.
-
-Y no hay que pasar por JPEG: son capturas de texto plano, que comprimen fatal en
-JPEG y muy bien en WebP. Las nueve en JPEG pesaban 744 KB; en WebP, 348 KB.
+Con `herramientas/testimonios.mjs`, que lleva dentro la tabla de recortes: por
+cada captura, el rectángulo medido **sobre una vista previa de 500 px de lado
+mayor**. El script escala, cuadra a 3:4, extrae y saca el WebP.
 
 ```bash
-# 1. recortar en 4:5 y bajar a 600x750, sin pérdida
-sips -c 1070 856 --cropOffset 440 95 origen.jpeg --out paso.png -s format png
-sips -z 750 600 paso.png --out lotaje.png
+# 1. vista previa para medir
+sips -Z 500 "origen.jpeg" --out vista.jpg
 
-# 2. a WebP (sharp no está instalado; npx lo trae y no deja nada)
-npx -y sharp-cli@5 -i "lotaje.png" -o . -f webp -q 78
+# 2. anotar [x0, y0, x1, y1] en la tabla del script, y generar
+npx -y -p sharp node web/herramientas/testimonios.mjs
 ```
+
+**No usar `sips -c` para esto.** `sips` recorta centrado y su `--cropOffset` se
+mide desde el centro, no desde la esquina; calcularlo a mano dio encuadres
+torcidos varias veces. `sharp` usa esquina + tamaño y no hay ambigüedad. Además
+va de JPEG a WebP en un paso, sin recompresión intermedia.
 
 ## Si falta alguna
 
