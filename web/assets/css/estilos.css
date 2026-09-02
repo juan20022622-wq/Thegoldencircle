@@ -1641,7 +1641,9 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 4;
+  /* 4:5, no 3:4: los paneles de historial son más anchos que altos y en 3:4
+     había que sacrificar la columna de valores o la mitad de las filas. */
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: top;
   background: var(--negro);
@@ -1664,6 +1666,13 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   line-height: 1.55;
   color: var(--gris);
 }
+
+.carta--captura .carta__nota strong { color: var(--oro); font-weight: 500; }
+
+/* Todas las cartas miden lo que la más alta —la de la cita larga— así que el
+   pie se ancla abajo en lugar de dejar el hueco entero al final. */
+.carta--captura figcaption { display: flex; flex-direction: column; flex: 1; }
+.carta--captura cite { margin-top: auto; }
 
 .carta--captura cite {
   font-family: var(--mono);

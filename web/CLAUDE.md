@@ -148,6 +148,19 @@ navegaran igual, volvería la plantilla.
 `<cite>` al lado queda atribuido a la persona, y son palabras que no dijo. Las
 citas van verbatim o no van.
 
+**Las capturas van todas a 600x750 (4:5) y en WebP.** Son capturas de texto
+plano: comprimen fatal en JPEG y muy bien en WebP — las nueve pasan de 744 KB a
+348 KB. La proporción tiene que ser idéntica o la fila se descuadra, y 4:5 en
+lugar de 3:4 porque los paneles de historial son más anchos que altos: en 3:4
+había que sacrificar la columna de valores o la mitad de las filas.
+
+**El orden del mazo de capturas no es el que llegaron.** Las tres primeras son
+las que no salieron bien: el error de gestión, la posición en rojo y el cierre
+en negativo. Nueve pantallas seguidas de ganancia son la página de "mira cuánto
+ganamos" que el cliente pidió no hacer, y lo que `revision-copy-trading` marca
+como bloqueante. En `assets/img/testimonios/LEEME.md` están las que quedaron
+fuera y por qué.
+
 ## Movimiento
 
 **Una sola línea de tiempo, nunca revelados por umbral.** Un IntersectionObserver
@@ -218,6 +231,11 @@ versionadas a mano: `/assets/js/main.js?v=2`.
 
 **Al tocar cualquier archivo de assets hay que subir ese número** en las cuatro
 páginas. Si no, quien ya visitó el sitio sigue ejecutando la versión vieja.
+
+Se hace con `node web/herramientas/version.mjs`, que busca el número más alto
+que encuentre y lo sube en todas. **A mano falla**: durante varios despliegues
+index iba en v=7 mientras gracias, privacidad e ir seguían en v=5, y esas tres
+cargan el mismo CSS y el mismo JS.
 
 Por qué importa tanto: durante un tiempo se sirvieron con
 `Cache-Control: immutable` y un año de vida. `immutable` significa "no vuelvas

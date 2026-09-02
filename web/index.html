@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/css/estilos.css?v=7">
+<link rel="stylesheet" href="/assets/css/estilos.css?v=9">
 
 <script type="application/ld+json">
 {
@@ -999,35 +999,83 @@
   <section class="contenedor seccion" aria-labelledby="t-testimonios">
     <h2 id="t-testimonios" data-flujo>No te pedimos que nos creas.</h2>
     <p data-flujo="lento">
-      Esto es lo que mandan los miembros al canal. El primero no es una operación
-      ganadora: es alguien dándose cuenta de que se saltó su propia gestión de
-      riesgo.
+      Esto es lo que mandan los miembros al canal. Las tres primeras no son
+      operaciones ganadoras: un error de gestión, una posición en rojo y un cierre
+      en negativo. Están ahí a propósito.
     </p>
 
     <div class="baraja" data-baraja data-flujo="hondo">
       <div class="baraja__pista" id="pista-testimonios" data-pista tabindex="0"
            role="group" aria-label="Capturas que comparten los miembros del canal. Deslízalas de lado.">
         <figure class="carta carta--captura">
-          <img src="/assets/img/testimonios/lotaje.jpg" alt="Mensaje de una miembro del canal reconociendo que entró con un lotaje mayor al que debía"
-               loading="lazy" decoding="async" width="600" height="800">
+          <img src="/assets/img/testimonios/lotaje.webp" alt="Mensaje de una miembro del canal reconociendo que entró con un lotaje mayor al que debía"
+               loading="lazy" decoding="async" width="600" height="750">
           <figcaption class="carta__cuerpo">
             <blockquote>Entré con un <strong>lotaje mayor al que debía</strong>. Gracias a Dios el mercado estuvo a favor, pero entendí que la disciplina y una buena gestión del riesgo son tan importantes como una buena entrada.</blockquote>
             <cite>Miembro del canal</cite>
           </figcaption>
         </figure>
         <figure class="carta carta--captura">
-          <img src="/assets/img/testimonios/historial-01.jpg" alt="Historial de operaciones cerradas de un miembro del canal"
-               loading="lazy" decoding="async" width="600" height="800">
+          <img src="/assets/img/testimonios/flotante.webp" alt="Gráfico de un miembro con seis compras abiertas, cinco de ellas en pérdida"
+               loading="lazy" decoding="async" width="600" height="750">
+          <figcaption class="carta__cuerpo">
+            <p class="carta__nota">Seis compras abiertas y cinco en rojo. Así se ve una posición mientras el precio va en contra.</p>
+            <cite>Miembro del canal</cite>
+          </figcaption>
+        </figure>
+        <figure class="carta carta--captura">
+          <img src="/assets/img/testimonios/perdedora.webp" alt="Historial de operaciones de un miembro con una operación cerrada en negativo"
+               loading="lazy" decoding="async" width="600" height="750">
+          <figcaption class="carta__cuerpo">
+            <p class="carta__nota">Una de estas cerró en <strong>-0.04</strong>. Salen así también.</p>
+            <cite>Miembro del canal</cite>
+          </figcaption>
+        </figure>
+        <figure class="carta carta--captura">
+          <img src="/assets/img/testimonios/zonas.webp" alt="Gráfico de un miembro con ocho ventas marcadas sobre los mismos niveles"
+               loading="lazy" decoding="async" width="600" height="750">
+          <figcaption class="carta__cuerpo">
+            <p class="carta__nota">Ocho ventas escalonadas sobre los niveles marcados en el gráfico.</p>
+            <cite>Miembro del canal</cite>
+          </figcaption>
+        </figure>
+        <figure class="carta carta--captura">
+          <img src="/assets/img/testimonios/historial-01.webp" alt="Historial de operaciones de compra de un miembro del canal"
+               loading="lazy" decoding="async" width="600" height="750">
           <figcaption class="carta__cuerpo">
             <p class="carta__nota">Ocho entradas de compra en la misma zona, cerradas todas al mismo precio.</p>
             <cite>Miembro del canal</cite>
           </figcaption>
         </figure>
         <figure class="carta carta--captura">
-          <img src="/assets/img/testimonios/historial-02.jpg" alt="Historial de operaciones cerradas de un miembro del canal"
-               loading="lazy" decoding="async" width="600" height="800">
+          <img src="/assets/img/testimonios/historial-02.webp" alt="Historial con ventas y compras de un miembro del canal"
+               loading="lazy" decoding="async" width="600" height="750">
           <figcaption class="carta__cuerpo">
             <p class="carta__nota">Ventas y compras el mismo día. Cada bloque con su propio cierre.</p>
+            <cite>Miembro del canal</cite>
+          </figcaption>
+        </figure>
+        <figure class="carta carta--captura">
+          <img src="/assets/img/testimonios/ventas.webp" alt="Historial de ventas de un miembro del canal"
+               loading="lazy" decoding="async" width="600" height="750">
+          <figcaption class="carta__cuerpo">
+            <p class="carta__nota">Ventas de 0,01 lotes cerradas en el mismo segundo, sobre dos niveles.</p>
+            <cite>Miembro del canal</cite>
+          </figcaption>
+        </figure>
+        <figure class="carta carta--captura">
+          <img src="/assets/img/testimonios/salidas.webp" alt="Registro de cierres parciales de una posición de un miembro del canal"
+               loading="lazy" decoding="async" width="600" height="750">
+          <figcaption class="carta__cuerpo">
+            <p class="carta__nota">Una misma posición cerrada por partes, en dos precios de salida.</p>
+            <cite>Miembro del canal</cite>
+          </figcaption>
+        </figure>
+        <figure class="carta carta--captura">
+          <img src="/assets/img/testimonios/posiciones.webp" alt="Historial de compras de un miembro del canal"
+               loading="lazy" decoding="async" width="600" height="750">
+          <figcaption class="carta__cuerpo">
+            <p class="carta__nota">Nueve compras de 0,03, todas cerradas en el mismo punto.</p>
             <cite>Miembro del canal</cite>
           </figcaption>
         </figure>
@@ -1282,8 +1330,8 @@
   </div>
 </footer>
 
-<script src="/assets/js/config.js?v=7"></script>
-<script src="/assets/js/movimiento.js?v=7" defer></script>
-<script src="/assets/js/main.js?v=7" defer></script>
+<script src="/assets/js/config.js?v=9"></script>
+<script src="/assets/js/movimiento.js?v=9" defer></script>
+<script src="/assets/js/main.js?v=9" defer></script>
 </body>
 </html>
