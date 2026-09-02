@@ -1336,37 +1336,79 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   .ambiente__aliento { animation: none; }
 }
 
-/* ---------- cómo se ejecuta ----------
-   Rejilla, no panel. La consola muestra un paso a la vez y esta se ve entera:
-   dos secuencias numeradas con la misma forma serían patrón. */
+/* ---------- el mazo ----------
+   Los seis pasos y las capturas de los miembros se recorren de lado, una a la
+   vez, como quien pasa cartas. Es lo que hace el pulgar sin que se lo pidan y
+   deja de exigir seis lecturas simultáneas para entender un método que en
+   realidad es secuencial.
 
-.ejecucion {
+   El desplazamiento es nativo: scroll-snap con `overflow-x`. Nada de arrastre
+   simulado, así que hay inercia del sistema, rueda del ratón, teclado y foco
+   sin escribir una línea de física. El JS solo publica --d (cuánto se ha ido
+   del centro, con signo) y --e (lo mismo en valor absoluto) para inclinar y
+   apagar las que no están al frente. Eso es lo que da el aire de baraja.
+
+   Esas escrituras son a la propiedad del elemento, no a <html>: invalidan su
+   subárbol y nada más. Es la diferencia con la respiración que tumbaba la
+   pestaña, y por eso aquí sí puede ir por fotograma.
+
+   Sin JS sigue siendo una fila desplazable con todo el contenido en el DOM. */
+
+.baraja { position: relative; margin-top: 2.5rem; }
+
+.baraja__pista {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  margin-inline: calc(var(--gutter) * -1);
+  padding: 0.75rem var(--gutter) 1.25rem;
+  scroll-padding-inline: var(--gutter);
   list-style: none;
-  margin: 2.5rem 0 0;
-  padding: 0;
-  display: grid;
-  gap: 1px;
-  background: var(--borde-tenue);
-  border: 1px solid var(--borde-tenue);
-  border-radius: 4px;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
-@media (min-width: 34rem) { .ejecucion { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 60rem) { .ejecucion { grid-template-columns: repeat(3, 1fr); } }
+.baraja__pista::-webkit-scrollbar { display: none; }
+.baraja__pista:focus-visible { outline: 2px solid var(--oro); outline-offset: 4px; border-radius: 8px; }
 
-.paso-corto { background: var(--negro); padding: 1.5rem 1.35rem; }
+.carta {
+  --d: 0;
+  --e: 0;
+  flex: 0 0 min(78vw, 17rem);
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  border: 1px solid var(--borde-tenue);
+  border-radius: 10px;
+  background: var(--superficie);
+  overflow: hidden;
+  transform: rotate(calc(var(--d) * 2.4deg)) scale(calc(1 - var(--e) * 0.07));
+  opacity: calc(1 - var(--e) * 0.55);
+}
 
-.paso-corto__n {
+@media (min-width: 46rem) { .carta { flex-basis: 19rem; } }
+
+/* Al frente: el borde se enciende. Es la única señal de "esta es la que estás
+   leyendo" que no depende de que se perciba la inclinación. */
+.carta[data-frente] { border-color: var(--borde); }
+
+.carta__cuerpo { padding: 1.35rem 1.35rem 1.5rem; }
+
+.carta__n {
   display: block;
   font-family: var(--mono);
   font-size: 0.75rem;
   letter-spacing: 0.14em;
   color: var(--oro);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.7rem;
 }
 
-.paso-corto h3 {
+.carta--paso h3 {
   font-size: 1.0625rem;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -1375,7 +1417,132 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   margin: 0 0 0.4rem;
 }
 
-.paso-corto p { margin: 0; font-size: 0.9375rem; color: var(--gris); }
+.carta--paso p { margin: 0; font-size: 0.9375rem; color: var(--gris); }
+
+/* ---------- las escenas ----------
+   Cada paso lleva su propio dibujo, no una plantilla con capas encendidas: seis
+   veces la misma figura sería la rejilla de iconos otra vez.
+
+   Ninguna sube. Las dos que dibujan precio bajan hacia la zona, que es lo que
+   hace el mercado cuando llega un set-up de venta. */
+
+.escena {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid var(--borde-tenue);
+  background:
+    radial-gradient(120% 140% at 50% 0%, rgba(210, 166, 75, 0.07), transparent 70%),
+    var(--negro);
+}
+
+/* :where() no suma especificidad: sin el, `.escena rect` (0,1,1) le gana a
+   `.e-banda` (0,1,0) y la zona y los puntos salen huecos. */
+.escena :where(path, circle, rect, g) { fill: none; vector-effect: non-scaling-stroke; }
+
+.e-oro    { stroke: var(--oro); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.e-linea  { stroke: rgba(242, 237, 227, 0.22); stroke-width: 1.3; stroke-linecap: round; }
+.e-linea--gruesa { stroke-width: 2.5; }
+.e-marco  { stroke: rgba(242, 237, 227, 0.28); stroke-width: 1.3; }
+.e-punteada { stroke: rgba(210, 166, 75, 0.55); stroke-width: 1.3; stroke-dasharray: 3 4; stroke-linecap: round; }
+.e-punto  { fill: var(--oro); stroke: none; }
+.e-banda  { fill: rgba(210, 166, 75, 0.12); stroke: rgba(210, 166, 75, 0.4); stroke-width: 1; }
+.e-banda--tenue { fill: rgba(210, 166, 75, 0.06); stroke: rgba(210, 166, 75, 0.22); }
+.e-pulso  { stroke: var(--oro); stroke-width: 1.4; opacity: 0.45; }
+.e-aspa   { stroke-width: 2; }
+
+/* El movimiento solo corre en la carta que está al frente: una sola animación
+   viva en toda la sección, y siempre sobre transform u opacidad. */
+.carta[data-frente] .e-pulso   { animation: pulso 2.6s var(--salida) infinite; transform-origin: center; transform-box: fill-box; }
+.carta[data-frente] .e-cae     { animation: cae 2.8s ease-in-out infinite; }
+.carta[data-frente] .e-cae--tarde { animation-delay: 0.35s; }
+.carta[data-frente] .e-desliza { animation: desliza 4.5s ease-in-out infinite; }
+
+@keyframes pulso {
+  0%, 100% { opacity: 0.15; transform: scale(0.82); }
+  45%      { opacity: 0.55; transform: scale(1.12); }
+}
+
+@keyframes cae {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50%      { transform: translateY(3px); opacity: 1; }
+}
+
+/* El lotaje se ajusta: el mando se mueve por el carril y se queda donde tú lo
+   dejes. Nunca llega al tope — el dibujo no puede sugerir "más es mejor". */
+@keyframes desliza {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(24px); }
+}
+
+/* ---------- el mando del mazo ----------
+   Contador, carril y flechas. La consola del camino usa puntos y un anillo; si
+   las tres secciones navegaran igual, volveríamos a la plantilla. */
+
+.baraja__mando {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.baraja__cuenta {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--gris);
+  white-space: nowrap;
+}
+
+.baraja__cuenta b { color: var(--oro); font-weight: 500; }
+
+.baraja__carril {
+  flex: 1;
+  height: 1px;
+  background: var(--borde-tenue);
+  position: relative;
+  overflow: hidden;
+}
+
+.baraja__carril::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: calc(var(--avance, 0) * 100%);
+  background: var(--oro);
+  transition: width 0.25s var(--salida);
+}
+
+.baraja__flecha {
+  flex: none;
+  /* 44px: el mínimo táctil. A 40 el arnés lo marcaba. */
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--borde-tenue);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--hueso);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, opacity 0.2s;
+}
+
+.baraja__flecha:hover:not(:disabled) { border-color: var(--oro); color: var(--oro); }
+.baraja__flecha:disabled { opacity: 0.25; cursor: default; }
+.baraja__flecha svg { width: 16px; height: 16px; }
+
+/* Se pinta solo con JS: sin él el mando no navegaría nada. */
+.baraja__mando { display: none; }
+.baraja--viva .baraja__mando { display: flex; }
+
+@media (prefers-reduced-motion: reduce) {
+  .carta { transform: none; opacity: 1; }
+  .baraja__pista { scroll-behavior: auto; }
+  .carta[data-frente] .e-pulso,
+  .carta[data-frente] .e-cae,
+  .carta[data-frente] .e-desliza { animation: none; }
+}
 
 /* La regla va aparte y con otro peso: es la que de verdad importa. */
 .regla {
@@ -1466,59 +1633,39 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 }
 
 /* ---------- testimonios ----------
-   El destacado ocupa el ancho y va con cita grande: es el del error de lotaje,
-   el único que no es una captura de ganancia y el que sostiene la sección. */
+   Van en el mismo mazo que los pasos: son capturas de teléfono, todas en 3:4,
+   y puestas en rejilla obligaban a decidir cuál era la importante. Deslizadas
+   se leen de una en una, que es como se leen los mensajes de los que salieron. */
 
-.testimonios {
-  display: grid;
-  gap: 1.25rem;
-  margin-top: 2.5rem;
-}
-
-@media (min-width: 46rem) {
-  /* Dos columnas, no tres: con el destacado a ancho completo quedan dos
-     tarjetas y una tercera columna vacía. */
-  .testimonios { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-  .testimonio--destacado { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: 2rem; align-items: center; }
-}
-
-.testimonio {
-  margin: 0;
-  border: 1px solid var(--borde-tenue);
-  border-radius: 6px;
-  background: var(--superficie);
-  overflow: hidden;
-}
-
-.testimonio--destacado { border-color: var(--borde); }
-
-.testimonio img {
+.carta--captura img {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top;
   background: var(--negro);
+  border-bottom: 1px solid var(--borde-tenue);
 }
 
-/* En la rejilla las capturas se recortan a una proporción común para que las
-   tarjetas no queden de alturas distintas. */
-@media (min-width: 46rem) {
-  .testimonio:not(.testimonio--destacado) img { aspect-ratio: 3 / 4; object-fit: cover; object-position: top; }
-  .testimonio--destacado img { border-radius: 6px 0 0 6px; }
-}
-
-.testimonio figcaption { padding: 1.25rem; }
-@media (min-width: 46rem) { .testimonio--destacado figcaption { padding: 0 2rem 0 0; } }
-
-.testimonio blockquote {
+.carta--captura blockquote {
   margin: 0 0 0.9rem;
-  font-size: 1rem;
+  font-size: 0.9375rem;
   color: var(--hueso);
 }
 
-.testimonio--destacado blockquote { font-size: clamp(1.05rem, 3vw, 1.35rem); }
-.testimonio blockquote strong { color: var(--oro); font-weight: 500; }
+.carta--captura blockquote strong { color: var(--oro); font-weight: 500; }
 
-.testimonio cite {
+/* Lo que escribe el club sobre una captura no es una cita: no lo dijo nadie.
+   Va en otro tono para que no se confunda con el testimonio de al lado. */
+.carta--captura .carta__nota {
+  margin: 0 0 0.9rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--gris);
+}
+
+.carta--captura cite {
   font-family: var(--mono);
   font-size: 0.75rem;
   font-style: normal;

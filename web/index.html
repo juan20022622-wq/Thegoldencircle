@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/css/estilos.css?v=6">
+<link rel="stylesheet" href="/assets/css/estilos.css?v=7">
 
 <script type="application/ld+json">
 {
@@ -878,41 +878,97 @@
       objetivo. Lo que pone cada uno es la paciencia.
     </p>
 
-    <ol class="ejecucion">
-      <li class="paso-corto" data-flujo="lateral">
-        <span class="paso-corto__n">01</span>
-        <h3>Identifica la dirección</h3>
-        <p>Compra o venta. Es lo primero que dice el mensaje.</p>
-      </li>
-      <li class="paso-corto" data-flujo="lateral">
-        <span class="paso-corto__n">02</span>
-        <h3>Espera la zona</h3>
-        <p>No se entra al ver el mensaje: se entra cuando el precio llega al
-           rango indicado.</p>
-      </li>
-      <li class="paso-corto" data-flujo="lateral">
-        <span class="paso-corto__n">03</span>
-        <h3>Ejecuta dentro del rango</h3>
-        <p>La parte alta del rango en ventas y la baja en compras dejan más
-           recorrido hasta el stop.</p>
-      </li>
-      <li class="paso-corto" data-flujo="lateral">
-        <span class="paso-corto__n">04</span>
-        <h3>Pon el stop exacto</h3>
-        <p>El que viene en el mensaje, sin redondear y sin moverlo después.</p>
-      </li>
-      <li class="paso-corto" data-flujo="lateral">
-        <span class="paso-corto__n">05</span>
-        <h3>Pon el objetivo</h3>
-        <p>También el indicado. Salir antes o después deja de ser el set-up.</p>
-      </li>
-      <li class="paso-corto" data-flujo="lateral">
-        <span class="paso-corto__n">06</span>
-        <h3>Ajusta tu lotaje</h3>
-        <p>Según tu capital y lo que estés dispuesto a arriesgar. En el canal se
-           explica cómo se calcula; nadie te dice una cifra.</p>
-      </li>
-    </ol>
+    <div class="baraja" data-baraja data-flujo="hondo">
+      <ol class="baraja__pista" id="pista-ejecucion" data-pista tabindex="0"
+          aria-label="Los seis pasos para ejecutar un set-up. Deslízalos de lado.">
+        <li class="carta carta--paso">
+          <svg class="escena" viewBox="0 0 200 96" aria-hidden="true" focusable="false">
+      <rect class="e-marco" x="14" y="26" width="76" height="44" rx="6"/>
+      <path class="e-linea" d="M28 42h44M28 53h30"/>
+      <g class="e-oro e-cae">
+        <path d="M124 68V32m-8 8 8-8 8 8"/>
+      </g>
+      <g class="e-oro e-cae e-cae--tarde">
+        <path d="M164 28v36m-8-8 8 8 8-8"/>
+      </g>
+          </svg>
+          <div class="carta__cuerpo">
+            <span class="carta__n">01</span>
+            <h3>Identifica la dirección</h3>
+            <p>Compra o venta. Es lo primero que dice el mensaje.</p>
+          </div>
+        </li>
+        <li class="carta carta--paso">
+          <svg class="escena" viewBox="0 0 200 96" aria-hidden="true" focusable="false">
+      <rect class="e-banda" x="14" y="42" width="172" height="18" rx="3"/>
+      <path class="e-oro" d="M14 20l20 6 16-4 18 10 18-4 16 8"/>
+      <path class="e-punteada" d="M102 36l34 8"/>
+      <circle class="e-oro" cx="102" cy="36" r="3.5"/>
+          </svg>
+          <div class="carta__cuerpo">
+            <span class="carta__n">02</span>
+            <h3>Espera la zona</h3>
+            <p>No se entra al ver el mensaje: se entra cuando el precio llega al rango indicado.</p>
+          </div>
+        </li>
+        <li class="carta carta--paso">
+          <svg class="escena" viewBox="0 0 200 96" aria-hidden="true" focusable="false">
+      <rect class="e-banda" x="14" y="42" width="172" height="18" rx="3"/>
+      <path class="e-oro" d="M14 20l20 6 16-4 18 10 18-2 18 14 16 6"/>
+      <circle class="e-punto" cx="120" cy="50" r="4"/>
+      <circle class="e-pulso" cx="120" cy="50" r="9"/>
+          </svg>
+          <div class="carta__cuerpo">
+            <span class="carta__n">03</span>
+            <h3>Ejecuta dentro del rango</h3>
+            <p>La parte alta del rango en ventas y la baja en compras dejan más recorrido hasta el stop.</p>
+          </div>
+        </li>
+        <li class="carta carta--paso">
+          <svg class="escena" viewBox="0 0 200 96" aria-hidden="true" focusable="false">
+      <rect class="e-banda e-banda--tenue" x="14" y="42" width="172" height="18" rx="3"/>
+      <path class="e-punteada" d="M100 60v18"/>
+      <path class="e-oro" d="M14 80h172M14 73v14M186 73v14"/>
+      <path class="e-oro e-aspa" d="m94 74 12 12m0-12-12 12"/>
+          </svg>
+          <div class="carta__cuerpo">
+            <span class="carta__n">04</span>
+            <h3>Pon el stop exacto</h3>
+            <p>El que viene en el mensaje, sin redondear y sin moverlo después.</p>
+          </div>
+        </li>
+        <li class="carta carta--paso">
+          <svg class="escena" viewBox="0 0 200 96" aria-hidden="true" focusable="false">
+      <rect class="e-banda e-banda--tenue" x="14" y="42" width="172" height="18" rx="3"/>
+      <path class="e-punteada" d="M100 42V26"/>
+      <path class="e-oro" d="M14 20h172M14 13v14M186 13v14"/>
+      <circle class="e-oro e-pulso" cx="100" cy="20" r="6"/>
+      <circle class="e-punto" cx="100" cy="20" r="2"/>
+          </svg>
+          <div class="carta__cuerpo">
+            <span class="carta__n">05</span>
+            <h3>Pon el objetivo</h3>
+            <p>También el indicado. Salir antes o después deja de ser el set-up.</p>
+          </div>
+        </li>
+        <li class="carta carta--paso">
+          <svg class="escena" viewBox="0 0 200 96" aria-hidden="true" focusable="false">
+      <path class="e-linea e-linea--gruesa" d="M14 48h172"/>
+      <path class="e-linea" d="M14 43v10M57 43v10M100 43v10M143 43v10M186 43v10"/>
+      <g class="e-desliza">
+        <circle class="e-oro" cx="71" cy="48" r="7.5"/>
+        <circle class="e-punto" cx="71" cy="48" r="2.5"/>
+      </g>
+      <path class="e-linea" d="M14 70h57M14 65v10M71 65v10"/>
+          </svg>
+          <div class="carta__cuerpo">
+            <span class="carta__n">06</span>
+            <h3>Ajusta tu lotaje</h3>
+            <p>Según tu capital y lo que estés dispuesto a arriesgar. En el canal se explica cómo se calcula; nadie te dice una cifra.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
 
     <aside class="regla" data-flujo="hondo">
       <p class="regla__titulo">La única regla que no se negocia</p>
@@ -948,25 +1004,34 @@
       riesgo.
     </p>
 
-    <div class="testimonios">
-        <figure class="testimonio testimonio--destacado" data-flujo="hondo">
+    <div class="baraja" data-baraja data-flujo="hondo">
+      <div class="baraja__pista" id="pista-testimonios" data-pista tabindex="0"
+           role="group" aria-label="Capturas que comparten los miembros del canal. Deslízalas de lado.">
+        <figure class="carta carta--captura">
           <img src="/assets/img/testimonios/lotaje.jpg" alt="Mensaje de una miembro del canal reconociendo que entró con un lotaje mayor al que debía"
-               loading="lazy" decoding="async" width="601" height="900">
-          <figcaption>
-            <blockquote>En esta operación también identifiqué un error: entré con un <strong>lotaje mayor al que debía</strong>. El mercado estuvo a favor, pero entendí que la disciplina y una buena gestión del riesgo son tan importantes como una buena entrada.</blockquote>
+               loading="lazy" decoding="async" width="600" height="800">
+          <figcaption class="carta__cuerpo">
+            <blockquote>Entré con un <strong>lotaje mayor al que debía</strong>. Gracias a Dios el mercado estuvo a favor, pero entendí que la disciplina y una buena gestión del riesgo son tan importantes como una buena entrada.</blockquote>
             <cite>Miembro del canal</cite>
           </figcaption>
         </figure>
-        <figure class="testimonio" data-flujo="lateral">
-          <img src="/assets/img/testimonios/historial-01.jpg" alt="Historial de operaciones de un miembro del canal"
-               loading="lazy" decoding="async" width="900" height="695">
-          <figcaption><cite>Miembro del canal</cite></figcaption>
+        <figure class="carta carta--captura">
+          <img src="/assets/img/testimonios/historial-01.jpg" alt="Historial de operaciones cerradas de un miembro del canal"
+               loading="lazy" decoding="async" width="600" height="800">
+          <figcaption class="carta__cuerpo">
+            <p class="carta__nota">Ocho entradas de compra en la misma zona, cerradas todas al mismo precio.</p>
+            <cite>Miembro del canal</cite>
+          </figcaption>
         </figure>
-        <figure class="testimonio" data-flujo="lateral">
-          <img src="/assets/img/testimonios/historial-02.jpg" alt="Historial de operaciones de un miembro del canal"
-               loading="lazy" decoding="async" width="900" height="763">
-          <figcaption><cite>Miembro del canal</cite></figcaption>
+        <figure class="carta carta--captura">
+          <img src="/assets/img/testimonios/historial-02.jpg" alt="Historial de operaciones cerradas de un miembro del canal"
+               loading="lazy" decoding="async" width="600" height="800">
+          <figcaption class="carta__cuerpo">
+            <p class="carta__nota">Ventas y compras el mismo día. Cada bloque con su propio cierre.</p>
+            <cite>Miembro del canal</cite>
+          </figcaption>
         </figure>
+      </div>
     </div>
 
     <p class="nota-riesgo" data-flujo="lento">
@@ -1217,8 +1282,8 @@
   </div>
 </footer>
 
-<script src="/assets/js/config.js?v=6"></script>
-<script src="/assets/js/movimiento.js?v=6" defer></script>
-<script src="/assets/js/main.js?v=6" defer></script>
+<script src="/assets/js/config.js?v=7"></script>
+<script src="/assets/js/movimiento.js?v=7" defer></script>
+<script src="/assets/js/main.js?v=7" defer></script>
 </body>
 </html>

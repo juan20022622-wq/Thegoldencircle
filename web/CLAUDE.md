@@ -115,6 +115,39 @@ El dominio se compra a nombre de Cristian. `[POR CONFIRMAR]` cuál.
 
 Ver `README.md` para desplegar y para la lista de lo que falta antes de publicar.
 
+## El mazo
+
+Los seis pasos de ejecución y las capturas de los miembros se pasan de lado,
+una a la vez. Es lo que hace el pulgar sin que se lo pidan, y deja de exigir
+seis lecturas simultáneas para un método que en realidad es secuencial.
+
+**El desplazamiento es del navegador, nunca arrastre simulado.** `scroll-snap`
+sobre un contenedor con `overflow-x`. De ahí salen gratis la inercia del
+sistema, la rueda del ratón, el teclado y el foco. Una librería de arrastre
+aquí es peso y una trampa de accesibilidad.
+
+**La inclinación se mide contra los extremos del desplazamiento, no contra el
+centro de la pista.** Midiendo al centro, la primera carta llega inclinada y
+apagada: en el arranque no está centrada, porque no se puede desplazar a la
+izquierda de cero.
+
+**Esas variables sí pueden escribirse por fotograma**, al revés que la
+respiración. Se escriben en el estilo de la carta, que invalida su subárbol; lo
+que tumbaba la pestaña era escribir en `<html>`, que invalida el documento
+entero.
+
+**Cada paso lleva su propio dibujo, no una plantilla con capas encendidas.**
+Seis veces la misma figura es la rejilla de iconos otra vez. Y ninguno sube:
+los dos que dibujan precio bajan hacia la zona.
+
+**El mando no puede parecerse al de la consola.** La consola navega con puntos
+y un anillo; el mazo, con contador, carril y flechas. Si las tres secciones
+navegaran igual, volvería la plantilla.
+
+**Lo que escribe el club sobre una captura no va en `<blockquote>`.** Con un
+`<cite>` al lado queda atribuido a la persona, y son palabras que no dijo. Las
+citas van verbatim o no van.
+
 ## Movimiento
 
 **Una sola línea de tiempo, nunca revelados por umbral.** Un IntersectionObserver

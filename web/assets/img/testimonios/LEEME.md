@@ -1,37 +1,43 @@
 # Capturas de testimonios
 
-## Qué hay
+Tres archivos, **los tres a 600x800 (3:4) exactos**. Van en un mazo deslizable
+y una proporción distinta rompe la fila.
 
 | Archivo | Cuál |
 |---|---|
-| `lotaje.jpg` | La del error de lotaje. **Es la que sostiene la sección.** |
+| `lotaje.jpg` | La del error de lotaje. **Es la más importante de todas.** |
 | `historial-01.jpg` | Historial del 25 de agosto |
 | `historial-02.jpg` | Historial del 21 de agosto |
 
-Originales en `~/Downloads/WhatsApp Image 2026-09-01 at 02.53.*`.
+## Antes de subirlas
 
-## Qué se les hizo
+**Recortar los nombres de terceros.** Varias capturas llevan nombres visibles de
+otras personas del canal. Eso es dato personal ajeno: o se recorta, o se tiene su
+permiso por escrito.
 
-**Recortado el pie de cada una.** Las tres llevaban abajo la foto de perfil de
-quien las compartió, y en un caso la de otra persona más. Eso es dato personal
-ajeno: se eliminó del archivo, no se tapó con CSS. La captura publicada no
-contiene esos píxeles.
+**Recortar los saldos y depósitos de cuenta.** Un balance es información
+financiera personal de quien la compartió. `historial-02` traía un depósito de
+323,83 a la vista y por eso su recorte corta antes de la fila de resumen.
 
-**Descartada la de "GRACIAS LEE".** Lleva el nombre "Anthoinne Kock" dos veces y
-fotos de perfil de dos personas. Para usarla haría falta su permiso por escrito.
+**Recortar caras y avatares.** Las capturas de WhatsApp traen la foto de perfil
+de quien reaccionó al mensaje.
 
-**Comprimidas** a 900 px de ancho y calidad 82. Las tres suman 348 KB.
+**Comprimir.** JPG de calidad 82, 600 px de ancho. Las tres juntas pesan 284 KB;
+sin optimizar se comen el presupuesto de 2 s en 4G.
 
-## Si se cambian
+## Cómo se recortaron
+
+`sips` recorta **centrado** por defecto: sin `--cropOffset` se lleva justo lo
+que quieres conservar. El orden es `--cropOffset <y> <x>`.
 
 ```bash
-sips -c <alto> <ancho> --cropOffset 0 0 origen.jpeg --out _r.jpg
-sips -Z 900 -s format jpeg -s formatOptions 82 _r.jpg --out destino.jpg
+# ventana de recorte en 3:4 sobre el original, y después a 600x800
+sips -c 1140 856 --cropOffset 370 95 origen.jpeg --out paso.jpg
+sips -z 800 600 paso.jpg --out lotaje.jpg
+sips -s format jpeg -s formatOptions 82 lotaje.jpg --out lotaje.jpg
 ```
 
-`--cropOffset 0 0` recorta desde arriba; sin él, `sips` recorta centrado y deja
-el pie dentro. Después hay que actualizar `width` y `height` en `index.html` y
-subir el `?v=` de los assets.
+## Si falta alguna
 
-Y siempre: **abrir el resultado y mirarlo** antes de publicar. Los dos primeros
-recortes que hice dejaban todavía media cara asomando.
+El mazo funciona con las que haya, pero la tarjeta que sobre aparecerá rota:
+quitarla del HTML.

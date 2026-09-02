@@ -192,4 +192,121 @@
 
     ir(0);
   })();
+
+  /* ================= los mazos ================= */
+
+  /* Los pasos de ejecución y las capturas de los miembros se pasan de lado.
+     El desplazamiento lo hace el navegador —scroll-snap sobre un contenedor
+     con overflow-x— así que hay inercia, rueda, teclado y foco sin escribir
+     física ni robarle el scroll vertical a la página.
+
+     Lo único que pone el JS es la inclinación: publica en cada carta --d, su
+     distancia con signo al centro de la pista, y --e, esa distancia en valor
+     absoluto. El CSS las rota y las apaga. De ahí sale el aire de baraja.
+
+     Se escribe en el estilo de la carta, no en <html>: invalida su subárbol y
+     nada más. Es lo que distingue esto de la respiración que tumbaba la
+     pestaña. Aun así solo corre mientras el dedo mueve una pista, como mucho
+     una vez por fotograma, y solo cuando el valor redondeado cambia. */
+
+  [].slice.call(document.querySelectorAll('[data-baraja]')).forEach(function (caja) {
+    var pista  = caja.querySelector('[data-pista]');
+    var cartas = [].slice.call(pista.children);
+    if (cartas.length < 2) return;
+
+    var previos = cartas.map(function () { return null; });
+    var frente  = -1;
+    var espera  = false;
+
+    /* ---- el mando ---- */
+
+    var mando = document.createElement('div');
+    mando.className = 'baraja__mando';
+    mando.innerHTML =
+      '<p class="baraja__cuenta"><b data-cuenta>01</b> / ' + pad(cartas.length) + '</p>' +
+      '<span class="baraja__carril" data-carril aria-hidden="true"></span>' +
+      boton('atras', 'Anterior', 'M10 3 5 8l5 5') +
+      boton('siguiente', 'Siguiente', 'm6 3 5 5-5 5');
+    caja.appendChild(mando);
+    caja.classList.add('baraja--viva');
+
+    var cuenta  = mando.querySelector('[data-cuenta]');
+    var carril  = mando.querySelector('[data-carril]');
+    var atras   = mando.querySelector('[data-atras]');
+    var adelante = mando.querySelector('[data-siguiente]');
+
+    atras.addEventListener('click', function () { llevar(frente - 1); });
+    adelante.addEventListener('click', function () { llevar(frente + 1); });
+
+    function boton(nombre, etiqueta, trazo) {
+      return '<button type="button" class="baraja__flecha" data-' + nombre +
+        ' aria-label="' + etiqueta + '" aria-controls="' + pista.id + '">' +
+        '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none" ' +
+        'stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="' + trazo + '"/></svg></button>';
+    }
+
+    function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+    function llevar(i) {
+      i = Math.max(0, Math.min(cartas.length - 1, i));
+      var carta = cartas[i];
+      pista.scrollTo({
+        left: carta.offsetLeft - (pista.clientWidth - carta.offsetWidth) / 2,
+        behavior: quieto ? 'auto' : 'smooth'
+      });
+    }
+
+    /* ---- la inclinación ---- */
+
+    /* Todo sale de una cifra: cuánto se ha recorrido de la pista, de 0 a 1,
+       repartido entre las cartas. De ahí la distancia de cada una al frente sin
+       leer una caja por carta.
+
+       Se mide contra los extremos del desplazamiento y no contra el centro de
+       la pista. Midiendo al centro, la carta uno llegaba inclinada y apagada:
+       en el arranque no está centrada, porque no se puede desplazar a la
+       izquierda de cero. */
+
+    function repartir() {
+      espera = false;
+
+      /* Si caben todas —una pantalla ancha con pocas cartas— no hay nada que
+         repartir: se quedan rectas y manda la primera. */
+      var tope = pista.scrollWidth - pista.clientWidth;
+      var pos = tope > 0 ? (pista.scrollLeft / tope) * (cartas.length - 1) : 0;
+      var cerca = Math.round(pos);
+
+      for (var i = 0; i < cartas.length; i++) {
+        var d = Math.max(-1.5, Math.min(1.5, i - pos));
+        var red = Math.round(d * 100) / 100;
+        if (red !== previos[i]) {
+          previos[i] = red;
+          cartas[i].style.setProperty("--d", red);
+          cartas[i].style.setProperty("--e", Math.min(1, Math.abs(red)));
+        }
+      }
+
+      if (cerca === frente) return;
+
+      if (frente >= 0) cartas[frente].removeAttribute("data-frente");
+      frente = cerca;
+      cartas[frente].setAttribute("data-frente", "");
+      cuenta.textContent = pad(frente + 1);
+      carril.style.setProperty("--avance", ((frente + 1) / cartas.length).toFixed(3));
+      atras.disabled = frente === 0;
+      adelante.disabled = frente === cartas.length - 1;
+    }
+
+    function pedirReparto() {
+      if (espera) return;
+      espera = true;
+      requestAnimationFrame(repartir);
+    }
+
+    pista.addEventListener('scroll', pedirReparto, { passive: true });
+    window.addEventListener('resize', pedirReparto, { passive: true });
+    pedirReparto();
+  });
+
 })();
