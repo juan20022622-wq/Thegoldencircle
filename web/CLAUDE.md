@@ -159,12 +159,13 @@ sección entera. Lo que se recorta son nombres, caras y saldos, no el contexto.
 Se generan con \`herramientas/testimonios.mjs\`; **nunca con \`sips -c\`**, que
 recorta centrado y mide el offset desde el centro.
 
-**El orden del mazo de capturas no es el que llegaron.** Las tres primeras son
-las que no salieron bien: el error de gestión, la posición en rojo y el cierre
-en negativo. Nueve pantallas seguidas de ganancia son la página de "mira cuánto
-ganamos" que el cliente pidió no hacer, y lo que `revision-copy-trading` marca
-como bloqueante. En `assets/img/testimonios/LEEME.md` están las que quedaron
-fuera y por qué.
+**En el mazo de capturas van primero las que llevan el mensaje de la persona.**
+Una captura suelta puede ser de cualquiera; un mensaje escrito al mandarla, no.
+Y las dos primeras de esas son además las que no salieron bien, así que el orden
+sirve a las dos cosas: diez pantallas seguidas de ganancia son la página de
+"mira cuánto ganamos" que el cliente pidió no hacer, y lo que
+`revision-copy-trading` marca como bloqueante. En
+`assets/img/testimonios/LEEME.md` están las que quedaron fuera y por qué.
 
 ## Movimiento
 

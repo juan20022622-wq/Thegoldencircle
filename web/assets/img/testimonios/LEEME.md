@@ -1,6 +1,6 @@
 # Capturas de testimonios
 
-Nueve archivos WebP, **todos a 600x800 (3:4) exactos**. Van en un mazo
+Diez archivos WebP, **todos a 600x800 (3:4) exactos**. Van en un mazo
 deslizable y una proporción distinta rompe la fila.
 
 **Las capturas van con su marco, no recortadas al panel.** Fondo de Telegram a
@@ -12,8 +12,9 @@ saldos, no el contexto.
 
 | Archivo | Qué muestra |
 |---|---|
-| `lotaje.webp` | El error de lotaje. **Es la más importante de todas.** |
-| `flotante.webp` | Seis compras abiertas, cinco en rojo |
+| `lotaje.webp` | El error de lotaje, con su mensaje. **La más importante de todas.** |
+| `flotante.webp` | Seis compras abiertas, cinco en rojo, con su mensaje |
+| `tp-4-minutos.webp` | Dos entradas cerradas en el objetivo, con su mensaje |
 | `perdedora.webp` | Historial con una operación cerrada en -0.04 |
 | `zonas.webp` | Ocho ventas escalonadas sobre niveles marcados |
 | `historial-01.webp` | Compras del 25 de agosto |
@@ -22,24 +23,27 @@ saldos, no el contexto.
 | `salidas.webp` | Cierres parciales de una posición |
 | `posiciones.webp` | Nueve compras de 0,03 al mismo cierre |
 
-**El orden del mazo importa y no es el que llegaron.** Las tres primeras son las
-que no salieron bien: el error de gestión, la posición en rojo y el cierre en
-negativo. Un mazo que abre con nueve pantallas de ganancia es exactamente la
-página de "mira cuánto ganamos" que el cliente pidió no hacer, y es lo que la
-skill `revision-copy-trading` marca como bloqueante.
+**Primero las que llevan el mensaje de la persona.** Una captura suelta puede
+ser de cualquiera; un mensaje escrito al mandarla, no. Y las dos primeras de esas
+tres son además las que no salieron bien —el error de gestión y la posición en
+rojo— así que el orden sirve a las dos cosas: diez pantallas seguidas de ganancia
+son la página de "mira cuánto ganamos" que el cliente pidió no hacer, y lo que
+`revision-copy-trading` marca como bloqueante.
 
-## Las tres que quedaron fuera
+## Las dos que quedaron fuera
 
-De las doce que mandó Cristian se descartaron tres, y por motivos distintos:
+De las doce que mandó Cristian, diez están dentro. Las otras dos:
 
 - **La del gráfico ascendente.** `web/CLAUDE.md`: ningún gráfico de esta página
   puede subir, tampoco uno real. Una línea que sube en una landing de trading es
   una promesa de rentabilidad dibujada.
-- **La de la conversación de Telegram.** Nombres reales y fotos de perfil de
-  otras personas del canal en toda la captura. No hay recorte que la salve.
-- **La del "se fue a TP en 4 mins".** El panel deja un hueco negro enorme entre
-  las operaciones y el mensaje, y abajo aparece un avatar con cara. Su frase ya
-  vive como texto en la página.
+- **La conversación de "GRACIAS LEE".** Aquí no es el recorte, es el contenido:
+  un círculo rojo trazado a mano sobre una ganancia, "rompiendo desde Aruba", un
+  emoji de billetes —prohibido por `marca/identidad.md`— y el nombre de un
+  tercero encima de dos de los mensajes. Es el registro de estilo de vida que
+  Meta penaliza en categoría financiera, y no aporta nada sobre el método. Las
+  otras tres con mensaje sí: un error de gestión, una posición en rojo y un
+  cierre en el objetivo.
 
 ## Antes de subir una nueva
 
