@@ -105,7 +105,7 @@ cualquier POST. La captura real solo se prueba en Netlify:
 |---|---|---|
 | ~~Enlace del canal de Telegram~~ | `assets/js/config.js` → `telegram` | ✅ Puesto: `t.me/TheGoldenSyndicateFree` |
 | ID del píxel de Meta | `assets/js/config.js` → `pixelId` | Sin él no hay medición y la pauta va a ciegas |
-| Dominio | `canonical`, `og:*`, `sitemap.xml`, JSON-LD | Hoy dice `REEMPLAZAR-DOMINIO` en 12 sitios |
+| Dominio | `canonical`, `og:*`, `sitemap.xml`, JSON-LD | **thegoldensyndicate.com**, ya puesto |
 | Correo de contacto | pie y `privacidad.html` | Obligatorio para la baja de datos |
 | Imagen para compartir | `assets/img/og.jpg`, 1200×630 | Sin ella el enlace se comparte sin imagen |
 | Revisión legal de `privacidad.html` | — | Es un borrador, no asesoría legal |
@@ -113,7 +113,7 @@ cualquier POST. La captura real solo se prueba en Netlify:
 
 ## Después de poner el dominio
 
-1. Reemplazar `REEMPLAZAR-DOMINIO` en `index.html`, `sitemap.xml` y `robots.txt`
+1. ~~Reemplazar el dominio~~ hecho: `node web/herramientas/dominio.mjs <dominio>`
 2. Borrar el bloque `[[context.production.headers]]` con el noindex de
    `netlify.toml`
 3. **Verificar la CSP con el píxel ya instalado.** Una CSP mal puesta lo bloquea

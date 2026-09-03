@@ -30,12 +30,6 @@
     Permissions-Policy        = "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
     Cross-Origin-Opener-Policy = "same-origin"
 
-    # QUITAR ESTA LÍNEA cuando el dominio propio esté puesto y los [POR CONFIRMAR]
-    # cerrados. Mientras el sitio viva en la URL .netlify.app con REEMPLAZAR-DOMINIO
-    # en el canonical y en el JSON-LD, no puede indexarse.
-    # Nota: Netlify NO aplica cabeceras dentro de [[context.X.headers]]; por eso
-    # va aquí, en el bloque global, y no por contexto.
-    X-Robots-Tag              = "noindex, nofollow"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
 
     # No hay ni un script en línea en el sitio: los de gracias.html e ir.html

@@ -87,6 +87,10 @@ dominio — `/ir` o `/broker` — que registra el origen y luego manda a
 `https://one.exnessonelink.com/a/4zepksu2az`. Sin eso no se sabe qué contenido
 trae traders y la atribución se pierde entera.
 
+**La vista previa del enlace** vive en `assets/img/og.jpg` y la genera
+`herramientas/og.mjs`. El enlace va a circular por WhatsApp y Telegram, donde la
+tarjeta es la primera impresión; sin imagen sale vacía.
+
 **Rendimiento:** la página debe abrir en menos de 2 s en 4G. Sin librerías
 pesadas, imágenes en WebP, el video con póster y carga diferida.
 
@@ -111,7 +115,10 @@ serverless que escriba en una hoja de Cristian es cambiar una línea de
 Cristian al cierre del proyecto. Anotarlo como pendiente: si se olvida, queda
 una dependencia incómoda sobre un activo que es de él.
 
-El dominio se compra a nombre de Cristian. `[POR CONFIRMAR]` cuál.
+El dominio es **thegoldensyndicate.com**, comprado en GoDaddy. Se pone en todo
+el sitio con `node web/herramientas/dominio.mjs <dominio>`, que además quita el
+`X-Robots-Tag: noindex` del `netlify.toml` — pero solo si ya no queda ningún
+marcador, porque indexar con un canonical inventado es peor que no indexar.
 
 Ver `README.md` para desplegar y para la lista de lo que falta antes de publicar.
 
@@ -156,7 +163,7 @@ Y van **con el marco de la conversación**: fondo de Telegram a los lados,
 esquinas redondeadas, la hora superpuesta, la barra de estado del móvil.
 Recortadas al panel limpio parecen capturas de cualquiera, y eso vacía la
 sección entera. Lo que se recorta son nombres, caras y saldos, no el contexto.
-Se generan con \`herramientas/testimonios.mjs\`; **nunca con \`sips -c\`**, que
+Se generan con `herramientas/testimonios.mjs`; **nunca con `sips -c`**, que
 recorta centrado y mide el offset desde el centro.
 
 **En el mazo de capturas van primero las que llevan el mensaje de la persona.**

@@ -3,4 +3,4 @@ Allow: /
 Disallow: /gracias.html
 Disallow: /ir.html
 
-Sitemap: https://REEMPLAZAR-DOMINIO/sitemap.xml
+Sitemap: https://thegoldensyndicate.com/sitemap.xml
