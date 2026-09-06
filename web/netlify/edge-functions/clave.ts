@@ -49,7 +49,7 @@ export default async (request: Request, context: Context) => {
   return new Response("Acceso restringido.", {
     status: 401,
     headers: {
-      "www-authenticate": 'Basic realm="The Golden Syndicate · el plan", charset="UTF-8"',
+      "www-authenticate": 'Basic realm="The Golden Syndicate - el plan", charset="UTF-8"',
       "content-type": "text/plain; charset=utf-8",
       "cache-control": "no-store",
       "x-robots-tag": "noindex, nofollow",
