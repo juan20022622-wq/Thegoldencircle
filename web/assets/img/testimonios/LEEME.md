@@ -1,6 +1,6 @@
 # Capturas de testimonios
 
-Diez archivos WebP, **todos a 600x800 (3:4) exactos**. Van en un mazo
+Las doce capturas que mandó Cristian, en WebP y **todas a 600x800 (3:4)**. Van en un mazo
 deslizable y una proporción distinta rompe la fila.
 
 **Las capturas van con su marco, no recortadas al panel.** Fondo de Telegram a
@@ -15,8 +15,10 @@ saldos, no el contexto.
 | `lotaje.webp` | El error de lotaje, con su mensaje. **La más importante de todas.** |
 | `flotante.webp` | Seis compras abiertas, cinco en rojo, con su mensaje |
 | `tp-4-minutos.webp` | Dos entradas cerradas en el objetivo, con su mensaje |
+| `gracias.webp` | Cuatro operaciones y el mensaje de agradecimiento |
 | `perdedora.webp` | Historial con una operación cerrada en -0.04 |
 | `zonas.webp` | Ocho ventas escalonadas sobre niveles marcados |
+| `franjas.webp` | Dos zonas de entrada marcadas en verde |
 | `historial-01.webp` | Compras del 25 de agosto |
 | `historial-02.webp` | Ventas y compras del 21 de agosto |
 | `ventas.webp` | Ventas de 0,01 del 17 de junio |
@@ -30,20 +32,21 @@ rojo— así que el orden sirve a las dos cosas: diez pantallas seguidas de gana
 son la página de "mira cuánto ganamos" que el cliente pidió no hacer, y lo que
 `revision-copy-trading` marca como bloqueante.
 
-## Las dos que quedaron fuera
+## Dos decisiones del cliente que van contra las reglas del repo
 
-De las doce que mandó Cristian, diez están dentro. Las otras dos:
+Están dentro las doce. Dos de ellas se habían dejado fuera y el cliente pidió
+meterlas igual. Queda anotado, no para discutirlo otra vez sino para que quien
+llegue después sepa que fue deliberado:
 
-- **La del gráfico ascendente.** `web/CLAUDE.md`: ningún gráfico de esta página
-  puede subir, tampoco uno real. Una línea que sube en una landing de trading es
-  una promesa de rentabilidad dibujada.
-- **La conversación de "GRACIAS LEE".** Aquí no es el recorte, es el contenido:
-  un círculo rojo trazado a mano sobre una ganancia, "rompiendo desde Aruba", un
-  emoji de billetes —prohibido por `marca/identidad.md`— y el nombre de un
-  tercero encima de dos de los mensajes. Es el registro de estilo de vida que
-  Meta penaliza en categoría financiera, y no aporta nada sobre el método. Las
-  otras tres con mensaje sí: un error de gestión, una posición en rojo y un
-  cierre en el objetivo.
+- **`franjas`** es un gráfico que sube, y `web/CLAUDE.md` dice que ninguno puede
+  subir. La regla se escribió pensando en los que dibujamos nosotros; esta es una
+  captura real de un miembro. La diferencia es defendible, pero el registro
+  visual que ve Meta es el mismo.
+- **`gracias`** lleva un círculo rojo trazado a mano sobre una ganancia y un
+  emoji de billetes, que `marca/identidad.md` prohíbe como elemento de marca.
+  Van dentro de la captura de otra persona y no se pueden recortar sin destruirla.
+  Lo que sí se recortó: el nombre de un tercero, los avatares y la burbuja de
+  reacción con cara.
 
 ## Antes de subir una nueva
 

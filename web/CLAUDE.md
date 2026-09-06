@@ -166,13 +166,15 @@ sección entera. Lo que se recorta son nombres, caras y saldos, no el contexto.
 Se generan con `herramientas/testimonios.mjs`; **nunca con `sips -c`**, que
 recorta centrado y mide el offset desde el centro.
 
-**En el mazo de capturas van primero las que llevan el mensaje de la persona.**
+**En el mazo van las doce capturas, y primero las cuatro que llevan el mensaje
+de la persona.**
 Una captura suelta puede ser de cualquiera; un mensaje escrito al mandarla, no.
 Y las dos primeras de esas son además las que no salieron bien, así que el orden
 sirve a las dos cosas: diez pantallas seguidas de ganancia son la página de
 "mira cuánto ganamos" que el cliente pidió no hacer, y lo que
 `revision-copy-trading` marca como bloqueante. En
-`assets/img/testimonios/LEEME.md` están las que quedaron fuera y por qué.
+`assets/img/testimonios/LEEME.md` está anotado cuáles rompen una regla del repo
+y por qué se quedaron igual: fue decisión del cliente, no un descuido.
 
 ## Movimiento
 
