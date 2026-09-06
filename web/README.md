@@ -9,6 +9,8 @@ index.html        la landing
 gracias.html      confirmación + salto al canal (noindex)
 ir.html           redirect propio al broker, con registro de origen (noindex)
 privacidad.html   BORRADOR, pendiente de abogado
+plan/             herramienta interna con contraseña: el plan diario y la
+                  estrategia. Ver CLAUDE.md, "El plan"
 assets/css/       estilos.css
 assets/js/        config.js (lo que se toca) · main.js (formulario) ·
                   movimiento.js (revelados, llaves y consola)

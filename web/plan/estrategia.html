@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="color-scheme" content="dark">
+<title>Estrategia digital · The Golden Syndicate</title>
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Página larga, misma paleta que el plan. Móvil primero. */
+*, *::before, *::after { box-sizing: border-box; }
+html { background: #0A0A0B; color-scheme: dark; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; color: #F2EDE3; font-family: "Manrope", system-ui, sans-serif; font-size: 1rem; line-height: 1.6; background: #0A0A0B; }
+a { color: #E7C67F; text-underline-offset: 3px; }
+
+.cabecera { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.85rem 1.25rem; background: rgba(10,10,11,0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(242,237,227,0.08); }
+.marca { display: inline-flex; align-items: center; gap: 0.6rem; color: #D2A64B; text-decoration: none; font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.marca svg { width: 20px; height: 32px; }
+.volver { font-size: 0.875rem; color: #F2EDE3; }
+
+.indice { max-width: 68rem; margin: 2rem auto 0; padding: 0 1.25rem; }
+.indice ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem 0.6rem; }
+.indice a { display: inline-block; padding: 0.4rem 0.8rem; border: 1px solid rgba(242,237,227,0.08); border-radius: 999px; color: #F2EDE3; text-decoration: none; font-size: 0.8125rem; }
+.indice a:hover { border-color: #D2A64B; color: #E7C67F; }
+.indice b { color: #8A8578; font-weight: 400; font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; margin-right: 0.4rem; }
+
+.seccion { max-width: 68rem; margin: 0 auto; padding: 4.5rem 1.25rem 1.5rem; scroll-margin-top: 4.5rem; }
+.seccion + .seccion { border-top: 1px solid rgba(242,237,227,0.06); margin-top: 2.5rem; }
+@media (min-width: 48rem) { .seccion { padding: 5.5rem 1.5rem 2rem; } }
+
+.rotulo { font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: #D2A64B; margin: 0 0 1rem; }
+h1 { font-size: clamp(2.2rem, 7vw, 4rem); font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 1.25rem; }
+h2 { font-size: clamp(1.4rem, 3.6vw, 1.9rem); font-weight: 500; line-height: 1.25; letter-spacing: -0.015em; margin: 0 0 1rem; max-width: 40rem; }
+h3 { font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #D2A64B; font-weight: 500; margin: 2.25rem 0 0.75rem; }
+h3.si { color: #D2A64B; } h3.no { color: #C96A5B; }
+p { margin: 0 0 0.85rem; }
+.lead { font-size: 1.125rem; margin-bottom: 1.5rem; max-width: 44rem; }
+.nota { color: #8A8578; font-size: 0.9375rem; max-width: 44rem; }
+.gris { color: #8A8578; }
+b, strong { font-weight: 600; }
+em { color: #E7C67F; font-style: normal; font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; }
+code { font-family: "IBM Plex Mono", monospace; font-size: 0.85em; color: #E7C67F; }
+mark { background: rgba(210,166,75,0.18); color: #E7C67F; padding: 0 0.2em; border-radius: 3px; }
+ul, ol { margin: 0; padding-left: 1.2rem; }
+li { margin: 0 0 0.5rem; }
+li::marker { color: #6F6B60; }
+
+table { width: 100%; border-collapse: collapse; margin: 0.25rem 0 0.75rem; }
+th, td { text-align: left; vertical-align: top; padding: 0.8rem 0.75rem 0.8rem 0; border-top: 1px solid rgba(242,237,227,0.08); font-size: 0.9375rem; }
+th { width: 8.5rem; font-weight: 500; color: #D2A64B; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding-top: 0.95rem; }
+tr:first-child th, tr:first-child td { border-top: 0; }
+@media (max-width: 40rem) { th, td { display: block; width: auto; padding: 0.35rem 0; } th { padding-top: 0.9rem; } td { border-top: 0; padding-bottom: 0.9rem; } tr + tr th { border-top: 1px solid rgba(242,237,227,0.08); } }
+.ejes th { width: 11rem; }
+.pct { width: 3.5rem; font-family: "IBM Plex Mono", monospace; color: #E7C67F; }
+.hora { font-family: "IBM Plex Mono", monospace; color: #8A8578; font-size: 0.8rem; }
+.dos { display: grid; gap: 1.5rem; }
+@media (min-width: 46rem) { .dos { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+.cita { margin: 0 0 0.85rem; padding: 0.9rem 1.1rem; border-left: 2px solid #D2A64B; background: #121214; font-size: 0.9375rem; max-width: 44rem; }
+.cita.bio { font-size: 1.05rem; line-height: 1.6; }
+.lista li { margin-bottom: 0.7rem; max-width: 44rem; }
+.descargo { margin-top: 3rem; font-size: 0.8125rem; color: #6F6B60; max-width: 44rem; }
+
+/* portada */
+.portada { position: relative; padding-top: 3.5rem; padding-bottom: 2rem; min-height: 60vh; display: flex; flex-direction: column; justify-content: flex-end; }
+.portada__simbolo { position: absolute; top: 2rem; right: 1.25rem; width: clamp(80px, 18vw, 180px); height: auto; opacity: 0.85; }
+.portada__sub { font-size: 1.15rem; color: #8A8578; max-width: 34rem; }
+.portada__pie { font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; color: #6F6B60; letter-spacing: 0.08em; margin-top: 2rem; }
+
+/* escalera */
+.escalera { list-style: none; padding: 0; counter-reset: paso; display: grid; gap: 0; margin-bottom: 0.5rem; }
+.escalera li { counter-increment: paso; display: grid; grid-template-columns: 2.5rem 1fr; gap: 0.25rem 0.75rem; align-items: start; padding: 0.9rem 0; border-top: 1px solid rgba(242,237,227,0.08); }
+.escalera li::before { content: counter(paso, decimal-leading-zero); font-family: "IBM Plex Mono", monospace; color: #D2A64B; font-size: 0.8rem; padding-top: 0.2rem; grid-row: span 2; }
+.escalera b { font-weight: 500; }
+.escalera span { color: #8A8578; font-size: 0.9375rem; }
+@media (min-width: 46rem) { .escalera li { grid-template-columns: 2.5rem 11rem 1fr; } .escalera li::before { grid-row: auto; } }
+
+/* feed */
+.feed-y-leyenda { display: grid; gap: 2rem; align-items: start; }
+@media (min-width: 52rem) { .feed-y-leyenda { grid-template-columns: minmax(0, 24rem) 1fr; gap: 3rem; } }
+.feed { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; max-width: 24rem; }
+.casilla { aspect-ratio: 1; position: relative; padding: 0.55rem; display: flex; align-items: flex-end; font-size: 0.68rem; line-height: 1.3; overflow: hidden; }
+.casilla__n { position: absolute; top: 0.45rem; left: 0.55rem; font-family: "IBM Plex Mono", monospace; font-size: 0.6rem; color: rgba(242,237,227,0.55); }
+.casilla--reel { background: linear-gradient(180deg, #1a1a1d, #0d0d0f); }
+.casilla--reel::after { content: ''; position: absolute; top: 0.5rem; right: 0.5rem; border-left: 0.55rem solid rgba(242,237,227,0.7); border-top: 0.35rem solid transparent; border-bottom: 0.35rem solid transparent; }
+.casilla--frase { background: #0A0A0B; border: 1px solid rgba(210,166,75,0.35); font-weight: 500; font-size: 0.64rem; }
+.casilla--frase::before { content: ''; position: absolute; top: 0.55rem; left: 0.55rem; width: 1.4rem; height: 1px; background: #D2A64B; }
+.casilla--vida { background: linear-gradient(160deg, #6F6B60 0%, #3a3833 55%, #1a1917 100%); }
+.casilla--carrusel { background: #121214; border: 1px solid rgba(242,237,227,0.1); }
+.casilla--carrusel::after { content: '• • •'; position: absolute; top: 0.4rem; right: 0.55rem; color: #D2A64B; font-size: 0.55rem; }
+.casilla--comunidad { background: #F2EDE3; color: #0A0A0B; }
+.casilla--comunidad::after { content: 'EJEMPLO'; position: absolute; top: 0.45rem; right: 0.5rem; font-family: "IBM Plex Mono", monospace; font-size: 0.5rem; letter-spacing: 0.1em; border: 1px solid #0A0A0B; padding: 0.05rem 0.25rem; }
+.casilla--comunidad .casilla__n { color: rgba(10,10,11,0.5); }
+.leyenda p { font-size: 0.9375rem; margin-bottom: 0.85rem; display: grid; grid-template-columns: 1.4rem 1fr; gap: 0.6rem; align-items: start; }
+.leyenda p.nota { display: block; margin-top: 1.25rem; }
+.muestra { display: inline-block; width: 1.1rem; height: 1.1rem; border-radius: 2px; margin-top: 0.2rem; }
+.muestra--reel { background: #1a1a1d; } .muestra--frase { background: #0A0A0B; border: 1px solid rgba(210,166,75,0.5); } .muestra--vida { background: #6F6B60; } .muestra--carrusel { background: #121214; border: 1px solid rgba(242,237,227,0.15); } .muestra--comunidad { background: #F2EDE3; }
+
+/* destacadas */
+.destacadas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; margin: 1rem 0 1rem; }
+@media (min-width: 46rem) { .destacadas { grid-template-columns: repeat(3, 1fr); } }
+.destacada { display: grid; gap: 0.35rem; font-size: 0.9rem; color: #8A8578; }
+.destacada b { color: #F2EDE3; font-weight: 500; }
+.destacada__circulo { width: 4rem; height: 4rem; border-radius: 50%; border: 1.5px solid #D2A64B; background: radial-gradient(circle at 50% 40%, #1a1a1d, #0A0A0B); position: relative; }
+.destacada__circulo::after { content: ''; position: absolute; left: 50%; top: 50%; width: 1.2rem; height: 1px; background: #D2A64B; transform: translate(-50%, -50%); }
+
+/* piezas */
+.pieza { padding: 0.9rem 0; border-top: 1px solid rgba(242,237,227,0.08); font-size: 0.9375rem; max-width: 44rem; }
+.pieza b { display: block; font-weight: 500; margin-bottom: 0.3rem; }
+.pieza p { margin: 0 0 0.3rem; }
+.k { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8A8578; margin-right: 0.4rem; }
+.slides { padding-left: 1.2rem; margin-top: 0.3rem; }
+.slides li { margin-bottom: 0.25rem; }
+
+/* telegram */
+.burbujas { display: grid; gap: 1rem; margin: 1rem 0; max-width: 40rem; }
+.burbuja { background: #121214; border: 1px solid rgba(242,237,227,0.08); border-radius: 14px 14px 14px 4px; padding: 0.85rem 1.1rem; font-size: 0.9375rem; line-height: 1.55; }
+.burbuja__meta { display: block; font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #D2A64B; margin-bottom: 0.4rem; }
+.burbuja p { margin: 0; }
+.bienvenida { list-style: none; padding: 0; display: grid; gap: 0; max-width: 44rem; }
+.bienvenida li { display: grid; gap: 0.15rem; padding: 0.8rem 0; border-top: 1px solid rgba(242,237,227,0.08); font-size: 0.9375rem; }
+.bienvenida b { font-weight: 500; }
+.bienvenida span { color: #8A8578; }
+@media (min-width: 46rem) { .bienvenida li { grid-template-columns: 14rem 1fr; gap: 1rem; } }
+
+.pie { border-top: 1px solid rgba(242,237,227,0.08); padding: 2rem 1.25rem 3rem; max-width: 68rem; margin: 3rem auto 0; color: #6F6B60; font-size: 0.8125rem; }
+</style></head>
+<body>
+<header class="cabecera">
+  <a class="marca" href="/plan/"><svg viewBox="391 475 250 393" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+  <g id="leon" transform="matrix(1 0 0 -1 0 1350)">
+    <path d="M501.74 727.4L477.25 729.58L487.21 716.92C493.61 718.24 497.95 721.37 501.74 727.4ZM519.12 624.46C538.71 635.56 545.88 655.77 538.95 676.48C535.01 656.28 522.54 636.81 500.96 630.33C484.46 625.38 463.5 632.42 436.1 623.24C427.97 625.95 429.65 640.35 432.02 647L435.79 657.56C445.83 651.42 454.64 644.89 465.66 649.07C472.89 651.8 477.16 661.32 477.02 668.2C476.87 676.05 473.42 685.13 465.07 689.5C458.23 693.07 436.56 688.35 434.86 671.26C426.43 677.87 417.02 690.12 419.5 703C420.37 707.45 428.1 713.68 431.48 717.3L421.22 716.07C418.67 715.76 415.56 722.04 415.86 724.64L416.88 733.62C417.15 735.93 423.25 737.74 425.87 737.8L467.47 738.76C471.44 741.11 478.91 749.49 483.48 749.74L599.92 749.58C597.6 740.12 593.94 735.71 588.53 729.57C605.62 727.49 620.91 712.65 617.73 697.13C605.17 698.15 591.96 696.75 586.49 684.26C608.72 685.79 628.27 669.73 627.28 646.31C612.44 650.45 597.97 652.19 583.71 647.3C611.04 641.02 625.25 616.97 616.75 592.32C602 602.19 585.52 609.8 566.88 604.25C608.28 583.78 624.41 537.01 604.43 495.56C585.25 535.09 549.25 560.1 507.62 561.86C464.89 563.67 426.39 540.58 404.99 502.82C405.69 550.06 423.49 568.34 461.43 591.95C453.44 593.42 445.42 592.56 434.95 590.68C457.79 628.35 479.78 602.18 519.12 624.46Z" vector-effect="non-scaling-stroke"/>
+    <path d="M544.71 765.54L531.04 765.28L531.05 807.66C531.05 813.12 528.59 816.81 522.85 817.58C517.02 818.37 511.21 817.04 507.79 812.09C505 808.05 503.55 801.15 506.94 796.32L528.61 765.45L510.82 765.26L494.55 788.47C490.32 794.51 489.4 801.54 490.38 808.58C486.35 808.95 482.25 806.91 481.18 803.28C479.46 797.46 481.66 791.68 484.95 786.95L499.94 765.46L482.53 765.27C472.58 779.27 457.31 797.09 469.89 813.76C476.14 822.03 486.31 825.63 497.13 822.48C507.58 834.34 524.3 835.56 537.75 827.63C551.06 835.14 567.49 834.88 578.26 822.46C588.13 825.26 597.82 822.8 604.22 815.63C619.16 798.89 603.79 780.26 593.3 765.26L575.49 765.35L590.12 786.15C592.54 789.6 594.57 794.07 595.12 798.27C595.91 804.33 591.53 809.25 585.01 808.63C586.66 800.32 584.54 793.33 580.09 787.04L564.81 765.44L547.03 765.72L567.37 794.35C572.11 801.03 571.54 808.98 565.45 814.68C561.22 818.64 547.51 820.08 545.85 812.56C543.33 797.09 545.76 782.04 544.71 765.54Z" vector-effect="non-scaling-stroke"/>
+    <path d="M533.51 859.94C539.98 862.56 546.25 858.94 548.59 853.22C550.93 847.52 547.98 840.59 541.79 838.16C536.36 836.03 529.85 838.6 527.22 844.38C524.73 849.85 526.6 857.15 533.51 859.94Z" vector-effect="non-scaling-stroke"/>
+  </g>
+</svg><span>The Golden Syndicate · la estrategia</span></a>
+  <a class="volver" href="/plan/">← El plan de hoy</a>
+</header>
+<nav class="indice" aria-label="Índice"><ol><li><a href="#idea"><b>01</b>La idea</a></li><li><a href="#reglas"><b>02</b>Las reglas</a></li><li><a href="#instagram"><b>03</b>Instagram</a></li><li><a href="#feed"><b>04</b>El feed</a></li><li><a href="#historias"><b>05</b>Historias</a></li><li><a href="#grabar"><b>06</b>Qué grabar</a></li><li><a href="#ritual"><b>07</b>Telegram</a></li><li><a href="#suenan"><b>08</b>Así suenan</a></li><li><a href="#remarketing"><b>09</b>Remarketing</a></li><li><a href="#escalera"><b>10</b>La escalera</a></li><li><a href="#sistema"><b>11</b>El sistema</a></li><li><a href="#medicion"><b>12</b>Medición</a></li></ol></nav>
+<main>
+<section class="seccion portada" id="portada">
+  <svg class="portada__simbolo" viewBox="391 475 250 393" fill="none" stroke="#D2A64B" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+  <g id="leon" transform="matrix(1 0 0 -1 0 1350)">
+    <path d="M501.74 727.4L477.25 729.58L487.21 716.92C493.61 718.24 497.95 721.37 501.74 727.4ZM519.12 624.46C538.71 635.56 545.88 655.77 538.95 676.48C535.01 656.28 522.54 636.81 500.96 630.33C484.46 625.38 463.5 632.42 436.1 623.24C427.97 625.95 429.65 640.35 432.02 647L435.79 657.56C445.83 651.42 454.64 644.89 465.66 649.07C472.89 651.8 477.16 661.32 477.02 668.2C476.87 676.05 473.42 685.13 465.07 689.5C458.23 693.07 436.56 688.35 434.86 671.26C426.43 677.87 417.02 690.12 419.5 703C420.37 707.45 428.1 713.68 431.48 717.3L421.22 716.07C418.67 715.76 415.56 722.04 415.86 724.64L416.88 733.62C417.15 735.93 423.25 737.74 425.87 737.8L467.47 738.76C471.44 741.11 478.91 749.49 483.48 749.74L599.92 749.58C597.6 740.12 593.94 735.71 588.53 729.57C605.62 727.49 620.91 712.65 617.73 697.13C605.17 698.15 591.96 696.75 586.49 684.26C608.72 685.79 628.27 669.73 627.28 646.31C612.44 650.45 597.97 652.19 583.71 647.3C611.04 641.02 625.25 616.97 616.75 592.32C602 602.19 585.52 609.8 566.88 604.25C608.28 583.78 624.41 537.01 604.43 495.56C585.25 535.09 549.25 560.1 507.62 561.86C464.89 563.67 426.39 540.58 404.99 502.82C405.69 550.06 423.49 568.34 461.43 591.95C453.44 593.42 445.42 592.56 434.95 590.68C457.79 628.35 479.78 602.18 519.12 624.46Z" vector-effect="non-scaling-stroke"/>
+    <path d="M544.71 765.54L531.04 765.28L531.05 807.66C531.05 813.12 528.59 816.81 522.85 817.58C517.02 818.37 511.21 817.04 507.79 812.09C505 808.05 503.55 801.15 506.94 796.32L528.61 765.45L510.82 765.26L494.55 788.47C490.32 794.51 489.4 801.54 490.38 808.58C486.35 808.95 482.25 806.91 481.18 803.28C479.46 797.46 481.66 791.68 484.95 786.95L499.94 765.46L482.53 765.27C472.58 779.27 457.31 797.09 469.89 813.76C476.14 822.03 486.31 825.63 497.13 822.48C507.58 834.34 524.3 835.56 537.75 827.63C551.06 835.14 567.49 834.88 578.26 822.46C588.13 825.26 597.82 822.8 604.22 815.63C619.16 798.89 603.79 780.26 593.3 765.26L575.49 765.35L590.12 786.15C592.54 789.6 594.57 794.07 595.12 798.27C595.91 804.33 591.53 809.25 585.01 808.63C586.66 800.32 584.54 793.33 580.09 787.04L564.81 765.44L547.03 765.72L567.37 794.35C572.11 801.03 571.54 808.98 565.45 814.68C561.22 818.64 547.51 820.08 545.85 812.56C543.33 797.09 545.76 782.04 544.71 765.54Z" vector-effect="non-scaling-stroke"/>
+    <path d="M533.51 859.94C539.98 862.56 546.25 858.94 548.59 853.22C550.93 847.52 547.98 840.59 541.79 838.16C536.36 836.03 529.85 838.6 527.22 844.38C524.73 849.85 526.6 857.15 533.51 859.94Z" vector-effect="non-scaling-stroke"/>
+  </g>
+</svg>
+  <p class="rotulo">The Golden Syndicate · marca personal de Cristian</p>
+  <h1>Estrategia digital<br>en redes y canal</h1>
+  <p class="portada__sub">Instagram, Telegram y la escalera que va del contenido a la clase privada. Con el sistema diario que la publica, en la pestaña de al lado.</p>
+  <p class="portada__pie">IAGINATION · septiembre de 2026 · versión 1, para validar con Cristian</p>
+</section>
+<section class="seccion" id="idea">
+  <p class="rotulo">01 · La idea en una página</p>
+  <h2>No vendemos entradas. Construimos traders, y la gente que hay detrás.</h2>
+  <p class="lead">El mercado de señales está saturado de canales que venden un número. Golden Syndicate compite en <strong>la vida alrededor del gráfico</strong>: dinero, propósito, cuerpo, mentalidad, educación. Cristian no es un tipo que manda niveles; es alguien cuya forma de vivir explica por qué opera como opera. Eso es lo que se publica.</p>
+
+  <h3>La escalera</h3>
+  <ol class="escalera">
+    <li><b>Instagram de Cristian</b><span>La cara y el motor de alcance. Estilo de vida como las cinco llaves vividas, frases suyas, educación.</span></li>
+    <li><b>Landing</b><span>thegoldensyndicate.com. Una sola acción: registrarse gratis y entrar al canal.</span></li>
+    <li><b>Telegram Free</b><span>La puerta de entrada. Ritual diario, educación, historias. Aquí se construye la confianza.</span></li>
+    <li><b>Canal de análisis</b><span>Los niveles con su porqué. Se entra con cuenta en Exness por el enlace del club; al club no se le paga.</span></li>
+    <li><b>Formación</b><span>GOLD, VIP, PREMIUM. Acompañamiento con precio. <em>[POR CONFIRMAR: qué incluye cada uno y cuánto vale]</em></span></li>
+    <li><b>Clases privadas</b><span>Uno a uno con Cristian, con fee. Para quien ya opera y sabe qué le falla. <em>[POR CONFIRMAR: formato, duración, precio, cupos]</em></span></li>
+  </ol>
+
+  <h3>Dos cuentas, dos roles</h3>
+  <table>
+    <tr><th>Cristian (personal)</th><td>El motor. Sigue siendo la principal. Método, mercado en vivo, disciplina y vida. Cinco piezas a la semana.</td></tr>
+    <tr><th>@thegoldensyndicate</th><td>La casa. Crece por arrastre. Republica tres piezas a la semana del mismo banco, con pie en voz del club. Lo que pasa dentro: miembros, cultura, el canal.</td></tr>
+  </table>
+  <p class="nota">La gente sigue personas, no logos. La cuenta personal no se apaga ni se «migra»: se usa como puerta.</p>
+</section>
+<section class="seccion" id="reglas">
+  <p class="rotulo">02 · Las reglas del juego</p>
+  <h2>Lo que se puede decir y lo que no. En las dos plataformas, siempre.</h2>
+  <p class="lead">Meta clasifica esto como servicios financieros, categoría restringida. Exness prohíbe prometer ganancias y exige declarar la condición de partner. Romper cualquiera de las dos no cuesta un anuncio: cuesta la cuenta publicitaria o la de partner, que es la monetización entera.</p>
+  <div class="dos">
+    <div><h3 class="si">Sí</h3><ul><li>Proceso, no resultado: qué se vio, qué se decidió, qué se aprendió.</li><li>Las que salen mal se comentan igual que las otras.</li><li>Frases de Cristian ya publicadas, con fecha. Verificables.</li><li>Cuerpo y mentalidad como prueba de la tesis, no como relleno.</li><li>La agenda económica: qué sale, a qué hora, por qué importa.</li><li>El descargo de riesgo y la condición de partner, donde corresponda.</li><li>Historias de miembros: la decisión, con permiso, sin la cifra.</li></ul></div>
+    <div><h3 class="no">No</h3><ul><li>Cifras de ganancia, porcentajes, pips como gancho, capturas de P&amp;L.</li><li>&quot;Vive del trading&quot;, &quot;ingreso pasivo&quot;, &quot;libertad financiera&quot;, &quot;duplica&quot;.</li><li>Carros, relojes, billetes, jets, playa como premio.</li><li>Emojis de dinero, cohetes o fuego. Mayúsculas para gritar.</li><li>Urgencia: &quot;últimos cupos&quot;, &quot;hoy se cierra&quot;, &quot;aprovecha&quot;.</li><li>&quot;Deberías entrar&quot;, &quot;te conviene&quot;: eso es asesoría, y Cristian no es asesor.</li><li>Predicciones: &quot;va a subir&quot;, &quot;va a romper&quot;. Se explica lo que pasó, no lo que pasará.</li><li>Nombres o caras de terceros sin permiso. Saldos de cuenta ajenos.</li><li>Una señal pelada, sin el porqué ni lo que la invalida.</li><li>Empujar el broker o la formación fuera del viernes y del mensual.</li></ul></div>
+  </div>
+  <h3>Dos textos que van siempre</h3>
+  <blockquote class="cita">El trading conlleva riesgo de pérdida. El contenido es educativo y no constituye asesoría de inversión. Los resultados pasados no garantizan resultados futuros. Opera solo con capital que puedas permitirte perder.</blockquote>
+  <blockquote class="cita">The Golden Syndicate es partner independiente de Exness: recibe una comisión del broker cuando alguien opera a través de su enlace. No forma parte del broker ni lo representa.</blockquote>
+  <p class="nota">El descargo va en la landing, en la bio (destacada «Empieza aquí») y fijado en el canal. La declaración de partner, cada vez que se mencione el broker. «Cristian ya es rentable» no se usa como argumento público: se comunica como método y constancia, nunca como resultado.</p>
+</section>
+<section class="seccion" id="instagram">
+  <p class="rotulo">03 · Instagram · la marca personal</p>
+  <h2>Estilo de vida significa las cinco llaves vividas. Nunca el objeto.</h2>
+  <p class="lead">Gimnasio a las cinco, escritorio antes de la apertura, un libro, la calle. Eso es cuerpo, mentalidad y propósito en imágenes. Un carro, un reloj o una playa como premio es el uniforme del gurú de humo y tira la tesis al suelo, además de ser lo que Meta penaliza en categoría financiera.</p>
+
+  <h3>Los cuatro ejes</h3>
+  <table class="ejes">
+    <tr><th>Método</th><td class="pct">35 %</td><td>Cómo lee el mercado, qué mira antes de entrar, errores comunes con pantalla. Autoridad y guardados.</td></tr>
+    <tr><th>Cuerpo y mentalidad</th><td class="pct">30 %</td><td>Entreno, rutina, cómo gestiona una racha mala. <strong>El eje diferenciador.</strong> No es relleno: es la prueba de la tesis.</td></tr>
+    <tr><th>Mercado en vivo</th><td class="pct">20 %</td><td>Reacción a lo que pasa esta semana. La razón para volver mañana.</td></tr>
+    <tr><th>Comunidad</th><td class="pct">15 %</td><td>Qué pasa dentro del canal: mensajes de análisis con el sello «Ejemplo», la constancia, miembros que se corrigen. Es lo que empuja el registro.</td></tr>
+  </table>
+
+  <h3>La semana</h3>
+  <table class="semana">
+    <tr><th>Lunes</th><td>Reel · método</td><td class="gris">@thegoldensyndicate republica</td></tr><tr><th>Martes</th><td>Foto o reel · vida</td><td class="gris"></td></tr><tr><th>Miércoles</th><td>Carrusel · educación</td><td class="gris">@thegoldensyndicate republica</td></tr><tr><th>Jueves</th><td>Reel · mercado en vivo</td><td class="gris"></td></tr><tr><th>Viernes</th><td>Estático · frase + comunidad</td><td class="gris">@thegoldensyndicate republica</td></tr><tr><th>Sábado</th><td>Foto · vida (opcional)</td><td class="gris"></td></tr><tr><th>Domingo</th><td>Solo historias</td><td class="gris"></td></tr>
+  </table>
+  <p class="nota">Cinco publicaciones a la semana en la personal, sábado opcional, domingo solo historias. Tres nacen de las grabaciones con equipo y dos se graban con el celular. Historias todos los días, sin producción. Hora: la publicación del feed a las 12:00; la historia fija a las 7:00, cuando sale la apertura en el canal.</p>
+
+  <h3>La bio</h3>
+  <blockquote class="cita bio">Trader. Fundador de The Golden Syndicate.<br>Opero XAUUSD y explico el porqué.<br>dinero · propósito · cuerpo · mentalidad · educación<br>↓ Entra al canal gratis</blockquote>
+  <p class="nota">El enlace de la bio va a la landing con <code>?utm_source=instagram&amp;utm_medium=bio</code>, nunca al broker. Tres publicaciones fijadas: el reel de presentación, el carrusel de las cinco llaves y una pieza de comunidad.</p>
+</section>
+<section class="seccion" id="feed">
+  <p class="rotulo">04 · Instagram · cómo se ve el feed</p>
+  <h2>Tres formatos que alternan. Nunca dos iguales seguidos.</h2>
+  <div class="feed-y-leyenda">
+    <div class="feed">
+      <div class="casilla casilla--reel"><span class="casilla__n">1</span><span class="casilla__texto">Esta entrada era una trampa.</span></div><div class="casilla casilla--frase"><span class="casilla__n">2</span><span class="casilla__texto">Recuerden que no se trata de operar más… se trata de operar mejor.</span></div><div class="casilla casilla--vida"><span class="casilla__n">3</span><span class="casilla__texto">Gimnasio, 5:00. Luz dura.</span></div><div class="casilla casilla--carrusel"><span class="casilla__n">4</span><span class="casilla__texto">El stop no se mueve</span></div><div class="casilla casilla--vida"><span class="casilla__n">5</span><span class="casilla__texto">El escritorio antes de la apertura.</span></div><div class="casilla casilla--reel"><span class="casilla__n">6</span><span class="casilla__texto">Por qué no entré aunque llegó a la zona.</span></div><div class="casilla casilla--comunidad"><span class="casilla__n">7</span><span class="casilla__texto">Así se ve un mensaje del canal.</span></div><div class="casilla casilla--vida"><span class="casilla__n">8</span><span class="casilla__texto">Lo que estoy leyendo.</span></div><div class="casilla casilla--frase"><span class="casilla__n">9</span><span class="casilla__texto">A veces la mejor operación también es saber esperar.</span></div><div class="casilla casilla--reel"><span class="casilla__n">10</span><span class="casilla__texto">Lo primero que miro no es el gráfico.</span></div><div class="casilla casilla--carrusel"><span class="casilla__n">11</span><span class="casilla__texto">Las cinco llaves</span></div><div class="casilla casilla--vida"><span class="casilla__n">12</span><span class="casilla__texto">Un día sin operar.</span></div>
+    </div>
+    <div class="leyenda">
+      <p><span class="muestra muestra--reel"></span><span><b>Reel</b> · método o mercado. Pantalla o cara a cámara, texto sobre la imagen, 20–40 s.</span></p>
+      <p><span class="muestra muestra--frase"></span><span><b>Frase</b> · una de las suyas, ya publicada en el canal, con fecha. Negro, una línea dorada, nada más.</span></p>
+      <p><span class="muestra muestra--vida"></span><span><b>Vida</b> · foto o reel corto. Luz dura, sin filtro. Gym, escritorio, calle, lectura.</span></p>
+      <p><span class="muestra muestra--carrusel"></span><span><b>Carrusel</b> · un concepto en seis slides. Es lo que más se guarda.</span></p>
+      <p><span class="muestra muestra--comunidad"></span><span><b>Comunidad</b> · captura del canal con el sello «Ejemplo» y los niveles tapados, o la hora de publicación día tras día.</span></p>
+      <p class="nota">La cuadrícula se lee de arriba abajo con ritmo: oscuro, negro, luz. Sin plantilla repetida: cada frase se compone distinto, cada foto tiene otra luz. Lo que ordena es la paleta —negro, oro plano, hueso— no un marco.</p>
+    </div>
+  </div>
+</section>
+<section class="seccion" id="historias">
+  <p class="rotulo">05 · Instagram · historias</p>
+  <h2>Las destacadas son la estantería del perfil. Seis, con nombre corto.</h2>
+  <div class="destacadas">
+    <div class="destacada"><span class="destacada__circulo"></span><b>Empieza aquí</b><span>Qué es el Syndicate, cómo se entra, el enlace. Cuatro historias, sin más.</span></div><div class="destacada"><span class="destacada__circulo"></span><b>Método</b><span>Los conceptos básicos, uno por historia: zona, stop, lotaje, noticia, invalidación.</span></div><div class="destacada"><span class="destacada__circulo"></span><b>Las 5 llaves</b><span>Una historia por llave. Es la promesa de la marca, guardada donde se ve.</span></div><div class="destacada"><span class="destacada__circulo"></span><b>El canal</b><span>Cómo se ve un mensaje de análisis, con el sello «Ejemplo». La constancia: la hora de publicación, día tras día.</span></div><div class="destacada"><span class="destacada__circulo"></span><b>Rutina</b><span>Cuerpo y mentalidad: el gym, la lectura, el día típico. Sin filtro, sin objeto.</span></div><div class="destacada"><span class="destacada__circulo"></span><b>Preguntas</b><span>Las que llegan por privado, respondidas. «¿Dónde está el truco?» va la primera.</span></div>
+  </div>
+  <p class="nota">Portadas iguales: símbolo o inicial en oro sobre negro. Lo que <strong>no</strong> hay: «Resultados», «Ganancias», «Testimonios». Una destacada con capturas de P&amp;L es lo primero que revisa Meta en esta categoría, y es la promesa dibujada. La prueba social vive en «El canal» y «Comunidad», y es la constancia y el criterio, no la cifra.</p>
+
+  <h3>Las historias de cada día</h3>
+  <table class="semana">
+    <tr><th>7:00</th><td>Story fija, 7:00–7:45: &quot;Ya está la apertura en el canal&quot;. Foto del escritorio o del gráfico apagado. Sticker de enlace a la landing con texto &quot;Entrar gratis&quot;.</td></tr>
+    <tr><th>Mediodía</th><td>Encuesta: &quot;¿Sabes qué dato sale hoy?&quot; Sí / No. Responde con la agenda en la siguiente story.</td></tr><tr><th>Tarde</th><td>Caja de preguntas: &quot;Pregúntame algo del método&quot;. Las tres mejores se responden en stories al día siguiente; una puede ser el reel del jueves.</td></tr><tr><th>Mediodía</th><td>Frase de disciplina sobre negro, sin imagen. Una de las suyas, con fecha.</td></tr><tr><th>Tarde</th><td>Detrás: el gym, el café, la calle. Sin texto o con una palabra.</td></tr><tr><th>Mediodía</th><td>Repost del post del día con una línea nueva, no la misma del pie.</td></tr><tr><th>Noche</th><td>Cierre de día: &quot;Mañana a las 7&quot;. Nada más.</td></tr>
+  </table>
+  <p class="nota">Dos o tres al día. La de las 7:00 es fija y es la que lleva a la landing: es el gesto que convierte el ritual del canal en tráfico. Las demás rotan; el sistema propone cuál cada día.</p>
+</section>
+<section class="seccion" id="grabar">
+  <p class="rotulo">06 · Instagram · qué grabar</p>
+  <h2>Cada pieza sale con gancho, qué grabar y pie. Esto es una muestra; el banco entero está en el sistema.</h2>
+
+  <h3>Reel · método</h3>
+  <div class="pieza"><b>Esta entrada era una trampa. Te muestro por qué.</b><p><span class="k">Grabar</span> Pantalla del gráfico con la zona marcada. Cristian explica en 30 s qué la hacía parecer buena y qué la invalidaba. Sin cifra de resultado.</p><p><span class="k">Pie</span> El nivel es lo de menos. Lo que importa es saber qué lo tumba. En el canal, cada idea va con eso.</p></div><div class="pieza"><b>Por qué no entré aunque el precio llegó a la zona.</b><p><span class="k">Grabar</span> Cara a cámara 10 s, luego pantalla. La confirmación que faltaba. Cierre: &quot;una operación que no tomas nunca será una pérdida&quot;.</p><p><span class="k">Pie</span> La paciencia también es parte de la estrategia. Lo dije en el canal hace meses y lo sigo diciendo.</p></div>
+
+  <h3>Vida</h3>
+  <div class="pieza"><b>Gimnasio a las 5. Luz dura, sin filtro.</b><p><span class="k">Grabar</span> Foto o reel corto en el gym. Texto sobre la imagen: &quot;La disciplina es una sola.&quot;</p><p><span class="k">Pie</span> La persona que no aguanta una repetición más tampoco aguanta esperar la confirmación. Cuerpo y gráfico se entrenan igual.</p></div><div class="pieza"><b>El escritorio antes de la apertura.</b><p><span class="k">Grabar</span> Plano fijo del escritorio: café, pantalla apagada, cuaderno. Sin gráfico todavía.</p><p><span class="k">Pie</span> A las 7 se publica la apertura en el canal. Antes de eso, veinte minutos sin pantalla. La cabeza se prepara igual que el cuerpo.</p></div>
+
+  <h3>Carrusel</h3>
+  <div class="pieza"><b>El stop no se mueve</b><ol class="slides"><li>El stop es el precio al que la idea deja de ser cierta</li><li>No es el precio al que &quot;ya perdí mucho&quot;</li><li>Se pone antes de entrar</li><li>Moverlo es cambiar la idea a mitad de camino</li><li>Una idea equivocada, alejada diez puntos, sigue equivocada</li><li>En el canal cada idea va con lo que la invalida</li></ol></div>
+
+  <h3>Cómo se escribe un pie</h3>
+  <p class="nota">Gancho de una línea → la idea → el porqué → una invitación suave («en el canal, cada idea va con eso») → nada de hashtags de dinero. Tres a cinco hashtags de método si acaso. El enlace siempre es «el de la bio»; nunca el del broker.</p>
+</section>
+<section class="seccion" id="ritual">
+  <p class="rotulo">07 · Telegram · el ritual</p>
+  <h2>Un mensaje a la misma hora todos los días de mercado. Eso ya existe; hay que protegerlo.</h2>
+  <p class="lead">Las capturas del canal prueban publicación entre las 7:00 y las 7:45 desde mayo, sin faltar. Esa constancia es la mejor prueba social que tiene el club y es verificable entrando. Alrededor de ese ritual se construye la semana.</p>
+
+  <table class="semana">
+    <tr><th>Lunes</th><td><b>Arranque · la semana que empieza</b><br><span class="hora">07:00</span> La apertura<br><span class="hora">12:00</span> El audio de Cristian</td></tr><tr><th>Martes</th><td><b>Historia de un miembro</b><br><span class="hora">07:00</span> La apertura<br><span class="hora">18:00</span> Historia de un miembro</td></tr><tr><th>Miércoles</th><td><b>Educación · un concepto</b><br><span class="hora">07:00</span> La apertura<br><span class="hora">18:00</span> Educación</td></tr><tr><th>Jueves</th><td><b>Mercado · qué pasó y por qué</b><br><span class="hora">07:00</span> La apertura<br><span class="hora">18:00</span> Mercado</td></tr><tr><th>Viernes</th><td><b>Cierre de semana</b><br><span class="hora">07:00</span> La apertura<br><span class="hora">17:00</span> Cierre de semana<br><span class="hora">17:30</span> Mensaje mensual (solo el primer viernes del mes)</td></tr><tr><th>Sábado</th><td><b>Cuerpo · mentalidad · propósito</b><br><span class="hora">10:00</span> Sábado</td></tr><tr><th>Domingo</th><td><b>La agenda de la semana que viene</b><br><span class="hora">19:00</span> La semana que viene</td></tr>
+  </table>
+
+  <h3>Qué es cada cosa</h3>
+  <ul class="lista">
+    <li><b>La apertura (L–V, 7:00).</b> Agenda del día, qué mira, qué no hace, la regla del día. En el grupo Free no van niveles: van al canal de análisis. Es lo que hace que el grupo abierto tenga valor sin regalar el producto.</li>
+    <li><b>El audio del lunes.</b> Voz de Cristian, 2 a 4 minutos, celular, sin editar. Es lo que más acerca. Empieza siempre señalando a los nuevos el mensaje fijado.</li>
+    <li><b>Historia de un miembro (martes).</b> La decisión, con permiso, sin la cifra. El modelo es el mensaje del lotaje: alguien que ganó y aun así se corrigió.</li>
+    <li><b>Educación (miércoles).</b> Un concepto, explicado como lo explicaría él. Termina con una pregunta que se pueda responder: es lo que activa el grupo.</li>
+    <li><b>Mercado (jueves).</b> Qué pasó y por qué importa. Nunca «va a subir». Se explica lo que pasó, no lo que pasará.</li>
+    <li><b>Cierre (viernes).</b> Lo que salió y lo que no, comentado igual. La única invitación semanal al canal de análisis, con la declaración de partner debajo.</li>
+    <li><b>Sábado.</b> Cuerpo, mentalidad, propósito. Es la tesis, no el relleno.</li>
+    <li><b>Domingo.</b> La agenda de la semana que viene. El mensaje más corto y el que más se guarda.</li>
+  </ul>
+</section>
+<section class="seccion" id="suenan">
+  <p class="rotulo">08 · Telegram · así suenan</p>
+  <h2>Uno de cada. Lo que va <mark>[entre corchetes]</mark> lo escribe Cristian esa mañana: es dato de mercado y no se inventa.</h2>
+  <div class="burbujas">
+    <div class="burbuja"><span class="burbuja__meta">La apertura · 7:00</span><p>Buenos días. Hoy en el oro.<br><br>Agenda: <mark>[qué datos salen hoy y a qué hora]</mark>.<br>Lo que miro: <mark>[la zona o el contexto que tiene en la pantalla, sin nivel]</mark>.<br>Lo que no hago: entrar antes de que el precio llegue a donde tiene que llegar.<br><br>Regla del día: Recuerden que no se trata de operar más… se trata de operar mejor.<br><br>Los niveles, con su porqué y con lo que los invalida, van en el canal de análisis.</p></div>
+    <div class="burbuja"><span class="burbuja__meta">Historia de un miembro · martes 18:00</span><p>Historia de un miembro.<br><br><mark>[Nombre de pila o &quot;un miembro&quot;, con su permiso]</mark> entró la semana pasada con más lotaje del que tenía planeado. El mercado fue a favor. Aun así, escribió esto al canal:<br><br>&quot;<mark>[cita textual del miembro, con permiso, sin cifras]</mark>&quot;<br><br>Lo importante no es cómo terminó. Es que se dio cuenta. Esa es la parte del trading que nadie enseña en un video de tres minutos.<br><br>Si te pasó algo parecido, cuéntamelo por privado. Las historias de este martes salen de ahí.</p></div>
+    <div class="burbuja"><span class="burbuja__meta">Educación · miércoles 18:00</span><p>Educación · El lotaje se calcula, no se siente.<br><br>La cifra sale de dos datos: cuánto estás dispuesto a perder si el stop salta, y a qué distancia está el stop. Nada más. Ni la confianza que tienes en la operación ni lo que ganaste ayer entran en la cuenta.<br><br>Si la operación &quot;se ve muy buena&quot; y por eso entras con más, no estás operando: estás apostando con un gráfico delante.<br><br>Pregunta de la semana: ¿tienes escrito cuánto arriesgas por operación, o lo decides cada vez?</p></div>
+  </div>
+  <div class="burbujas">
+    <div class="burbuja"><span class="burbuja__meta">Mercado · jueves 18:00</span><p>Mercado · La agenda de la semana.<br><br>Lo que mueve al oro no es el gráfico: son las decisiones sobre tasas, la inflación y el empleo en Estados Unidos. Esta semana salen:<br><br>· <mark>[dato 1]</mark> — <mark>[día y hora]</mark><br>· <mark>[dato 2]</mark> — <mark>[día y hora]</mark><br>· <mark>[dato 3]</mark> — <mark>[día y hora]</mark><br><br>Alrededor de esas horas, nada nuevo se abre. Después, se lee.</p></div>
+    <div class="burbuja"><span class="burbuja__meta">Cierre de semana · viernes 17:00</span><p>Cierre de semana.<br><br>Lo que se publicó en el canal de análisis esta semana: <mark>[número]</mark> ideas.<br>Lo que salió: <mark>[cuántas]</mark>. Lo que no: <mark>[cuántas]</mark>. Las que no salieron se comentaron igual que las otras, con lo que se aprendió de cada una.<br><br>La que más vale la pena revisar: <mark>[cuál y por qué, sin cifra]</mark>.<br><br>Si quieres ver los niveles con su porqué y con lo que los invalida, así se entra al canal de análisis: está explicado en el mensaje fijado. Al club no le pagas nada.<br><br>The Golden Syndicate es partner independiente de Exness: recibe una comisión del broker cuando alguien opera a través de su enlace. No forma parte del broker ni lo representa.</p></div>
+    <div class="burbuja"><span class="burbuja__meta">Sábado · 10:00</span><p>Sábado.<br><br>Hoy no hay gráfico. Hay entreno, y hay una idea.<br><br>La persona que no aguanta una repetición más tampoco aguanta esperar la confirmación. La disciplina es una sola y se entrena en todas partes.<br><br>¿Qué hiciste hoy por tu cuerpo? Contesta abajo si quieres. Nadie te va a juzgar.</p></div>
+    <div class="burbuja"><span class="burbuja__meta">La semana que viene · domingo 19:00</span><p>La semana que viene en el oro.<br><br>· Lunes: <mark>[dato / nada relevante]</mark><br>· Martes: <mark>[dato]</mark><br>· Miércoles: <mark>[dato]</mark><br>· Jueves: <mark>[dato]</mark><br>· Viernes: <mark>[dato]</mark><br><br>Alrededor de cada dato fuerte, sin operaciones nuevas. Mañana a las 7, la apertura.</p></div>
+  </div>
+  <p class="nota">Hay 33 mensajes en el banco. Rotan por semana, así que dos lunes seguidos no repiten texto. Todos pasaron por la revisión de cumplimiento antes de entrar.</p>
+</section>
+<section class="seccion" id="remarketing">
+  <p class="rotulo">09 · Telegram · el remarketing</p>
+  <h2>Los primeros siete días deciden si se queda. Y un canal no puede mandar una secuencia distinta a cada persona.</h2>
+  <p class="lead">Eso pide un bot. Mientras no lo haya, la secuencia se publica una vez, se fija, y cada lunes el audio empieza señalándola. Son siete mensajes, uno por día de la primera semana de quien llega. Es lo que hay que mandar para que el registro se convierta en hábito y el hábito en confianza.</p>
+  <ol class="bienvenida">
+    <li><b>Día 0 · Bienvenida</b><span>Esto es la puerta de entrada. Aquí ves cómo trabajamos antes de decidir nada.</span></li><li><b>Día 1 · Quién está detrás</b><span>Cristian opera oro (XAUUSD) y publica lo que opera él mismo, con el porqué. No revende señales de nadie.</span></li><li><b>Día 2 · Las cinco llaves</b><span>Dinero: gestionar el riesgo antes de pensar en el resultado.</span></li><li><b>Día 3 · Cómo se lee un mensaje de análisis</b><span>Cada idea que se publica en el canal de análisis lleva cuatro cosas: dirección, zona de entrada, stop y objetivo. Y tres más que casi nadie da: por qué la veo, qué la invalida y qué hago si falla.</span></li><li><b>Día 4 · La única regla que no se negocia</b><span>No persigas el precio. Si cuando ves el mensaje el precio ya se fue de la zona, no entras. Perder una oportunidad sale más barato que entrar fuera de las condiciones.</span></li><li><b>Día 5 · Dónde está el truco</b><span>Es la pregunta que todos se hacen y casi nadie contesta, así que va de frente.</span></li><li><b>Día 6 · Cómo se entra al canal de análisis</b><span>1. Abres tu cuenta en Exness con este enlace: https://thegoldensyndicate.com/ir?utm_source=telegram</span></li>
+  </ol>
+  <p class="nota">El broker no aparece hasta el día 5, y aparece como transparencia («dónde está el truco»), no como oferta. Empujarlo el día uno quema la lista: es la lección que ya dejaron las capturas del canal con «440 pips en premium».</p>
+
+  <h3>Fase 2 · el bot</h3>
+  <p class="nota">Un bot de Telegram permite tres cosas que el canal no: mandar la bienvenida a cada persona el día que entra, mandarla en privado, y saber quién la abrió. Y convierte el «copiar y abrir el canal» del sistema en «enviar». Se monta cuando el ritmo semanal esté rodando; antes sería automatizar algo que todavía no existe.</p>
+</section>
+<section class="seccion" id="escalera">
+  <p class="rotulo">10 · La escalera de oferta</p>
+  <h2>El grupo abierto promete que nadie te va a estar vendiendo. Se cumple con un calendario, no con buena voluntad.</h2>
+  <table class="semana">
+    <tr><th>Free → análisis</th><td>Una vez a la semana, en el cierre del viernes: «así se entra». Y siempre en el mensaje fijado. Nunca en la apertura, nunca por privado sin que pregunten.</td></tr>
+    <tr><th>Análisis → formación</th><td>Una vez al mes, el primer viernes, después del cierre: el mensaje de formación. En el canal de análisis, cuando una idea se comenta a fondo: «esto lo trabajamos en formación», sin enlace. <em>[POR CONFIRMAR: qué incluye GOLD, VIP y PREMIUM, precio, cupos]</em></td></tr>
+    <tr><th>Formación → clases privadas</th><td>Solo por privado y solo a quien lo pida. La puerta se abre una vez al mes con el tercer mensaje mensual. <em>[POR CONFIRMAR: formato, duración, precio, cupos]</em></td></tr>
+  </table>
+
+  <h3>Los tres mensajes mensuales</h3>
+  <div class="burbujas">
+    <div class="burbuja"><span class="burbuja__meta">Transparencia · primer viernes, 17:30</span><p>Una vez al mes, esto se repite para los que llegaron nuevos.<br><br>The Golden Syndicate es partner independiente de Exness: recibe una comisión del broker cuando alguien opera a través de su enlace. No forma parte del broker ni lo representa.<br><br>Ese es el modelo. No hay otro truco. Y si en algún momento el club cobrara por algo, se dice aquí con el precio delante, no por privado.<br><br>El trading conlleva riesgo de pérdida. El contenido es educativo y no constituye asesoría de inversión. Los resultados pasados no garantizan resultados futuros. Opera solo con capital que puedas permitirte perder.</p></div><div class="burbuja"><span class="burbuja__meta">Formación · primer viernes, 17:30</span><p>Para quien quiera ir más a fondo.<br><br>Hay tres grupos de formación: GOLD, VIP y PREMIUM. <mark>[Qué incluye cada uno, en una línea por grupo. Precio. Cupos.]</mark><br><br>No hacen falta para estar aquí ni para entrar al canal de análisis. Son para quien ya opera con el método y quiere trabajarlo con más acompañamiento.<br><br>Información por privado: https://t.me/leemintrader. Este mensaje no se repite hasta el mes que viene.</p></div><div class="burbuja"><span class="burbuja__meta">Clases privadas · primer viernes, 17:30</span><p>Clases privadas con Cristian.<br><br>Es lo más cercano que hay: tu operativa, tus errores, tu plan, uno a uno. <mark>[Formato, duración, precio, cupos disponibles este mes.]</mark><br><br>No es para todo el mundo y no es para empezar: es para quien ya lleva tiempo operando y sabe qué le está fallando.<br><br>Si es tu caso, escríbele: https://t.me/leemintrader</p></div>
+  </div>
+  <p class="nota">Rotan: un mes transparencia, otro formación, otro clases privadas. Así la oferta de pago aparece en el grupo abierto <strong>una vez al mes</strong>, y la mitad de las veces lo que aparece es la transparencia sobre cómo gana el club, no una venta.</p>
+</section>
+<section class="seccion" id="sistema">
+  <p class="rotulo">11 · El sistema</p>
+  <h2>thegoldensyndicate.com/plan. Con contraseña. Cada mañana dice qué toca.</h2>
+  <p class="lead">No hay que recordar nada de esta página. El sistema lo sabe: qué día es, qué mensaje de Telegram toca a qué hora, ya escrito, con los huecos de mercado marcados; qué publicar en Instagram, con gancho, qué grabar y pie; qué historias; y la regla del día, que rellena sola la apertura.</p>
+  <ul class="lista">
+    <li><b>Copiar y abrir el canal.</b> Un botón copia el mensaje y abre Telegram en el canal. Se pega y se manda. Cuando haya bot, ese botón manda directo.</li>
+    <li><b>Rota solo.</b> Cada banco tiene varias versiones; se eligen por semana del año. Dos lunes seguidos no repiten texto.</li>
+    <li><b>Sabe qué viernes es.</b> El mensaje mensual solo aparece el primer viernes del mes, y rota entre transparencia, formación y clases privadas.</li>
+    <li><b>La semana entera a la vista.</b> Y las reglas de qué sí y qué no, todos los días, antes de publicar.</li>
+    <li><b>La bienvenida, lista para fijar.</b> Los siete mensajes, con botón de copiar.</li>
+    <li><b>Editable.</b> Todo sale de un solo archivo, <code>calendario.mjs</code>. Cambiar un mensaje ahí cambia el sistema y esta página.</li>
+  </ul>
+  <h3>Lo que el sistema no hace, a propósito</h3>
+  <p class="nota">No inventa datos de mercado. Lo que va entre corchetes lo escribe Cristian esa mañana, porque es lo único que no puede saberse antes. Y no publica solo: en categoría financiera, un mensaje que nadie leyó antes de salir es un riesgo que no compensa el minuto que ahorra.</p>
+</section>
+<section class="seccion" id="medicion">
+  <p class="rotulo">12 · Cómo se sabe si funciona</p>
+  <h2>Una métrica por etapa. Los primeros sesenta días existen para llenar esta tabla.</h2>
+  <table class="semana">
+    <tr><th>Instagram</th><td>Retención a 3 s y a 50 % en reels. Guardados y compartidos en carruseles. Clics en el enlace de la bio.</td></tr>
+    <tr><th>Landing</th><td>Conversión a registro. Ya mide con UTM: se sabe de qué contenido vino cada uno.</td></tr>
+    <tr><th>Telegram Free</th><td>% de registrados que entran. Retención a 7 y 30 días. Vistas de la apertura sobre miembros.</td></tr>
+    <tr><th>Canal de análisis</th><td>% de miembros del Free que abren cuenta y pasan. % que sigue operando al mes.</td></tr>
+    <tr><th>Formación y privadas</th><td>% que pregunta por privado tras el mensaje mensual. % que compra. <em>[POR CONFIRMAR: capacidad de Cristian]</em></td></tr>
+  </table>
+  <h3>Revisión semanal, quince minutos</h3>
+  <ul class="lista">
+    <li>Las tres piezas que mejor funcionaron y por qué. Las tres peores.</li>
+    <li>Vistas de la apertura del canal: si bajan, el ritual se está rompiendo.</li>
+    <li>Preguntas que llegaron por privado: son el material del audio del lunes y del reel del jueves.</li>
+    <li>Cualquier cosa publicada que roce una regla: se corrige el banco, no se discute.</li>
+  </ul>
+  <h3>Lo que sigue abierto</h3>
+  <ul class="lista">
+    <li><b>Formación:</b> qué incluye cada grupo, precio, cupos. Sin eso el mensaje mensual sale con huecos.</li>
+    <li><b>Clases privadas:</b> formato, duración, precio, cuántas al mes puede dar Cristian.</li>
+    <li><b>El píxel de Meta:</b> sin él no hay medición de la landing desde pauta.</li>
+    <li><b>Términos del programa de Exness</b> sobre condicionar el acceso a un depósito: leerlos antes de seguir con ese paso.</li>
+    <li><b>El bot de Telegram</b>, fase 2, cuando el ritmo semanal lleve un mes rodando.</li>
+  </ul>
+  <p class="descargo">El trading conlleva riesgo de pérdida. El contenido es educativo y no constituye asesoría de inversión. Los resultados pasados no garantizan resultados futuros. Opera solo con capital que puedas permitirte perder. The Golden Syndicate es partner independiente de Exness: recibe una comisión del broker cuando alguien opera a través de su enlace. No forma parte del broker ni lo representa.</p>
+</section></main>
+<footer class="pie">IAGINATION · septiembre de 2026 · Se genera con <code>herramientas/estrategia.mjs</code> a partir de <code>calendario.mjs</code>. Cambiar un mensaje ahí cambia esta página y el plan diario.</footer>
+</body></html>

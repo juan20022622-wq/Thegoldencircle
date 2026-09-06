@@ -21,6 +21,24 @@
   to     = "/ir.html"
   status = 200
 
+# /plan/ es la herramienta interna: el banco de mensajes, la semana y la
+# estrategia en PDF. Va detrás de contraseña en el borde, antes de servir nada.
+# La contraseña NO está en el repo: es la variable PLAN_CLAVE de Netlify.
+# Sin la variable la ruta responde 503 y lo dice; nunca queda abierta.
+[[edge_functions]]
+  path     = "/plan"
+  function = "clave"
+
+[[edge_functions]]
+  path     = "/plan/*"
+  function = "clave"
+
+[[headers]]
+  for = "/plan/*"
+  [headers.values]
+    X-Robots-Tag  = "noindex, nofollow"
+    Cache-Control = "private, no-store"
+
 [[headers]]
   for = "/*"
   [headers.values]

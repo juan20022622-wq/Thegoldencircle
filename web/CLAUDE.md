@@ -176,6 +176,45 @@ sirve a las dos cosas: diez pantallas seguidas de ganancia son la página de
 `assets/img/testimonios/LEEME.md` está anotado cuáles rompen una regla del repo
 y por qué se quedaron igual: fue decisión del cliente, no un descuido.
 
+## El plan
+
+`/plan/` es la herramienta interna: cada mañana dice qué mensajes de Telegram
+tocan —ya escritos, con los huecos de mercado marcados—, qué publicar en
+Instagram, qué historias, la regla del día y la semana entera. Al lado,
+`/plan/estrategia.html` es la estrategia completa como página. **No hay PDF**:
+el cliente pidió que todo viva en la página.
+
+**Una sola fuente.** Todo sale de `herramientas/calendario.mjs`, que genera
+`plan/calendario.json`. La página de estrategia la genera
+`herramientas/estrategia.mjs` leyendo ese JSON. Cambiar un mensaje es cambiar
+`calendario.mjs` y correr los dos. Nunca editar el JSON ni el HTML a mano.
+
+**Lo que va entre `{{llaves}}` es dato de mercado y no se inventa.** El sistema
+lo marca en pantalla para que Cristian lo rellene esa mañana. Lo único que se
+rellena solo es `{{frase}}`: la regla del día, que sale de las frases de
+Cristian ya publicadas. **No se le inventan citas.**
+
+**Rota por semana ISO**, así dos lunes seguidos no repiten texto. El mensaje
+mensual solo aparece el primer viernes del mes y rota entre transparencia,
+formación y clases privadas: la oferta de pago aparece en el grupo abierto una
+vez al mes, y la mitad de las veces lo que aparece es la transparencia.
+
+**"Copiar y abrir el canal", no "enviar".** Un canal de Telegram no acepta texto
+prellenado desde fuera sin un bot. El botón copia y abre el canal; se pega. El
+bot es fase 2 y convierte ese botón en envío directo.
+
+**La contraseña es autenticación básica en el borde**
+(`netlify/edge-functions/clave.ts`), no un `if` en JavaScript. Vive en la
+variable `PLAN_CLAVE` de Netlify, no en el repo ni en el chat. Sin la variable,
+la ruta responde 503 y lo dice: nunca queda abierta por descuido. Para
+cambiarla: Site configuration → Environment variables → PLAN_CLAVE, y redeploy.
+El usuario da igual; solo se comprueba la contraseña. `/plan/*` lleva además
+`noindex` y `Disallow` en robots.
+
+**Todo el banco pasó por `revision-copy-trading`.** Cualquier mensaje nuevo pasa
+por lo mismo antes de entrar. Las reglas de qué sí y qué no están en el propio
+sistema, en pantalla, todos los días.
+
 ## Movimiento
 
 **Una sola línea de tiempo, nunca revelados por umbral.** Un IntersectionObserver

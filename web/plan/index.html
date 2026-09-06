@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El plan de hoy · The Golden Syndicate</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/plan/plan.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <a class="marca" href="/plan/" aria-label="El plan · inicio">
+    <svg class="marca__simbolo" viewBox="391 475 250 393" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><use href="/assets/img/simbolo.svg#leon"></use></svg>
+    <span>The Golden Syndicate · el plan</span>
+  </a>
+  <nav class="fecha" aria-label="Día">
+    <button type="button" class="fecha__boton" data-dia="-1" aria-label="Día anterior">‹</button>
+    <div class="fecha__centro">
+      <p class="fecha__dia" data-fecha>…</p>
+      <button type="button" class="fecha__hoy" data-hoy hidden>Volver a hoy</button>
+    </div>
+    <button type="button" class="fecha__boton" data-dia="1" aria-label="Día siguiente">›</button>
+  </nav>
+</header>
+
+<main class="contenedor">
+
+  <!-- La regla del día es la frase que rellena la apertura. Sale de las de
+       Cristian, ya publicadas, y rota por día del año. -->
+  <section class="regla" aria-labelledby="t-regla">
+    <p class="regla__rotulo" id="t-regla">Regla del día</p>
+    <blockquote class="regla__frase" data-regla>…</blockquote>
+    <p class="regla__tema" data-tema>…</p>
+  </section>
+
+  <div class="columnas">
+
+    <section class="bloque" aria-labelledby="t-telegram">
+      <h2 id="t-telegram">Telegram</h2>
+      <p class="bloque__nota">Cada mensaje sale ya escrito. Lo que va <mark class="hueco">entre corchetes</mark> lo rellenas tú esa mañana: es dato de mercado y no se inventa.</p>
+      <div class="mensajes" data-telegram></div>
+    </section>
+
+    <section class="bloque" aria-labelledby="t-instagram">
+      <h2 id="t-instagram">Instagram</h2>
+      <div data-instagram></div>
+
+      <h3>Historias</h3>
+      <ul class="historias" data-historias></ul>
+    </section>
+
+  </div>
+
+  <section class="semana" aria-labelledby="t-semana">
+    <h2 id="t-semana">La semana</h2>
+    <ol class="semana__dias" data-semana></ol>
+  </section>
+
+  <section class="reglas" aria-labelledby="t-reglas">
+    <h2 id="t-reglas">Antes de publicar cualquier cosa</h2>
+    <div class="reglas__columnas">
+      <div><h3 class="reglas__si">Sí</h3><ul data-si></ul></div>
+      <div><h3 class="reglas__no">No</h3><ul data-no></ul></div>
+    </div>
+  </section>
+
+  <details class="bienvenida">
+    <summary>
+      <span>Empieza aquí · la secuencia de bienvenida</span>
+      <small>Se publica una vez y se fija. Siete mensajes.</small>
+    </summary>
+    <p class="bloque__nota">
+      Un canal no puede mandar una secuencia distinta a cada persona; eso pide un bot.
+      Mientras no lo haya, estos siete se publican una vez, se fijan, y cada lunes el
+      audio empieza señalándolos.
+    </p>
+    <div class="mensajes" data-bienvenida></div>
+  </details>
+
+</main>
+
+<footer class="pie">
+  <p><a href="/plan/estrategia.html">La estrategia completa</a> · Instagram, Telegram, la escalera de oferta y cómo se mide.</p>
+  <p class="pie__descargo" data-descargo></p>
+</footer>
+
+<div class="aviso" data-aviso role="status" aria-live="polite" hidden></div>
+
+<template id="tpl-mensaje">
+  <article class="mensaje">
+    <header class="mensaje__cabecera">
+      <span class="mensaje__hora"></span>
+      <h3 class="mensaje__titulo"></h3>
+      <span class="mensaje__etiqueta" hidden></span>
+    </header>
+    <div class="mensaje__cuerpo"></div>
+    <footer class="mensaje__acciones">
+      <button type="button" class="boton boton--principal" data-copiar-abrir>Copiar y abrir el canal</button>
+      <button type="button" class="boton" data-copiar>Copiar</button>
+    </footer>
+  </article>
+</template>
+
+<script src="/plan/plan.js" defer></script>
+</body>
+</html>

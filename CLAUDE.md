@@ -59,7 +59,7 @@ pregunta.
 ```
 docs/          propuesta, contexto del cliente, cómo trabajar este proyecto
 marca/         identidad: símbolo, color, tipografía, tono de voz
-estrategia/    marco estratégico, brief de descubrimiento, planes
+estrategia/    marco estratégico, brief de descubrimiento, estrategia de redes
 contenido/     guiones, calendarios, banco de ganchos
 web/           la landing · tiene su propio CLAUDE.md con las reglas del frente
 data/          exports de Ads Manager y base de leads · fuera de git
@@ -92,8 +92,11 @@ project-claude/  instrucciones y knowledge para el Project de claude.ai
 - Marco estratégico v1 escrito, con el modelo de negocio real
 - Contexto del cliente con huecos marcados — falta la sesión de descubrimiento
 - Símbolo sin decidir: cinco propuestas en el lienzo (ver `marca/identidad.md`)
-- Landing: estructura completa en `web/`, publicable en cuanto lleguen el video,
-  el enlace del canal y el píxel. Stack cerrado: HTML plano + GitHub + Netlify
+- Landing publicada en **thegoldensyndicate.com** (Netlify, dominio en GoDaddy).
+  Falta el píxel de Meta y activar Netlify Forms.
+- Estrategia de redes y canal v1 en `estrategia/02-estrategia-redes.md`; la
+  versión completa y el sistema diario viven en `/plan/` con contraseña
+  (variable `PLAN_CLAVE` en Netlify). Fuente única: `web/herramientas/calendario.mjs`
 - Reparto de comisiones IAGINATION ↔ Cristian sin cerrar por escrito
 
 **Lo más urgente:** los números del panel de partner de Exness. Sin saber cuánto

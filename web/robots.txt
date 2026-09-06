@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /gracias.html
 Disallow: /ir.html
+Disallow: /plan/
 
 Sitemap: https://thegoldensyndicate.com/sitemap.xml

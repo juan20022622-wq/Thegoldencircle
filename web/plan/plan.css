@@ -1,0 +1,198 @@
+/* El plan · The Golden Syndicate
+   Herramienta interna, misma paleta que la landing. Móvil primero: Cristian
+   la va a abrir en el teléfono, con Telegram en la otra mano. */
+
+:root {
+  --negro: #0A0A0B;
+  --oro: #D2A64B;
+  --oro-claro: #E7C67F;
+  --oro-profundo: #8C6A22;
+  --hueso: #F2EDE3;
+  --gris: #8A8578;
+  --gris-claro: #6F6B60;
+  --superficie: #121214;
+  --superficie-2: #18181B;
+  --borde: rgba(210, 166, 75, 0.22);
+  --borde-tenue: rgba(242, 237, 227, 0.08);
+  --texto: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ancho: 68rem;
+  --gutter: 1.25rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { background: var(--negro); color-scheme: dark; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--texto);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--hueso);
+  background: var(--negro);
+}
+
+h1, h2, h3 { font-weight: 500; letter-spacing: -0.01em; margin: 0; }
+h2 { font-size: 1.35rem; margin-bottom: 0.5rem; }
+h3 { font-size: 1rem; }
+p { margin: 0; }
+a { color: var(--oro-claro); text-underline-offset: 3px; }
+mark.hueco { background: rgba(210, 166, 75, 0.16); color: var(--oro-claro); padding: 0 0.25em; border-radius: 3px; }
+
+.contenedor { max-width: var(--ancho); margin-inline: auto; padding: 0 var(--gutter) 4rem; }
+
+/* ---------- cabecera ---------- */
+
+.cabecera {
+  position: sticky; top: 0; z-index: 5;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0.85rem var(--gutter);
+  background: rgba(10, 10, 11, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--borde-tenue);
+}
+
+.marca {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  color: var(--oro); text-decoration: none;
+  font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+}
+.marca__simbolo { width: 20px; height: 32px; color: var(--oro); }
+
+.fecha { display: flex; align-items: center; gap: 0.5rem; }
+.fecha__centro { text-align: center; min-width: 11rem; }
+.fecha__dia { font-size: 0.95rem; color: var(--hueso); }
+.fecha__hoy {
+  background: none; border: 0; color: var(--oro); font: inherit; font-size: 0.75rem;
+  font-family: var(--mono); letter-spacing: 0.08em; cursor: pointer; padding: 0.15rem 0;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.fecha__boton {
+  width: 2.75rem; height: 2.75rem; border-radius: 50%;
+  border: 1px solid var(--borde-tenue); background: transparent; color: var(--hueso);
+  font-size: 1.5rem; line-height: 1; cursor: pointer;
+}
+.fecha__boton:hover { border-color: var(--oro); color: var(--oro); }
+
+/* ---------- regla del día ---------- */
+
+.regla {
+  margin: 2rem 0 2.5rem;
+  padding: 1.5rem 1.5rem 1.35rem;
+  border-left: 2px solid var(--oro);
+  background: var(--superficie);
+  border-radius: 0 6px 6px 0;
+}
+.regla__rotulo, .mensaje__hora, .mensaje__etiqueta, .semana__nombre, .ig__formato, .reglas h3, .bloque__nota strong {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--oro);
+}
+.regla__frase { margin: 0.5rem 0 0.75rem; font-size: clamp(1.15rem, 3.5vw, 1.5rem); font-weight: 500; line-height: 1.35; }
+.regla__tema { color: var(--gris); font-size: 0.95rem; }
+
+/* ---------- columnas ---------- */
+
+.columnas { display: grid; gap: 2.5rem; }
+@media (min-width: 56rem) { .columnas { grid-template-columns: 1.15fr 1fr; gap: 3rem; } }
+
+.bloque__nota { color: var(--gris); font-size: 0.9375rem; margin-bottom: 1.25rem; }
+
+/* ---------- mensajes ---------- */
+
+.mensajes { display: grid; gap: 1rem; }
+
+.mensaje {
+  border: 1px solid var(--borde-tenue);
+  border-radius: 8px;
+  background: var(--superficie);
+  overflow: hidden;
+}
+.mensaje--fijo { border-color: var(--borde); }
+.mensaje__cabecera { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.9rem 1.1rem 0; flex-wrap: wrap; }
+.mensaje__titulo { font-size: 1rem; }
+.mensaje__etiqueta { color: var(--gris); margin-left: auto; }
+.mensaje__cuerpo { padding: 0.75rem 1.1rem 1rem; white-space: pre-wrap; font-size: 0.9375rem; line-height: 1.6; }
+.mensaje__cuerpo ol { margin: 0.25rem 0 0; padding-left: 1.25rem; }
+.mensaje__cuerpo li { margin: 0.35rem 0; }
+.mensaje__acciones { display: flex; gap: 0.5rem; padding: 0 1.1rem 1rem; flex-wrap: wrap; }
+
+.boton {
+  font: inherit; font-size: 0.875rem; font-weight: 500;
+  padding: 0.6rem 1rem; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--borde-tenue); background: transparent; color: var(--hueso);
+  min-height: 2.75rem;
+}
+.boton:hover { border-color: var(--oro); }
+.boton--principal { background: var(--oro); border-color: var(--oro); color: var(--negro); }
+.boton--principal:hover { background: var(--oro-claro); border-color: var(--oro-claro); }
+
+/* ---------- instagram ---------- */
+
+.ig { border: 1px solid var(--borde-tenue); border-radius: 8px; background: var(--superficie); padding: 1.1rem; display: grid; gap: 0.85rem; }
+.ig__formato { display: block; }
+.ig__gancho { font-size: 1.15rem; font-weight: 500; line-height: 1.35; }
+.ig dl { margin: 0; display: grid; gap: 0.6rem; }
+.ig dt { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gris); }
+.ig dd { margin: 0.15rem 0 0; font-size: 0.9375rem; }
+.ig__slides { margin: 0.25rem 0 0; padding-left: 1.25rem; font-size: 0.9375rem; }
+.ig__slides li { margin: 0.25rem 0; }
+.ig__casa { font-size: 0.875rem; color: var(--gris); border-top: 1px solid var(--borde-tenue); padding-top: 0.75rem; }
+.ig__casa strong { color: var(--oro); font-weight: 500; }
+
+.bloque h3 { margin: 1.75rem 0 0.6rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--oro); }
+.historias { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.historias li { padding: 0.75rem 1rem; border: 1px solid var(--borde-tenue); border-radius: 6px; font-size: 0.9375rem; background: var(--superficie); }
+.historias li.historias--fija { border-color: var(--borde); }
+.historias li b { color: var(--oro); font-weight: 500; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; margin-right: 0.4rem; }
+
+/* ---------- la semana ---------- */
+
+.semana { margin-top: 3.5rem; }
+.semana__dias {
+  list-style: none; margin: 1rem 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.4rem;
+}
+@media (max-width: 40rem) { .semana__dias { grid-template-columns: repeat(2, 1fr); } }
+.semana__dia {
+  border: 1px solid var(--borde-tenue); border-radius: 6px; background: var(--superficie);
+  padding: 0.75rem 0.7rem; cursor: pointer; display: grid; gap: 0.3rem; align-content: start;
+  color: var(--hueso); text-align: left; font: inherit; width: 100%;
+}
+.semana__dia:hover { border-color: var(--oro); }
+.semana__dia[aria-current="date"] { border-color: var(--oro); background: rgba(210, 166, 75, 0.08); }
+.semana__nombre { font-size: 0.68rem; }
+.semana__tema { font-size: 0.85rem; line-height: 1.35; }
+.semana__meta { font-size: 0.75rem; color: var(--gris); }
+
+/* ---------- reglas ---------- */
+
+.reglas { margin-top: 3.5rem; }
+.reglas__columnas { display: grid; gap: 1.5rem; margin-top: 1rem; }
+@media (min-width: 46rem) { .reglas__columnas { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+.reglas h3 { margin-bottom: 0.6rem; }
+.reglas__no { color: #C96A5B; }
+.reglas ul { margin: 0; padding-left: 1.1rem; font-size: 0.9375rem; color: var(--hueso); }
+.reglas li { margin: 0.4rem 0; }
+.reglas li::marker { color: var(--gris-claro); }
+
+/* ---------- bienvenida ---------- */
+
+.bienvenida { margin-top: 3.5rem; border-top: 1px solid var(--borde-tenue); padding-top: 1.5rem; }
+.bienvenida summary { cursor: pointer; display: grid; gap: 0.2rem; font-size: 1.2rem; font-weight: 500; list-style: none; }
+.bienvenida summary::-webkit-details-marker { display: none; }
+.bienvenida summary small { color: var(--gris); font-size: 0.875rem; font-weight: 400; }
+.bienvenida[open] summary { margin-bottom: 1rem; }
+
+/* ---------- pie ---------- */
+
+.pie { border-top: 1px solid var(--borde-tenue); padding: 2rem var(--gutter) 3rem; max-width: var(--ancho); margin-inline: auto; display: grid; gap: 1rem; }
+.pie__descargo { color: var(--gris-claro); font-size: 0.8125rem; max-width: 48rem; }
+
+/* ---------- aviso ---------- */
+
+.aviso {
+  position: fixed; left: 50%; bottom: 1.5rem; transform: translateX(-50%);
+  background: var(--hueso); color: var(--negro); padding: 0.7rem 1.1rem; border-radius: 999px;
+  font-size: 0.875rem; font-weight: 500; box-shadow: 0 8px 30px rgba(0,0,0,0.5); z-index: 10;
+}
