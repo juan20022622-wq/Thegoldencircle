@@ -10,9 +10,16 @@ salen el sistema diario y la página de estrategia. No hay dos versiones de nada
 
 ## Decisiones
 
-**Marca personal de Cristian como motor; Golden Syndicate como casa.** Es lo que
-ya decía el marco (sección 2). Instagram personal publica 5/semana; la cuenta
-del club republica 3 del mismo banco con pie en voz del club.
+**Las cuentas que publican son las del club: @thegoldensyndicate y el canal.**
+Se manejan como marca personal del fundador —Cristian es la cara y habla en
+primera persona— pero la casa es The Golden Syndicate. Decisión del cliente
+(2026-09-06), distinta a la recomendación del marco (sección 2), que proponía la
+personal como motor.
+
+**La cuenta personal de Cristian solo hace la migración.** Diez días de historias
+con mención al club y tres publicaciones (anuncio, porqué, cierre), y una story
+al día durante un mes. Después vuelve a ser suya. La secuencia completa está en
+`calendario.mjs` → `migracion` y en el sistema.
 
 **"Estilo de vida" = las cinco llaves vividas.** Gimnasio a las 5, escritorio,
 lectura, calle. Nunca el objeto: carro, reloj, billetes, playa como premio. Es
@@ -44,7 +51,7 @@ Meta revisa el contenido de la plataforma. No hay destacada de "Resultados".
 
 ## La semana
 
-| Día | Telegram | Instagram (personal) |
+| Día | Telegram | Instagram (@thegoldensyndicate) |
 |---|---|---|
 | Lunes | Apertura 7:00 · Audio de Cristian 12:00 | Reel · método |
 | Martes | Apertura · Historia de un miembro 18:00 | Foto o reel · vida |
@@ -73,8 +80,9 @@ entra, en privado, y convierte el "copiar y abrir el canal" del sistema en
 `thegoldensyndicate.com/plan/`. Cada mañana: qué mensajes de Telegram tocan, ya
 escritos, con los huecos de mercado marcados; qué publicar en Instagram con
 gancho, qué grabar y pie; qué historias; la regla del día. Rota por semana ISO.
-Sabe qué viernes es el primero del mes. Con contraseña (variable `PLAN_CLAVE`
-en Netlify; ver `web/CLAUDE.md`).
+Sabe qué viernes es el primero del mes. Con contraseña: pantalla de entrada propia,
+sesión de 30 días por cookie; la clave vive en la variable `PLAN_CLAVE` de
+Netlify (ver `web/CLAUDE.md`).
 
 Lo que no hace, a propósito: no inventa datos de mercado y no publica solo.
 

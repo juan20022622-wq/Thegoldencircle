@@ -490,8 +490,13 @@ Si es tu caso, escríbele: ${enlaces.cristian}`,
 ];
 
 /* ======================================================================
-   INSTAGRAM · la marca personal de Cristian
+   INSTAGRAM · @thegoldensyndicate
    ------------------------------------------------------------------
+   La cuenta que publica es la del club. Cristian es la cara y habla en
+   primera persona desde ella —es la marca personal del fundador— pero la casa
+   es The Golden Syndicate. La cuenta personal de Cristian solo hace una cosa:
+   la migración de sus seguidores al principio (ver más abajo).
+
    Cuatro ejes del marco estratégico: método 35 %, mercado en vivo 20 %,
    cuerpo y mentalidad 30 %, comunidad 15 %. "Estilo de vida" aquí significa
    las cinco llaves vividas: gimnasio a las 5, escritorio, lectura, calle.
@@ -537,18 +542,99 @@ const historias = {
   ],
 };
 
-/* La semana de Instagram. Lunes a viernes publica la cuenta personal; sábado
-   opcional; domingo solo historias. @thegoldensyndicate republica tres a la
-   semana del mismo banco: el reel del lunes, el carrusel del miércoles y la
-   pieza de comunidad del viernes. */
+/* La semana de @thegoldensyndicate. Lunes a viernes publicación en el feed;
+   sábado opcional; domingo solo historias. */
 const semanaIG = {
-  1: { formato: 'Reel · método',        banco: 'reelMetodo', ancla: true },
+  1: { formato: 'Reel · método',        banco: 'reelMetodo' },
   2: { formato: 'Foto o reel · vida',   banco: 'vida' },
-  3: { formato: 'Carrusel · educación', banco: 'carrusel', ancla: true },
+  3: { formato: 'Carrusel · educación', banco: 'carrusel' },
   4: { formato: 'Reel · mercado en vivo', banco: 'reelMetodo', nota: 'Reacción a algo de esta semana, con pantalla. El gancho del banco se adapta al dato de la semana.' },
-  5: { formato: 'Estático · frase + comunidad', banco: 'comunidad', ancla: true },
+  5: { formato: 'Estático · frase + comunidad', banco: 'comunidad' },
   6: { formato: 'Foto · vida (opcional)', banco: 'vida' },
   0: { formato: 'Solo historias', banco: null },
+};
+
+/* La bio de @thegoldensyndicate. El enlace va a la landing, nunca al broker. */
+const bioClub = [
+  'El club de Cristian. Oro (XAUUSD) con el porqué de cada idea.',
+  'dinero · propósito · cuerpo · mentalidad · educación',
+  'La apertura a las 7:00, cada día de mercado.',
+  '↓ Entra al canal gratis',
+];
+
+/* ======================================================================
+   LA MIGRACIÓN · la cuenta personal de Cristian, solo al principio
+   ------------------------------------------------------------------
+   La cuenta personal no publica el método: publica, durante diez días, lo
+   justo para llevar a sus seguidores a @thegoldensyndicate. Historias sobre
+   todo, con el sticker de mención, y tres publicaciones. Después vuelve a ser
+   suya y el método vive en el club.
+
+   El marco estratégico (sección 2) advierte lo que cuesta: la gente sigue
+   personas, y una cuenta nueva arranca sin historial. Por eso la migración es
+   insistente los primeros diez días y sigue con una story al día durante un
+   mes: no basta con anunciarlo una vez.
+   ====================================================================== */
+const migracion = {
+  bio: 'Fundador de @thegoldensyndicate. El método, el canal y la rutina, allá. Esta cuenta es la mía.',
+  dias: [
+    {
+      dia: 0, titulo: 'El anuncio',
+      publicacion: {
+        formato: 'Reel · cara a cámara, 30–45 s · se deja fijado',
+        gancho: 'Abrí la cuenta del club. Todo lo que hago con el oro va a estar allá.',
+        grabar: 'Cristian en su escritorio o en el gym. Qué es The Golden Syndicate en una frase; qué se va a publicar allá: la apertura de las 7, el método con su porqué, la rutina; y que esta cuenta se queda para él. Termina señalando arriba: "@thegoldensyndicate, síguela".',
+        pie: 'Abrí @thegoldensyndicate. Ahí va todo: la apertura de las 7 cada día de mercado, el método con su porqué, la rutina. Esta cuenta se queda para lo mío. Síguela allá.',
+      },
+      historias: [
+        '"Abrí la cuenta del club." Foto del escritorio. Sticker de mención a @thegoldensyndicate.',
+        '"Qué vas a encontrar allá." Texto sobre negro: apertura 7:00 · el método con su porqué · las cinco llaves · la rutina.',
+        '"Entra al canal gratis." Sticker de enlace a la landing con utm_source=instagram&utm_medium=migracion.',
+      ],
+    },
+    {
+      dia: 1, titulo: 'La primera apertura', publicacion: null,
+      historias: [
+        'Repost de la story de las 7:00 de @thegoldensyndicate con una línea: "Así empieza cada día allá."',
+        'Encuesta: "¿Ya la sigues?" Sí / Todavía no. Con sticker de mención.',
+      ],
+    },
+    {
+      dia: 2, titulo: 'Las cinco llaves', publicacion: null,
+      historias: ['Repost del carrusel de las cinco llaves del club, con mención. Una línea: "Por esto es un club y no un canal de señales."'],
+    },
+    {
+      dia: 3, titulo: 'Por qué un club y no un canal de señales',
+      publicacion: {
+        formato: 'Carrusel · 6 slides',
+        gancho: 'Por qué abrí un club y no otro canal de señales.',
+        slides: ['Un canal de señales te manda un número', 'Un club te explica por qué, y qué lo tumba', 'dinero · propósito · cuerpo · mentalidad · educación', 'Cinco frentes, no uno', 'Todo eso está en @thegoldensyndicate', 'Entra al canal gratis: enlace en su bio'],
+        pie: 'No quería otro canal de señales. Quería un sitio donde se aprenda a leer el mercado con criterio propio y donde la disciplina del gym y la del gráfico sean la misma. Eso es @thegoldensyndicate.',
+      },
+      historias: ['Caja de preguntas: "¿Qué quieres que explique primero en el club?" Las respuestas salen allá, no aquí.'],
+    },
+    {
+      dia: 5, titulo: 'La rutina', publicacion: null,
+      historias: [
+        'Repost de una pieza de vida del club (gym, escritorio), con mención.',
+        '"Mañana a las 7, allá." Nada más.',
+      ],
+    },
+    {
+      dia: 7, titulo: 'El cierre',
+      publicacion: {
+        formato: 'Foto o reel corto',
+        gancho: 'Una semana del club. Si no la sigues, te estás perdiendo la apertura de las 7.',
+        grabar: 'Captura del feed del club con la primera semana publicada, o Cristian con el teléfono en la mano. Sin cifras de seguidores.',
+        pie: 'Una semana de @thegoldensyndicate: siete aperturas, un audio, un concepto, una historia de un miembro. Todo allá. Esta cuenta vuelve a ser la mía.',
+      },
+      historias: [
+        'Recorrido de la semana del club: repost de tres stories, cada una con mención.',
+        'Sticker de enlace a la landing: "Entra al canal gratis."',
+      ],
+    },
+  ],
+  despues: 'Las cuatro semanas siguientes, una story al día en la personal reposteando lo del club, con mención. Después, la personal publica lo que Cristian quiera; el método vive en el club. Fijado en la personal queda el reel del anuncio.',
 };
 
 /* ======================================================================
@@ -639,7 +725,7 @@ const salida = {
   enlaces, descargo, partner, frases,
   bancos: { apertura, audioLunes, historiaMiembro, educacion, mercado, cierre, cuerpo, agenda, mensuales },
   bienvenida,
-  instagram, historias, semanaIG,
+  instagram, historias, semanaIG, bioClub, migracion,
   semana, reglas,
 };
 
@@ -647,4 +733,4 @@ fs.mkdirSync(path.join(web, 'plan'), { recursive: true });
 fs.writeFileSync(path.join(web, 'plan/calendario.json'), JSON.stringify(salida, null, 1));
 
 const n = Object.values(salida.bancos).reduce((a, b) => a + b.length, 0);
-console.log(`calendario.json · ${n} mensajes de Telegram en banco · ${bienvenida.length} de bienvenida · ${frases.length} frases`);
+console.log(`calendario.json · ${n} mensajes de Telegram en banco · ${bienvenida.length} de bienvenida · ${frases.length} frases · migración de ${migracion.dias.length} días`);

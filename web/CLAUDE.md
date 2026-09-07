@@ -203,13 +203,20 @@ vez al mes, y la mitad de las veces lo que aparece es la transparencia.
 prellenado desde fuera sin un bot. El botón copia y abre el canal; se pega. El
 bot es fase 2 y convierte ese botón en envío directo.
 
-**La contraseña es autenticación básica en el borde**
-(`netlify/edge-functions/clave.ts`), no un `if` en JavaScript. Vive en la
-variable `PLAN_CLAVE` de Netlify, no en el repo ni en el chat. Sin la variable,
-la ruta responde 503 y lo dice: nunca queda abierta por descuido. Para
-cambiarla: Site configuration → Environment variables → PLAN_CLAVE, y redeploy.
-El usuario da igual; solo se comprueba la contraseña. `/plan/*` lleva además
-`noindex` y `Disallow` en robots.
+**La contraseña se comprueba en el borde** (`netlify/edge-functions/clave.ts`),
+antes de servir nada, no con un `if` en JavaScript. Sin sesión, cualquier ruta
+bajo `/plan/` devuelve una pantalla de entrada propia —símbolo, una caja, un
+botón— y **nunca el diálogo gris del navegador**: por eso la pantalla va con 200
+y sin `WWW-Authenticate`; esa cabecera es lo que dispara el diálogo. El
+formulario hace POST a `/plan/entrar`; si acierta, cookie `HttpOnly` con
+SHA-256(clave + sal) y 30 días. Cambiar la clave en Netlify caduca todas las
+sesiones solas. `/plan/salir` borra la cookie. Basic Auth por cabecera sigue
+valiendo para curl.
+
+La clave vive en la variable `PLAN_CLAVE` de Netlify, no en el repo. Sin la
+variable, 503 y lo dice: nunca queda abierta por descuido. Para cambiarla: Site
+configuration → Environment variables → PLAN_CLAVE, y redeploy. `/plan/*` lleva
+además `noindex` y `Disallow` en robots.
 
 **Todo el banco pasó por `revision-copy-trading`.** Cualquier mensaje nuevo pasa
 por lo mismo antes de entrar. Las reglas de qué sí y qué no están en el propio

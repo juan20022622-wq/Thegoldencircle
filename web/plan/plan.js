@@ -199,7 +199,6 @@
       if (pieza.pie) html += '<div><dt>Pie sugerido</dt><dd>' + escapar(pieza.pie) + '</dd></div>';
       if (ig.nota) html += '<div><dt>Nota</dt><dd>' + escapar(ig.nota) + '</dd></div>';
       html += '</dl>';
-      if (ig.ancla) html += '<p class="ig__casa"><strong>@thegoldensyndicate</strong> republica esta pieza. Misma imagen, pie distinto: en primera persona del club, no de Cristian.</p>';
       html += '</article>';
       igCont.innerHTML = html;
     } else {
@@ -242,6 +241,26 @@
     $('[data-si]').innerHTML = datos.reglas.si.map(function (r) { return '<li>' + escapar(r) + '</li>'; }).join('');
     $('[data-no]').innerHTML = datos.reglas.no.map(function (r) { return '<li>' + escapar(r) + '</li>'; }).join('');
     $('[data-descargo]').textContent = datos.descargo + ' ' + datos.partner;
+
+    /* la migración: la cuenta personal de Cristian, los primeros diez días */
+    var mg = $('[data-migracion]');
+    if (mg) {
+      var html = '<p class="bloque__nota"><strong>Bio de la personal desde el día 0:</strong> ' + escapar(datos.migracion.bio) + '</p>';
+      datos.migracion.dias.forEach(function (d) {
+        html += '<article class="ig"><span class="ig__formato">Día ' + d.dia + ' · ' + escapar(d.titulo) + '</span>';
+        if (d.publicacion) {
+          html += '<p class="ig__gancho">' + escapar(d.publicacion.gancho) + '</p><dl>';
+          html += '<div><dt>Formato</dt><dd>' + escapar(d.publicacion.formato) + '</dd></div>';
+          if (d.publicacion.grabar) html += '<div><dt>Qué grabar</dt><dd>' + escapar(d.publicacion.grabar) + '</dd></div>';
+          if (d.publicacion.slides) html += '<div><dt>Slides</dt><dd><ol class="ig__slides">' + d.publicacion.slides.map(function (x) { return '<li>' + escapar(x) + '</li>'; }).join('') + '</ol></dd></div>';
+          if (d.publicacion.pie) html += '<div><dt>Pie</dt><dd>' + escapar(d.publicacion.pie) + '</dd></div>';
+          html += '</dl>';
+        }
+        html += '<dl><div><dt>Historias</dt><dd><ul class="ig__slides">' + d.historias.map(function (x) { return '<li>' + escapar(x) + '</li>'; }).join('') + '</ul></dd></div></dl></article>';
+      });
+      html += '<p class="bloque__nota">' + escapar(datos.migracion.despues) + '</p>';
+      mg.innerHTML = html;
+    }
 
     var bv = $('[data-bienvenida]');
     datos.bienvenida.forEach(function (m) {

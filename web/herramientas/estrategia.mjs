@@ -58,9 +58,9 @@ const destacadas = [
 const portada = `
 <section class="seccion portada" id="portada">
   <svg class="portada__simbolo" viewBox="391 475 250 393" fill="none" stroke="#D2A64B" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">${simbolo}</svg>
-  <p class="rotulo">The Golden Syndicate · marca personal de Cristian</p>
+  <p class="rotulo">The Golden Syndicate · Instagram y Telegram del club</p>
   <h1>Estrategia digital<br>en redes y canal</h1>
-  <p class="portada__sub">Instagram, Telegram y la escalera que va del contenido a la clase privada. Con el sistema diario que la publica, en la pestaña de al lado.</p>
+  <p class="portada__sub">Las cuentas del club, con Cristian como cara. La migración de su cuenta personal, la escalera que va del contenido a la clase privada, y el sistema diario que lo publica.</p>
   <p class="portada__pie">IAGINATION · ${e(fecha)} · versión 1, para validar con Cristian</p>
 </section>`;
 
@@ -72,7 +72,7 @@ const idea = `
 
   <h3>La escalera</h3>
   <ol class="escalera">
-    <li><b>Instagram de Cristian</b><span>La cara y el motor de alcance. Estilo de vida como las cinco llaves vividas, frases suyas, educación.</span></li>
+    <li><b>@thegoldensyndicate</b><span>La cuenta que publica. Cristian es la cara y habla en primera persona; la casa es el club. Estilo de vida como las cinco llaves vividas, frases suyas, educación.</span></li>
     <li><b>Landing</b><span>thegoldensyndicate.com. Una sola acción: registrarse gratis y entrar al canal.</span></li>
     <li><b>Telegram Free</b><span>La puerta de entrada. Ritual diario, educación, historias. Aquí se construye la confianza.</span></li>
     <li><b>Canal de análisis</b><span>Los niveles con su porqué. Se entra con cuenta en Exness por el enlace del club; al club no se le paga.</span></li>
@@ -82,10 +82,10 @@ const idea = `
 
   <h3>Dos cuentas, dos roles</h3>
   <table>
-    <tr><th>Cristian (personal)</th><td>El motor. Sigue siendo la principal. Método, mercado en vivo, disciplina y vida. Cinco piezas a la semana.</td></tr>
-    <tr><th>@thegoldensyndicate</th><td>La casa. Crece por arrastre. Republica tres piezas a la semana del mismo banco, con pie en voz del club. Lo que pasa dentro: miembros, cultura, el canal.</td></tr>
+    <tr><th>@thegoldensyndicate</th><td>La cuenta que publica, todos los días. Es la marca personal del fundador dentro de la casa del club: Cristian es la cara, habla en primera persona, y lo que muestra es su método y su rutina. Cinco piezas a la semana e historias diarias.</td></tr>
+    <tr><th>Cristian (personal)</th><td>Solo al principio: la migración. Diez días de historias y tres publicaciones para llevar a sus seguidores a la cuenta del club, y una story al día durante un mes. Después vuelve a ser suya.</td></tr>
   </table>
-  <p class="nota">La gente sigue personas, no logos. La cuenta personal no se apaga ni se «migra»: se usa como puerta.</p>
+  <p class="nota">La gente sigue personas, no logos, y una cuenta nueva arranca sin historial. Por eso la migración no es un anuncio: es una campaña de diez días con seguimiento de un mes, y por eso Cristian es la cara de la cuenta nueva desde el primer reel.</p>
 </section>`;
 
 const reglas = `
@@ -105,7 +105,7 @@ const reglas = `
 
 const instagram1 = `
 <section class="seccion" id="instagram">
-  <p class="rotulo">03 · Instagram · la marca personal</p>
+  <p class="rotulo">03 · Instagram · @thegoldensyndicate</p>
   <h2>Estilo de vida significa las cinco llaves vividas. Nunca el objeto.</h2>
   <p class="lead">Gimnasio a las cinco, escritorio antes de la apertura, un libro, la calle. Eso es cuerpo, mentalidad y propósito en imágenes. Un carro, un reloj o una playa como premio es el uniforme del gurú de humo y tira la tesis al suelo, además de ser lo que Meta penaliza en categoría financiera.</p>
 
@@ -119,12 +119,12 @@ const instagram1 = `
 
   <h3>La semana</h3>
   <table class="semana">
-    ${[1, 2, 3, 4, 5, 6, 0].map((d) => `<tr><th>${DIAS[d]}</th><td>${e(C.semanaIG[d].formato)}</td><td class="gris">${C.semanaIG[d].ancla ? '@thegoldensyndicate republica' : ''}</td></tr>`).join('')}
+    ${[1, 2, 3, 4, 5, 6, 0].map((d) => `<tr><th>${DIAS[d]}</th><td>${e(C.semanaIG[d].formato)}</td></tr>`).join('')}
   </table>
-  <p class="nota">Cinco publicaciones a la semana en la personal, sábado opcional, domingo solo historias. Tres nacen de las grabaciones con equipo y dos se graban con el celular. Historias todos los días, sin producción. Hora: la publicación del feed a las 12:00; la historia fija a las 7:00, cuando sale la apertura en el canal.</p>
+  <p class="nota">Cinco publicaciones a la semana, sábado opcional, domingo solo historias. Tres nacen de las grabaciones con equipo y dos se graban con el celular. Historias todos los días, sin producción. Hora: la publicación del feed a las 12:00; la historia fija a las 7:00, cuando sale la apertura en el canal.</p>
 
   <h3>La bio</h3>
-  <blockquote class="cita bio">Trader. Fundador de The Golden Syndicate.<br>Opero XAUUSD y explico el porqué.<br>dinero · propósito · cuerpo · mentalidad · educación<br>↓ Entra al canal gratis</blockquote>
+  <blockquote class="cita bio">${C.bioClub.map(e).join('<br>')}</blockquote>
   <p class="nota">El enlace de la bio va a la landing con <code>?utm_source=instagram&amp;utm_medium=bio</code>, nunca al broker. Tres publicaciones fijadas: el reel de presentación, el carrusel de las cinco llaves y una pieza de comunidad.</p>
 </section>`;
 
@@ -182,9 +182,29 @@ const instagram4 = `
   <p class="nota">Gancho de una línea → la idea → el porqué → una invitación suave («en el canal, cada idea va con eso») → nada de hashtags de dinero. Tres a cinco hashtags de método si acaso. El enlace siempre es «el de la bio»; nunca el del broker.</p>
 </section>`;
 
+
+const migracionHTML = `
+<section class="seccion" id="migracion">
+  <p class="rotulo">07 · La migración · la cuenta personal de Cristian</p>
+  <h2>La cuenta de Cristian no publica el método. Publica, diez días, lo justo para llevar a su gente al club.</h2>
+  <p class="lead">Historias sobre todo, con el sticker de mención a @thegoldensyndicate, y tres publicaciones: el anuncio, el porqué y el cierre. La gente sigue personas, así que Cristian es la cara de la cuenta nueva desde el primer reel; lo que se mueve es dónde se publica, no quién habla.</p>
+
+  <h3>La bio, desde el día 0</h3>
+  <blockquote class="cita bio">${e(C.migracion.bio)}</blockquote>
+
+  <h3>Los diez días</h3>
+  <table class="semana">
+    ${C.migracion.dias.map((d) => `<tr><th>Día ${d.dia}</th><td><b>${e(d.titulo)}</b>${d.publicacion ? `<br><span class="k">Publicación</span> ${e(d.publicacion.formato)}: ${e(d.publicacion.gancho)}` : ''}<br><span class="k">Historias</span> ${d.historias.map(e).join(' · ')}</td></tr>`).join('')}
+  </table>
+
+  <h3>Después</h3>
+  <p class="nota">${e(C.migracion.despues)}</p>
+  <p class="nota">Lo que no se hace en la personal: publicar el método ahí, poner el enlace del broker, ni dar cifras de seguidores del club. La personal señala; el club publica.</p>
+</section>`;
+
 const telegram1 = `
 <section class="seccion" id="ritual">
-  <p class="rotulo">07 · Telegram · el ritual</p>
+  <p class="rotulo">08 · Telegram · el ritual</p>
   <h2>Un mensaje a la misma hora todos los días de mercado. Eso ya existe; hay que protegerlo.</h2>
   <p class="lead">Las capturas del canal prueban publicación entre las 7:00 y las 7:45 desde mayo, sin faltar. Esa constancia es la mejor prueba social que tiene el club y es verificable entrando. Alrededor de ese ritual se construye la semana.</p>
 
@@ -209,7 +229,7 @@ const ejemplo = (titulo, hora, texto) => `<div class="burbuja"><span class="burb
 
 const telegram2 = `
 <section class="seccion" id="suenan">
-  <p class="rotulo">08 · Telegram · así suenan</p>
+  <p class="rotulo">09 · Telegram · así suenan</p>
   <h2>Uno de cada. Lo que va <mark>[entre corchetes]</mark> lo escribe Cristian esa mañana: es dato de mercado y no se inventa.</h2>
   <div class="burbujas">
     ${ejemplo('La apertura', '7:00', C.bancos.apertura[0].replace('{{frase}}', C.frases[0]))}
@@ -227,7 +247,7 @@ const telegram2 = `
 
 const telegram3 = `
 <section class="seccion" id="remarketing">
-  <p class="rotulo">09 · Telegram · el remarketing</p>
+  <p class="rotulo">10 · Telegram · el remarketing</p>
   <h2>Los primeros siete días deciden si se queda. Y un canal no puede mandar una secuencia distinta a cada persona.</h2>
   <p class="lead">Eso pide un bot. Mientras no lo haya, la secuencia se publica una vez, se fija, y cada lunes el audio empieza señalándola. Son siete mensajes, uno por día de la primera semana de quien llega. Es lo que hay que mandar para que el registro se convierta en hábito y el hábito en confianza.</p>
   <ol class="bienvenida">
@@ -241,7 +261,7 @@ const telegram3 = `
 
 const escalera = `
 <section class="seccion" id="escalera">
-  <p class="rotulo">10 · La escalera de oferta</p>
+  <p class="rotulo">11 · La escalera de oferta</p>
   <h2>El grupo abierto promete que nadie te va a estar vendiendo. Se cumple con un calendario, no con buena voluntad.</h2>
   <table class="semana">
     <tr><th>Free → análisis</th><td>Una vez a la semana, en el cierre del viernes: «así se entra». Y siempre en el mensaje fijado. Nunca en la apertura, nunca por privado sin que pregunten.</td></tr>
@@ -258,7 +278,7 @@ const escalera = `
 
 const sistema = `
 <section class="seccion" id="sistema">
-  <p class="rotulo">11 · El sistema</p>
+  <p class="rotulo">12 · El sistema</p>
   <h2>thegoldensyndicate.com/plan. Con contraseña. Cada mañana dice qué toca.</h2>
   <p class="lead">No hay que recordar nada de esta página. El sistema lo sabe: qué día es, qué mensaje de Telegram toca a qué hora, ya escrito, con los huecos de mercado marcados; qué publicar en Instagram, con gancho, qué grabar y pie; qué historias; y la regla del día, que rellena sola la apertura.</p>
   <ul class="lista">
@@ -267,6 +287,7 @@ const sistema = `
     <li><b>Sabe qué viernes es.</b> El mensaje mensual solo aparece el primer viernes del mes, y rota entre transparencia, formación y clases privadas.</li>
     <li><b>La semana entera a la vista.</b> Y las reglas de qué sí y qué no, todos los días, antes de publicar.</li>
     <li><b>La bienvenida, lista para fijar.</b> Los siete mensajes, con botón de copiar.</li>
+    <li><b>La migración, día por día.</b> Lo que publica la cuenta personal de Cristian los primeros diez días.</li>
     <li><b>Editable.</b> Todo sale de un solo archivo, <code>calendario.mjs</code>. Cambiar un mensaje ahí cambia el sistema y esta página.</li>
   </ul>
   <h3>Lo que el sistema no hace, a propósito</h3>
@@ -275,7 +296,7 @@ const sistema = `
 
 const medicion = `
 <section class="seccion" id="medicion">
-  <p class="rotulo">12 · Cómo se sabe si funciona</p>
+  <p class="rotulo">13 · Cómo se sabe si funciona</p>
   <h2>Una métrica por etapa. Los primeros sesenta días existen para llenar esta tabla.</h2>
   <table class="semana">
     <tr><th>Instagram</th><td>Retención a 3 s y a 50 % en reels. Guardados y compartidos en carruseles. Clics en el enlace de la bio.</td></tr>
@@ -436,7 +457,7 @@ const html = `<!DOCTYPE html>
   <a class="volver" href="/plan/">← El plan de hoy</a>
 </header>
 <nav class="indice" aria-label="Índice"><ol>${[["idea","La idea"],["reglas","Las reglas"],["instagram","Instagram"],["feed","El feed"],["historias","Historias"],["grabar","Qué grabar"],["ritual","Telegram"],["suenan","Así suenan"],["remarketing","Remarketing"],["escalera","La escalera"],["sistema","El sistema"],["medicion","Medición"]].map(([id, t], i) => `<li><a href="#${id}"><b>${String(i + 1).padStart(2, '0')}</b>${t}</a></li>`).join('')}</ol></nav>
-<main>${portada}${idea}${reglas}${instagram1}${instagram2}${instagram3}${instagram4}${telegram1}${telegram2}${telegram3}${escalera}${sistema}${medicion}</main>
+<main>${portada}${idea}${reglas}${instagram1}${instagram2}${instagram3}${instagram4}${migracionHTML}${telegram1}${telegram2}${telegram3}${escalera}${sistema}${medicion}</main>
 <footer class="pie">IAGINATION · ${e(fecha)} · Se genera con <code>herramientas/estrategia.mjs</code> a partir de <code>calendario.mjs</code>. Cambiar un mensaje ahí cambia esta página y el plan diario.</footer>
 </body></html>`;
 
