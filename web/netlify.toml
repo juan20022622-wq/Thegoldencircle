@@ -58,8 +58,12 @@
     # ejecutan nada. Quitarlo exigiría mover cada retraso a una clase.
     #
     # connect.facebook.net y www.facebook.com son para el píxel de Meta.
-    # VERIFICAR ESTA CABECERA con el píxel ya instalado: una CSP mal puesta lo
-    # bloquea en silencio y la pauta se queda sin medición.
+    # VERIFICADA con el píxel instalado (2026-09-08): fbevents.js carga, la
+    # configuración del píxel baja y el PageView llega a www.facebook.com/tr con
+    # el ID correcto. La consola muestra dos bloqueos a hosts tipo
+    # *.run.app y *.on.aws (/events?cee=no): son beacons auxiliares de Meta a
+    # dominios aleatorios que no se pueden poner en lista. Es lo esperado, no un
+    # fallo: la medición va por www.facebook.com/tr y esa sí pasa.
     Content-Security-Policy = """default-src 'self'; \
       script-src 'self' https://connect.facebook.net; \
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; \
