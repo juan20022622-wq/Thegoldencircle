@@ -54,7 +54,7 @@ Todo esto está marcado en el código y **bloquea el lanzamiento**:
 | Qué | Dónde | Estado |
 |---|---|---|
 | Enlace del canal de Telegram | `assets/js/config.js` → `telegram` | `[POR CONFIRMAR]` |
-| ID del píxel de Meta | `assets/js/config.js` → `pixelId` | `[POR CONFIRMAR]` |
+| ID del píxel de Meta | `assets/js/config.js` → `pixelId` | puesto (1358077623073009) · verificar eventos con tráfico real |
 | Video de Cristian (60–90 s) | `index.html`, «La cara» | pendiente de grabar |
 
 | Años operando | `index.html`, «La cara» → `[X]` | `[POR CONFIRMAR]` |

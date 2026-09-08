@@ -10,8 +10,8 @@ window.GS = {
   // se usa desde /ir (bio de Instagram y canal).
   exness: 'https://one.exnessonelink.com/a/4zepksu2az',
 
-  // ID del píxel de Meta. Vacío = no se carga nada.  [POR CONFIRMAR]
-  pixelId: '',
+  // ID del píxel de Meta. Vacío = no se carga nada. Puesto el 2026-09-08.
+  pixelId: '1358077623073009',
 
   // Endpoint de captura. Hoy Netlify Forms (POST a la propia página).
   // El día que se migre a una función serverless, se cambia solo esta línea.

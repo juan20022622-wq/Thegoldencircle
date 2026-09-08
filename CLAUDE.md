@@ -93,7 +93,7 @@ project-claude/  instrucciones y knowledge para el Project de claude.ai
 - Contexto del cliente con huecos marcados — falta la sesión de descubrimiento
 - Símbolo sin decidir: cinco propuestas en el lienzo (ver `marca/identidad.md`)
 - Landing publicada en **thegoldensyndicate.com** (Netlify, dominio en GoDaddy).
-  Falta el píxel de Meta y activar Netlify Forms.
+  Píxel de Meta puesto y Netlify Forms activado y probado (2026-09-08).
 - Estrategia de redes y canal v1 en `estrategia/02-estrategia-redes.md`; la
   versión completa y el sistema diario viven en `/plan/` con contraseña
   (variable `PLAN_CLAVE` en Netlify). Fuente única: `web/herramientas/calendario.mjs`
