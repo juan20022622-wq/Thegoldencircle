@@ -76,7 +76,7 @@ const idea = `
     <li><b>Landing</b><span>thegoldensyndicate.com. Una sola acción: registrarse gratis y entrar al canal.</span></li>
     <li><b>Telegram Free</b><span>La puerta de entrada. Ritual diario, educación, historias. Aquí se construye la confianza.</span></li>
     <li><b>Canal de análisis</b><span>Los niveles con su porqué. Se entra con cuenta en Exness por el enlace del club; al club no se le paga.</span></li>
-    <li><b>Formación</b><span>GOLD, VIP, PREMIUM. Acompañamiento con precio. <em>[POR CONFIRMAR: qué incluye cada uno y cuánto vale]</em></span></li>
+    <li><b>El Premium</b><span>El grupo de pago: más set-ups, más educación, mucha más información. 1.000.000 COP al mes o 6.000.000 al año. Está en la landing con el precio de frente.</span></li>
     <li><b>Clases privadas</b><span>Uno a uno con Cristian, con fee. Para quien ya opera y sabe qué le falla. <em>[POR CONFIRMAR: formato, duración, precio, cupos]</em></span></li>
   </ol>
 
@@ -265,15 +265,15 @@ const escalera = `
   <h2>El grupo abierto promete que nadie te va a estar vendiendo. Se cumple con un calendario, no con buena voluntad.</h2>
   <table class="semana">
     <tr><th>Free → análisis</th><td>Una vez a la semana, en el cierre del viernes: «así se entra». Y siempre en el mensaje fijado. Nunca en la apertura, nunca por privado sin que pregunten.</td></tr>
-    <tr><th>Análisis → formación</th><td>Una vez al mes, el primer viernes, después del cierre: el mensaje de formación. En el canal de análisis, cuando una idea se comenta a fondo: «esto lo trabajamos en formación», sin enlace. <em>[POR CONFIRMAR: qué incluye GOLD, VIP y PREMIUM, precio, cupos]</em></td></tr>
-    <tr><th>Formación → clases privadas</th><td>Solo por privado y solo a quien lo pida. La puerta se abre una vez al mes con el tercer mensaje mensual. <em>[POR CONFIRMAR: formato, duración, precio, cupos]</em></td></tr>
+    <tr><th>Análisis → Premium</th><td>Una vez al mes, el primer viernes, después del cierre: el mensaje del Premium con el precio (1.000.000 COP/mes · 6.000.000/año). En el canal de análisis, cuando una idea se comenta a fondo: «esto lo trabajamos en el Premium», sin enlace. Y en la landing, después del camino, con la acción como enlace de texto para que no compita con el botón de entrar gratis.</td></tr>
+    <tr><th>Premium → clases privadas</th><td>Solo por privado y solo a quien lo pida. La puerta se abre una vez al mes con el tercer mensaje mensual. <em>[POR CONFIRMAR: formato, duración, precio, cupos]</em></td></tr>
   </table>
 
   <h3>Los tres mensajes mensuales</h3>
   <div class="burbujas">
     ${C.bancos.mensuales.map((m) => ejemplo(m.titulo, 'primer viernes, 17:30', m.texto)).join('')}
   </div>
-  <p class="nota">Rotan: un mes transparencia, otro formación, otro clases privadas. Así la oferta de pago aparece en el grupo abierto <strong>una vez al mes</strong>, y la mitad de las veces lo que aparece es la transparencia sobre cómo gana el club, no una venta.</p>
+  <p class="nota">Rotan: un mes transparencia, otro el Premium, otro clases privadas. Así la oferta de pago aparece en el grupo abierto <strong>una vez al mes</strong>, y la mitad de las veces lo que aparece es la transparencia sobre cómo gana el club, no una venta.</p>
 </section>`;
 
 const sistema = `
@@ -303,7 +303,7 @@ const medicion = `
     <tr><th>Landing</th><td>Conversión a registro. Ya mide con UTM: se sabe de qué contenido vino cada uno.</td></tr>
     <tr><th>Telegram Free</th><td>% de registrados que entran. Retención a 7 y 30 días. Vistas de la apertura sobre miembros.</td></tr>
     <tr><th>Canal de análisis</th><td>% de miembros del Free que abren cuenta y pasan. % que sigue operando al mes.</td></tr>
-    <tr><th>Formación y privadas</th><td>% que pregunta por privado tras el mensaje mensual. % que compra. <em>[POR CONFIRMAR: capacidad de Cristian]</em></td></tr>
+    <tr><th>Premium y privadas</th><td>% que pregunta por privado tras el mensaje mensual. % que compra. <em>[POR CONFIRMAR: capacidad de Cristian]</em></td></tr>
   </table>
   <h3>Revisión semanal, quince minutos</h3>
   <ul class="lista">
@@ -314,7 +314,7 @@ const medicion = `
   </ul>
   <h3>Lo que sigue abierto</h3>
   <ul class="lista">
-    <li><b>Formación:</b> qué incluye cada grupo, precio, cupos. Sin eso el mensaje mensual sale con huecos.</li>
+    <li><b>Premium:</b> el precio ya está (1.000.000/mes · 6.000.000/año). Falta el detalle de qué incluye exactamente, y si hay cupo.</li>
     <li><b>Clases privadas:</b> formato, duración, precio, cuántas al mes puede dar Cristian.</li>
     <li><b>El píxel de Meta:</b> sin él no hay medición de la landing desde pauta.</li>
     <li><b>Términos del programa de Exness</b> sobre condicionar el acceso a un depósito: leerlos antes de seguir con ese paso.</li>

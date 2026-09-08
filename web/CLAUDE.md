@@ -51,9 +51,15 @@ momento tiene una forma distinta.
    canal, abrir cuenta en el broker, replicar lo que se quiera, y con el tiempo
    leer por cuenta propia. Un paso a la vez, con botón «siguiente».
    **La comisión del broker se declara en el paso 02**, no en letra pequeña.
-6. **Dudas** — las objeciones de frente, empezando por "¿dónde está el truco?".
-7. **Formulario** — nombre, correo, WhatsApp. Máximo tres campos.
-8. **Pie** — descargo de riesgo, declaración de partner independiente, contacto.
+6. **El Premium** — el único peldaño con precio, dicho de frente: 1.000.000 COP
+   al mes o 6.000.000 al año, con lo que trae (más set-ups, más educación, más
+   información). **La acción es un enlace de texto a Telegram, no el botón
+   dorado**: el botón de la página es uno solo, entrar gratis, y el Premium no
+   compite con él. Va después del camino porque es el paso siguiente, no el
+   primero. Decisión del cliente (2026-09-08).
+7. **Dudas** — las objeciones de frente, empezando por "¿dónde está el truco?".
+8. **Formulario** — nombre, correo, WhatsApp. Máximo tres campos.
+9. **Pie** — descargo de riesgo, declaración de partner independiente, contacto.
 
 El botón se repite: barra flotante, héroe, tras la consola y formulario.
 Un solo tipo de botón. Nunca dos acciones distintas compitiendo.

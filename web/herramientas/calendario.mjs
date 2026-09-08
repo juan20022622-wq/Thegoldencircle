@@ -443,7 +443,7 @@ Si prefieres otro broker, puedes quedarte aquí en el grupo abierto todo el tiem
 
 Se valida y se te pasa al canal. Al club no le pagas nada.
 
-Si más adelante quieres acompañamiento más cercano, hay grupos de formación (GOLD, VIP, PREMIUM) y clases privadas con Cristian. No hacen falta para estar aquí, y aquí nadie te los va a estar recordando.
+Si más adelante quieres ir más a fondo, está el Premium (1.000.000 COP al mes o 6.000.000 al año) y las clases privadas con Cristian. No hacen falta para estar aquí, y aquí nadie te los va a estar recordando.
 
 ${descargo}`,
   },
@@ -468,12 +468,14 @@ Ese es el modelo. No hay otro truco. Y si en algún momento el club cobrara por 
 ${descargo}`,
   },
   {
-    titulo: 'Formación', texto:
+    titulo: 'El Premium', texto:
 `Para quien quiera ir más a fondo.
 
-Hay tres grupos de formación: GOLD, VIP y PREMIUM. {{Qué incluye cada uno, en una línea por grupo. Precio. Cupos.}}
+El Premium es el grupo de pago: más set-ups al día, cada uno con su porqué y con lo que lo invalida; más educación, con los conceptos trabajados a fondo; y mucha más información de lo que mueve el oro.
 
-No hacen falta para estar aquí ni para entrar al canal de análisis. Son para quien ya opera con el método y quiere trabajarlo con más acompañamiento.
+Cuesta 1.000.000 COP al mes, o 6.000.000 al año (la mitad, 500.000 al mes). El precio va de frente porque así se hace aquí.
+
+No hace falta para estar en este grupo ni para entrar al canal de análisis. Es para quien ya opera con el método y quiere más.
 
 Información por privado: ${enlaces.cristian}. Este mensaje no se repite hasta el mes que viene.`,
   },

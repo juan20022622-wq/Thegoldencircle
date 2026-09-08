@@ -12,6 +12,8 @@ import fs from 'fs';
 import os from 'os';
 
 const D = os.homedir() + '/Downloads/WhatsApp Image 2026-09-01 at ';
+/* Las capturas de otro día llevan la fecha completa: '2026-09-08 at 07.44.40' */
+const ruta = (sufijo) => sufijo.startsWith('2026-') ? os.homedir() + '/Downloads/WhatsApp Image ' + sufijo + '.jpeg' : D + sufijo + '.jpeg';
 const salida = process.argv[2] || new URL('../assets/img/testimonios', import.meta.url).pathname;
 const RATIO = 3 / 4;
 
@@ -21,6 +23,9 @@ export const piezas = [
   ['flotante',     '02.53.49 (1)', [ 30,   0, 306, 368]],
   ['tp-4-minutos', '02.53.48 (3)', [ 52,  72, 338, 454]],
   ['gracias',      '02.53.48 (1)', [ 24,   0, 224, 266]],
+  ['agradecimiento', '2026-09-08 at 07.44.40', [ 38, 167, 207, 392]],
+  ['ventas-sep',   '2026-09-08 at 09.13.18', [ 42, 195, 197, 402]],
+  ['grafico-sep',  '2026-09-08 at 09.22.56', [ 24, 232, 117, 356]],
   ['perdedora',    '02.53.48 (2)', [ 38, 158, 263, 458]],
   ['zonas',        '02.53.49',     [ 12,   0, 222, 280]],
   ['franjas',      '02.53.48',     [226,   0, 451, 300]],
@@ -32,7 +37,7 @@ export const piezas = [
 ];
 
 for (const [nombre, sufijo, [px0, py0, px1, py1]] of piezas) {
-  const origen = D + sufijo + '.jpeg';
+  const origen = ruta(sufijo);
   const img = sharp(origen);
   const { width: W, height: H } = await img.metadata();
   const escala = Math.max(W, H) / 500;

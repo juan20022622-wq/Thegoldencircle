@@ -1,6 +1,6 @@
 # Capturas de testimonios
 
-Las doce capturas que mandó Cristian, en WebP y **todas a 600x800 (3:4)**. Van en un mazo
+Las quince capturas que mandó Cristian, en WebP y **todas a 600x800 (3:4)**. Van en un mazo
 deslizable y una proporción distinta rompe la fila.
 
 **Las capturas van con su marco, no recortadas al panel.** Fondo de Telegram a
@@ -16,11 +16,14 @@ saldos, no el contexto.
 | `flotante.webp` | Seis compras abiertas, cinco en rojo, con su mensaje |
 | `tp-4-minutos.webp` | Dos entradas cerradas en el objetivo, con su mensaje |
 | `gracias.webp` | Cuatro operaciones y el mensaje de agradecimiento |
+| `agradecimiento.webp` | Compras y ventas del 8 de septiembre, con su «Gracias Broo» |
 | `perdedora.webp` | Historial con una operación cerrada en -0.04 |
 | `zonas.webp` | Ocho ventas escalonadas sobre niveles marcados |
+| `grafico-sep.webp` | La zona de venta marcada y dos entradas hasta el objetivo (8 sep) |
 | `franjas.webp` | Dos zonas de entrada marcadas en verde |
 | `historial-01.webp` | Compras del 25 de agosto |
 | `historial-02.webp` | Ventas y compras del 21 de agosto |
+| `ventas-sep.webp` | Nueve ventas de 0,01 del 8 de septiembre, mismo cierre |
 | `ventas.webp` | Ventas de 0,01 del 17 de junio |
 | `salidas.webp` | Cierres parciales de una posición |
 | `posiciones.webp` | Nueve compras de 0,03 al mismo cierre |
@@ -47,6 +50,17 @@ llegue después sepa que fue deliberado:
   Van dentro de la captura de otra persona y no se pueden recortar sin destruirla.
   Lo que sí se recortó: el nombre de un tercero, los avatares y la burbuja de
   reacción con cara.
+
+## Las tres del 8 de septiembre: qué se recortó y por qué
+
+Dos venían con un texto que decía un porcentaje de rentabilidad: «Más del 100 %
+de rendimiento» y «Hoy gané un 41,5 % de mi capital». Eso es la primera regla del
+repo y lo primero que revisa Meta en categoría financiera, así que las dos entran
+**sin el texto**: solo la captura. `grafico-sep` además se recortó al gráfico
+porque el historial de al lado mostraba el depósito y el ID de la cuenta.
+
+`agradecimiento` empieza justo debajo de la fila que llevaba el ID de cuenta y el
+depósito, y termina en «Gracias Broo», antes de la reacción con cara.
 
 ## Antes de subir una nueva
 

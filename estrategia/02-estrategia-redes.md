@@ -28,14 +28,14 @@ que Meta penaliza en categoría financiera.
 
 **La escalera tiene seis peldaños**, no tres:
 Instagram → landing → Telegram Free → canal de análisis (cuenta Exness por el
-enlace del club; al club no se paga) → formación GOLD/VIP/PREMIUM (pago) →
-clases privadas con Cristian (fee). Precio, formato y cupos de los dos últimos:
-`[POR CONFIRMAR]`.
+enlace del club; al club no se paga) → Premium (1.000.000 COP/mes o 6.000.000/año:
+más set-ups, más educación, más información; en la landing desde 2026-09-08) →
+clases privadas con Cristian (fee, `[POR CONFIRMAR]`).
 
 **El grupo Free promete que nadie te vende nada, y se cumple con calendario.**
 La invitación al canal de análisis sale una vez a la semana, en el cierre del
 viernes. La oferta de pago sale una vez al mes, el primer viernes, y rota entre
-transparencia / formación / clases privadas. Fuera de eso, cero.
+transparencia / Premium / clases privadas. Fuera de eso, cero.
 
 **La apertura diaria (L–V, 7:00–7:45) es el activo que hay que proteger.** Ya
 existe y ya se cumple. En el Free lleva agenda, contexto y regla del día; los
@@ -88,7 +88,7 @@ Lo que no hace, a propósito: no inventa datos de mercado y no publica solo.
 
 ## Lo que sigue abierto
 
-- Formación: qué incluye cada grupo, precio, cupos
+- Premium: qué incluye exactamente y si hay cupo (el precio ya está)
 - Clases privadas: formato, duración, precio, cuántas al mes puede dar Cristian
 - Píxel de Meta
 - Términos del programa de Exness sobre condicionar acceso a un depósito

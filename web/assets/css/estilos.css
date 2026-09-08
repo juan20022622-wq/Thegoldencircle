@@ -1544,6 +1544,49 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   .carta[data-frente] .e-desliza { animation: none; }
 }
 
+/* ---------- el premium ----------
+   La única sección con precio. Dos planes como tarjetas de vidrio, la anual con
+   el borde encendido. La acción es un enlace de texto y no el botón dorado: el
+   botón de la página es uno solo, entrar gratis, y aquí no compite. */
+
+.premium__que {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+  max-width: 40rem;
+}
+.premium__que li { padding-left: 1.25rem; position: relative; color: var(--gris); }
+.premium__que li::before { content: ''; position: absolute; left: 0; top: 0.75em; width: 0.5rem; height: 1px; background: var(--oro); }
+.premium__que strong { color: var(--hueso); font-weight: 600; }
+
+.premium {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+@media (min-width: 40rem) { .premium { grid-template-columns: 1fr 1fr; gap: 1.25rem; } }
+
+.plan { padding: 1.75rem 1.5rem 1.6rem; border-radius: 10px; }
+.plan--anual { border-color: var(--borde); }
+.plan__nombre {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oro);
+  margin: 0 0 1rem;
+}
+.plan__precio { margin: 0 0 0.75rem; display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
+.plan__cifra { font-size: clamp(1.9rem, 6vw, 2.5rem); font-weight: 500; letter-spacing: -0.02em; color: var(--hueso); line-height: 1; }
+.plan__moneda { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; color: var(--gris); }
+.plan__nota { margin: 0; font-size: 0.9375rem; color: var(--gris); }
+
+.premium__accion { margin: 1.75rem 0 0; display: grid; gap: 0.3rem; }
+.premium__accion a { color: var(--oro-claro); font-weight: 500; text-underline-offset: 4px; }
+.premium__accion span { font-size: 0.875rem; color: var(--gris); }
+
 /* La regla va aparte y con otro peso: es la que de verdad importa. */
 .regla {
   margin-top: 1.75rem;
