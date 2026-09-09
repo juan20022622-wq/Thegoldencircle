@@ -17,6 +17,9 @@
 <meta property="og:title" content="The Golden Syndicate · El club donde nadie opera a ciegas">
 <meta property="og:description" content="Canal de Telegram gratuito. Cada idea, con el porqué completo detrás.">
 <meta property="og:image" content="https://thegoldensyndicate.com/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Golden Syndicate: no se trata de operar más, se trata de operar mejor.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Golden Syndicate · El club donde nadie opera a ciegas">
 <meta name="twitter:description" content="Canal de Telegram gratuito. Cada idea, con el porqué completo detrás.">
@@ -29,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/css/estilos.css?v=18">
+<link rel="stylesheet" href="/assets/css/estilos.css?v=19">
 
 <script type="application/ld+json">
 {
@@ -71,7 +74,7 @@
           "name": "¿De verdad es gratis?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Para entrar, nada. El grupo de entrada es gratuito, sin tarjeta y sin cuenta de broker. Para pasar al canal de análisis hace falta una cuenta en Exness abierta con nuestro enlace y fondeada: ese capital es tuyo y el club no tiene acceso a él. Más adelante hay grupos privados de formación que sí se pagan, y no hacen falta para estar aquí. El trading conlleva riesgo de pérdida."
+            "text": "Para entrar, nada. El grupo de entrada es gratuito, sin tarjeta y sin cuenta de broker. Para pasar al canal de análisis hace falta una cuenta en Exness abierta con nuestro enlace y fondeada: ese capital es tuyo, se queda en tu cuenta y el club no tiene acceso a él. Más adelante está el Premium, que sí se paga: 1.000.000 COP al mes o 6.000.000 al año. No hace falta para estar aquí y nadie te lo va a estar recordando."
           }
         },
         {
@@ -650,12 +653,20 @@
     </p>
     <p data-flujo><a class="boton" href="#registro">Quiero entrar gratis</a></p>
     <p class="heroe__micro" data-flujo="rotulo">Acceso inmediato · Sin tarjeta · Sin compromiso</p>
+    <!-- Se rellena con JS a partir de la hora de Bogotá: la apertura sale a las
+         7:00 cada día de mercado, y eso ya se cumple. Sin JS no aparece. -->
+    <p class="heroe__proxima" data-proxima hidden>
+      <span class="heroe__proxima-rotulo">Próxima apertura en el canal</span>
+      <span class="heroe__proxima-cuando" data-proxima-cuando></span>
+      <span class="heroe__proxima-cuenta" data-proxima-cuenta></span>
+    </p>
 
     <!-- El gráfico no sube: lateraliza y pierde el nivel. Un gráfico ascendente
          en una landing de trading es una promesa de rentabilidad dibujada.
          Lo que se destaca es dónde la idea deja de servir. -->
     <figure class="heroe__grafico" data-flujo="hondo">
-      <div class="grafico__caja" style="--y-nivel:45.57%; --y-idea:11.00%; --x-idea:68.28%">
+      <div class="grafico__caja" data-recorrer style="--y-nivel:45.57%; --y-idea:11.00%; --x-idea:68.28%">
+        <span class="grafico__cursor" aria-hidden="true"></span>
         <svg class="grafico" viewBox="0 0 480 240" role="img"
              aria-label="Gráfico de velas ilustrativo: el precio sube, es rechazado tres veces en la misma zona y termina perdiendo el nivel marcado como invalidación.">
           <g class="grafico__velas">
@@ -763,7 +774,7 @@
         <p class="rotulo rotulo--nivel"><span>Invalidación</span> Si cierra debajo, la idea ya no sirve</p>
         <p class="rotulo rotulo--idea">Tercer rechazo en la misma zona</p>
       </div>
-      <figcaption>Ilustración del método. No es una señal: sin precios y sin resultados.</figcaption>
+      <figcaption>Ilustración del método. No es una señal: sin precios y sin resultados. <span class="grafico__pista" data-pista>Recórrelo con el dedo para verlo desarrollarse.</span></figcaption>
     </figure>
   </section>
 
@@ -1465,10 +1476,10 @@
   </div>
 </footer>
 
-<script src="/assets/js/config.js?v=18"></script>
+<script src="/assets/js/config.js?v=19"></script>
 <noscript><img height="1" width="1" style="display:none" alt=""
   src="https://www.facebook.com/tr?id=1358077623073009&ev=PageView&noscript=1"></noscript>
-<script src="/assets/js/movimiento.js?v=18" defer></script>
-<script src="/assets/js/main.js?v=18" defer></script>
+<script src="/assets/js/movimiento.js?v=19" defer></script>
+<script src="/assets/js/main.js?v=19" defer></script>
 </body>
 </html>

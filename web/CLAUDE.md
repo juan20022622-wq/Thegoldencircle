@@ -228,6 +228,39 @@ además `noindex` y `Disallow` en robots.
 por lo mismo antes de entrar. Las reglas de qué sí y qué no están en el propio
 sistema, en pantalla, todos los días.
 
+## Interacción que responde al puntero
+
+Cuatro cosas se mueven con la mano, y ninguna en reposo:
+
+- **El gráfico del héroe se recorre.** Con el dedo o el cursor encima, `--p`
+  pasa a ser la posición horizontal y la secuencia se ve desarrollarse a mano;
+  las dos etiquetas aparecen cuando el precio llega a su momento. Al soltar,
+  vuelve a mandar el scroll. `touch-action: pan-y` deja el scroll vertical
+  intacto en el teléfono.
+- **La próxima apertura, contada.** "Mañana a las 7:00 · faltan 13 h 55 min",
+  calculado con la hora de Bogotá (UTC−5, sin cambio de hora). Es verdad y es
+  verificable: la apertura sale a esa hora desde mayo. Se actualiza cada medio
+  minuto con un temporizador, no con fotogramas.
+- **Un foco dorado sigue al cursor en el vidrio** y **la carta al frente del
+  mazo se inclina hacia él.** Solo con puntero fino (`hover: hover`); en táctil
+  no pasa nada, que es lo correcto.
+- **El campo bien rellenado** toma el borde dorado al salir de él.
+
+Todas escriben variables en el propio elemento, solo mientras hay puntero: nada
+en `<html>`, y con la página quieta siguen siendo cero fotogramas.
+
+## Lo que no se sirve
+
+Netlify publica la carpeta entera, así que `netlify.toml` responde 404 a
+`CLAUDE.md`, `README.md`, `DESPLIEGUE.md`, `herramientas/*`, `netlify/*` y el
+`LEEME.md` de las capturas. Nada de eso es secreto, pero `CLAUDE.md` lleva
+decisiones del cliente y `calendario.mjs` es el contenido que vive detrás de la
+contraseña de `/plan/`. Se descubrió en la auditoría del 2026-09-09: estaban
+todos en 200. Hay un `404.html` propio, con el botón de entrar.
+
+**El arnés de auditoría ya no se puede cargar por URL** (`/herramientas/` da
+404): se pega su contenido en la consola, que es como estaba pensado.
+
 ## Movimiento
 
 **Una sola línea de tiempo, nunca revelados por umbral.** Un IntersectionObserver

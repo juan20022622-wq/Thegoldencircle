@@ -25,6 +25,41 @@
 # estrategia en PDF. Va detrás de contraseña en el borde, antes de servir nada.
 # La contraseña NO está en el repo: es la variable PLAN_CLAVE de Netlify.
 # Sin la variable la ruta responde 503 y lo dice; nunca queda abierta.
+# Lo que no es sitio no se sirve. Netlify publica la carpeta entera y aquí hay
+# notas de trabajo, el banco de mensajes y las herramientas: nada secreto, pero
+# CLAUDE.md lleva decisiones del cliente y calendario.mjs es el contenido que
+# vive detrás de la contraseña de /plan/. Se responde 404, no 403: un 403
+# confirma que el archivo existe.
+[[redirects]]
+  from   = "/CLAUDE.md"
+  to     = "/404.html"
+  status = 404
+
+[[redirects]]
+  from   = "/README.md"
+  to     = "/404.html"
+  status = 404
+
+[[redirects]]
+  from   = "/DESPLIEGUE.md"
+  to     = "/404.html"
+  status = 404
+
+[[redirects]]
+  from   = "/herramientas/*"
+  to     = "/404.html"
+  status = 404
+
+[[redirects]]
+  from   = "/netlify/*"
+  to     = "/404.html"
+  status = 404
+
+[[redirects]]
+  from   = "/assets/img/testimonios/LEEME.md"
+  to     = "/404.html"
+  status = 404
+
 [[edge_functions]]
   path     = "/plan"
   function = "clave"

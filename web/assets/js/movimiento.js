@@ -372,4 +372,106 @@
     }
   })();
 
+
+  /* ================= recorrer el gráfico ================= */
+
+  (function recorrer() {
+    var caja = document.querySelector('[data-recorrer]');
+    if (!caja) return;
+    var pista = document.querySelector('[data-pista]');
+    var tocado = false;
+
+    function mover(e) {
+      var r = caja.getBoundingClientRect();
+      var f = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+      /* la última vela se ve a partir de 0.83: se estira para que el borde
+         derecho de la caja sea el final */
+      caja.style.setProperty('--p', (f * 0.9 + 0.1).toFixed(3));
+      caja.style.setProperty('--sx', f.toFixed(4));
+      caja.style.setProperty('--sa', '1');
+      if (!tocado && pista) { tocado = true; pista.classList.add('grafico__pista--vista'); }
+    }
+    function soltar() {
+      caja.style.removeProperty('--p');
+      caja.style.setProperty('--sa', '0');
+    }
+    caja.addEventListener('pointermove', mover);
+    caja.addEventListener('pointerdown', mover);
+    caja.addEventListener('pointerleave', soltar);
+    caja.addEventListener('pointercancel', soltar);
+    caja.addEventListener('pointerup', function () { if (window.matchMedia('(hover: none)').matches) soltar(); });
+  })();
+
+  /* ================= la próxima apertura ================= */
+
+  /* La apertura sale entre las 7:00 y las 7:45 de Bogotá cada día de mercado, y
+     eso ya se cumple desde mayo. Bogotá no cambia de hora: 7:00 son las 12:00
+     UTC, siempre. Se actualiza cada medio minuto con un temporizador, no con
+     fotogramas. */
+  (function proxima() {
+    var caja = document.querySelector('[data-proxima]');
+    if (!caja) return;
+    var cuando = caja.querySelector('[data-proxima-cuando]');
+    var cuenta = caja.querySelector('[data-proxima-cuenta]');
+    var DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+
+    function calcular() {
+      var ahora = Date.now();
+      var bog = new Date(ahora - 5 * 3600000);              /* reloj de Bogotá, en campos UTC */
+      var dia = bog.getUTCDay();
+      var hoy7 = Date.UTC(bog.getUTCFullYear(), bog.getUTCMonth(), bog.getUTCDate(), 7, 0, 0) + 5 * 3600000;
+      var esMercado = dia >= 1 && dia <= 5;
+
+      if (esMercado && ahora >= hoy7 && ahora < hoy7 + 45 * 60000) {
+        cuando.textContent = 'está saliendo ahora';
+        cuenta.textContent = '';
+        return;
+      }
+      var objetivo = hoy7, saltos = 0;
+      if (!esMercado || ahora >= hoy7) {
+        do { objetivo += 86400000; saltos++; } while ((dia + saltos) % 7 === 0 || (dia + saltos) % 7 === 6);
+      }
+      var etiqueta = saltos === 0 ? 'hoy' : saltos === 1 ? 'mañana' : 'el ' + DIAS[(dia + saltos) % 7];
+      var falta = Math.max(0, objetivo - ahora);
+      var hrs = Math.floor(falta / 3600000), min = Math.floor((falta % 3600000) / 60000);
+      cuando.textContent = etiqueta + ' a las 7:00';
+      cuenta.textContent = 'faltan ' + (hrs ? hrs + ' h ' : '') + min + ' min';
+    }
+
+    calcular();
+    caja.hidden = false;
+    setInterval(calcular, 30000);
+  })();
+
+  /* ================= la luz en el vidrio y la carta inclinada ================= */
+
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    [].slice.call(document.querySelectorAll('.vidrio')).forEach(function (el) {
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+        el.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+      });
+    });
+
+    [].slice.call(document.querySelectorAll('.baraja__pista')).forEach(function (pista) {
+      pista.addEventListener('pointermove', function (e) {
+        /* Se mira la carta al frente y si el puntero está dentro de su caja,
+           no e.target: así vale igual sobre la imagen, el texto o el borde. */
+        var carta = pista.querySelector('.carta[data-frente]');
+        if (!carta) return;
+        var r = carta.getBoundingClientRect();
+        if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) {
+          carta.style.removeProperty('--tx'); carta.style.removeProperty('--ty'); return;
+        }
+        var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+        carta.style.setProperty('--tx', (x * 6).toFixed(2) + 'deg');
+        carta.style.setProperty('--ty', (-y * 6).toFixed(2) + 'deg');
+      });
+      pista.addEventListener('pointerleave', function () {
+        [].slice.call(pista.querySelectorAll('.carta')).forEach(function (c) { c.style.removeProperty('--tx'); c.style.removeProperty('--ty'); });
+      });
+    });
+  }
+
 })();

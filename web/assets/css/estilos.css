@@ -1544,6 +1544,62 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   .carta[data-frente] .e-desliza { animation: none; }
 }
 
+/* ---------- recorrer el gráfico ----------
+   El gráfico del héroe se dibuja con --p según se baja. Con el dedo o el
+   cursor encima, --p pasa a ser la posición horizontal: se recorre la
+   secuencia a mano, y las dos etiquetas aparecen cuando el precio llega a su
+   momento. Al soltar, vuelve a mandar el scroll. Es escritura de una variable
+   en la caja del gráfico, solo mientras hay puntero encima: nada en <html>,
+   nada en reposo. */
+
+.grafico__caja { touch-action: pan-y; cursor: ew-resize; }
+.grafico__cursor {
+  position: absolute; top: 4%; bottom: 14%; width: 1px;
+  left: calc(var(--sx, 0) * 100%);
+  background: linear-gradient(to bottom, transparent, var(--oro) 20%, var(--oro) 80%, transparent);
+  opacity: var(--sa, 0);
+  transition: opacity 0.35s var(--salida);
+  pointer-events: none;
+}
+.heroe__grafico .rotulo--idea  { opacity: calc(min(1, max(0, (var(--p, 1) - 0.64) * 10))); }
+.heroe__grafico .rotulo--nivel { opacity: calc(min(1, max(0, (var(--p, 1) - 0.80) * 10))); }
+.grafico__pista { display: inline-block; color: var(--gris); transition: opacity 0.6s; }
+.grafico__pista--vista { opacity: 0; }
+@media (hover: hover) { .grafico__pista::before { content: 'Pásale el cursor'; } .grafico__pista { font-size: 0; } .grafico__pista::before { font-size: 0.8125rem; } }
+
+/* ---------- la próxima apertura ---------- */
+.heroe__proxima {
+  margin: 1.4rem 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.75rem;
+  font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em;
+}
+.heroe__proxima-rotulo { color: var(--gris); text-transform: uppercase; letter-spacing: 0.14em; }
+.heroe__proxima-cuando { color: var(--hueso); }
+.heroe__proxima-cuenta { color: var(--oro); font-variant-numeric: tabular-nums; }
+.heroe__proxima-cuenta::before { content: '·'; color: var(--gris-claro); margin-right: 0.75rem; }
+
+/* ---------- la luz que sigue al puntero en el vidrio ----------
+   Un foco dorado tenue donde está el cursor. --mx/--my se escriben en la propia
+   tarjeta, solo mientras el puntero está encima. Sin puntero (táctil) no pasa
+   nada, que es lo correcto. */
+
+@media (hover: hover) and (pointer: fine) {
+  .vidrio::after {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(210, 166, 75, 0.11), transparent 62%);
+    opacity: 0; transition: opacity 0.4s var(--salida);
+  }
+  .vidrio:hover::after { opacity: 1; }
+  /* la carta al frente del mazo se inclina hacia el puntero */
+  .baraja__pista { perspective: 1200px; }
+  .carta[data-frente] {
+    transform: rotate(calc(var(--d) * 2.4deg)) scale(calc(1 - var(--e) * 0.07)) rotateX(var(--ty, 0deg)) rotateY(var(--tx, 0deg));
+    transition: transform 0.25s var(--salida);
+  }
+}
+
+/* ---------- el campo bien rellenado ---------- */
+.campo input[aria-invalid="false"] { border-color: rgba(210, 166, 75, 0.55); }
+
 /* ---------- el premium ----------
    La única sección con precio. Dos planes como tarjetas de vidrio, la anual con
    el borde encendido. La acción es un enlace de texto y no el botón dorado: el

@@ -74,6 +74,7 @@
     if (!campo) return;
     campo.addEventListener('blur', function () {
       if (campo.value) pintarError(campo, REGLAS[nombre].valida(campo.value) ? '' : REGLAS[nombre].error);
+      else campo.removeAttribute('aria-invalid');
     });
     campo.addEventListener('input', function () {
       if (campo.getAttribute('aria-invalid') === 'true' && REGLAS[nombre].valida(campo.value)) {
