@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/css/estilos.css?v=17">
+<link rel="stylesheet" href="/assets/css/estilos.css?v=18">
 
 <script type="application/ld+json">
 {
@@ -1229,22 +1229,63 @@
       nadie te lo va a estar recordando.
     </p>
 
-    <ul class="premium__que" data-flujo="lento">
-      <li><strong>Más set-ups.</strong> Más ideas de operación al día, cada una con dirección, zona, stop, objetivo y lo que la invalida.</li>
-      <li><strong>Más educación.</strong> Los conceptos del método trabajados a fondo, uno a uno, no en una frase.</li>
-      <li><strong>Mucha más información.</strong> Qué mueve el oro y por qué: agenda, contexto y lectura del mercado con más detalle.</li>
-    </ul>
+    <!-- Tres niveles, uno se elige y se lee. En móvil se ve una columna; en
+         escritorio las tres, con la elegida encendida. Todo el texto está en el
+         DOM: sin JS se ven las tres columnas apiladas. -->
+    <div class="niveles" data-niveles data-nivel="premium" data-flujo="lento">
+      <div class="niveles__mando" role="tablist" aria-label="Niveles del club">
+        <button type="button" class="niveles__boton" role="tab" data-nivel-boton="entrada" aria-selected="false">Entrada</button>
+        <button type="button" class="niveles__boton" role="tab" data-nivel-boton="analisis" aria-selected="false">Análisis</button>
+        <button type="button" class="niveles__boton" role="tab" data-nivel-boton="premium" aria-selected="true">Premium</button>
+      </div>
+      <div class="niveles__tabla">
+        <div class="nivel" data-nivel-col="entrada">
+          <h3 class="nivel__nombre">Entrada</h3>
+          <p class="nivel__precio">Gratis</p>
+          <dl>
+            <dt>Qué se publica</dt><dd>La apertura de las 7 cada día de mercado: agenda, contexto y la regla del día.</dd>
+            <dt>Educación</dt><dd>Un concepto por semana, explicado. Las historias de los miembros.</dd>
+            <dt>Mercado</dt><dd>La agenda de la semana y qué pasó, los jueves.</dd>
+          </dl>
+        </div>
+        <div class="nivel" data-nivel-col="analisis">
+          <h3 class="nivel__nombre">Análisis</h3>
+          <p class="nivel__precio">Gratis, con cuenta en Exness por nuestro enlace</p>
+          <dl>
+            <dt>Qué se publica</dt><dd>Los set-ups que opera Cristian: dirección, zona, stop, objetivo, y lo que invalida cada idea.</dd>
+            <dt>Educación</dt><dd>El razonamiento completo de cada idea. Psicología y gestión de riesgo.</dd>
+            <dt>Mercado</dt><dd>El contexto de cada idea: qué mueve el precio ese día.</dd>
+          </dl>
+        </div>
+        <div class="nivel nivel--premium" data-nivel-col="premium">
+          <h3 class="nivel__nombre">Premium</h3>
+          <p class="nivel__precio">Desde 500.000 al mes</p>
+          <dl>
+            <dt>Qué se publica</dt><dd><strong>Más set-ups al día</strong>, cada uno con su porqué y con lo que lo invalida.</dd>
+            <dt>Educación</dt><dd><strong>Más educación:</strong> los conceptos del método trabajados a fondo, uno a uno.</dd>
+            <dt>Mercado</dt><dd><strong>Mucha más información:</strong> agenda, contexto y lectura del mercado con más detalle.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
 
-    <div class="premium" data-flujo="hondo">
-      <article class="plan vidrio">
-        <p class="plan__nombre">Mes a mes</p>
-        <p class="plan__precio"><span class="plan__cifra">1.000.000</span> <span class="plan__moneda">COP / mes</span></p>
-        <p class="plan__nota">Para probar el ritmo del Premium un mes y decidir después.</p>
-      </article>
-      <article class="plan vidrio vidrio--fuerte plan--anual">
-        <p class="plan__nombre">Anual</p>
-        <p class="plan__precio"><span class="plan__cifra">6.000.000</span> <span class="plan__moneda">COP / año</span></p>
-        <p class="plan__nota">Equivale a 500.000 al mes: la mitad que mes a mes.</p>
+    <!-- El precio: un interruptor y una sola tarjeta que cambia. La cifra se
+         mueve al cambiar; es la única animación de la sección y solo corre al
+         tocar. -->
+    <div class="planes" data-planes data-plan="mes" data-flujo="hondo">
+      <div class="planes__mando" role="tablist" aria-label="Forma de pago">
+        <span class="planes__cursor" aria-hidden="true"></span>
+        <button type="button" class="planes__opcion" role="tab" data-plan-boton="mes" aria-selected="true">Mes a mes</button>
+        <button type="button" class="planes__opcion" role="tab" data-plan-boton="anual" aria-selected="false">Anual <small>la mitad</small></button>
+      </div>
+      <article class="plan vidrio vidrio--fuerte">
+        <p class="plan__nombre" data-plan-nombre>Premium · mes a mes</p>
+        <p class="plan__precio">
+          <span class="plan__cifra" data-plan-cifra data-mes="1000000" data-anual="6000000">1.000.000</span>
+          <span class="plan__moneda" data-plan-moneda>COP / mes</span>
+        </p>
+        <p class="plan__nota" data-plan-nota data-nota-mes="Para probar el ritmo del Premium un mes y decidir después. Se renueva cada mes." data-nota-anual="Doce meses por el precio de seis. Se paga una vez al año.">Para probar el ritmo del Premium un mes y decidir después. Se renueva cada mes.</p>
+        <p class="plan__mes" data-plan-equivale hidden>Es decir, <b>500.000</b> COP al mes.</p>
       </article>
     </div>
 
@@ -1424,10 +1465,10 @@
   </div>
 </footer>
 
-<script src="/assets/js/config.js?v=17"></script>
+<script src="/assets/js/config.js?v=18"></script>
 <noscript><img height="1" width="1" style="display:none" alt=""
   src="https://www.facebook.com/tr?id=1358077623073009&ev=PageView&noscript=1"></noscript>
-<script src="/assets/js/movimiento.js?v=17" defer></script>
-<script src="/assets/js/main.js?v=17" defer></script>
+<script src="/assets/js/movimiento.js?v=18" defer></script>
+<script src="/assets/js/main.js?v=18" defer></script>
 </body>
 </html>

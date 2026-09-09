@@ -309,4 +309,67 @@
     pedirReparto();
   });
 
+
+  /* ================= los planes ================= */
+
+  /* Un interruptor y una tarjeta. La cifra recorre el camino entre los dos
+     precios en medio segundo; solo corre al tocar, así que no cuesta nada en
+     reposo. Los niveles son tres columnas de las que se elige una. */
+
+  (function planes() {
+    var caja = document.querySelector('[data-planes]');
+    if (caja) {
+      var cifra = caja.querySelector('[data-plan-cifra]');
+      var nombre = caja.querySelector('[data-plan-nombre]');
+      var moneda = caja.querySelector('[data-plan-moneda]');
+      var nota = caja.querySelector('[data-plan-nota]');
+      var equivale = caja.querySelector('[data-plan-equivale]');
+      var botones = [].slice.call(caja.querySelectorAll('[data-plan-boton]'));
+      var actual = 1000000;
+      var animando = null;
+
+      function formato(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+
+      function irA(plan) {
+        caja.setAttribute('data-plan', plan);
+        botones.forEach(function (b) { b.setAttribute('aria-selected', String(b.getAttribute('data-plan-boton') === plan)); });
+        nombre.textContent = plan === 'anual' ? 'Premium · anual' : 'Premium · mes a mes';
+        moneda.textContent = plan === 'anual' ? 'COP / año' : 'COP / mes';
+        nota.textContent = nota.getAttribute(plan === 'anual' ? 'data-nota-anual' : 'data-nota-mes');
+        equivale.hidden = plan !== 'anual';
+
+        var destino = Number(cifra.getAttribute(plan === 'anual' ? 'data-anual' : 'data-mes'));
+        if (quieto) { actual = destino; cifra.textContent = formato(destino); return; }
+
+        var desde = actual, t0 = null;
+        if (animando) cancelAnimationFrame(animando);
+        function paso(t) {
+          if (t0 === null) t0 = t;
+          var k = Math.min(1, (t - t0) / 480);
+          var e = 1 - Math.pow(1 - k, 3);
+          actual = desde + (destino - desde) * e;
+          cifra.textContent = formato(actual);
+          if (k < 1) animando = requestAnimationFrame(paso); else { animando = null; actual = destino; }
+        }
+        animando = requestAnimationFrame(paso);
+      }
+
+      botones.forEach(function (b) {
+        b.addEventListener('click', function () { irA(b.getAttribute('data-plan-boton')); });
+      });
+    }
+
+    var niveles = document.querySelector('[data-niveles]');
+    if (niveles) {
+      var tabs = [].slice.call(niveles.querySelectorAll('[data-nivel-boton]'));
+      tabs.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var n = b.getAttribute('data-nivel-boton');
+          niveles.setAttribute('data-nivel', n);
+          tabs.forEach(function (x) { x.setAttribute('aria-selected', String(x === b)); });
+        });
+      });
+    }
+  })();
+
 })();

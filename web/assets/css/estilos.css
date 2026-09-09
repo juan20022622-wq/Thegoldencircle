@@ -1549,39 +1549,78 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
    el borde encendido. La acción es un enlace de texto y no el botón dorado: el
    botón de la página es uno solo, entrar gratis, y aquí no compite. */
 
-.premium__que {
-  list-style: none;
-  margin: 2rem 0 0;
-  padding: 0;
-  display: grid;
-  gap: 0.9rem;
-  max-width: 40rem;
+/* Los niveles: tres columnas en escritorio, una a la vez en móvil. */
+.niveles { margin-top: 2.5rem; }
+.niveles__mando {
+  display: flex; gap: 0.35rem; padding: 0.3rem;
+  border: 1px solid var(--borde-tenue); border-radius: 999px; background: var(--superficie);
+  width: fit-content; max-width: 100%;
 }
-.premium__que li { padding-left: 1.25rem; position: relative; color: var(--gris); }
-.premium__que li::before { content: ''; position: absolute; left: 0; top: 0.75em; width: 0.5rem; height: 1px; background: var(--oro); }
-.premium__que strong { color: var(--hueso); font-weight: 600; }
+.niveles__boton {
+  font: inherit; font-size: 0.875rem; font-weight: 500; color: var(--gris);
+  background: transparent; border: 0; border-radius: 999px; padding: 0.55rem 1rem; min-height: 2.5rem; cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+.niveles__boton[aria-selected="true"] { color: var(--negro); background: var(--oro); }
+.niveles__boton:hover:not([aria-selected="true"]) { color: var(--hueso); }
+.niveles__tabla { display: grid; gap: 1rem; margin-top: 1.25rem; }
+.nivel {
+  border: 1px solid var(--borde-tenue); border-radius: 10px; background: var(--superficie);
+  padding: 1.35rem 1.35rem 1.25rem; transition: border-color 0.25s, opacity 0.25s;
+}
+.nivel__nombre { font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; text-transform: none; color: var(--hueso); margin: 0 0 0.25rem; }
+.nivel__precio { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--oro); margin: 0 0 1rem; }
+.nivel dl { margin: 0; display: grid; gap: 0.7rem; }
+.nivel dt { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gris); }
+.nivel dd { margin: 0.15rem 0 0; font-size: 0.9375rem; color: var(--gris); }
+.nivel dd strong { color: var(--hueso); font-weight: 600; }
+/* móvil: solo la columna elegida */
+@media (max-width: 47.99rem) {
+  .cargado .nivel { display: none; }
+  .cargado [data-nivel="entrada"] [data-nivel-col="entrada"],
+  .cargado [data-nivel="analisis"] [data-nivel-col="analisis"],
+  .cargado [data-nivel="premium"] [data-nivel-col="premium"] { display: block; border-color: var(--borde); }
+}
+/* escritorio: las tres, la elegida encendida */
+@media (min-width: 48rem) {
+  .niveles__tabla { grid-template-columns: repeat(3, 1fr); }
+  .cargado .nivel { opacity: 0.55; }
+  .cargado [data-nivel="entrada"] [data-nivel-col="entrada"],
+  .cargado [data-nivel="analisis"] [data-nivel-col="analisis"],
+  .cargado [data-nivel="premium"] [data-nivel-col="premium"] { opacity: 1; border-color: var(--borde); }
+}
 
-.premium {
-  display: grid;
-  gap: 1rem;
-  margin-top: 2.5rem;
+/* El precio: interruptor con cursor que se desliza, y una tarjeta que cambia. */
+.planes { margin-top: 2.5rem; display: grid; gap: 1rem; max-width: 34rem; }
+.planes__mando {
+  position: relative; display: grid; grid-template-columns: 1fr 1fr; padding: 0.3rem;
+  border: 1px solid var(--borde-tenue); border-radius: 999px; background: var(--superficie); isolation: isolate;
 }
-@media (min-width: 40rem) { .premium { grid-template-columns: 1fr 1fr; gap: 1.25rem; } }
+.planes__cursor {
+  position: absolute; top: 0.3rem; bottom: 0.3rem; left: 0.3rem; width: calc(50% - 0.3rem);
+  border-radius: 999px; background: var(--oro);
+  transition: transform 0.35s var(--salida);
+}
+[data-plan="anual"] .planes__cursor { transform: translateX(100%); }
+.planes__opcion {
+  position: relative; z-index: 1; font: inherit; font-size: 0.9375rem; font-weight: 500;
+  color: var(--gris); background: transparent; border: 0; border-radius: 999px; padding: 0.65rem 1rem; min-height: 2.75rem; cursor: pointer;
+  transition: color 0.25s;
+}
+/* El fondo dorado llega con retraso: primero se desliza el cursor y después
+   el botón toma el color. Así el arnés (y un lector sin el pseudo-cursor) ve
+   texto negro sobre oro, y el ojo ve el deslizamiento. */
+.planes__opcion[aria-selected="true"] { color: var(--negro); background: var(--oro); transition: color 0.25s, background 0.01s 0.32s; }
+.planes__opcion small { display: inline-block; margin-left: 0.35rem; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; }
 
-.plan { padding: 1.75rem 1.5rem 1.6rem; border-radius: 10px; }
-.plan--anual { border-color: var(--borde); }
-.plan__nombre {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--oro);
-  margin: 0 0 1rem;
-}
+.plan { padding: 1.75rem 1.5rem 1.6rem; border-radius: 10px; border-color: var(--borde); }
+.plan__nombre { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--oro); margin: 0 0 1rem; }
 .plan__precio { margin: 0 0 0.75rem; display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
-.plan__cifra { font-size: clamp(1.9rem, 6vw, 2.5rem); font-weight: 500; letter-spacing: -0.02em; color: var(--hueso); line-height: 1; }
+.plan__cifra { font-size: clamp(2rem, 7vw, 2.75rem); font-weight: 500; letter-spacing: -0.02em; color: var(--hueso); line-height: 1; font-variant-numeric: tabular-nums; }
 .plan__moneda { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; color: var(--gris); }
 .plan__nota { margin: 0; font-size: 0.9375rem; color: var(--gris); }
+.plan__mes { margin: 0.6rem 0 0; font-size: 0.9375rem; color: var(--hueso); }
+.plan__mes b { color: var(--oro-claro); font-weight: 500; }
 
 .premium__accion { margin: 1.75rem 0 0; display: grid; gap: 0.3rem; }
 .premium__accion a { color: var(--oro-claro); font-weight: 500; text-underline-offset: 4px; }
