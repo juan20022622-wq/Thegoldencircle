@@ -29,36 +29,43 @@
 # notas de trabajo, el banco de mensajes y las herramientas: nada secreto, pero
 # CLAUDE.md lleva decisiones del cliente y calendario.mjs es el contenido que
 # vive detrás de la contraseña de /plan/. Se responde 404, no 403: un 403
-# confirma que el archivo existe.
+# confirma que el archivo existe. Con force: sin él, un redirect no pisa un
+# archivo que existe, y estos existen.
 [[redirects]]
   from   = "/CLAUDE.md"
   to     = "/404.html"
   status = 404
+  force  = true
 
 [[redirects]]
   from   = "/README.md"
   to     = "/404.html"
   status = 404
+  force  = true
 
 [[redirects]]
   from   = "/DESPLIEGUE.md"
   to     = "/404.html"
   status = 404
+  force  = true
 
 [[redirects]]
   from   = "/herramientas/*"
   to     = "/404.html"
   status = 404
+  force  = true
 
 [[redirects]]
   from   = "/netlify/*"
   to     = "/404.html"
   status = 404
+  force  = true
 
 [[redirects]]
   from   = "/assets/img/testimonios/LEEME.md"
   to     = "/404.html"
   status = 404
+  force  = true
 
 [[edge_functions]]
   path     = "/plan"
