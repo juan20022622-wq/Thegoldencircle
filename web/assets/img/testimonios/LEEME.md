@@ -51,16 +51,18 @@ llegue después sepa que fue deliberado:
   Lo que sí se recortó: el nombre de un tercero, los avatares y la burbuja de
   reacción con cara.
 
-## Las tres del 8 de septiembre: qué se recortó y por qué
+## Las dos que abren el mazo, y por qué es una decisión del cliente
 
-Dos venían con un texto que decía un porcentaje de rentabilidad: «Más del 100 %
-de rendimiento» y «Hoy gané un 41,5 % de mi capital». Eso es la primera regla del
-repo y lo primero que revisa Meta en categoría financiera, así que las dos entran
-**sin el texto**: solo la captura. `grafico-sep` además se recortó al gráfico
-porque el historial de al lado mostraba el depósito y el ID de la cuenta.
+`grafico-sep` y `ventas-sep` van primero **con su mensaje**: «Hoy gané un 41,5 %
+de mi capital» y «Más del 100 % de rendimiento». Es un testimonio con cifra de
+retorno: la primera regla del repo, lo primero que revisa Meta en categoría
+financiera y lo que Exness prohíbe a sus partners. Se recortaron sin el texto el
+8 de septiembre; el 10 el cliente pidió que fueran completos y de primeros, y así
+quedaron. **En Instagram y en anuncios no se usan**, y para la pauta conviene
+una landing sin esta sección (ver `web/CLAUDE.md`).
 
-`agradecimiento` empieza justo debajo de la fila que llevaba el ID de cuenta y el
-depósito, y termina en «Gracias Broo», antes de la reacción con cara.
+Lo que sí se recortó: avatares, la burbuja de reacción con cara y la barra de
+«Mensajes no leídos». La nota del club bajo cada carta no repite la cifra.
 
 ## Antes de subir una nueva
 
