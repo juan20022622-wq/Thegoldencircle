@@ -255,8 +255,12 @@ Meta revisa la **página de destino** de cada anuncio, y en categoría financier
 un testimonio con cifra de retorno es motivo de rechazo y, repetido, de
 restricción de la cuenta. La página principal lleva esas capturas por decisión
 del cliente (2026-09-10). Los anuncios **no apuntan ahí**: apuntan a
-`thegoldensyndicate.com/entrar`, que es la misma página sin la sección de
-testimonios, `noindex` y con canonical a la principal.
+`thegoldensyndicate.com/entrar`, que es la misma página con la sección de
+testimonios **filtrada**: solo las cinco que hablan del método y de la gestión
+—el error de lotaje, la posición en rojo, el cierre en negativo y dos gráficos
+con las zonas marcadas—, `noindex` y con canonical a la principal. Fuera quedan
+las listas de operaciones ganadoras y los dos mensajes con porcentaje. La lista
+de aceptadas vive en `entrar.mjs` (`ACEPTADAS`).
 
 `entrar.html` **no se edita a mano**: lo genera `herramientas/entrar.mjs` a
 partir de `index.html`. Después de cualquier cambio en la principal:

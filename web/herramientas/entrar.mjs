@@ -22,11 +22,37 @@ import { fileURLToPath } from 'url';
 const web = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 let h = fs.readFileSync(path.join(web, 'index.html'), 'utf8');
 
-/* 1 · fuera la sección de testimonios, entera */
+/* 1 · la sección de testimonios se queda, pero solo con las capturas que hablan
+   del método y de la gestión, no de la cifra: el error de lotaje, la posición
+   en rojo, el cierre en negativo y dos gráficos con las zonas marcadas. Las
+   listas de operaciones ganadoras y los mensajes con porcentaje son lo que Meta
+   nombra como motivo de rechazo en categoría financiera. */
+const ACEPTADAS = ['lotaje', 'flotante', 'perdedora', 'grafico-metodo', 'franjas'];
 const ini = h.indexOf('  <!-- TESTIMONIOS ·');
 const fin = h.indexOf('  <!-- LA CONSOLA ·');
 if (ini < 0 || fin < 0) throw new Error('no encuentro la sección de testimonios');
-h = h.slice(0, ini) + h.slice(fin);
+let seccion = h.slice(ini, fin);
+const figuras = seccion.match(/ {8}<figure class="carta carta--captura">[\s\S]*?<\/figure>/g) || [];
+const nombre = (f) => (f.match(/testimonios\/([a-z0-9-]+)\.webp/) || [])[1];
+/* la del gráfico con mensaje se sustituye por la versión solo-gráfico */
+const conservadas = ACEPTADAS.map((n) => {
+  const f = figuras.find((x) => nombre(x) === (n === 'grafico-metodo' ? 'grafico-sep' : n));
+  if (!f) throw new Error('falta la carta ' + n);
+  return n === 'grafico-metodo'
+    ? f.replace('grafico-sep.webp', 'grafico-metodo.webp')
+       .replace(/alt="[^"]*"/, 'alt="Gráfico de un miembro con la zona de venta marcada y las entradas hasta el objetivo"')
+       .replace(/<p class="carta__nota">[\s\S]*?<\/p>/, '<p class="carta__nota">La zona de venta marcada, dos entradas y el recorrido hasta el objetivo.</p>')
+    : f;
+});
+const primera = seccion.indexOf(figuras[0]);
+const ultima = seccion.lastIndexOf(figuras[figuras.length - 1]) + figuras[figuras.length - 1].length;
+seccion = seccion.slice(0, primera) + conservadas.join('\n') + seccion.slice(ultima);
+seccion = seccion.replace(/<p data-flujo="lento">[\s\S]*?<\/p>/, `<p data-flujo="lento">
+      Esto es lo que mandan los miembros al canal. Aquí van las que hablan del
+      método y de la gestión: un error de lotaje reconocido, una posición en rojo,
+      un cierre en negativo y dos gráficos con las zonas marcadas.
+    </p>`);
+h = h.slice(0, ini) + seccion + h.slice(fin);
 
 /* 2 · cabecera: noindex, canonical a la principal, título propio */
 /* la principal ya trae una meta robots: se sustituye, no se añade otra */
@@ -51,5 +77,5 @@ h = h.replace('<!DOCTYPE html>', '<!DOCTYPE html>\n<!-- GENERADO por herramienta
 
 fs.writeFileSync(path.join(web, 'entrar.html'), h);
 
-const quedan = (h.match(/testimonios\//g) || []).length;
-console.log(`  entrar.html · ${(h.length / 1024).toFixed(0)} KB · referencias a testimonios: ${quedan}`);
+const cartas = (h.match(/carta--captura/g) || []).length;
+console.log(`  entrar.html · ${(h.length / 1024).toFixed(0)} KB · cartas: ${cartas} (${ACEPTADAS.join(', ')})`);

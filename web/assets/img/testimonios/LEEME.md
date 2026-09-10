@@ -19,7 +19,8 @@ saldos, no el contexto.
 | `agradecimiento.webp` | Compras y ventas del 8 de septiembre, con su «Gracias Broo» |
 | `perdedora.webp` | Historial con una operación cerrada en -0.04 |
 | `zonas.webp` | Ocho ventas escalonadas sobre niveles marcados |
-| `grafico-sep.webp` | La zona de venta marcada y dos entradas hasta el objetivo (8 sep) |
+| `grafico-sep.webp` | Gráfico e historial del 8 sep, con el mensaje «gané un 41,5 %» |
+| `grafico-metodo.webp` | La misma captura, solo el gráfico: la versión para `/entrar` |
 | `franjas.webp` | Dos zonas de entrada marcadas en verde |
 | `historial-01.webp` | Compras del 25 de agosto |
 | `historial-02.webp` | Ventas y compras del 21 de agosto |
