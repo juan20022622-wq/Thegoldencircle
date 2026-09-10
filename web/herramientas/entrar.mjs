@@ -29,14 +29,19 @@ if (ini < 0 || fin < 0) throw new Error('no encuentro la sección de testimonios
 h = h.slice(0, ini) + h.slice(fin);
 
 /* 2 · cabecera: noindex, canonical a la principal, título propio */
-h = h.replace('<link rel="canonical" href="https://thegoldensyndicate.com/">',
-  '<link rel="canonical" href="https://thegoldensyndicate.com/">\n<meta name="robots" content="noindex, nofollow">');
+/* la principal ya trae una meta robots: se sustituye, no se añade otra */
+h = h.replace(/<meta name="robots" content="[^"]*">/, '<meta name="robots" content="noindex, nofollow">');
 h = h.replace(/<meta property="og:url" content="[^"]*">/, '<meta property="og:url" content="https://thegoldensyndicate.com/entrar">');
 h = h.replace('<title>The Golden Syndicate · El club donde nadie opera a ciegas</title>',
   '<title>Entra al club · The Golden Syndicate</title>');
 
-/* 3 · el JSON-LD de FAQ no tiene sentido en una página que no se indexa */
-h = h.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\n?/, '');
+/* 3 · del JSON-LD se conserva Organization y WebSite; el FAQ sobra en una página
+   que no se indexa y cuya sección de dudas es idéntica a la principal */
+h = h.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/, (m, json) => {
+  const ld = JSON.parse(json);
+  if (ld["@graph"]) ld["@graph"] = ld["@graph"].filter((n) => n["@type"] !== "FAQPage");
+  return '<script type="application/ld+json">\n' + JSON.stringify(ld, null, 2) + '\n</script>';
+});
 
 /* 4 · una marca en el body para que el CSS pueda distinguirla si hace falta */
 h = h.replace('<body>', '<body class="pauta">');
