@@ -16,6 +16,13 @@
   status = 301
   force  = true
 
+# La landing de pauta: la misma página sin la sección de testimonios, porque
+# Meta revisa el destino del anuncio. La genera herramientas/entrar.mjs.
+[[redirects]]
+  from   = "/entrar"
+  to     = "/entrar.html"
+  status = 200
+
 [[redirects]]
   from   = "/ir"
   to     = "/ir.html"

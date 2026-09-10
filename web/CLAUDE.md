@@ -249,6 +249,25 @@ Cuatro cosas se mueven con la mano, y ninguna en reposo:
 Todas escriben variables en el propio elemento, solo mientras hay puntero: nada
 en `<html>`, y con la página quieta siguen siendo cero fotogramas.
 
+## La landing de pauta · /entrar
+
+Meta revisa la **página de destino** de cada anuncio, y en categoría financiera
+un testimonio con cifra de retorno es motivo de rechazo y, repetido, de
+restricción de la cuenta. La página principal lleva esas capturas por decisión
+del cliente (2026-09-10). Los anuncios **no apuntan ahí**: apuntan a
+`thegoldensyndicate.com/entrar`, que es la misma página sin la sección de
+testimonios, `noindex` y con canonical a la principal.
+
+`entrar.html` **no se edita a mano**: lo genera `herramientas/entrar.mjs` a
+partir de `index.html`. Después de cualquier cambio en la principal:
+
+    node web/herramientas/entrar.mjs
+    node web/herramientas/version.mjs
+
+Mismo formulario (Netlify agrupa por nombre), mismo píxel, mismo evento Lead.
+`main.js` manda el campo `pagina`, así que en Netlify Forms se ve de cuál de
+las dos vino cada registro.
+
 ## Lo que no se sirve
 
 Netlify publica la carpeta entera, así que `netlify.toml` responde 404 a
