@@ -397,6 +397,14 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 
 @media (min-width: 40rem) { .consola__pie { padding: 1.25rem 2.5rem; } }
 
+/* En un teléfono no caben los cuatro puntos y los dos mandos en una fila:
+   los mandos bajan a su propia fila y se reparten el ancho. */
+@media (max-width: 29.99rem) {
+  .consola__pie { flex-wrap: wrap; row-gap: 1rem; }
+  .mandos { flex: 1 1 100%; }
+  .mandos .mando { flex: 1 1 0; }
+}
+
 .puntos { display: flex; gap: 1.5rem; margin-left: 0.625rem; }
 
 .puntos button {
@@ -764,6 +772,9 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 .pie__legal a {
   position: relative;
   text-decoration: none;
+  display: inline-block;
+  padding: 0.7rem 0;
+  margin: -0.7rem 0;
 }
 
 .pie__legal a::after {
@@ -771,7 +782,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -2px;
+  bottom: calc(0.7rem - 2px);
   height: 1px;
   background: currentColor;
   transform: scaleX(0);
@@ -1610,7 +1621,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 @media (min-width: 48rem) { .scanner { padding: 1.5rem 1.75rem 1.35rem; } }
 .scanner__cabeza { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1rem; margin-bottom: 1.1rem; }
 .scanner__nombre { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--oro); }
-.scanner__fases { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.35rem; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gris); }
+.scanner__fases { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.35rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gris); }
 .scanner__fases li { padding: 0.2rem 0.55rem; border: 1px solid var(--borde-tenue); border-radius: 999px; transition: color 0.3s, border-color 0.3s, background 0.3s; }
 .scanner__fases li + li::before { content: none; }
 [data-fase="escanea"] [data-fase-item="escanea"],
@@ -1621,7 +1632,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 [data-fase="analiza"] [data-fase-item="filtra"] { color: var(--oro); border-color: var(--borde); }
 
 .scanner__criterios { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem; margin-bottom: 1rem; }
-.scanner__rotulo { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gris); margin-right: 0.25rem; }
+.scanner__rotulo { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gris); margin-right: 0.25rem; }
 .criterio {
   font: inherit; font-size: 0.875rem; font-weight: 500; color: var(--gris);
   background: transparent; border: 1px solid var(--borde-tenue); border-radius: 999px;
@@ -1666,7 +1677,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 .scanner__escanear:disabled { opacity: 0.55; cursor: progress; }
 .scanner__veredicto { margin: 1.1rem 0 0; padding: 0.9rem 1rem; border-left: 2px solid var(--oro); background: rgba(210, 166, 75, 0.06); font-size: 0.9375rem; color: var(--gris); }
 .scanner__veredicto b { color: var(--hueso); font-weight: 600; }
-.scanner__nota { margin: 0.9rem 0 0; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gris); }
+.scanner__nota { margin: 0.9rem 0 0; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gris); }
 
 .para-ti { display: grid; gap: 1.5rem; margin-top: 2.5rem; }
 @media (min-width: 46rem) { .para-ti { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
@@ -1682,7 +1693,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 .scanner__cifra { font-size: clamp(1.9rem, 6vw, 2.5rem); font-weight: 500; letter-spacing: -0.02em; color: var(--hueso); line-height: 1; }
 .scanner__periodo { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; color: var(--gris); }
 
-.captura__proxima { margin-top: 1rem; }
+.captura__proxima { margin: 1rem 0 1.75rem; }
 
 /* ---------- el premium ----------
    La única sección con precio. Dos planes como tarjetas de vidrio, la anual con
@@ -1711,7 +1722,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 .nivel__nombre { font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; text-transform: none; color: var(--hueso); margin: 0 0 0.25rem; }
 .nivel__precio { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--oro); margin: 0 0 1rem; }
 .nivel dl { margin: 0; display: grid; gap: 0.7rem; }
-.nivel dt { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gris); }
+.nivel dt { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gris); }
 .nivel dd { margin: 0.15rem 0 0; font-size: 0.9375rem; color: var(--gris); }
 .nivel dd strong { color: var(--hueso); font-weight: 600; }
 /* móvil: solo la columna elegida */
@@ -1751,7 +1762,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
    el botón toma el color. Así el arnés (y un lector sin el pseudo-cursor) ve
    texto negro sobre oro, y el ojo ve el deslizamiento. */
 .planes__opcion[aria-selected="true"] { color: var(--negro); background: var(--oro); transition: color 0.25s, background 0.01s 0.32s; }
-.planes__opcion small { display: inline-block; margin-left: 0.35rem; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; }
+.planes__opcion small { display: inline-block; margin-left: 0.35rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; }
 
 .plan { padding: 1.75rem 1.5rem 1.6rem; border-radius: 10px; border-color: var(--borde); }
 .plan__nombre { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--oro); margin: 0 0 1rem; }
@@ -1763,7 +1774,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 .plan__mes b { color: var(--oro-claro); font-weight: 500; }
 
 .premium__accion { margin: 1.75rem 0 0; display: grid; gap: 0.3rem; }
-.premium__accion a { color: var(--oro-claro); font-weight: 500; text-underline-offset: 4px; }
+.premium__accion a { color: var(--oro-claro); font-weight: 500; text-underline-offset: 4px; display: inline-block; width: fit-content; padding: 0.55rem 0; margin: -0.3rem 0; }
 .premium__accion span { font-size: 0.875rem; color: var(--gris); }
 
 /* La regla va aparte y con otro peso: es la que de verdad importa. */
