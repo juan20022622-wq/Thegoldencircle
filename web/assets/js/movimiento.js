@@ -334,7 +334,7 @@
         caja.setAttribute('data-plan', plan);
         botones.forEach(function (b) { b.setAttribute('aria-selected', String(b.getAttribute('data-plan-boton') === plan)); });
         nombre.textContent = plan === 'anual' ? 'Premium · anual' : 'Premium · mes a mes';
-        moneda.textContent = plan === 'anual' ? 'COP / año' : 'COP / mes';
+        moneda.textContent = plan === 'anual' ? 'COP / año · ≈ US$2.000' : 'COP / mes · ≈ US$330';
         nota.textContent = nota.getAttribute(plan === 'anual' ? 'data-nota-anual' : 'data-nota-mes');
         equivale.hidden = plan !== 'anual';
 
@@ -409,10 +409,8 @@
      UTC, siempre. Se actualiza cada medio minuto con un temporizador, no con
      fotogramas. */
   (function proxima() {
-    var caja = document.querySelector('[data-proxima]');
-    if (!caja) return;
-    var cuando = caja.querySelector('[data-proxima-cuando]');
-    var cuenta = caja.querySelector('[data-proxima-cuenta]');
+    var cajas = [].slice.call(document.querySelectorAll('[data-proxima]'));
+    if (!cajas.length) return;
     var DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
 
     function calcular() {
@@ -422,11 +420,10 @@
       var hoy7 = Date.UTC(bog.getUTCFullYear(), bog.getUTCMonth(), bog.getUTCDate(), 7, 0, 0) + 5 * 3600000;
       var esMercado = dia >= 1 && dia <= 5;
 
+      var textoCuando, textoCuenta;
       if (esMercado && ahora >= hoy7 && ahora < hoy7 + 45 * 60000) {
-        cuando.textContent = 'está saliendo ahora';
-        cuenta.textContent = '';
-        return;
-      }
+        textoCuando = 'está saliendo ahora'; textoCuenta = '';
+      } else {
       var objetivo = hoy7, saltos = 0;
       if (!esMercado || ahora >= hoy7) {
         do { objetivo += 86400000; saltos++; } while ((dia + saltos) % 7 === 0 || (dia + saltos) % 7 === 6);
@@ -434,12 +431,17 @@
       var etiqueta = saltos === 0 ? 'hoy' : saltos === 1 ? 'mañana' : 'el ' + DIAS[(dia + saltos) % 7];
       var falta = Math.max(0, objetivo - ahora);
       var hrs = Math.floor(falta / 3600000), min = Math.floor((falta % 3600000) / 60000);
-      cuando.textContent = etiqueta + ' a las 7:00';
-      cuenta.textContent = 'faltan ' + (hrs ? hrs + ' h ' : '') + min + ' min';
+      textoCuando = etiqueta + ' a las 7:00';
+      textoCuenta = 'faltan ' + (hrs ? hrs + ' h ' : '') + min + ' min';
+      }
+      cajas.forEach(function (caja) {
+        caja.querySelector('[data-proxima-cuando]').textContent = textoCuando;
+        caja.querySelector('[data-proxima-cuenta]').textContent = textoCuenta;
+      });
     }
 
     calcular();
-    caja.hidden = false;
+    cajas.forEach(function (caja) { caja.hidden = false; });
     setInterval(calcular, 30000);
   })();
 
@@ -473,5 +475,87 @@
       });
     });
   }
+
+
+  /* ================= el scanner ================= */
+
+  /* Un campo de movimientos. Los criterios apagan lo que no los cumple —al
+     instante, para que se sienta el filtro— y el botón lanza un barrido que
+     enciende en oro lo que sí. Las fases de la cabecera se encienden con el uso.
+     Vista conceptual: no hay precios ni resultados, solo la idea de filtrar. */
+
+  (function scanner() {
+    var caja = document.querySelector('[data-scanner]');
+    if (!caja) return;
+    var ticks = [].slice.call(caja.querySelectorAll('.tick'));
+    var criterios = [].slice.call(caja.querySelectorAll('[data-criterio]'));
+    var hallados = caja.querySelector('[data-scanner-hallados]');
+    var palabra = caja.querySelector('[data-scanner-palabra]');
+    var vacio = caja.querySelector('[data-scanner-vacio]');
+    var veredicto = caja.querySelector('[data-scanner-veredicto]');
+    var boton = caja.querySelector('[data-scanner-escanear]');
+    var activos = [];
+    var escaneado = false;
+
+    function cumple(t) {
+      var c = ' ' + t.getAttribute('data-c') + ' ';
+      for (var i = 0; i < activos.length; i++) if (c.indexOf(' ' + activos[i] + ' ') < 0) return false;
+      return true;
+    }
+
+    function filtrar() {
+      var n = 0;
+      ticks.forEach(function (t) {
+        var ok = cumple(t);
+        t.classList.toggle('tick--fuera', !ok);
+        t.classList.toggle('tick--vivo', ok && escaneado);
+        if (ok) n++;
+      });
+      hallados.textContent = String(n);
+      palabra.textContent = activos.length ? (n === 1 ? 'cumple los criterios' : 'cumplen los criterios') : 'a la vista';
+      vacio.hidden = n > 0;
+      if (!escaneado) caja.setAttribute('data-fase', activos.length ? 'filtra' : 'espera');
+      return n;
+    }
+
+    criterios.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var k = b.getAttribute('data-criterio');
+        var i = activos.indexOf(k);
+        if (i < 0) activos.push(k); else activos.splice(i, 1);
+        b.setAttribute('aria-pressed', String(i < 0));
+        escaneado = false;
+        caja.classList.remove('scanner--barrido');
+        veredicto.hidden = true;
+        boton.disabled = false;
+        boton.textContent = 'Escanear';
+        filtrar();
+      });
+    });
+
+    boton.addEventListener('click', function () {
+      if (!activos.length) {
+        /* sin criterios no hay nada que filtrar: se encienden los cuatro y se escanea */
+        criterios.forEach(function (b) { b.setAttribute('aria-pressed', 'true'); activos.push(b.getAttribute('data-criterio')); });
+      }
+      escaneado = true;
+      boton.disabled = true;
+      boton.textContent = 'Escaneando…';
+      caja.setAttribute('data-fase', 'escanea');
+      caja.classList.remove('scanner--barrido');
+      /* reflow para que la animación del barrido vuelva a arrancar */
+      void caja.offsetWidth;
+      caja.classList.add('scanner--barrido');
+      var n = filtrar();
+      setTimeout(function () {
+        caja.setAttribute('data-fase', 'analiza');
+        boton.disabled = false;
+        boton.textContent = 'Escanear de nuevo';
+        veredicto.hidden = n === 0;
+      }, quieto ? 0 : 1150);
+    });
+
+    filtrar();
+  })();
 
 })();
