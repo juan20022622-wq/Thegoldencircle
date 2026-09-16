@@ -325,16 +325,16 @@
       var nota = caja.querySelector('[data-plan-nota]');
       var equivale = caja.querySelector('[data-plan-equivale]');
       var botones = [].slice.call(caja.querySelectorAll('[data-plan-boton]'));
-      var actual = 1000000;
+      var actual = 330;
       var animando = null;
 
-      function formato(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+      function formato(n) { return 'US$' + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
 
       function irA(plan) {
         caja.setAttribute('data-plan', plan);
         botones.forEach(function (b) { b.setAttribute('aria-selected', String(b.getAttribute('data-plan-boton') === plan)); });
         nombre.textContent = plan === 'anual' ? 'Premium · anual' : 'Premium · mes a mes';
-        moneda.textContent = plan === 'anual' ? 'COP / año · ≈ US$2.000' : 'COP / mes · ≈ US$330';
+        moneda.textContent = plan === 'anual' ? 'al año · 6.000.000 COP' : 'al mes · 1.000.000 COP';
         nota.textContent = nota.getAttribute(plan === 'anual' ? 'data-nota-anual' : 'data-nota-mes');
         equivale.hidden = plan !== 'anual';
 

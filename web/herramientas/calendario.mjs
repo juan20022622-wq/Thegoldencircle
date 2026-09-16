@@ -443,7 +443,7 @@ Si prefieres otro broker, puedes quedarte aquí en el grupo abierto todo el tiem
 
 Se valida y se te pasa al canal. Al club no le pagas nada.
 
-Si más adelante quieres ir más a fondo, está el Premium (1.000.000 COP al mes o 6.000.000 al año) y las clases privadas con Cristian. No hacen falta para estar aquí, y aquí nadie te los va a estar recordando.
+Si más adelante quieres ir más a fondo, está el Premium (US$330 al mes o US$2.000 al año; 1.000.000 o 6.000.000 COP) y las clases privadas con Cristian. No hacen falta para estar aquí, y aquí nadie te los va a estar recordando.
 
 ${descargo}`,
   },
@@ -473,7 +473,7 @@ ${descargo}`,
 
 El Premium es el grupo de pago: más set-ups al día, cada uno con su porqué y con lo que lo invalida; más educación, con los conceptos trabajados a fondo; y mucha más información de lo que mueve el oro.
 
-Cuesta 1.000.000 COP al mes, o 6.000.000 al año (la mitad, 500.000 al mes). El precio va de frente porque así se hace aquí.
+Cuesta US$330 al mes, o US$2.000 al año (unos US$167 al mes). En pesos: 1.000.000 al mes o 6.000.000 al año. El precio va de frente porque así se hace aquí.
 
 No hace falta para estar en este grupo ni para entrar al canal de análisis. Es para quien ya opera con el método y quiere más.
 

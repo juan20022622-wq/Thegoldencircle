@@ -51,8 +51,9 @@ momento tiene una forma distinta.
    canal, abrir cuenta en el broker, replicar lo que se quiera, y con el tiempo
    leer por cuenta propia. Un paso a la vez, con botón «siguiente».
    **La comisión del broker se declara en el paso 02**, no en letra pequeña.
-6. **El Premium** — el único peldaño con precio, dicho de frente: 1.000.000 COP
-   al mes o 6.000.000 al año, con lo que trae (más set-ups, más educación, más
+6. **El Premium** — el único peldaño con precio, dicho de frente y **en dólares
+   primero**: US$330 al mes o US$2.000 al año (1.000.000 o 6.000.000 COP;
+   decisión del cliente, 2026-09-16), con lo que trae (más set-ups, más educación, más
    información). **La acción es un enlace de texto a Telegram, no el botón
    dorado**: el botón de la página es uno solo, entrar gratis, y el Premium no
    compite con él. Va después del camino porque es el paso siguiente, no el

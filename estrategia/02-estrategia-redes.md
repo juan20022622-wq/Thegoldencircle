@@ -28,7 +28,7 @@ que Meta penaliza en categoría financiera.
 
 **La escalera tiene seis peldaños**, no tres:
 Instagram → landing → Telegram Free → canal de análisis (cuenta Exness por el
-enlace del club; al club no se paga) → Premium (1.000.000 COP/mes o 6.000.000/año:
+enlace del club; al club no se paga) → Premium (US$330/mes o US$2.000/año, en dólares primero; 1.000.000 o 6.000.000 COP:
 más set-ups, más educación, más información; en la landing desde 2026-09-08) →
 clases privadas con Cristian (fee, `[POR CONFIRMAR]`).
 
