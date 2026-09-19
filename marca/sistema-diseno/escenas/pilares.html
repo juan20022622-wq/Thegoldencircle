@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}</style></head><body>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+/* Los cinco pilares · una escena por llave · pilares.html?pilar=dinero
+   ---------------------------------------------------------------------------
+   Cada lámina sale de una tabla de concepto: idea → tensión → gesto → objeto.
+   Las formas no se eligen por bonitas; se eligen porque hacen el gesto.
+   Lámina 0 = portada · 1 a 4 = las ideas · 5 = el cierre común de la serie. */
+import { crearMundo, THREE } from './mundo.js';
+const pilar = new URLSearchParams(location.search).get('pilar') || 'dinero';
+const ORDEN = ['dinero', 'proposito', 'cuerpo', 'mentalidad', 'educacion'];
+const M = crearMundo({ teselas: 6, semilla: 20260919 + ORDEN.indexOf(pilar) * 97 });
+const { cx, mat, entre, azar, grupo, fijar, caja, esfera, toro, cil, prisma, hilo, cierre, malla } = M;
+const PI = Math.PI;
+
+const escenas = {
+
+/* ============================== DINERO ==============================
+   Tensión de la llave: buscar contra cuidar. */
+dinero() {
+  /* 0 · «Primero se cuida» · gesto: algo valioso resguardado · una jaula de
+     costillas oscuras alrededor de una sola esfera de oro */
+  { const c = cx(0) + 0.7; for (let k = 0; k < 13; k++) { const a = k / 13 * PI * 2; caja(0.15, 3.3, 0.15, mat.grafito, c + Math.cos(a) * 1.3, 1.65, Math.sin(a) * 1.3); }
+    toro(1.3, 0.085, mat.grafito, c, 3.3, 0).rotation.x = PI / 2; esfera(0.62, mat.oro, c, 0.62, 0); }
+  /* 1 · «Cuánto estoy dispuesto a perder» · gesto: un límite puesto antes · un
+     carril, la esfera que rueda y el tope que ya estaba ahí */
+  { const g = grupo(cx(1) + 0.1, 0, 0, -0.34); caja(5.4, 0.1, 0.1, mat.grafito, 0, 0.62, 0.27, g); caja(5.4, 0.1, 0.1, mat.grafito, 0, 0.62, -0.27, g);
+    [-2.3, 0, 2.3].forEach(x => caja(0.12, 0.6, 0.7, mat.piedra, x, 0.3, 0, g)); esfera(0.42, mat.oro, -0.7, 0.62 + 0.05 + 0.36, 0, g); caja(0.5, 1.25, 0.95, mat.hueso, 2.45, 0.62 + 0.62, 0, g); }
+  /* 2 · «El tamaño sale de dos datos» · gesto: la medida justa · esferas de
+     tamaño creciente; solo una es la que corresponde */
+  { const r = [0.2, 0.3, 0.44, 0.6, 0.8, 1.04]; r.forEach((q, k) => esfera(q, k === 2 ? mat.oro : (k === 5 ? mat.hueso : mat.grafito), cx(2) - 2.3 + k * 0.92, q, (2 - k) * 3.1)); }
+  /* 3 · «Una pérdida pequeña es parte del plan» · gesto: una caída contenida ·
+     fichas caídas, un tope, y las demás en pie */
+  { const c = cx(3), h = 1.7; [1.25, 1.12, 0.98, 0.82].forEach((t, k) => { const x = c - 3.0 + k * 0.62; const f = caja(0.2, h, 0.85, mat.grafito, x + Math.sin(t) * h / 2, Math.cos(t) * h / 2 + 0.06, 0); f.rotation.z = -t; });
+    caja(0.62, 1.0, 0.95, mat.hueso, c - 0.05, 0.5, 0); [0.75, 1.4, 2.05, 2.7, 3.35].forEach((dx, k) => caja(0.2, h, 0.85, k === 0 ? mat.oro : mat.grafito, c + dx, h / 2, 0)); }
+  /* 4 · «Lo primero es seguir en el juego» · gesto: un camino que no se corta ·
+     losas que siguen hasta perderse */
+  { for (let k = -2; k < 14; k++) caja(1.5, 0.2, 0.95, k % 4 === 3 ? mat.hueso : mat.grafito, cx(4) - 1.9 + k * 0.62, 0.1, (1 - k) * 1.45).rotation.y = 0.4; esfera(0.36, mat.oro, cx(4) - 1.28, 0.56, 0); }
+  const xk = cierre(5, 0);
+  hilo([[cx(0) - 4.5, 1.4, -6], [cx(0) - 1.6, 2.2, -1.5], [cx(0) + 0.7, 3.75, 0.2], [cx(0) + 3.2, 2.4, 1.6], [cx(1) - 2.2, 1.9, 1.4], [cx(1) + 0.2, 2.2, 0.8], [cx(1) + 2.9, 2.5, -0.6],
+    [cx(2) - 1.6, 1.5, 3.2], [cx(2) - 0.46, 1.25, 0.2], [cx(2) + 1.6, 2.3, -4.5], [cx(3) - 2.6, 2.6, -1.2], [cx(3), 2.1, 0.6], [cx(3) + 2.6, 2.4, 0.2],
+    [cx(4) - 2.8, 2.2, 2.8], [cx(4) - 1.28, 1.7, 0.1], [cx(4) + 0.9, 2.2, -4], [cx(4) + 3.0, 2.6, -4], [cx(5) - 2.6, 2.9, -1], [xk, 2.75, 0.3], [xk + 3.5, 1.9, 1.2], [cx(5) + 5, 1.6, 2]]);
+},
+
+/* ============================== PROPÓSITO ==============================
+   Tensión: impulso contra dirección. */
+proposito() {
+  /* 0 · «Saber para qué» · gesto: apuntar · una aguja en equilibrio sobre su eje */
+  { const g = grupo(cx(0) + 0.5, 0, 0, 0.62); cil(0.02, 0.3, 1.7, mat.piedra, 0, 0.85, 0, g);
+    const a = malla(new THREE.ConeGeometry(0.2, 2.5, 48), mat.oro, 1.25, 1.85, 0, g); a.rotation.z = -PI / 2; const b = malla(new THREE.ConeGeometry(0.2, 2.5, 48), mat.hueso, -1.25, 1.85, 0, g); b.rotation.z = PI / 2; esfera(0.13, mat.hueso, 0, 1.85, 0, g); }
+  /* 1 y 2 · «Todo parece oportunidad» → «Casi todo sobra» · gesto: de la
+     dispersión a la alineación · un campo de varas que se va ordenando de una
+     lámina a la otra */
+  { const x0 = cx(1) - 3.9, x1 = cx(2) + 0.2, xf = cx(2) + 3.9; const campo = fijar(grupo(0, 0, 0)); const geo = new THREE.CylinderGeometry(0.065, 0.065, 2.7, 16); geo.translate(0, 1.35, 0);
+    for (let x = x0; x <= xf; x += 0.66) for (let z = -15; z <= 7; z += 2.2) { const f = Math.max(0, Math.min(1, (x1 - x) / (x1 - x0))); const dorada = Math.abs(x - (cx(2) + 1.38)) < 0.3 && z === -1.8 + 1.8;
+      const v = malla(geo, (Math.abs(z) < 0.1 && Math.abs(x - (cx(2) + 1.32)) < 0.34) ? mat.oro : (azar() > 0.86 ? mat.hueso : mat.grafito), x + entre(-0.25, 0.25) * f, 0, z + entre(-0.7, 0.7) * f, campo);
+      const t = f * entre(0.25, 1.05), d = entre(0, PI * 2); v.rotation.set(t * Math.cos(d), 0, t * Math.sin(d)); } }
+  /* 3 · «Lo que te hace volver mañana» · gesto: volver · una órbita alrededor de un centro */
+  { const c = cx(3) + 0.2; cil(0.04, 0.04, 1.5, mat.piedra, c, 0.75, 0); esfera(0.55, mat.hueso, c, 1.9, 0); const o = toro(2.05, 0.05, mat.grafito, c, 1.9, 0); o.rotation.set(PI / 2 - 0.2, 0.12, 0); esfera(0.27, mat.oro, c - 1.15, 1.9 - 0.34, 1.68); }
+  /* 4 · «La pieza que sostiene a las otras» · gesto: sostener · un arco y su clave */
+  { const c = cx(4), R = 1.95; for (let k = 0; k < 9; k++) { const a = (10 + k * 20) * PI / 180; const b = caja(0.66, 0.78, 0.95, k === 4 ? mat.oro : mat.grafito, c + Math.cos(a) * R, Math.sin(a) * R + 0.05, 0, undefined, 0.04); b.rotation.z = a - PI / 2; } }
+  const xk = cierre(5, 1);
+  hilo([[cx(0) - 4.5, 1.2, 3], [cx(0) - 1.6, 1.0, 2.2], [cx(0) + 1.0, 2.6, 0.6], [cx(0) + 3.3, 2.9, -1], [cx(1) - 1.5, 3.1, -2], [cx(1) + 1.6, 2.8, -1], [cx(2) - 1.4, 2.5, 0.2], [cx(2) + 1.32, 2.15, 0.1], [cx(2) + 3.4, 2.3, 0.6],
+    [cx(3) - 2.4, 2.5, 1.2], [cx(3) + 0.2, 3.1, 0.2], [cx(3) + 2.9, 2.3, -0.8], [cx(4) - 2.6, 1.2, 1.6], [cx(4), 0.95, 0.2], [cx(4) + 2.7, 1.3, -1.4], [cx(5) - 2.4, 2.8, -0.8], [xk, 2.75, 0.3], [xk + 3, 2.0, 1.4], [cx(5) + 5, 1.6, 2]]);
+},
+
+/* ============================== CUERPO ==============================
+   Tensión: comodidad contra constancia. */
+cuerpo() {
+  /* 0 · «La disciplina es una sola» · gesto: sostener un peso · una masa sobre una columna delgada */
+  { const c = cx(0) + 0.9; cil(0.2, 0.2, 1.9, mat.hueso, c, 0.95, 0); caja(1.0, 0.1, 1.0, mat.piedra, c, 0.05, 0); esfera(1.0, mat.grafito, c, 1.9 + 1.0, 0); toro(0.3, 0.04, mat.oro, c, 1.9, 0).rotation.x = PI / 2; }
+  /* 1 · «Nadie mira. Se hace igual» · gesto: la cuenta de los días · barras iguales, y la de hoy */
+  { const c = cx(1); for (let f = 0; f < 6; f++) for (let k = 0; k < 8; k++) { if (f === 0 && k > 5) continue; caja(0.15, 1.35, 0.15, (f === 0 && k === 5) ? mat.oro : mat.grafito, c - 2.5 + k * 0.7, 0.675, -f * 2.8, undefined, 0.03); } }
+  /* 2 · «Aguantar una más» · gesto: la tensión sostenida · un arco tensado por su cuerda */
+  { const g = grupo(cx(2) - 0.2, 2.15, 0, 0.35); const a = toro(2.0, 0.11, mat.grafito, 0, 0, 0, g, 2.3); a.rotation.z = -1.15; const xs = Math.cos(1.15) * 2.0, ys = Math.sin(1.15) * 2.0;
+    cil(0.022, 0.022, ys * 2, mat.hilo, xs, 0, 0, g); esfera(0.1, mat.oro, xs, ys, 0, g); esfera(0.1, mat.oro, xs, -ys, 0, g); }
+  /* 3 · «Descansar también es entrenar» · gesto: reposar · una esfera quieta en un cuenco */
+  { const c = cx(3) + 0.2, R = 2.6; const cuenco = malla(new THREE.SphereGeometry(R, 96, 48, 0, PI * 2, PI * 0.74, PI * 0.26), mat.grafito, c, R + 0.02, 0); esfera(0.72, mat.hueso, c, 0.74, 0); toro(R * Math.sin(PI * 0.26), 0.03, mat.oro, c, R - R * Math.cos(PI * 0.26) + 0.02, 0).rotation.x = PI / 2; }
+  /* 4 · «Quien sostiene una rutina sostiene una decisión» · gesto: el voladizo · una viga que se atreve porque hay contrapeso */
+  { const g = grupo(cx(4), 0, 0, -0.18); caja(0.9, 1.6, 0.95, mat.piedra, -1.5, 0.8, 0, g); caja(5.2, 0.16, 0.95, mat.grafito, 0.3, 1.68, 0, g); caja(0.85, 0.85, 0.85, mat.hueso, -1.85, 1.76 + 0.425, 0, g); esfera(0.26, mat.oro, 2.6, 1.76 + 0.26, 0, g); }
+  const xk = cierre(5, 2);
+  hilo([[cx(0) - 4.5, 1.0, 2], [cx(0) - 1.4, 0.9, 2.4], [cx(0) + 0.9, 0.8, 1.6], [cx(0) + 3.2, 1.6, 0.6], [cx(1) - 2.2, 2.3, 0.6], [cx(1) + 1.0, 2.0, 0.4], [cx(1) + 3.2, 2.4, -0.4],
+    [cx(2) - 2.6, 3.3, -1.5], [cx(2) + 2.9, 3.4, -2.5], [cx(3) - 2.4, 2.6, -0.6], [cx(3) + 0.2, 2.3, 0.4], [cx(3) + 2.8, 2.6, 0.4], [cx(4) - 1.8, 3.2, 0.3], [cx(4) + 2.5, 2.7, -0.2],
+    [cx(5) - 2.4, 2.9, -0.8], [xk, 2.75, 0.3], [xk + 2.4, 2.0, 1.4], [cx(5) + 5, 1.6, 2]]);
+},
+
+/* ============================== MENTALIDAD ==============================
+   Tensión: reaccionar contra estar en calma. */
+mentalidad() {
+  /* 0 · «Calma, cuando todo se mueve» · gesto: la vertical · una plomada entre losas que se inclinan */
+  { const c = cx(0) + 2.3; cil(0.016, 0.016, 12, mat.hilo, c, 1.75 + 6, 0); const p = malla(new THREE.ConeGeometry(0.3, 0.9, 48), mat.oro, c, 1.05, 0); p.rotation.x = PI; cil(0.3, 0.3, 0.22, mat.oro, c, 1.61, 0);
+    for (let k = 0; k < 11; k++) { const x = cx(0) - 3.2 + k * 0.72 + entre(-0.2, 0.2); if (Math.abs(x - c) < 0.9) continue; const l = caja(0.3, entre(2.2, 3.4), 0.9, azar() > 0.8 ? mat.hueso : mat.grafito, x, 1.35, entre(-9, 5)); l.rotation.set(0, entre(0, 1), entre(0.18, 0.5) * (azar() > 0.5 ? 1 : -1)); } }
+  /* 1 · «Una pérdida es un dato» · gesto: uno cae y la fila sigue · bloques en pie y uno tumbado */
+  { for (let k = 0; k < 8; k++) { const x = cx(1) - 2.6 + k * 0.78, z = (3 - k) * 2.4; if (k === 3) { const b = caja(0.6, 1.8, 0.6, mat.hueso, x + 0.5, 0.3, z + 0.2); b.rotation.set(0, 0.3, PI / 2); } else caja(0.6, 1.8, 0.6, mat.grafito, x, 0.9, z); } }
+  /* 2 · «La paciencia se entrena antes» · gesto: contener · una esfera en una rampa, sujeta por una cuña pequeña */
+  { const g = grupo(cx(2) + 0.1, 1.35, 0, -0.22), t = 0.2; const r = caja(4.8, 0.14, 1.05, mat.grafito, 0, 0, 0, g); r.rotation.z = -t; const u = [Math.cos(t), -Math.sin(t)], n = [Math.sin(t), Math.cos(t)];
+    const en = (q, alto) => [u[0] * q + n[0] * alto, u[1] * q + n[1] * alto]; const e = en(-1.0, 0.07 + 0.62); esfera(0.62, mat.hueso, e[0], e[1], 0, g);
+    const w = en(-0.22, 0.07 + 0.13); const cu = prisma(0.27, 0.95, mat.oro, w[0], w[1], 0, g); cu.rotation.z = -t; cil(0.05, 0.05, 1.75, mat.piedra, -1.9, -0.5, 0, g); cil(0.05, 0.05, 1.0, mat.piedra, 1.9, -0.87, 0, g); }
+  /* 3 · «Saber esperar» · gesto: el hueco que se elige · pedestales ocupados y uno vacío, que es el que recibe la luz */
+  { const formas = [(x, z) => esfera(0.36, mat.grafito, x, 1.56, z), (x, z) => malla(new THREE.ConeGeometry(0.34, 0.8, 48), mat.grafito, x, 1.6, z), null, (x, z) => caja(0.55, 0.55, 0.55, mat.grafito, x, 1.48, z), (x, z) => toro(0.3, 0.1, mat.grafito, x, 1.6, z), (x, z) => esfera(0.36, mat.grafito, x, 1.56, z)];
+    formas.forEach((f, k) => { const x = cx(3) - 2.7 + k * 1.12, z = (2 - k) * 1.5; caja(0.85, 1.2, 0.85, k === 2 ? mat.hueso : mat.piedra, x, 0.6, z); if (f) f(x, z); else toro(0.3, 0.018, mat.oro, x, 1.22, z).rotation.x = PI / 2; }); }
+  /* 4 · «Se nota en lo que no haces» · gesto: el centro quieto · anillos que giran alrededor de algo que no se mueve */
+  { const c = cx(4) + 0.2; cil(0.04, 0.04, 0.7, mat.piedra, c, 0.35, 0); caja(0.9, 0.08, 0.9, mat.piedra, c, 0.04, 0); esfera(0.5, mat.hueso, c, 2.2, 0);
+    toro(1.5, 0.045, mat.grafito, c, 2.2, 0).rotation.set(0.2, 0.5, 0); toro(1.24, 0.045, mat.oro, c, 2.2, 0).rotation.set(1.1, 0.2, 0.4); toro(0.98, 0.045, mat.grafito, c, 2.2, 0).rotation.set(PI / 2 - 0.3, 0, 0.9); }
+  const xk = cierre(5, 3);
+  hilo([[cx(0) - 4.5, 2.2, 3], [cx(0) - 1.0, 2.0, 3.2], [cx(0) + 3.4, 1.7, 2.6], [cx(1) - 2.0, 1.6, 1.8], [cx(1) + 0.4, 2.5, 0.4], [cx(1) + 3.0, 2.8, -0.8], [cx(2) - 2.4, 3.2, -0.6], [cx(2) + 0.6, 2.9, 0.3], [cx(2) + 3.0, 2.0, 0.8],
+    [cx(3) - 2.4, 2.6, 1.2], [cx(3) - 0.46, 1.9, 0.1], [cx(3) + 1.8, 2.7, -1.6], [cx(4) - 2.6, 3.4, -1.2], [cx(4) + 0.2, 3.95, 0], [cx(4) + 2.9, 3.0, 0.4], [cx(5) - 2.4, 2.9, -0.8], [xk, 2.75, 0.3], [xk + 1.6, 2.0, 1.4], [cx(5) + 5, 1.6, 2]]);
+},
+
+/* ============================== EDUCACIÓN ==============================
+   Tensión: el qué contra el porqué. */
+educacion() {
+  /* 0 · «Entender el porqué» · gesto: abrir para ver dentro · una esfera cortada que deja ver su núcleo */
+  { const c = cx(0) + 0.8; const s = malla(new THREE.SphereGeometry(1.4, 128, 64, 0, PI * 2 * 0.76), mat.grafito, c, 1.4, 0); s.rotation.y = 2.62; esfera(0.56, mat.oro, c, 1.4, 0); }
+  /* 1 · «El porqué dice cuándo no» · gesto: encajar · una pieza y el hueco exacto que le corresponde */
+  { const g = grupo(cx(1) - 0.5, 0, 0, 0.42); const f = new THREE.Shape(); f.moveTo(-1.35, 0); f.lineTo(1.35, 0); f.lineTo(1.35, 2.9); f.lineTo(-1.35, 2.9); f.closePath(); const h = new THREE.Path(); h.absarc(0, 1.55, 0.86, 0, PI * 2, true); f.holes.push(h);
+    const geo = new THREE.ExtrudeGeometry(f, { depth: 0.32, bevelEnabled: true, bevelSize: 0.03, bevelThickness: 0.03, bevelSegments: 3, curveSegments: 96 }); malla(geo, mat.grafito, 0, 0, -0.16, g); esfera(0.84, mat.hueso, 2.5, 0.84, 1.3, g); toro(0.86, 0.03, mat.oro, 0, 1.55, 0.2, g); }
+  /* 2 · «Se aprende por capas» · gesto: acumular · discos que se apilan hasta hacer cuerpo */
+  { const c = cx(2) + 0.2; for (let k = 0; k < 10; k++) { const r = 2.3 - k * 0.205; cil(r, r, 0.2, k === 9 ? mat.oro : (k % 3 === 1 ? mat.hueso : mat.grafito), c + Math.sin(k * 0.9) * 0.07, 0.1 + k * 0.215, Math.cos(k * 1.3) * 0.07, undefined, 96); } }
+  /* 3 · «Preguntar es parte del método» · gesto: propagarse · una sola esfera y las ondas que salen de ella */
+  { const c = cx(3); esfera(0.34, mat.oro, c, 0.34, 0); [0.75, 1.4, 2.15, 3.0, 3.95, 5.0, 6.1].forEach((r, k) => { toro(r, 0.034, k % 3 === 2 ? mat.hueso : mat.grafito, c, 0.04, 0).rotation.x = PI / 2; }); }
+  /* 4 · «Dejas de depender» · gesto: soltarse · el carril se acaba y la esfera sigue sola */
+  { const g = grupo(cx(4) + 0.35, 0, 0, -0.3); caja(3.4, 0.1, 0.1, mat.grafito, -1.4, 0.62, 0.27, g); caja(3.4, 0.1, 0.1, mat.grafito, -1.4, 0.62, -0.27, g); [-2.9, -1.4, 0.1].forEach(x => caja(0.12, 0.6, 0.7, mat.piedra, x, 0.3, 0, g)); esfera(0.44, mat.hueso, 2.3, 0.44, 0.1, g); esfera(0.14, mat.oro, 0.32, 0.62, 0, g); }
+  const xk = cierre(5, 4);
+  hilo([[cx(0) - 4.5, 1.0, 3], [cx(0) - 1.4, 1.2, 2.6], [cx(0) + 0.1, 1.4, 1.5], [cx(0) + 0.8, 1.4, 0], [cx(0) + 2.6, 1.9, -2.2], [cx(1) - 2.8, 1.8, -3.2], [cx(1) - 0.5, 1.55, 0], [cx(1) + 1.2, 1.4, 2.6], [cx(1) + 3.2, 2.4, 1.8],
+    [cx(2) - 2.2, 3.0, 0.8], [cx(2) + 0.2, 2.75, 0.2], [cx(2) + 2.8, 2.2, 0], [cx(3) - 2.0, 1.4, 0.8], [cx(3), 1.15, 0.3], [cx(3) + 2.4, 1.6, -0.6], [cx(4) - 2.8, 2.3, -0.4], [cx(4) + 1.9, 1.6, 0.5], [cx(4) + 3.3, 1.9, 0.4],
+    [cx(5) - 2.4, 2.9, -0.8], [xk, 2.75, 0.3], [cx(5) + 5, 2.2, 1.6]]);
+},
+};
+const ESCALAS = { dinero: { 0: 1.06, 3: 1.1, 1: 1.22, 4: 1.3 }, proposito: { 0: 1.18, 1: 1, 2: 1 }, cuerpo: { 0: 1.12, 1: 1.7, 2: 1.08, 4: 1.2 }, mentalidad: { 0: 1.1, 1: 1.25, 3: 1.25, 4: 1.1 }, educacion: { 1: 1.15, 3: 1.2, 4: 1.4 } };
+escenas[pilar](); M.listo(ESCALAS[pilar]);
+</script></body></html>
