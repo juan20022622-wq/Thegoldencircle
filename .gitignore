@@ -7,3 +7,6 @@ project-claude/knowledge/*
 *.bak
 _to_delete/
 web/_*
+
+# el zip del sistema de diseño se genera, no se versiona
+marca/sistema-diseno/*.zip

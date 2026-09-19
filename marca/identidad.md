@@ -117,6 +117,14 @@ Ejemplos:
 - **Nunca:** carros, fajos de billetes, relojes, jets. El lujo de esta marca es
   la disciplina; si aparece el objeto, se cae la tesis.
 
+## Sistema de publicaciones (2026-09-18)
+
+Las piezas de Instagram salen de `marca/sistema-diseno/`: fundamentos, quince
+plantillas a medida de Instagram, la guía y el paquete para subir a Claude
+Design. Ahí manda Manrope + IBM Plex Mono, igual que en la landing; Cinzel y
+Jost quedaron descartadas. El fondo canónico es el negro; el azul noche queda
+solo para la serie de mercado y agenda.
+
 ## Qué falta
 
 - [x] Elegir símbolo primario · león coronado, del PDF de marca
