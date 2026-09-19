@@ -57,6 +57,39 @@ editorial. Todo el nicho hispano se parece entre sí.
 única ilustración, una línea discontinua como motivo, fotografía de disciplina
 sin objetos, y el mensaje del canal enseñado con los niveles tapados.
 
+## La regla que manda: nada plano
+
+Decisión del cliente (2026-09-19): las piezas **no pueden ser planas ni sentirse
+hechas por IA**. Tienen que tener lo que tiene la web: profundidad de campo,
+atmósfera y objetos 3D abstractos que representen la idea de forma elegante y
+conceptual. Texto sobre un fondo liso queda solo para piezas de apoyo.
+
+Cómo se cumple:
+
+- **Cada pieza parte de una escena 3D real**, no de una ilustración ni de una
+  imagen generada. Las escenas viven en `escenas/`, se escriben en three.js y se
+  renderizan con Chrome sin cabeza. El desenfoque es óptico: se acumulan 180
+  fotogramas moviendo la cámara sobre el disco de la apertura.
+- **Un objeto por idea, abstracto y sin literalidad.** Dinero es un equilibrio,
+  no una moneda. Propósito son anillos alineados que un hilo atraviesa por el
+  centro. Cuerpo es la repetición. Mentalidad es una esfera en calma entre
+  esquirlas. Educación son capas.
+- **Tres materiales**: grafito con barniz, hueso mate y oro satinado. El oro es
+  un objeto por escena y el hilo, nunca la escena entera.
+- **Un carrusel es un solo mundo.** Las láminas son teselas contiguas de la misma
+  escena: lo que se corta en un borde sigue en la lámina siguiente, y un hilo de
+  oro las recorre todas.
+- La tipografía va arriba, sobre el negro de la propia escena. El objeto ocupa
+  la mitad baja. Abajo, el riel de siempre.
+- Siguen valiendo todas las prohibiciones: sin objetos de lujo, sin gráficos que
+  suban, sin dinero dibujado.
+
+Primer carrusel hecho así: `carruseles/01-cinco-llaves/`.
+
+    MODULOS=<carpeta temporal con three, puppeteer-core y sharp>
+    node escenas/render-escena.mjs escenas/cinco-llaves.html <teselas/> 180
+    node carruseles/cinco-llaves.mjs <teselas/>
+
 ## Fundamentos
 
 ### Color

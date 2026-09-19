@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}</style></head><body>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+/* Las cinco llaves · un solo mundo, ocho láminas
+   ---------------------------------------------------------------------------
+   Una escena continua que se renderiza por teselas con setViewOffset: lo que
+   se corta en el borde derecho de una lámina sigue en el izquierdo de la
+   siguiente. La profundidad de campo es real: se acumulan N fotogramas moviendo
+   la cámara sobre el disco de la apertura y cizallando la proyección para que
+   el plano de foco no se mueva. Nada de desenfoque de posproceso.
+
+   Cada lámina tiene un objeto abstracto que dice su idea:
+     0 la puerta entreabierta · 1 cinco monolitos · 2 dinero: el equilibrio
+     3 propósito: anillos alineados · 4 cuerpo: la repetición
+     5 mentalidad: la calma entre esquirlas · 6 educación: las capas
+     7 la puerta abierta
+   Un hilo de oro las atraviesa todas. */
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+
+const W = 1080, H = 1350, N_TESELAS = 8;
+const D = 120, FOV = 4.5, MIRA_Y = 3.35, APERTURA = 3.4;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1); renderer.setSize(W, H);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const FONDO = new THREE.Color(0x070708);
+scene.background = FONDO; scene.fog = new THREE.Fog(FONDO, 116, 172);
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture; scene.environmentIntensity = 0.16;
+
+const camera = new THREE.PerspectiveCamera(FOV, (W * N_TESELAS) / H, 40, 320);
+const inclinacion = THREE.MathUtils.degToRad(5.5);
+camera.position.set(0, MIRA_Y + Math.sin(inclinacion) * D, Math.cos(inclinacion) * D);
+camera.lookAt(0, MIRA_Y, 0); camera.updateMatrixWorld();
+
+const altoVisible = 2 * D * Math.tan(THREE.MathUtils.degToRad(FOV / 2));
+const ANCHO = altoVisible * W / H;                       /* ancho de una lámina en el plano de foco */
+const cx = (i) => (i - (N_TESELAS - 1) / 2) * ANCHO;
+
+/* ---- azar con semilla: la escena es la misma cada vez ---- */
+let semilla = 20260919; const azar = () => { semilla |= 0; semilla = semilla + 0x6D2B79F5 | 0; let t = Math.imul(semilla ^ semilla >>> 15, 1 | semilla); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+const entre = (a, b) => a + (b - a) * azar();
+
+/* ---- materiales ---- */
+const grafito = new THREE.MeshPhysicalMaterial({ color: 0x1b1b20, roughness: 0.36, metalness: 0, clearcoat: 0.7, clearcoatRoughness: 0.22 });
+const piedra  = new THREE.MeshStandardMaterial({ color: 0x25252a, roughness: 0.88 });
+const hueso   = new THREE.MeshPhysicalMaterial({ color: 0xe9e2d4, roughness: 0.5, clearcoat: 0.25, clearcoatRoughness: 0.4 });
+const oro     = new THREE.MeshStandardMaterial({ color: 0xD2A64B, metalness: 1, roughness: 0.3 });
+const hiloMat = new THREE.MeshStandardMaterial({ color: 0xD2A64B, metalness: 1, roughness: 0.28, emissive: 0x7a5a1a, emissiveIntensity: 0.55 });
+
+const malla = (geo, mat, x, y, z) => { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); m.castShadow = true; m.receiveShadow = true; scene.add(m); return m; };
+
+/* ---- suelo ---- */
+const suelo = new THREE.Mesh(new THREE.PlaneGeometry(600, 400), new THREE.MeshStandardMaterial({ color: 0x0c0c0e, roughness: 0.5, metalness: 0 }));
+suelo.rotation.x = -Math.PI / 2; suelo.receiveShadow = true; scene.add(suelo);
+
+/* ---- luz: un foco duro por lámina, y un contraluz cálido común ---- */
+for (let i = 0; i < N_TESELAS; i++) {
+  const foco = new THREE.SpotLight(0xfff4e2, 1500, 60, 0.30, 0.65, 2);
+  foco.position.set(cx(i) - 3.2, 16, 7); foco.target.position.set(cx(i), 1.2, 0);
+  foco.castShadow = true; foco.shadow.mapSize.set(2048, 2048); foco.shadow.bias = -0.0004; foco.shadow.radius = 5;
+  scene.add(foco, foco.target);
+}
+const contra = new THREE.DirectionalLight(0xE7C67F, 1.5); contra.position.set(30, 9, -40); scene.add(contra);
+const relleno = new THREE.DirectionalLight(0x7d93a6, 0.25); relleno.position.set(-30, 12, 30); scene.add(relleno);
+
+/* ---- resplandores lejanos: dan aire y color al fondo ---- */
+function halo(color, x, y, z, tam, alfa) {
+  const c = document.createElement('canvas'); c.width = c.height = 256; const g = c.getContext('2d');
+  const r = g.createRadialGradient(128, 128, 0, 128, 128, 128); r.addColorStop(0, color); r.addColorStop(1, 'rgba(0,0,0,0)');
+  g.fillStyle = r; g.fillRect(0, 0, 256, 256);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(tam, tam), new THREE.MeshBasicMaterial({ map: t, transparent: true, opacity: alfa, depthWrite: false, fog: false, blending: THREE.AdditiveBlending }));
+  m.position.set(x, y, z); scene.add(m); return m;
+}
+halo('rgba(200,140,55,1)', cx(0), 3, -46, 46, 0.20);
+halo('rgba(200,140,55,1)', cx(7), 3.5, -46, 56, 0.24);
+halo('rgba(18,70,100,1)', cx(2) + 2, 7, -60, 70, 0.34);
+halo('rgba(18,70,100,1)', cx(4.6), 5, -60, 80, 0.30);
+
+/* ---- el horizonte de monolitos, lejos y fuera de foco ---- */
+for (let k = 0; k < 46; k++) {
+  const h = entre(3, 10.5), a = entre(0.8, 2.2);
+  malla(new RoundedBoxGeometry(a, h, a, 3, 0.06), piedra, entre(cx(0) - 8, cx(7) + 8), h / 2, entre(-44, -20)).rotation.y = entre(0, 0.6);
+}
+/* ---- primer plano desenfocado, a caballo de las costuras ---- */
+for (let i = 1; i < N_TESELAS; i++) {
+  const x = cx(i) - ANCHO / 2 + entre(-0.9, 0.9), r = entre(0.55, 1.0);
+  malla(new THREE.SphereGeometry(r, 48, 32), azar() > 0.75 ? hueso : grafito, x, r, entre(15, 22));
+}
+
+/* ======================= 0 · la puerta entreabierta ======================= */
+function puerta(i, hueco, brillo, corrimiento, alto, a = 1.3) {
+  const x = cx(i) + corrimiento;
+  malla(new RoundedBoxGeometry(a, alto, 0.5, 4, 0.05), grafito, x - a / 2 - hueco / 2, alto / 2, 0);
+  malla(new RoundedBoxGeometry(a, alto, 0.5, 4, 0.05), grafito, x + a / 2 + hueco / 2, alto / 2, 0);
+  const luz = new THREE.Mesh(new THREE.PlaneGeometry(hueco + 0.5, alto), new THREE.MeshBasicMaterial({ color: new THREE.Color(2.1 * brillo, 1.32 * brillo, 0.42 * brillo), fog: false }));
+  luz.position.set(x, alto / 2, -0.7); scene.add(luz);
+  const p = new THREE.PointLight(0xE7B45A, 260 * brillo, 22, 2); p.position.set(x, 1.8, 1.4); scene.add(p);
+  /* el haz que cae al suelo hacia la cámara */
+  const c = document.createElement('canvas'); c.width = 64; c.height = 512; const g = c.getContext('2d');
+  const gr = g.createLinearGradient(0, 0, 0, 512); gr.addColorStop(0, 'rgba(231,190,110,0.95)'); gr.addColorStop(1, 'rgba(231,190,110,0)');
+  g.fillStyle = gr; g.fillRect(0, 0, 64, 512);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+  const forma = new THREE.Shape(); const w0 = hueco / 2, w1 = hueco / 2 + 1.5 + hueco; forma.moveTo(-w0, 0); forma.lineTo(w0, 0); forma.lineTo(w1, -11); forma.lineTo(-w1, -11); forma.closePath();
+  const geo = new THREE.ShapeGeometry(forma); const pos = geo.attributes.position, uv = geo.attributes.uv;
+  for (let k = 0; k < pos.count; k++) uv.setXY(k, 0.5, 1 + pos.getY(k) / 11);
+  const haz = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: t, transparent: true, opacity: 0.5 * brillo, depthWrite: false, blending: THREE.AdditiveBlending, fog: false }));
+  haz.rotation.x = -Math.PI / 2; haz.position.set(x, 0.012, 0.3); haz.scale.y = -1; scene.add(haz);
+  return x;
+}
+const xPuerta = puerta(0, 0.34, 1, 0.9, 4.3);
+
+/* ======================= 1 · cinco monolitos ======================= */
+[[-1.9, 2.3, 7.5], [-0.8, 3.5, 3.5], [0.35, 4.5, 0], [1.55, 3.1, -5.5], [2.7, 2.0, -12]].forEach(([dx, h, z], k) =>
+  malla(new RoundedBoxGeometry(0.95, h, 0.95, 4, 0.07), k === 2 ? hueso : grafito, cx(1) + dx, h / 2, z).rotation.y = 0.35);
+
+/* ======================= 2 · dinero: el equilibrio ======================= */
+{ const x = cx(2) + 0.2;
+  const prisma = malla(new THREE.CylinderGeometry(0.62, 0.62, 1.0, 3), piedra, x, 0.47, 0); prisma.rotation.set(-Math.PI / 2, 0, 0); prisma.position.y = 0.40;
+  malla(new RoundedBoxGeometry(5.0, 0.13, 0.95, 3, 0.04), grafito, x, 0.98, 0);
+  malla(new THREE.SphereGeometry(0.82, 64, 48), grafito, x - 0.95, 0.98 + 0.065 + 0.82, 0);
+  malla(new THREE.SphereGeometry(0.30, 48, 32), oro, x + 2.2, 0.98 + 0.065 + 0.30, 0);
+}
+
+/* ======================= 3 · propósito: anillos alineados ======================= */
+const dirAnillos = new THREE.Vector3(0.42, 0, 1).normalize(); const cAnillos = new THREE.Vector3(cx(3) + 0.3, 2.05, 0);
+for (let k = -4; k <= 3; k++) {
+  const p = cAnillos.clone().addScaledVector(dirAnillos, k * 2.3);
+  const t = malla(new THREE.TorusGeometry(1.25, 0.075, 24, 120), k === 0 ? oro : grafito, p.x, p.y, p.z);
+  t.rotation.y = Math.atan2(dirAnillos.x, dirAnillos.z);
+  const pie = malla(new THREE.CylinderGeometry(0.035, 0.035, p.y - 1.25, 12), piedra, p.x, (p.y - 1.25) / 2, p.z);
+}
+
+/* ======================= 4 · cuerpo: la repetición ======================= */
+for (let k = -2; k <= 5; k++) {
+  const a = malla(new THREE.TorusGeometry(2.25, 0.2, 28, 120, Math.PI), k === 0 ? hueso : grafito, cx(4) + 0.1 + k * 0.5, 0, -k * 3.4);
+  a.rotation.y = -0.16;
+}
+
+/* ======================= 5 · mentalidad: la calma ======================= */
+malla(new THREE.SphereGeometry(1.0, 96, 64), hueso, cx(5), 2.25, 0);
+for (let k = 0; k < 64; k++) {
+  const ang = entre(0, Math.PI * 2), rad = entre(1.9, 5.2), r = entre(0.09, 0.36);
+  const e = malla(new THREE.TetrahedronGeometry(r, 0), azar() > 0.93 ? oro : piedra, cx(5) + Math.cos(ang) * rad * 0.62, entre(0.3, 4.4), Math.sin(ang) * rad * 2.6 - 1);
+  e.rotation.set(entre(0, 6), entre(0, 6), entre(0, 6));
+}
+
+/* ======================= 6 · educación: las capas ======================= */
+for (let k = 0; k < 15; k++) {
+  const p = malla(new RoundedBoxGeometry(2.7, 0.115, 1.85, 3, 0.03), k === 10 ? oro : (k % 4 === 1 ? hueso : grafito), cx(6) + 0.1, 0.06 + k * 0.195, 0);
+  p.rotation.y = 0.5 - k * 0.105;
+}
+
+/* ======================= 7 · la puerta abierta ======================= */
+const xAbierta = puerta(7, 1.15, 1.1, 1.95, 3.9, 1.05);
+
+/* ======================= el hilo de oro ======================= */
+const A = (k) => cAnillos.clone().addScaledVector(dirAnillos, k * 2.3);
+const puntos = [
+  [xPuerta, 1.4, -5], [xPuerta, 1.4, 0.6], [xPuerta + 0.5, 1.1, 3.2], [cx(0) + 3.4, 0.8, 3.0],
+  [cx(1) - 2.6, 0.75, 5.0], [cx(1) - 0.25, 1.5, 1.7], [cx(1) + 1.0, 2.3, -2.6], [cx(1) + 2.6, 2.6, -2.0],
+  [cx(2) - 2.4, 2.9, 0.9], [cx(2) + 0.2, 3.35, 0.3], [cx(2) + 2.7, 2.4, -1.5],
+  ...[-4, -3, -2, -1, 0, 1, 2, 3].map(k => A(k).toArray()),
+  [cx(4) - 1.4, 1.5, 9.5], [cx(4) - 0.4, 1.15, 3.4], [cx(4) + 0.1, 1.1, 0], [cx(4) + 1.1, 1.15, -6.8], [cx(4) + 2.6, 1.4, -13],
+  [cx(5) - 3.0, 1.5, -10], [cx(5) - 2.0, 1.0, -1.0], [cx(5) - 0.4, 0.62, 2.4], [cx(5) + 1.5, 1.1, 2.0], [cx(5) + 2.6, 2.6, 0.2],
+  [cx(6) - 1.6, 4.1, -0.6], [cx(6) + 0.1, 3.65, 0.2], [cx(6) + 2.2, 2.6, 1.4],
+  [xAbierta - 2.2, 1.5, 3.4], [xAbierta, 1.5, 0.8], [xAbierta, 1.5, -7],
+].map(p => new THREE.Vector3(...p));
+const curva = new THREE.CatmullRomCurve3(puntos, false, 'centripetal', 0.5);
+const hilo = new THREE.Mesh(new THREE.TubeGeometry(curva, 2400, 0.034, 12), hiloMat); hilo.castShadow = true; scene.add(hilo);
+
+/* ---------------------------------------------------------------------------
+   Render por teselas con profundidad de campo por acumulación
+   --------------------------------------------------------------------------- */
+const gl = renderer.getContext();
+const aLineal = new Float32Array(256); for (let v = 0; v < 256; v++) aLineal[v] = Math.pow(v / 255, 2.2);
+let sombrasHechas = false;
+
+window.teselar = async (i, N = 40) => {
+  const acc = new Float32Array(W * H * 3), buf = new Uint8Array(W * H * 4), M = new THREE.Matrix4();
+  for (let s = 0; s < N; s++) {
+    const r = Math.sqrt((s + 0.5) / N) * APERTURA, th = s * 2.399963229728653;
+    const dx = Math.cos(th) * r, dy = Math.sin(th) * r;
+    camera.setViewOffset(W * N_TESELAS, H, W * i + (azar() - 0.5), (azar() - 0.5), W, H);
+    M.set(1, 0, -dx / D, -dx, 0, 1, -dy / D, -dy, 0, 0, 1, 0, 0, 0, 0, 1);
+    camera.projectionMatrix.multiply(M); camera.projectionMatrixInverse.copy(camera.projectionMatrix).invert();
+    renderer.render(scene, camera);
+    if (!sombrasHechas) { sombrasHechas = true; renderer.shadowMap.autoUpdate = false; }
+    gl.readPixels(0, 0, W, H, gl.RGBA, gl.UNSIGNED_BYTE, buf);
+    for (let p = 0, q = 0; p < buf.length; p += 4, q += 3) { acc[q] += aLineal[buf[p]]; acc[q + 1] += aLineal[buf[p + 1]]; acc[q + 2] += aLineal[buf[p + 2]]; }
+    if (s % 8 === 7) await new Promise(r => setTimeout(r, 0));
+  }
+  const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); const img = g.createImageData(W, H);
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+    const q = ((H - 1 - y) * W + x) * 3, p = (y * W + x) * 4;
+    for (let k = 0; k < 3; k++) img.data[p + k] = Math.round(Math.pow(acc[q + k] / N, 1 / 2.2) * 255 + (Math.random() - 0.5) * 1.6);
+    img.data[p + 3] = 255;
+  }
+  g.putImageData(img, 0, 0);
+  return c.toDataURL('image/png');
+};
+window.lista = true;
+</script></body></html>
