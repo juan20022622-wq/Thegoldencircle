@@ -69,6 +69,13 @@ h = h.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/, (m, j
   return '<script type="application/ld+json">\n' + JSON.stringify(ld, null, 2) + '\n</script>';
 });
 
+/* 3b · lo marcado data-pauta="no" no va en la landing de pauta: el Step Index
+   y el pack (índices sintéticos, producto de otro broker) y la duda que los
+   nombra. Queda el scanner de oro y bitcoin con su precio. */
+h = h.replace(/\n\s*<div class="scanner__planes"[^>]*data-pauta="no"[\s\S]*?<\/div>/, '');
+h = h.replace(/\n\s*<details class="pregunta" data-pauta="no">[\s\S]*?<\/details>/, '');
+if (/data-pauta="no"/.test(h)) throw new Error('quedó algo marcado data-pauta="no"');
+
 /* 4 · una marca en el body para que el CSS pueda distinguirla si hace falta */
 h = h.replace('<body>', '<body class="pauta">');
 

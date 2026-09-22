@@ -558,4 +558,51 @@
     filtrar();
   })();
 
+
+  /* ================= el selector del scanner =================
+     Tres opciones y un precio. Solo cambia texto al tocar. */
+  (function scannerPlanes() {
+    var caja = document.querySelector('[data-scanner-oferta]');
+    if (!caja) return;
+    var botones = [].slice.call(caja.querySelectorAll('[data-scanner-plan]'));
+    if (!botones.length) return;
+    var cifra = caja.querySelector('[data-scanner-cifra]');
+    var periodo = caja.querySelector('[data-scanner-periodo]');
+    var detalle = caja.querySelector('[data-scanner-detalle]');
+    var planes = {
+      oro:  { cifra: 'US$50', periodo: 'al mes · oro y bitcoin', detalle: 'Alertas todos los días, cuando algo cumple tus criterios.' },
+      step: { cifra: 'US$50', periodo: 'al mes · Step Index, índices sintéticos', detalle: 'Alertas todos los días, cuando algo cumple tus criterios.' },
+      pack: { cifra: 'US$80', periodo: 'al mes · los dos scanners', detalle: 'Oro y bitcoin más Step Index. <b>US$20 menos</b> que por separado.' }
+    };
+    botones.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var p = planes[b.getAttribute('data-scanner-plan')];
+        botones.forEach(function (o) { o.setAttribute('aria-selected', String(o === b)); });
+        cifra.textContent = p.cifra; periodo.textContent = p.periodo; detalle.innerHTML = p.detalle;
+      });
+    });
+  })();
+
+  /* ================= la barra fija =================
+     Se muestra cuando el botón del héroe ya no se ve y se retira al llegar al
+     formulario. Un observador, cero fotogramas. */
+  (function fijo() {
+    var barra = document.querySelector('[data-fijo]');
+    if (!barra || !('IntersectionObserver' in window)) return;
+    var heroe = document.querySelector('.heroe .boton');
+    var registro = document.getElementById('registro');
+    var ve = { heroe: true, registro: false };
+    function pinta() {
+      var mostrar = !ve.heroe && !ve.registro;
+      barra.classList.toggle('fijo--visible', mostrar);
+      barra.setAttribute('aria-hidden', String(!mostrar));
+      document.body.classList.toggle('con-fijo', mostrar);
+    }
+    var io = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) { if (e.target === heroe) ve.heroe = e.isIntersecting; else ve.registro = e.isIntersecting; });
+      pinta();
+    }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
+    if (heroe) io.observe(heroe);
+    if (registro) io.observe(registro);
+  })();
 })();

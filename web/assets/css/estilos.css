@@ -84,12 +84,12 @@ main, .pie, .barra, .saltar { position: relative; z-index: 1; }
   padding-inline: var(--gutter);
 }
 
-.seccion { padding-block: 4.5rem; }
+.seccion { padding-block: 3.25rem; }
 
 /* La barra flota encima: sin esto, cualquier ancla aterriza con el titular
    tapado. 66px de barra + 12px de aire + respiro. */
 :target, section[id], h2[id], main { scroll-margin-top: 6.5rem; }
-@media (min-width: 48rem) { .seccion { padding-block: 7rem; } }
+@media (min-width: 48rem) { .seccion { padding-block: 5.5rem; } }
 
 /* ---------- tipografía ---------- */
 
@@ -247,9 +247,9 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 
 /* ---------- héroe ---------- */
 
-.heroe { position: relative; isolation: isolate; padding-block: 1.5rem 4.5rem; }
+.heroe { position: relative; isolation: isolate; padding-block: 1.5rem 3rem; }
 .heroe h1 { margin-bottom: 1.5rem; }
-.heroe .entradilla { margin-bottom: 2.25rem; }
+.heroe .entradilla { margin-bottom: 1.75rem; }
 .heroe__micro { margin: 0.9rem 0 0; font-size: 0.875rem; color: var(--gris); }
 
 /* ---------- video ---------- */
@@ -577,7 +577,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 
 /* ---------- pie ---------- */
 
-.pie { padding-block: 4rem 3rem; }
+.pie { padding-block: 3rem 2.5rem; }
 .pie p { font-size: 0.875rem; color: var(--gris); max-width: 44rem; }
 .pie a { color: var(--gris); }
 .pie a:hover { color: var(--oro-claro); }
@@ -810,7 +810,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 
 /* ---------- el gráfico del héroe ---------- */
 
-.heroe__grafico { margin: 3rem 0 0; }
+.heroe__grafico { margin: 2rem 0 0; }
 .heroe__grafico .grafico { width: 100%; height: auto; overflow: visible; }
 
 .heroe__grafico figcaption {
@@ -922,7 +922,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 
 /* ---------- el cotejo de mensajes ---------- */
 
-.cotejo { display: grid; gap: 1.25rem; margin-top: 2.5rem; }
+.cotejo { display: grid; gap: 1rem; margin-top: 2rem; }
 
 @media (min-width: 46rem) {
   .cotejo { grid-template-columns: 0.85fr 1.15fr; gap: 1.75rem; align-items: start; }
@@ -1365,7 +1365,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 
    Sin JS sigue siendo una fila desplazable con todo el contenido en el DOM. */
 
-.baraja { position: relative; margin-top: 2.5rem; }
+.baraja { position: relative; margin-top: 2rem; }
 
 .baraja__pista {
   display: flex;
@@ -1617,7 +1617,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
    filtra, analiza— se encienden con el uso: la explicación es la herramienta.
    Todo transform y opacidad; en reposo no se mueve nada. */
 
-.scanner { margin-top: 2.5rem; padding: 1.25rem 1.25rem 1.1rem; border-radius: 12px; border-color: var(--borde); }
+.scanner { margin-top: 2rem; padding: 1.25rem 1.25rem 1.1rem; border-radius: 12px; border-color: var(--borde); }
 @media (min-width: 48rem) { .scanner { padding: 1.5rem 1.75rem 1.35rem; } }
 .scanner__cabeza { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1rem; margin-bottom: 1.1rem; }
 .scanner__nombre { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--oro); }
@@ -1687,7 +1687,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 .scanner__accion:hover { background: var(--oro); color: var(--negro); }
 .scanner__nota { margin: 0.9rem 0 0; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gris); }
 
-.para-ti { display: grid; gap: 1.5rem; margin-top: 2.5rem; }
+.para-ti { display: grid; gap: 1.25rem; margin-top: 2rem; }
 @media (min-width: 46rem) { .para-ti { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
 .para-ti h3 { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 0.75rem; }
 .para-ti__si { color: var(--oro); } .para-ti__no { color: #C96A5B; }
@@ -1697,7 +1697,14 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 .para-ti__no + ul li::before { background: #C96A5B; transform: rotate(45deg); }
 .para-ti__no + ul li::after { content: ''; position: absolute; left: 0; top: 0.75em; width: 0.6rem; height: 1px; background: #C96A5B; transform: rotate(-45deg); }
 
-.scanner__precio { margin: 2.25rem 0 0; display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
+.scanner__oferta { margin-top: 2.25rem; display: grid; gap: 0.9rem; }
+.scanner__planes { display: inline-flex; flex-wrap: wrap; gap: 0.4rem; padding: 0.3rem; border: 1px solid var(--borde-tenue); border-radius: 100px; background: rgba(255, 255, 255, 0.02); justify-self: start; }
+.scanner__plan { appearance: none; font: inherit; font-size: 0.875rem; font-weight: 500; color: var(--gris); background: none; border: 0; border-radius: 100px; min-height: 2.5rem; padding: 0.4rem 1rem; cursor: pointer; transition: color 0.2s, background 0.2s; }
+.scanner__plan:hover { color: var(--hueso); }
+.scanner__plan[aria-selected="true"] { color: var(--negro); background: var(--oro); }
+.scanner__alertas { margin: 0; color: var(--gris); font-size: 0.9375rem; }
+.scanner__alertas b { color: var(--oro-claro); font-weight: 500; }
+.scanner__precio { margin: 0; display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
 .scanner__cifra { font-size: clamp(1.9rem, 6vw, 2.5rem); font-weight: 500; letter-spacing: -0.02em; color: var(--hueso); line-height: 1; }
 .scanner__periodo { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; color: var(--gris); }
 
@@ -1750,7 +1757,7 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 }
 
 /* El precio: interruptor con cursor que se desliza, y una tarjeta que cambia. */
-.planes { margin-top: 2.5rem; display: grid; gap: 1rem; max-width: 34rem; }
+.planes { margin-top: 2rem; display: grid; gap: 1rem; max-width: 34rem; }
 .planes__mando {
   position: relative; display: grid; grid-template-columns: 1fr 1fr; padding: 0.3rem;
   border: 1px solid var(--borde-tenue); border-radius: 999px; background: var(--superficie); isolation: isolate;
@@ -1782,13 +1789,17 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 .plan__mes b { color: var(--oro-claro); font-weight: 500; }
 
 .premium__accion { margin: 1.75rem 0 0; display: grid; gap: 0.3rem; }
+.premium__trae { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0.5rem; color: var(--gris); }
+.premium__trae li { position: relative; padding-left: 1.4rem; }
+.premium__trae li::before { content: ''; position: absolute; left: 0; top: 0.8em; width: 0.6rem; height: 1px; background: var(--oro); }
+.premium__trae b { color: var(--hueso); font-weight: 500; }
 .premium__accion a { color: var(--oro-claro); font-weight: 500; text-underline-offset: 4px; display: inline-block; width: fit-content; padding: 0.55rem 0; margin: -0.3rem 0; }
 .premium__accion span { font-size: 0.875rem; color: var(--gris); }
 
 /* La regla va aparte y con otro peso: es la que de verdad importa. */
 .regla {
-  margin-top: 1.75rem;
-  padding: 1.75rem;
+  margin-top: 1.5rem;
+  padding: 1.4rem 1.5rem;
   border-left: 2px solid var(--oro);
   background: var(--superficie);
   border-radius: 0 4px 4px 0;
@@ -1821,14 +1832,14 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
 .llaves {
   list-style: none;
   counter-reset: llave;
-  margin: 3rem 0 0;
+  margin: 2rem 0 0;
   padding: 0;
 }
 
 .llaves > li {
   display: grid;
   gap: 0.25rem 1.5rem;
-  padding: 1.5rem 0;
+  padding: 1.1rem 0;
   border-top: 1px solid var(--borde-tenue);
 }
 
@@ -1924,3 +1935,27 @@ p { margin: 0 0 1.15rem; max-width: 40rem; }
   text-transform: uppercase;
   color: var(--gris);
 }
+
+/* ---------- la barra fija ----------
+   Aparece cuando el botón del héroe sale de pantalla y desaparece al llegar al
+   formulario. Mientras está, el botón de la barra de arriba se retira: una sola
+   acción visible a la vez. La cuenta atrás es la misma del héroe. */
+.fijo {
+  position: fixed; left: 50%; bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px)); z-index: 11;
+  width: calc(100% - 1.5rem); max-width: 30rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0.5rem 0.5rem 0.5rem 1.1rem;
+  background: rgba(18, 18, 20, 0.88); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  border: 1px solid var(--borde); border-radius: 100px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  transform: translate(-50%, calc(100% + 1.5rem)); transition: transform 0.55s var(--salida);
+}
+.fijo--visible { transform: translate(-50%, 0); }
+.fijo .boton { min-height: 2.75rem; padding: 0.5rem 1.2rem; border-radius: 100px; font-size: 0.9375rem; white-space: nowrap; flex: none; }
+.fijo__texto { margin: 0; display: grid; gap: 0.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.3; min-width: 0; }
+.fijo__texto .heroe__proxima-rotulo { color: var(--gris); font-size: 0.66rem; }
+.fijo__texto .heroe__proxima-cuando { color: var(--hueso); }
+.fijo__texto .heroe__proxima-cuenta { color: var(--oro); }
+.fijo__texto .heroe__proxima-cuenta::before { content: none; }
+@media (min-width: 30rem) { .fijo { max-width: 38rem; } .fijo__texto { display: flex; flex-wrap: wrap; column-gap: 0.5rem; align-items: baseline; } .fijo__texto .heroe__proxima-rotulo::after { content: ':'; } }
+body.con-fijo .barra .boton { display: none; }
+@media (prefers-reduced-motion: reduce) { .fijo { transition: none; } }

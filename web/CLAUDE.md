@@ -250,6 +250,31 @@ Cuatro cosas se mueven con la mano, y ninguna en reposo:
 Todas escriben variables en el propio elemento, solo mientras hay puntero: nada
 en `<html>`, y con la página quieta siguen siendo cero fotogramas.
 
+## La barra fija y la urgencia
+
+Una barra fija abajo, con la cuenta atrás a la próxima apertura y el botón de
+entrar. Aparece cuando el botón del héroe sale de pantalla y se retira al llegar
+al formulario; mientras está, el botón de la barra de arriba se esconde: una
+sola acción visible a la vez. La urgencia es real y verificable: la apertura
+sale a las 7:00 cada día de mercado, así que «entra hoy y ves la de mañana» es
+verdad. **Nada de cupos, cierres ni contadores inventados.** Decisión del
+cliente (2026-09-22) al ver una landing de referencia con CTA acompañante.
+
+En la misma pasada la página bajó de 17 a 13,5 pantallas de scroll en móvil y
+de 1.875 a 1.470 palabras: fuera la tabla de niveles del Premium (el camino ya
+cuenta la escalera), los descargos repetidos (quedan tres: testimonios, precio
+y pie) y párrafos recortados en ejecución, camino y scanner.
+
+## El scanner: dos y el pack
+
+Oro + Bitcoin US$50, Step Index US$50, los dos US$80. Un selector de tres, como
+el del Premium. Lo que dice la página es «alertas cuando algo cumple tus
+criterios», nunca «alertas de entradas»: eso lo convierte en un servicio de
+señales, que es lo que Meta y el broker miran con lupa. **Step Index y el pack
+no van en /entrar**: los índices sintéticos son producto de otro broker y Meta
+los mira con más lupa que al oro. Lo que no va en la pauta se marca con
+`data-pauta="no"` y `entrar.mjs` lo quita.
+
 ## La landing de pauta · /entrar
 
 Meta revisa la **página de destino** de cada anuncio, y en categoría financiera
