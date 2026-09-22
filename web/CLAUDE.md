@@ -14,6 +14,28 @@ Es una página, un scroll, una acción repetida.
 
 ## Estructura, en orden
 
+**Orden vigente (2026-09-22), pensado para quien no sabe nada de trading:**
+héroe → «¿Nunca has hecho trading? Empieza por aquí» → cómo funciona (la
+consola) → capturas de los miembros → las cinco llaves → cómo se ejecuta →
+Premium → scanner → dudas → formulario → pie. Primero qué es esto y cómo
+entro, después la prueba, y la filosofía y el detalle más abajo. El titular
+del héroe es «Aprende trading de oro viendo a alguien hacerlo de verdad»: la
+frase de marca «no se trata de operar más» asume que ya operas y se guarda
+para las piezas de Instagram. La lista de abajo conserva el razonamiento de
+cada sección; el orden manda el párrafo de arriba.
+
+**La prueba del principiante** (pedida por el cliente el 2026-09-22): antes de
+dar por buena cualquier versión, leerla como alguien que no conoce este mundo
+y preguntarse si entiende de qué trata, si le convence entrar y si le
+emociona. Si la respuesta no es un sí seguro, se corrige. Nada de jerga sin
+explicar: «set-up», «stop», «lotaje» y «broker» se explican la primera vez y
+después se dicen en palabras corrientes (plan, límite de pérdida, cuánto
+pones, la plataforma donde se compra y vende).
+
+**La comisión del broker se dice de frente**, en el paso 02 y en el pie: el
+club recibe una comisión de Exness por las operaciones de quien abre cuenta
+con su enlace, y al miembro no le cuesta más.
+
 **La regla del gráfico:** ningún gráfico de esta página puede subir. Un gráfico
 ascendente en una landing de trading es una promesa de rentabilidad dibujada, y
 cae en la misma prohibición que el copy. Lo que se dibuja es el método: dónde se

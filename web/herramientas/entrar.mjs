@@ -29,7 +29,7 @@ let h = fs.readFileSync(path.join(web, 'index.html'), 'utf8');
    nombra como motivo de rechazo en categoría financiera. */
 const ACEPTADAS = ['lotaje', 'flotante', 'perdedora', 'grafico-metodo', 'franjas'];
 const ini = h.indexOf('  <!-- TESTIMONIOS ·');
-const fin = h.indexOf('  <!-- LA CONSOLA ·');
+const fin = h.indexOf('\n  <!-- ', ini + 10) + 1; /* la sección siguiente, sea cual sea */
 if (ini < 0 || fin < 0) throw new Error('no encuentro la sección de testimonios');
 let seccion = h.slice(ini, fin);
 const figuras = seccion.match(/ {8}<figure class="carta carta--captura">[\s\S]*?<\/figure>/g) || [];

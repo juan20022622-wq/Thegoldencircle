@@ -508,8 +508,8 @@
     var periodo = caja.querySelector('[data-scanner-periodo]');
     var detalle = caja.querySelector('[data-scanner-detalle]');
     var planes = {
-      oro:  { cifra: 'US$50', periodo: 'al mes · oro y bitcoin', detalle: 'Alertas todos los días, cuando algo cumple tus criterios.' },
-      step: { cifra: 'US$50', periodo: 'al mes · Step Index, índices sintéticos', detalle: 'Alertas todos los días, cuando algo cumple tus criterios.' },
+      oro:  { cifra: 'US$50', periodo: 'al mes · oro y bitcoin', detalle: 'Alertas todos los días, cuando algo cumple tus condiciones.' },
+      step: { cifra: 'US$50', periodo: 'al mes · Step Index, índices sintéticos', detalle: 'Alertas todos los días, cuando algo cumple tus condiciones.' },
       pack: { cifra: 'US$80', periodo: 'al mes · los dos scanners', detalle: 'Oro y bitcoin más Step Index. <b>US$20 menos</b> que por separado.' }
     };
     botones.forEach(function (b) {
