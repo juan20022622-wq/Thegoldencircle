@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/css/estilos.css?v=27">
+<link rel="stylesheet" href="/assets/css/estilos.css?v=28">
 
 <script type="application/ld+json">
 {
@@ -609,18 +609,12 @@
     </h1>
     <hr class="filete" data-flujo="traza">
     <p class="entradilla" data-flujo="lento">
-      Un club de trading de oro. Cada día de mercado, antes de la apertura, publicamos
-      lo que estamos mirando y el razonamiento entero que hay detrás.
+      Un club para aprender a operar oro viendo operaciones reales. Cristian publica
+      en Telegram las operaciones que hace: qué compra o vende, dónde entra y dónde
+      sale. No hace falta saber nada para entrar.
     </p>
     <p data-flujo><a class="boton" href="#registro">Quiero entrar gratis</a></p>
     <p class="heroe__micro" data-flujo="rotulo">Acceso inmediato · Sin tarjeta · Sin compromiso</p>
-    <!-- Se rellena con JS a partir de la hora de Bogotá: la apertura sale a las
-         7:00 cada día de mercado, y eso ya se cumple. Sin JS no aparece. -->
-    <p class="heroe__proxima" data-proxima hidden>
-      <span class="heroe__proxima-rotulo">Próxima apertura en el canal</span>
-      <span class="heroe__proxima-cuando" data-proxima-cuando></span>
-      <span class="heroe__proxima-cuenta" data-proxima-cuenta></span>
-    </p>
 
     <!-- El gráfico no sube: lateraliza y pierde el nivel. Un gráfico ascendente
          en una landing de trading es una promesa de rentabilidad dibujada.
@@ -778,75 +772,28 @@
     </div>
   </section>
 
-  <!-- LA ANATOMÍA · lo que se dice, mostrado -->
-  <section class="contenedor seccion" aria-labelledby="t-anatomia">
-    <h2 id="t-anatomia" data-flujo>Dos canales miran el mismo gráfico y publican<br>cosas muy distintas.</h2>
-    <p data-flujo>
-      Un canal de señales te manda un nivel. Aquí llega el nivel y las tres cosas
-      que te dejan decidir por ti.
-    </p>
-
-    <div class="cotejo">
-      <article class="tarjeta tarjeta--otros vidrio vidrio--sutil" data-flujo="lateral">
-        <header class="tarjeta__cabeza">
-          <span class="tarjeta__sello">Un canal de señales</span>
-          <span class="tarjeta__ejemplo">Ejemplo</span>
-        </header>
-        <div class="tarjeta__cuerpo">
-          <p class="mensaje__par">XAUUSD &middot; <span class="mensaje__dir">COMPRA</span></p>
-          <dl class="mensaje">
-            <div><dt>Entrada</dt><dd><i class="tachado" style="--largo:4.5rem"></i></dd></div>
-            <div><dt>Objetivo</dt><dd><i class="tachado" style="--largo:3.75rem"></i></dd></div>
-            <div><dt>Stop</dt><dd><i class="tachado" style="--largo:4.25rem"></i></dd></div>
-          </dl>
-          <p class="tarjeta__nota">Y ya. Si el mercado se gira, estás solo.</p>
-        </div>
-      </article>
-
-      <article class="tarjeta tarjeta--nuestra vidrio" data-flujo="hondo">
-        <header class="tarjeta__cabeza">
-          <span class="tarjeta__sello tarjeta__sello--oro">The Golden Syndicate</span>
-          <span class="tarjeta__ejemplo">Ejemplo</span>
-        </header>
-        <div class="tarjeta__cuerpo">
-          <p class="mensaje__par">XAUUSD &middot; <span class="mensaje__dir">COMPRA</span></p>
-          <dl class="mensaje">
-            <div><dt>Entrada</dt><dd><i class="tachado" style="--largo:4.5rem"></i></dd></div>
-            <div><dt>Objetivo</dt><dd><i class="tachado" style="--largo:3.75rem"></i></dd></div>
-            <div><dt>Stop</dt><dd><i class="tachado" style="--largo:4.25rem"></i></dd></div>
-          </dl>
-
-          <ul class="mensaje__porques">
-            <li>
-              <span class="porque__rotulo">Por qué la veo</span>
-              <span>Tercer rechazo en la misma zona y el volumen bajando en cada intento.</span>
-            </li>
-            <li>
-              <span class="porque__rotulo">Qué la invalida</span>
-              <span>Un cierre por debajo del nivel marcado. Ahí la idea deja de servir, sin discusión.</span>
-            </li>
-            <li>
-              <span class="porque__rotulo">Qué hago si falla</span>
-              <span>Salgo y no promedio. Lo comento en el canal el mismo día, salga como salga.</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-    </div>
-
-    <p class="apunte" data-flujo="rotulo" style="margin-top:1.5rem">
-      Ejemplo del formato de los mensajes. No es una señal. Los niveles van tapados
-      a propósito: las operaciones no se publican fuera del canal.
-    </p>
+  <!-- EN PALABRAS SIMPLES · para quien nunca ha hecho trading. Cuatro palabras
+       que van a ver en el canal, explicadas sin rodeos. Sustituye a la comparación
+       de canales (2026-09-22): Cristian publica la operación, no un razonamiento
+       largo, y la comparación no era verdad. -->
+  <section class="contenedor seccion" aria-labelledby="t-simple">
+    <h2 id="t-simple" data-flujo>¿Nunca has hecho trading?<br>Empieza por aquí.</h2>
+    <p data-flujo="lento">Cuatro palabras que vas a ver en el canal, explicadas sin rodeos.</p>
+    <dl class="simple" data-flujo="lento">
+      <div><dt>Trading</dt><dd>Comprar y vender oro para aprovechar los cambios de precio. Se hace desde el celular, en una cuenta que es tuya.</dd></div>
+      <div><dt>Una operación</dt><dd>Una compra o una venta. Se abre, el precio se mueve y se cierra: a veces con ganancia y a veces con pérdida.</dd></div>
+      <div><dt>Un set-up</dt><dd>El plan de una operación: comprar o vender, a qué precio entrar, dónde salir si sale mal (el <b>stop</b>) y dónde tomar la ganancia (el <b>objetivo</b>). Es lo que Cristian publica.</dd></div>
+      <div><dt>El lotaje</dt><dd>Cuánto pones en cada operación. Lo decides tú según tu capital, y en el canal se explica cómo calcularlo para no arriesgar más de lo que puedes perder.</dd></div>
+    </dl>
   </section>
 
 
   <!-- CÓMO SE EJECUTA · la rejilla, distinta de la consola -->
   <section class="contenedor seccion" aria-labelledby="t-ejecutar">
-    <h2 id="t-ejecutar" data-flujo>El set-up es la mitad.<br>La otra mitad es cómo se ejecuta.</h2>
+    <h2 id="t-ejecutar" data-flujo>Ver la operación es la mitad.<br>La otra mitad es cómo la haces.</h2>
     <p data-flujo="lento">
-      Cada set-up llega con dirección, zona, stop y objetivo. Lo que pone cada
-      uno es la paciencia. Seis pasos, en orden.
+      Cada operación que publica Cristian trae su plan completo. Lo que pones tú
+      es la paciencia. Seis pasos, en orden.
     </p>
 
     <div class="baraja" data-baraja data-flujo="hondo">
@@ -919,7 +866,7 @@
           <div class="carta__cuerpo">
             <span class="carta__n">05</span>
             <h3>Pon el objetivo</h3>
-            <p>También el indicado. Salir antes o después deja de ser el set-up.</p>
+            <p>También el indicado. Salir antes o después ya es otra operación.</p>
           </div>
         </li>
         <li class="carta carta--paso">
@@ -1055,8 +1002,8 @@
 
         <div class="paso" data-titulo-paso="Recibes los análisis">
           <p class="paso__rotulo">03 · Recibes los análisis y decides tú</p>
-          <p>Te llegan los set-ups completos, con su razonamiento. La cuenta es tuya
-             y las órdenes las pones tú.</p>
+          <p>Te llegan las operaciones de Cristian con su plan completo. La cuenta es
+             tuya y las órdenes las pones tú.</p>
         </div>
 
         <div class="paso" data-titulo-paso="Dejas de copiar">
@@ -1089,8 +1036,8 @@
       frente, y en el grupo gratis nadie te lo va a estar recordando.
     </p>
     <ul class="premium__trae" data-flujo="lento">
-      <li><b>Más set-ups al día,</b> cada uno con su porqué y con lo que lo invalida.</li>
-      <li><b>Más educación:</b> los conceptos del método trabajados a fondo.</li>
+      <li><b>Más operaciones publicadas al día,</b> cada una con su plan completo.</li>
+      <li><b>Más educación:</b> cada concepto explicado desde cero.</li>
       <li><b>Mucha más información:</b> agenda, contexto y lectura del mercado.</li>
     </ul>
 
@@ -1222,6 +1169,14 @@
 
     <div class="preguntas" data-flujo>
       <details class="pregunta">
+        <summary>¿Necesito saber de trading para entrar?</summary>
+        <div class="pregunta__cuerpo"><div>
+          <p>No. El grupo de entrada es para ver cómo se trabaja y aprender lo básico
+             antes de decidir nada. Si nunca has operado, empieza por ahí: no hace falta
+             abrir ninguna cuenta ni poner dinero.</p>
+        </div></div>
+      </details>
+      <details class="pregunta">
         <summary>¿De verdad es gratis?</summary>
         <div class="pregunta__cuerpo"><div>
           <p>Para entrar, nada. El grupo de entrada es gratuito, sin tarjeta y sin
@@ -1287,32 +1242,17 @@
     <div class="contenedor seccion">
       <h2 data-flujo>Dos datos y estás dentro.</h2>
       <p data-flujo>
-        Nombre y WhatsApp; el correo, si quieres. Entras al instante, y la apertura
-        de mañana te llega a las 7:00.
-      </p>
-      <p class="heroe__proxima captura__proxima" data-proxima hidden>
-        <span class="heroe__proxima-rotulo">Próxima apertura en el canal</span>
-        <span class="heroe__proxima-cuando" data-proxima-cuando></span>
-        <span class="heroe__proxima-cuenta" data-proxima-cuenta></span>
+        Nombre y WhatsApp; el correo, si quieres. Entras al instante.
       </p>
 
-      <!-- Qué pasa al pulsar. Es el punto de más ansiedad de la página y hasta
-           ahora solo se decía con una frase. -->
-      <ol class="pasos-envio" data-flujo="lateral">
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <rect x="3.5" y="5.5" width="17" height="13" rx="2"></rect>
-            <path d="M7 10h7M7 14h4"></path>
-          </svg>
-          <span>Dejas dos datos</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M20 5 3.5 11.2l5.2 1.9L18 7.6l-7 6.6.3 5 2.6-3.4"></path>
-          </svg>
-          <span>Se abre el canal</span>
-        </li>
-      </ol>
+      <!-- Lo que se lleva quien entra, gratis. Las marcas se encienden con el
+           revelado: es la sensación de ir ganando, sin inventar nada. -->
+      <ul class="llevas" data-flujo="lento">
+        <li>Lo que Cristian mira cada día antes de operar: la agenda y el contexto</li>
+        <li>Un concepto de trading explicado desde cero, cada semana</li>
+        <li>Lo que cuentan los miembros, también lo que sale mal</li>
+        <li>El paso al canal de operaciones cuando quieras, sin pagarle al club</li>
+      </ul>
 
       <form class="formulario" data-flujo="lento" name="leads" method="POST"
             data-netlify="true" netlify-honeypot="empresa" novalidate>
@@ -1327,6 +1267,11 @@
         <input type="hidden" name="utm_content"  value="">
         <input type="hidden" name="utm_term"     value="">
         <input type="hidden" name="referente"    value="">
+
+        <p class="progreso" data-progreso data-listo="false" aria-live="polite">
+          <span class="progreso__barra" aria-hidden="true"><i></i></span>
+          <span class="progreso__texto" data-progreso-texto>Te faltan dos datos</span>
+        </p>
 
         <div class="campo">
           <label for="nombre">Nombre</label>
@@ -1376,10 +1321,9 @@
      esconde al llegar al formulario. La urgencia es real: la cuenta atrás a la
      próxima apertura, que sale a las 7:00 cada día de mercado. -->
 <div class="fijo" data-fijo aria-hidden="true">
-  <p class="fijo__texto" data-proxima hidden>
-    <span class="heroe__proxima-rotulo">Próxima apertura</span>
-    <span class="heroe__proxima-cuando" data-proxima-cuando></span>
-    <span class="heroe__proxima-cuenta" data-proxima-cuenta></span>
+  <p class="fijo__texto">
+    <span class="fijo__estado" data-mercado><i class="fijo__punto" aria-hidden="true"></i><span data-mercado-texto>Gratis, sin tarjeta</span></span>
+    <span class="fijo__sub">Entras en 30 segundos</span>
   </p>
   <a class="boton" href="#registro">Entrar gratis</a>
 </div>
@@ -1403,10 +1347,10 @@
   </div>
 </footer>
 
-<script src="/assets/js/config.js?v=27"></script>
+<script src="/assets/js/config.js?v=28"></script>
 <noscript><img height="1" width="1" style="display:none" alt=""
   src="https://www.facebook.com/tr?id=1358077623073009&ev=PageView&noscript=1"></noscript>
-<script src="/assets/js/movimiento.js?v=27" defer></script>
-<script src="/assets/js/main.js?v=27" defer></script>
+<script src="/assets/js/movimiento.js?v=28" defer></script>
+<script src="/assets/js/main.js?v=28" defer></script>
 </body>
 </html>

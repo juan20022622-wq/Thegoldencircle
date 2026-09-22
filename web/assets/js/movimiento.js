@@ -605,4 +605,34 @@
     if (heroe) io.observe(heroe);
     if (registro) io.observe(registro);
   })();
+
+  /* ================= el estado del mercado y el progreso =================
+     El oro cotiza de domingo en la noche a viernes en la tarde. Es verdad y se
+     calcula; no depende de a qué hora publique nadie. */
+  (function mercado() {
+    var caja = document.querySelector('[data-mercado]');
+    if (!caja) return;
+    var texto = caja.querySelector('[data-mercado-texto]');
+    function pinta() {
+      var d = new Date(), dia = d.getUTCDay(), hora = d.getUTCHours();
+      var abierto = (dia === 0 && hora >= 22) || (dia >= 1 && dia <= 4) || (dia === 5 && hora < 22);
+      texto.textContent = abierto ? 'El oro se está moviendo ahora' : 'El oro vuelve a abrir el domingo';
+      caja.setAttribute('data-abierto', String(abierto));
+    }
+    pinta(); setInterval(pinta, 60000);
+  })();
+
+  (function progreso() {
+    var caja = document.querySelector('[data-progreso]');
+    var nombre = document.getElementById('nombre'), whatsapp = document.getElementById('whatsapp');
+    if (!caja || !nombre || !whatsapp) return;
+    var barra = caja.querySelector('i'), texto = caja.querySelector('[data-progreso-texto]');
+    var frases = ['Te faltan dos datos', 'Falta uno y entras', 'Listo: pulsa el botón'];
+    function pinta() {
+      var k = (nombre.value.trim().length > 1 ? 1 : 0) + (whatsapp.value.replace(/\D/g, '').length >= 7 ? 1 : 0);
+      barra.style.width = (k * 50) + '%'; texto.textContent = frases[k]; caja.setAttribute('data-listo', String(k === 2));
+    }
+    [nombre, whatsapp].forEach(function (c) { c.addEventListener('input', pinta); });
+    pinta();
+  })();
 })();

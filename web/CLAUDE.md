@@ -42,11 +42,9 @@ momento tiene una forma distinta.
    `marca/identidad.md`. Lo que ordena aquí es la tipografía.
 3. **La cara** — el video de Cristian y quién es él, en la misma sección. Sin
    el video la página es de cualquiera; sin la bio, el video no se sostiene.
-4. **La anatomía** — el cotejo de mensajes: lo que publica un canal de señales
-   contra lo que se publica aquí. Es el argumento de la marca mostrado en vez de
-   descrito, y la pieza que más trabaja de la página. Los niveles van en blanco
-   y el sello «Ejemplo» va **dentro** de cada tarjeta: se van a capturar para
-   anuncios y el descargo tiene que viajar con la captura.
+4. **En palabras simples** — para quien nunca ha hecho trading: trading,
+   operación, set-up y lotaje explicados sin rodeos. Sustituyó al cotejo de
+   canales el 2026-09-22 (ver «La barra fija y la urgencia»).
 5. **La consola** — el camino de la membresía en un solo bloque: entrar al
    canal, abrir cuenta en el broker, replicar lo que se quiera, y con el tiempo
    leer por cuenta propia. Un paso a la vez, con botón «siguiente».
@@ -252,13 +250,27 @@ en `<html>`, y con la página quieta siguen siendo cero fotogramas.
 
 ## La barra fija y la urgencia
 
-Una barra fija abajo, con la cuenta atrás a la próxima apertura y el botón de
-entrar. Aparece cuando el botón del héroe sale de pantalla y se retira al llegar
-al formulario; mientras está, el botón de la barra de arriba se esconde: una
-sola acción visible a la vez. La urgencia es real y verificable: la apertura
-sale a las 7:00 cada día de mercado, así que «entra hoy y ves la de mañana» es
-verdad. **Nada de cupos, cierres ni contadores inventados.** Decisión del
+Una barra fija abajo con el botón de entrar. Aparece cuando el botón del héroe
+sale de pantalla y se retira al llegar al formulario; mientras está, el botón
+de la barra de arriba se esconde: una sola acción visible a la vez. Decisión del
 cliente (2026-09-22) al ver una landing de referencia con CTA acompañante.
+
+**La urgencia no depende de la hora de nadie.** La primera versión llevaba una
+cuenta atrás a la apertura de las 7:00; el cliente avisó que no siempre publica
+a esa hora y no quiere estar actualizándolo. Lo que hay ahora es verificable y
+se calcula solo: «El oro se está moviendo ahora» mientras el mercado está
+abierto (domingo 22:00 UTC a viernes 22:00 UTC) y «vuelve a abrir el domingo»
+cuando no. En el formulario, la sensación de ir ganando: la lista de lo que te
+llevas gratis con marcas que se encienden, y una barra de progreso que avanza
+al escribir (te faltan dos datos → falta uno → listo). **Nada de cupos, cierres
+ni contadores inventados.**
+
+**El lenguaje es para quien no sabe nada de trading.** La comparación de
+canales («dos canales miran el mismo gráfico») se quitó: Cristian publica la
+operación, no un razonamiento largo, y la comparación no era verdad. En su
+lugar, «¿Nunca has hecho trading? Empieza por aquí»: trading, operación,
+set-up y lotaje explicados sin rodeos. El héroe dice «aprender a operar oro
+viendo operaciones reales», no «el razonamiento entero».
 
 En la misma pasada la página bajó de 17 a 13,5 pantallas de scroll en móvil y
 de 1.875 a 1.470 palabras: fuera la tabla de niveles del Premium (el camino ya
