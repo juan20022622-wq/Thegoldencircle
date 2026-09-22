@@ -22,37 +22,27 @@ import { fileURLToPath } from 'url';
 const web = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 let h = fs.readFileSync(path.join(web, 'index.html'), 'utf8');
 
-/* 1 · la sección de testimonios se queda, pero solo con las capturas que hablan
-   del método y de la gestión, no de la cifra: el error de lotaje, la posición
-   en rojo, el cierre en negativo y dos gráficos con las zonas marcadas. Las
-   listas de operaciones ganadoras y los mensajes con porcentaje son lo que Meta
-   nombra como motivo de rechazo en categoría financiera. */
-const ACEPTADAS = ['lotaje', 'flotante', 'perdedora', 'grafico-metodo', 'franjas'];
-const ini = h.indexOf('  <!-- TESTIMONIOS ·');
-const fin = h.indexOf('\n  <!-- ', ini + 10) + 1; /* la sección siguiente, sea cual sea */
-if (ini < 0 || fin < 0) throw new Error('no encuentro la sección de testimonios');
-let seccion = h.slice(ini, fin);
-const figuras = seccion.match(/ {8}<figure class="carta carta--captura">[\s\S]*?<\/figure>/g) || [];
-const nombre = (f) => (f.match(/testimonios\/([a-z0-9-]+)\.webp/) || [])[1];
-/* la del gráfico con mensaje se sustituye por la versión solo-gráfico */
-const conservadas = ACEPTADAS.map((n) => {
-  const f = figuras.find((x) => nombre(x) === (n === 'grafico-metodo' ? 'grafico-sep' : n));
-  if (!f) throw new Error('falta la carta ' + n);
-  return n === 'grafico-metodo'
-    ? f.replace('grafico-sep.webp', 'grafico-metodo.webp')
-       .replace(/alt="[^"]*"/, 'alt="Gráfico de un miembro con la zona de venta marcada y las entradas hasta el objetivo"')
-       .replace(/<p class="carta__nota">[\s\S]*?<\/p>/, '<p class="carta__nota">La zona de venta marcada, dos entradas y el recorrido hasta el objetivo.</p>')
-    : f;
-});
-const primera = seccion.indexOf(figuras[0]);
-const ultima = seccion.lastIndexOf(figuras[figuras.length - 1]) + figuras[figuras.length - 1].length;
-seccion = seccion.slice(0, primera) + conservadas.join('\n') + seccion.slice(ultima);
-seccion = seccion.replace(/<p data-flujo="lento">[\s\S]*?<\/p>/, `<p data-flujo="lento">
-      Esto es lo que mandan los miembros al canal. Aquí van las que hablan del
-      método y de la gestión: un error de lotaje reconocido, una posición en rojo,
-      un cierre en negativo y dos gráficos con las zonas marcadas.
-    </p>`);
-h = h.slice(0, ini) + seccion + h.slice(fin);
+/* 1 · fuera las secciones que no pasan la revisión de Meta. Se busca cada una
+   por su comentario de apertura y se corta hasta la sección siguiente.
+   - TESTIMONIOS: hasta el 2026-09-22 se dejaban cinco capturas "de método",
+     pero revisadas de cerca todas enseñan resultado: "+77 ganancia", un
+     historial casi todo en verde, "el precio se fue a la luna", un gráfico que
+     sube hasta el objetivo. Además llevan el símbolo del broker (XAUUSDm), que
+     es un CFD, y Meta prohíbe anunciar CFD en todo el mundo. En la principal
+     se quedan; aquí no va ninguna.
+   - SCANNER: un producto de pago que vigila "oro y bitcoin". Nombrar bitcoin con
+     algo que se vende mete la página en la política de criptomonedas, que pide
+     permiso por escrito. No aporta al único objetivo de esta página. */
+const fuera = (marca) => {
+  const ini = h.indexOf('  <!-- ' + marca);
+  if (ini < 0) throw new Error('no encuentro la sección ' + marca);
+  /* la sección siguiente, sea cual sea: los comentarios de dentro van más sangrados */
+  const fin = h.indexOf('\n  <!-- ', ini + 10) + 1;
+  if (fin <= 0) throw new Error('no encuentro el final de ' + marca);
+  h = h.slice(0, ini) + h.slice(fin);
+};
+fuera('TESTIMONIOS ·');
+fuera('EL SCANNER ·');
 
 /* 2 · cabecera: noindex, canonical a la principal, título propio */
 /* la principal ya trae una meta robots: se sustituye, no se añade otra */
@@ -69,12 +59,11 @@ h = h.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/, (m, j
   return '<script type="application/ld+json">\n' + JSON.stringify(ld, null, 2) + '\n</script>';
 });
 
-/* 3b · lo marcado data-pauta="no" no va en la landing de pauta: el Step Index
-   y el pack (índices sintéticos, producto de otro broker) y la duda que los
-   nombra. Queda el scanner de oro y bitcoin con su precio. */
-h = h.replace(/\n\s*<div class="scanner__planes"[^>]*data-pauta="no"[\s\S]*?<\/div>/, '');
-h = h.replace(/\n\s*<details class="pregunta" data-pauta="no">[\s\S]*?<\/details>/, '');
+/* 3b · las dudas del scanner se van con el scanner (la que nombra el Step Index
+   ya viene marcada data-pauta="no"), y nada puede quedar nombrando bitcoin */
+h = h.replace(/\n\s*<details class="pregunta"[^>]*>\s*<summary>[^<]*[Ss]canner[\s\S]*?<\/details>/g, '');
 if (/data-pauta="no"/.test(h)) throw new Error('quedó algo marcado data-pauta="no"');
+if (/bitcoin|scanner/i.test(h.replace(/<!--[\s\S]*?-->/g, ''))) throw new Error('quedó una mención de bitcoin o del scanner');
 
 /* 4 · una marca en el body para que el CSS pueda distinguirla si hace falta */
 h = h.replace('<body>', '<body class="pauta">');
@@ -85,4 +74,5 @@ h = h.replace('<!DOCTYPE html>', '<!DOCTYPE html>\n<!-- GENERADO por herramienta
 fs.writeFileSync(path.join(web, 'entrar.html'), h);
 
 const cartas = (h.match(/carta--captura/g) || []).length;
-console.log(`  entrar.html · ${(h.length / 1024).toFixed(0)} KB · cartas: ${cartas} (${ACEPTADAS.join(', ')})`);
+if (cartas) throw new Error('quedaron capturas de miembros');
+console.log(`  entrar.html · ${(h.length / 1024).toFixed(0)} KB · sin testimonios ni scanner`);

@@ -304,10 +304,10 @@ y pie) y párrafos recortados en ejecución, camino y scanner.
 Oro + Bitcoin US$50, Step Index US$50, los dos US$80. Un selector de tres, como
 el del Premium. Lo que dice la página es «alertas cuando algo cumple tus
 criterios», nunca «alertas de entradas»: eso lo convierte en un servicio de
-señales, que es lo que Meta y el broker miran con lupa. **Step Index y el pack
-no van en /entrar**: los índices sintéticos son producto de otro broker y Meta
-los mira con más lupa que al oro. Lo que no va en la pauta se marca con
-`data-pauta="no"` y `entrar.mjs` lo quita.
+señales, que es lo que Meta y el broker miran con lupa. **El scanner entero no
+va en /entrar** (desde 2026-09-22): nombra bitcoin en un producto de pago, y eso
+cae en la política de criptomonedas de Meta, que pide permiso por escrito.
+Lo marcado `data-pauta="no"` también se quita.
 
 ## La landing de pauta · /entrar
 
@@ -315,12 +315,21 @@ Meta revisa la **página de destino** de cada anuncio, y en categoría financier
 un testimonio con cifra de retorno es motivo de rechazo y, repetido, de
 restricción de la cuenta. La página principal lleva esas capturas por decisión
 del cliente (2026-09-10). Los anuncios **no apuntan ahí**: apuntan a
-`thegoldensyndicate.com/entrar`, que es la misma página con la sección de
-testimonios **filtrada**: solo las cinco que hablan del método y de la gestión
-—el error de lotaje, la posición en rojo, el cierre en negativo y dos gráficos
-con las zonas marcadas—, `noindex` y con canonical a la principal. Fuera quedan
-las listas de operaciones ganadoras y los dos mensajes con porcentaje. La lista
-de aceptadas vive en `entrar.mjs` (`ACEPTADAS`).
+`thegoldensyndicate.com/entrar`, que es la misma página **sin testimonios y sin
+scanner**, `noindex` y con canonical a la principal.
+
+Revisión del 2026-09-22 contra el texto oficial de Meta:
+- Meta **prohíbe anunciar CFD en todo el mundo**, y el oro en Exness es un CFD.
+  Las cinco capturas que antes se daban por "de método" enseñaban resultado
+  ("+77 ganancia", historial en verde, "se fue a la luna", gráfico al alza) y
+  el símbolo del broker. Fuera todas.
+- Se permite **nombrar** un producto financiero sin dar forma de obtenerlo o
+  conectarse con él. Por eso Exness se nombra (hay que declararlo) pero
+  **ningún enlace de /entrar puede llevar a Exness ni a /ir**.
+- Colombia no pide verificación de anunciante financiero. España y EE. UU. sí:
+  la pauta se segmenta solo a Colombia.
+
+`entrar.mjs` falla si queda una captura, una mención de bitcoin o del scanner.
 
 `entrar.html` **no se edita a mano**: lo genera `herramientas/entrar.mjs` a
 partir de `index.html`. Después de cualquier cambio en la principal:
