@@ -477,87 +477,25 @@
   }
 
 
-  /* ================= el scanner ================= */
-
-  /* Un campo de movimientos. Los criterios apagan lo que no los cumple —al
-     instante, para que se sienta el filtro— y el botón lanza un barrido que
-     enciende en oro lo que sí. Las fases de la cabecera se encienden con el uso.
-     Vista conceptual: no hay precios ni resultados, solo la idea de filtrar. */
-
+  /* ================= el scanner =================
+     Las condiciones se tocan y la alerta de ejemplo las refleja. Nada más. */
   (function scanner() {
     var caja = document.querySelector('[data-scanner]');
     if (!caja) return;
-    var ticks = [].slice.call(caja.querySelectorAll('.tick'));
-    var criterios = [].slice.call(caja.querySelectorAll('[data-criterio]'));
-    var hallados = caja.querySelector('[data-scanner-hallados]');
-    var palabra = caja.querySelector('[data-scanner-palabra]');
-    var vacio = caja.querySelector('[data-scanner-vacio]');
-    var veredicto = caja.querySelector('[data-scanner-veredicto]');
-    var boton = caja.querySelector('[data-scanner-escanear]');
-    var activos = [];
-    var escaneado = false;
-
-    function cumple(t) {
-      var c = ' ' + t.getAttribute('data-c') + ' ';
-      for (var i = 0; i < activos.length; i++) if (c.indexOf(' ' + activos[i] + ' ') < 0) return false;
-      return true;
+    var chips = [].slice.call(caja.querySelectorAll('[data-criterio]'));
+    var lista = caja.querySelector('[data-alerta-lista]');
+    var vacia = caja.querySelector('[data-alerta-vacia]');
+    var n = caja.querySelector('[data-alerta-n]');
+    function pinta() {
+      var activas = chips.filter(function (c) { return c.getAttribute('aria-pressed') === 'true'; });
+      lista.innerHTML = activas.map(function (c) { var li = document.createElement('li'); li.textContent = c.getAttribute('data-criterio'); return li.outerHTML; }).join('');
+      n.textContent = String(activas.length);
+      vacia.hidden = activas.length > 0; lista.hidden = activas.length === 0;
+      caja.setAttribute('data-vacio', String(activas.length === 0));
     }
-
-    function filtrar() {
-      var n = 0;
-      ticks.forEach(function (t) {
-        var ok = cumple(t);
-        t.classList.toggle('tick--fuera', !ok);
-        t.classList.toggle('tick--vivo', ok && escaneado);
-        if (ok) n++;
-      });
-      hallados.textContent = String(n);
-      palabra.textContent = activos.length ? (n === 1 ? 'cumple los criterios' : 'cumplen los criterios') : 'a la vista';
-      vacio.hidden = n > 0;
-      if (!escaneado) caja.setAttribute('data-fase', activos.length ? 'filtra' : 'espera');
-      return n;
-    }
-
-    criterios.forEach(function (b) {
-      b.addEventListener('click', function () {
-        var k = b.getAttribute('data-criterio');
-        var i = activos.indexOf(k);
-        if (i < 0) activos.push(k); else activos.splice(i, 1);
-        b.setAttribute('aria-pressed', String(i < 0));
-        escaneado = false;
-        caja.classList.remove('scanner--barrido');
-        veredicto.hidden = true;
-        boton.disabled = false;
-        boton.textContent = 'Escanear';
-        filtrar();
-      });
-    });
-
-    boton.addEventListener('click', function () {
-      if (!activos.length) {
-        /* sin criterios no hay nada que filtrar: se encienden los cuatro y se escanea */
-        criterios.forEach(function (b) { b.setAttribute('aria-pressed', 'true'); activos.push(b.getAttribute('data-criterio')); });
-      }
-      escaneado = true;
-      boton.disabled = true;
-      boton.textContent = 'Escaneando…';
-      caja.setAttribute('data-fase', 'escanea');
-      caja.classList.remove('scanner--barrido');
-      /* reflow para que la animación del barrido vuelva a arrancar */
-      void caja.offsetWidth;
-      caja.classList.add('scanner--barrido');
-      var n = filtrar();
-      setTimeout(function () {
-        caja.setAttribute('data-fase', 'analiza');
-        boton.disabled = false;
-        boton.textContent = 'Escanear de nuevo';
-        veredicto.hidden = n === 0;
-      }, quieto ? 0 : 1150);
-    });
-
-    filtrar();
+    chips.forEach(function (c) { c.addEventListener('click', function () { c.setAttribute('aria-pressed', String(c.getAttribute('aria-pressed') !== 'true')); pinta(); }); });
+    pinta();
   })();
-
 
   /* ================= el selector del scanner =================
      Tres opciones y un precio. Solo cambia texto al tocar. */
