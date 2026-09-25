@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}</style></head><body>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+/* Dinero · expectativa · cuatro láminas, un solo objeto: una esfera de oro, lo que tienes
+   0 · te muestra: la esfera frente a una losa pulida que la refleja
+   1 · hábito: la esfera sobre un pedestal, y una fila de pedestales iguales hacia el fondo
+   2 · la llave: una losa con un hueco redondo exacto; la esfera encaja
+   3 · la puerta entreabierta con luz, la esfera delante: pronto se abre */
+import { crearMundo, THREE } from './mundo.js';
+const M = crearMundo({ teselas: 4, semilla: 20260925 });
+const { cx, mat, malla, esfera, caja, cil, hilo, fijar, halo, scene } = M; const PI = Math.PI;
+const espejo = new THREE.MeshPhysicalMaterial({ color: 0x2b2b31, roughness: 0.05, metalness: 0.2, clearcoat: 1, clearcoatRoughness: 0.03, reflectivity: 1 });
+/* 0 */ { const x = cx(0) + 0.6; const l = caja(3.4, 2.1, 0.18, espejo, x, 1.07, -1.1); l.rotation.y = 0.22;
+  /* el reflejo: un disco de oro tenue sobre la losa, detrás y un poco arriba de la esfera */
+  const r = malla(new THREE.CircleGeometry(0.62, 64), new THREE.MeshStandardMaterial({ color: 0x8C6A22, roughness: 0.6, metalness: 0.8, emissive: 0x8C6A22, emissiveIntensity: 1.1 }), x + 0.05, 1.25, -1.0); r.rotation.y = 0.22; r.castShadow = false;
+  esfera(0.66, mat.oro, x - 0.55, 0.66, 0.9); }
+/* 1 */ { for (let k = 0; k < 7; k++) { const z = -k * 3.0, x = cx(1) - 0.2 + k * 0.55; caja(0.9, 1.3, 0.9, k === 0 ? mat.hueso : mat.piedra, x, 0.65, z); if (k === 0) esfera(0.6, mat.oro, x, 1.3 + 0.6, z); } }
+/* 2 */ { const x = cx(2) + 0.5; const f = new THREE.Shape(); f.moveTo(-1.6, 0); f.lineTo(1.6, 0); f.lineTo(1.6, 3.0); f.lineTo(-1.6, 3.0); f.closePath(); const h = new THREE.Path(); h.absarc(0, 1.5, 0.92, 0, PI * 2, true); f.holes.push(h);
+  const g = new THREE.ExtrudeGeometry(f, { depth: 0.36, bevelEnabled: true, bevelSize: 0.03, bevelThickness: 0.03, bevelSegments: 3, curveSegments: 96 }); const losa = malla(g, mat.grafito, x, 0, -0.18); losa.rotation.y = 0.38; esfera(0.6, mat.oro, x + 0.05, 1.5, 0.02); }
+/* 3 */ { const x = cx(3) + 1.0, a = 1.3, alto = 4.4, hueco = 0.5; fijar(caja(a, alto, 0.5, mat.grafito, x - a / 2 - hueco / 2, alto / 2, 0)); fijar(caja(a, alto, 0.5, mat.grafito, x + a / 2 + hueco / 2, alto / 2, 0));
+  const luz = new THREE.Mesh(new THREE.PlaneGeometry(hueco + 0.5, alto), new THREE.MeshBasicMaterial({ color: new THREE.Color(2.1, 1.32, 0.42), fog: false })); luz.position.set(x, alto / 2, -0.7); scene.add(luz);
+  const p = new THREE.PointLight(0xE7B45A, 260, 22, 2); p.position.set(x, 1.8, 1.4); scene.add(p); halo('rgba(200,140,55,1)', x, 2.2, -4, 14, 0.5);
+  fijar(esfera(0.62, mat.oro, x - 2.4, 0.62, 2.4)); }
+hilo([[cx(0) - 4.5, 1.4, 3], [cx(0) - 1.6, 1.0, 2.6], [cx(0) + 0.1, 1.45, 0.9], [cx(0) + 2.8, 2.2, -0.4],
+  [cx(1) - 2.0, 2.6, -0.6], [cx(1) - 0.2, 2.75, 0.1], [cx(1) + 2.4, 2.1, 0.8],
+  [cx(2) - 1.8, 1.7, 1.4], [cx(2) + 0.65, 1.5, 0.15], [cx(2) + 2.9, 1.9, -1.0],
+  [cx(3) - 2.4, 1.7, 1.6], [cx(3) - 1.4, 1.25, 2.4], [cx(3) + 1.0, 1.3, 0.8], [cx(3) + 1.0, 1.3, -7]]);
+M.listo({ 0: 1.15, 1: 1.15, 2: 1.15 });
+</script></body></html>
