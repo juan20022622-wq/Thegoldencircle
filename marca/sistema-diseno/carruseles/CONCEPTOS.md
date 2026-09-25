@@ -49,6 +49,17 @@ y la 6 es el cierre común: cinco losas, y la de esa llave encendida.
 | 4 | Preguntar es parte del método | Propagarse | Una esfera y las ondas que salen de ella |
 | 5 | Dejas de depender | Soltarse | El carril se acaba y la esfera sigue sola |
 
+## 07 · dinero, versión corta (2026-09-25)
+Cuatro láminas para quien no sabe nada de trading, con **un solo objeto que se transforma**: tu dinero es una esfera de oro y el cuenco es la regla que lo cuida.
+| # | Idea | Gesto | Objeto |
+|---|---|---|---|
+| 1 | Lo primero no es ganar, es no perder | Resguardar | La esfera dentro del cuenco |
+| 2 | Decides cuánto puedes perder, antes | El borde | El mismo cuenco con el borde en oro, la esfera cerca de él |
+| 3 | Si sale mal, pierdes poco y sigues | Lo pequeño que cae | Tres esferas pequeñas fuera; la de oro sigue dentro |
+| 4 | La primera llave: dinero | Seguir | El cuenco atrás y la esfera rodando hacia la luz |
+
+Pedido del cliente: corto (3–4 láminas) y que todo conecte. El de seis láminas (02) queda como alternativa larga.
+
 ## Cómo se regeneran
 
     MODULOS=<carpeta temporal con three, puppeteer-core y sharp>
