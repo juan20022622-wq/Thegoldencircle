@@ -32,9 +32,13 @@ explicar: «set-up», «stop», «lotaje» y «broker» se explican la primera v
 después se dicen en palabras corrientes (plan, límite de pérdida, cuánto
 pones, la plataforma donde se compra y vende).
 
-**La comisión del broker se dice de frente**, en el paso 02 y en el pie: el
-club recibe una comisión de Exness por las operaciones de quien abre cuenta
-con su enlace, y al miembro no le cuesta más.
+**La comisión del broker NO se nombra en la página.** Se escribió el
+2026-09-22 («Exness le paga una comisión por lo que operes ahí») y el cliente
+pidió quitarla al día siguiente: «esto no lo podemos publicar». Queda la
+declaración de partner independiente, sin la palabra comisión. El CLAUDE.md
+raíz pide declararla; la decisión es del cliente y queda anotada aquí. Falta
+confirmar contra los términos del programa de partners de Exness si la
+declaración sin la comisión basta (`[POR CONFIRMAR]`).
 
 **La regla del gráfico:** ningún gráfico de esta página puede subir. Un gráfico
 ascendente en una landing de trading es una promesa de rentabilidad dibujada, y
