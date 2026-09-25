@@ -1,14 +1,16 @@
-# Pie de foto · dinero (corto)
+# Pie de foto · dinero (expectativa)
 
 Revisado con `revision-copy-trading`.
 
 ---
 
-Lo primero en trading no es ganar. Es no perder lo que tienes.
+El dinero se parece a quien lo cuida.
 
-Antes de cada operación decides cuánto puedes perder. Ese es tu borde: si el precio llega ahí, la operación se cierra sola. Si sale mal, pierdes poco y sigues. Perder pequeño es parte del plan.
+Antes de tener más, aprender a cuidarlo bien. Y cuidarlo no es suerte: es un hábito que se construye un día a la vez, cuando nadie está mirando.
 
-Eso es la primera de las cinco llaves del club: dinero. Se aprende gratis, viendo operaciones reales. Enlace en la bio.
+Manejarlo con cabeza es la primera de las cinco llaves. Las otras cuatro, pronto.
+
+Cinco llaves. Una puerta que pronto se abre. Sigue la cuenta para saber cuándo.
 
 —
-El trading conlleva riesgo de pérdida. El contenido es educativo y no constituye asesoría de inversión. Los resultados pasados no garantizan resultados futuros. Opera solo con capital que puedas permitirte perder.
+Contenido educativo. No es asesoría financiera.
