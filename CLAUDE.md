@@ -1,4 +1,4 @@
-# Cristian · The Golden Syndicate
+# Christian · The Golden Syndicate
 
 Proyecto de IAGINATION. Propuesta de agosto de 2026: landing de conversión +
 setup de cuentas Meta (pagos únicos) y estrategia digital + producción (plan
@@ -6,14 +6,14 @@ mensual). Ver `docs/propuesta-resumen.md`.
 
 ## El negocio en cinco líneas
 
-Cristian es trader rentable y educador. **The Golden Syndicate** es su
+Christian es trader rentable y educador. **The Golden Syndicate** es su
 comunidad: un canal de Telegram gratis donde publica las señales que él mismo
 opera, dentro de una promesa de crecimiento en cinco frentes — dinero,
 propósito, cuerpo, mentalidad, educación.
 
-El contenido de Cristian atrae, Meta Ads amplifica lo que funciona, la landing
+El contenido de Christian atrae, Meta Ads amplifica lo que funciona, la landing
 captura nombre/correo/WhatsApp, el canal construye confianza, y de ahí salen
-dos ingresos: **comisiones de Exness** (Cristian ya tiene enlace de partner) y
+dos ingresos: **comisiones de Exness** (Christian ya tiene enlace de partner) y
 **cursos personalizados** mensuales o anuales.
 
 La consecuencia práctica: **el ingreso no está en el lead, está en el trader
@@ -28,11 +28,11 @@ de Meta y la cuenta de partner de Exness — que es la monetización entera. Si 
 texto sugiere ganancia garantizada, cifras de retorno o "vive del trading en X
 meses", se reescribe.
 
-**"Cristian ya es rentable" no se usa como argumento público.** Es verdad, es
+**"Christian ya es rentable" no se usa como argumento público.** Es verdad, es
 valioso, y dicho de frente es exactamente lo que Meta castiga y Exness prohíbe.
 Se comunica como método y consistencia, nunca como resultado.
 
-**Cristian no es asesor de inversión.** No se redacta nada que lo posicione como
+**Christian no es asesor de inversión.** No se redacta nada que lo posicione como
 tal ni que dé recomendaciones personalizadas. Es educador y opera su cuenta.
 
 **Toda pieza pública lleva descargo de riesgo** y, donde corresponda, la
@@ -97,7 +97,7 @@ project-claude/  instrucciones y knowledge para el Project de claude.ai
 - Estrategia de redes y canal v1 en `estrategia/02-estrategia-redes.md`; la
   versión completa y el sistema diario viven en `/plan/` con contraseña
   (variable `PLAN_CLAVE` en Netlify). Fuente única: `web/herramientas/calendario.mjs`
-- Reparto de comisiones IAGINATION ↔ Cristian sin cerrar por escrito
+- Reparto de comisiones IAGINATION ↔ Christian sin cerrar por escrito
 
 **Lo más urgente:** los números del panel de partner de Exness. Sin saber cuánto
 deja un referido no hay CPL objetivo y la pauta se maneja a ciegas.

@@ -7,7 +7,7 @@ Seleccionado contra `marca/identidad.md` y la skill `revision-copy-trading`.
 
 ## Lo mejor que hay: las frases de disciplina
 
-Estas son la tesis de la marca dicha por Cristian, ya publicadas y verificables.
+Estas son la tesis de la marca dicha por Christian, ya publicadas y verificables.
 Son lo contrario de "mira cuánto ganamos", que es justo lo que el cliente pidió
 proteger. **Sirven tal cual, sin retocar.**
 
@@ -33,7 +33,7 @@ proteger. **Sirven tal cual, sin retocar.**
 > una estrategia.**
 
 La cuarta es la que más vale: dice exactamente lo que el cliente formuló como
-ventaja de marca a largo plazo, y lo dijo Cristian antes de que nadie se lo
+ventaja de marca a largo plazo, y lo dijo Christian antes de que nadie se lo
 pidiera.
 
 ## El activo que nadie está contando: la constancia

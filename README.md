@@ -1,4 +1,4 @@
-# Cristian · The Golden Syndicate
+# Christian · The Golden Syndicate
 
 Marca personal de trading y comunidad. Contenido, landing de conversión, canal
 de Telegram y monetización vía broker Exness + cursos.

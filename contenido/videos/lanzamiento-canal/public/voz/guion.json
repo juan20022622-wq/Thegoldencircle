@@ -1,0 +1,135 @@
+[
+  {
+    "id": "gancho",
+    "en": 0.08,
+    "techo": 2.45,
+    "texto": "Aprender trading... no tiene por qué ser difícil.",
+    "dur": 2.32,
+    "velocidad": 1.25
+  },
+  {
+    "id": "dificil",
+    "en": 2.75,
+    "techo": 0.95,
+    "texto": "Lo difícil...",
+    "dur": 0.896,
+    "velocidad": 1
+  },
+  {
+    "id": "solo",
+    "en": 3.85,
+    "techo": 1.2,
+    "texto": "es hacerlo solo.",
+    "dur": 1.167,
+    "velocidad": 1
+  },
+  {
+    "id": "puerta",
+    "en": 5.15,
+    "techo": 1.8,
+    "texto": "Por eso abrimos el canal.",
+    "dur": 1.501,
+    "velocidad": 1
+  },
+  {
+    "id": "cristian",
+    "en": 7.95,
+    "techo": 2.9,
+    "texto": "Cristian opera su cuenta, y te muestra cada paso.",
+    "dur": 2.855,
+    "velocidad": 1.11
+  },
+  {
+    "id": "porque",
+    "en": 10.95,
+    "techo": 2.8,
+    "texto": "Dónde entra. Dónde corta. Y por qué.",
+    "dur": 2.672,
+    "velocidad": 1.19
+  },
+  {
+    "id": "nosolo",
+    "en": 13.85,
+    "techo": 1.1,
+    "texto": "Y no es solo trading.",
+    "dur": 1.095,
+    "velocidad": 1.25
+  },
+  {
+    "id": "llave0",
+    "en": 15.02,
+    "techo": 0.575,
+    "maximo": 1.4,
+    "texto": "Dinero.",
+    "dur": 0.552,
+    "velocidad": 1.11
+  },
+  {
+    "id": "llave1",
+    "en": 15.645,
+    "techo": 0.575,
+    "maximo": 1.4,
+    "texto": "Propósito.",
+    "dur": 0.656,
+    "velocidad": 1.4
+  },
+  {
+    "id": "llave2",
+    "en": 16.27,
+    "techo": 0.575,
+    "maximo": 1.4,
+    "texto": "Cuerpo.",
+    "dur": 0.555,
+    "velocidad": 1.21
+  },
+  {
+    "id": "llave3",
+    "en": 16.895,
+    "techo": 0.575,
+    "maximo": 1.4,
+    "texto": "Mentalidad.",
+    "dur": 0.608,
+    "velocidad": 1.4
+  },
+  {
+    "id": "llave4",
+    "en": 17.52,
+    "techo": 0.575,
+    "maximo": 1.4,
+    "texto": "Educación.",
+    "dur": 0.635,
+    "velocidad": 1.4
+  },
+  {
+    "id": "casa",
+    "en": 20.2,
+    "techo": 1.6,
+    "texto": "Dé Góulden Síndikeit.",
+    "dur": 1.477,
+    "velocidad": 1
+  },
+  {
+    "id": "gratis",
+    "en": 23.35,
+    "techo": 1.15,
+    "texto": "Entrar es gratis.",
+    "dur": 1.122,
+    "velocidad": 1.07
+  },
+  {
+    "id": "cero",
+    "en": 24.6,
+    "techo": 1.3,
+    "texto": "Empiezas desde cero.",
+    "dur": 1.271,
+    "velocidad": 1.12
+  },
+  {
+    "id": "adentro",
+    "en": 26.1,
+    "techo": 1.3,
+    "texto": "Nos vemos adentro.",
+    "dur": 1.184,
+    "velocidad": 1
+  }
+]

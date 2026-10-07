@@ -1,12 +1,12 @@
 ---
 name: revision-copy-trading
-description: Revisa cualquier texto público de la marca Cristian antes de publicarlo — anuncios de Meta, copy de landing, guiones de reels, bio, mensajes de Telegram, correos. Detecta promesas de rentabilidad, lenguaje que activa rechazos de Meta o que posiciona a Cristian como asesor de inversión, y verifica que lleve descargo de riesgo. Usar SIEMPRE antes de dar por final un texto de este proyecto, incluso si el texto lo escribió Claude.
+description: Revisa cualquier texto público de la marca Christian antes de publicarlo — anuncios de Meta, copy de landing, guiones de reels, bio, mensajes de Telegram, correos. Detecta promesas de rentabilidad, lenguaje que activa rechazos de Meta o que posiciona a Christian como asesor de inversión, y verifica que lleve descargo de riesgo. Usar SIEMPRE antes de dar por final un texto de este proyecto, incluso si el texto lo escribió Claude.
 ---
 
 # Revisión de copy · marca de trading
 
 Este proyecto vive o muere por el copy. Un anuncio con promesa de rentabilidad
-puede costar la cuenta publicitaria; un guion ambiguo puede exponer a Cristian.
+puede costar la cuenta publicitaria; un guion ambiguo puede exponer a Christian.
 Esta revisión es obligatoria y es rápida.
 
 ## Cómo se aplica
@@ -31,7 +31,7 @@ Reescritura: cambiar el resultado por el aprendizaje.
 
 ## 2. Posicionamiento como asesor — bloqueante
 
-Cristian es educador y opera su propia cuenta. No es asesor de inversión.
+Christian es educador y opera su propia cuenta. No es asesor de inversión.
 
 - Recomendaciones dirigidas: "deberías comprar", "te conviene entrar"
 - "Asesoría", "asesor financiero", "te manejo tu capital", "gestiono cuentas"
@@ -68,4 +68,4 @@ Si el broker exige una redacción propia, esa manda. Ver `docs/contexto-cliente.
 
 Un texto que cumple pero no convierte tampoco vale. Cerrar con una lectura
 rápida: ¿el gancho promete un aprendizaje concreto? ¿se entiende en 3 segundos?
-¿suena a Cristian o a plantilla? Para afinarlo, `copywriting` y `copy-editing`.
+¿suena a Christian o a plantilla? Para afinarlo, `copywriting` y `copy-editing`.

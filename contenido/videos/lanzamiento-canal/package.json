@@ -1,0 +1,29 @@
+{
+  "name": "tgs-lanzamiento-canal",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "estudio": "remotion studio src/index.ts",
+    "audio": "node herramientas/banda-sonora.mjs",
+    "render": "remotion render src/index.ts Lanzamiento salida/lanzamiento-canal.mp4 --gl=angle --concurrency=1"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.529",
+    "@remotion/google-fonts": "^4.0.529",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.529",
+    "three": "^0.169.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "sharp": "^0.35.5",
+    "sherpa-onnx-node": "^1.13.8",
+    "typescript": "^7.0.2"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "sharp@0.35.5": true
+  }
+}

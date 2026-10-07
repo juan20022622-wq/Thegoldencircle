@@ -3,7 +3,7 @@
 Objetivo: visitas a la landing (thegoldensyndicate.com).
 Duración: 35–40 s. Vertical 9:16, grabado con el celular.
 Estado: v2, ajustado a las políticas de Meta vigentes (revisadas el 2026-09-22).
-Apunta a `thegoldensyndicate.com/entrar`, nunca a la principal. Falta que Cristian
+Apunta a `thegoldensyndicate.com/entrar`, nunca a la principal. Falta que Christian
 lo lea en voz alta y ajuste las palabras a como él habla.
 
 ## El guion
@@ -81,7 +81,7 @@ Botón: Más información
 - No leerlo de memoria palabra por palabra. Que se aprenda la idea de cada
   bloque y la diga como le salga; si una palabra no es suya, se cambia.
 - Grabar cada bloque por separado, dos o tres tomas. Se une en edición.
-- Si Cristian habla de "usted" en su día a día, pasar todo a usted. Lo que
+- Si Christian habla de "usted" en su día a día, pasar todo a usted. Lo que
   importa es que suene a él.
 
 ## Por qué Meta debería aprobarlo
