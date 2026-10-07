@@ -66,7 +66,7 @@ momento tiene una forma distinta.
    **Sin iconos ni emojis:** una fila de pictogramas es la rejilla de features
    que delata a una página generada, y el de dinero está prohibido por
    `marca/identidad.md`. Lo que ordena aquí es la tipografía.
-3. **La cara** — el video de Cristian y quién es él, en la misma sección. Sin
+3. **La cara** — el video de Christian y quién es él, en la misma sección. Sin
    el video la página es de cualquiera; sin la bio, el video no se sostiene.
 4. **En palabras simples** — para quien nunca ha hecho trading: trading,
    operación, set-up y lotaje explicados sin rodeos. Sustituyó al cotejo de
@@ -89,9 +89,9 @@ momento tiene una forma distinta.
 El botón se repite: barra flotante, héroe, tras la consola y formulario.
 Un solo tipo de botón. Nunca dos acciones distintas compitiendo.
 
-**La voz de la página es la del club, no la de Cristian.** La primera persona se
+**La voz de la página es la del club, no la de Christian.** La primera persona se
 reserva para el video y para su bio. El producto es el Syndicate; si todo lo
-dice Cristian, el día que no pueda grabar la página se queda sin voz.
+dice Christian, el día que no pueda grabar la página se queda sin voz.
 
 **Todo el contenido va en el DOM.** La consola y la banda esconden con CSS lo
 que no toca mostrar; nunca generan texto desde JS. Sin JavaScript se ven los
@@ -106,7 +106,7 @@ desde ahí, no al revés.
 en el formulario porque la base de correos es el activo que sobrevive al broker;
 lo que se quitó es el muro. Validación en cliente, y el lead se guarda ANTES
 de redirigir a Telegram — si la redirección falla, el dato no se pierde. La base
-de datos es de Cristian, es el activo que sobrevive al broker.
+de datos es de Christian, es el activo que sobrevive al broker.
 
 **Medición** (skill `analytics`):
 - Píxel de Meta instalado y verificado con tráfico real antes de pautar
@@ -139,11 +139,11 @@ Astro.
 **Captura: Netlify Forms.** Rápido de montar y sin backend. Tiene tope de 100
 envíos al mes en el plan gratuito — riesgo vivo en cuanto arranque la pauta. El
 envío va por `fetch` contra `GS.endpoint`, así que migrar a una función
-serverless que escriba en una hoja de Cristian es cambiar una línea de
+serverless que escriba en una hoja de Christian es cambiar una línea de
 `assets/js/config.js`, no rehacer el formulario.
 
 **Cuentas:** GitHub y Netlify a nombre de Juan por ahora, con transferencia a
-Cristian al cierre del proyecto. Anotarlo como pendiente: si se olvida, queda
+Christian al cierre del proyecto. Anotarlo como pendiente: si se olvida, queda
 una dependencia incómoda sobre un activo que es de él.
 
 El dominio es **thegoldensyndicate.com**, comprado en GoDaddy. Se pone en todo
@@ -221,9 +221,9 @@ el cliente pidió que todo viva en la página.
 `calendario.mjs` y correr los dos. Nunca editar el JSON ni el HTML a mano.
 
 **Lo que va entre `{{llaves}}` es dato de mercado y no se inventa.** El sistema
-lo marca en pantalla para que Cristian lo rellene esa mañana. Lo único que se
+lo marca en pantalla para que Christian lo rellene esa mañana. Lo único que se
 rellena solo es `{{frase}}`: la regla del día, que sale de las frases de
-Cristian ya publicadas. **No se le inventan citas.**
+Christian ya publicadas. **No se le inventan citas.**
 
 **Rota por semana ISO**, así dos lunes seguidos no repiten texto. El mensaje
 mensual solo aparece el primer viernes del mes y rota entre transparencia,
@@ -292,7 +292,7 @@ al escribir (te faltan dos datos → falta uno → listo). **Nada de cupos, cier
 ni contadores inventados.**
 
 **El lenguaje es para quien no sabe nada de trading.** La comparación de
-canales («dos canales miran el mismo gráfico») se quitó: Cristian publica la
+canales («dos canales miran el mismo gráfico») se quitó: Christian publica la
 operación, no un razonamiento largo, y la comparación no era verdad. En su
 lugar, «¿Nunca has hecho trading? Empieza por aquí»: trading, operación,
 set-up y lotaje explicados sin rodeos. El héroe dice «aprender a operar oro
@@ -418,7 +418,7 @@ Nada de la página baja de 11 px, y los rótulos pegados al texto de lectura van
 a 12 px.
 
 `marca/identidad.md` todavía propone Cinzel y Jost: **está desactualizado en
-este punto** y hay que validarlo con Cristian.
+este punto** y hay que validarlo con Christian.
 
 ## Caché de los assets
 

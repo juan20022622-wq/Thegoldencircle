@@ -1,14 +1,14 @@
 # Identidad · The Golden Syndicate
 
 Estado: **en construcción.** El símbolo no está decidido. Todo lo demás es
-propuesta abierta a validación con Cristian.
+propuesta abierta a validación con Christian.
 
 ## Nombre
 
 **The Golden Syndicate.** En texto corrido: *Golden Syndicate*. Nunca "TGS"
 ni "El Golden Syndicate". El artículo va en inglés o no va.
 
-La marca personal de **Cristian** convive con ella y no se subordina: Cristian
+La marca personal de **Christian** convive con ella y no se subordina: Christian
 es la cara y el motor de alcance, Golden Syndicate es la casa. Ver la sección 2
 del marco estratégico.
 
@@ -16,7 +16,7 @@ del marco estratégico.
 
 > No vendemos entradas. Construimos traders — y la gente que hay detrás.
 
-(v1, sin validar con Cristian.)
+(v1, sin validar con Christian.)
 
 ## Las cinco llaves
 
@@ -46,7 +46,7 @@ https://claude.ai/code/artifact/2f0d7f16-dbe8-4bb7-ba6a-f4f3be86261a
 | D · Medallón y llave | El león es el ojo de una llave con cinco dientes | La melena facetada tira a engranaje |
 | E · Perfil | El borde de la melena cortado en cinco dientes | Composición asimétrica, más difícil de aplicar |
 
-**Aparte, Cristian tiene un diseño propio:** dos llaves cruzadas en línea dorada
+**Aparte, Christian tiene un diseño propio:** dos llaves cruzadas en línea dorada
 sobre azul noche, con volutas ornamentales en los ojos. Buen trazo y buena
 intuición heráldica. Tres problemas: no hay león, son dos llaves y no cinco, y
 no sobrevive por debajo de ~40 px. **Recomendación: conservarlo como marca
@@ -61,7 +61,7 @@ separador) y resolver aparte un primario que funcione en avatar.
 | Rol | Hex | Uso |
 |---|---|---|
 | Negro base | `#0A0A0B` | Fondo por defecto |
-| Azul noche | `#04141D` | Alternativa de fondo (la del diseño de Cristian) |
+| Azul noche | `#04141D` | Alternativa de fondo (la del diseño de Christian) |
 | Oro | `#D2A64B` | Símbolo, acentos, líneas |
 | Oro claro | `#E7C67F` | Estados hover, destacados sobre negro |
 | Oro profundo | `#8C6A22` | Bordes, sombras, oro sobre fondo claro |
@@ -131,6 +131,6 @@ solo para la serie de mercado y agenda.
 - [ ] Decidir fondo canónico (negro o azul noche)
 - [x] Tipografías de la landing: Manrope + IBM Plex Mono (Cinzel y Jost
       descartadas por leerse como plantilla de lujo generada)
-- [ ] Validar esas tipografías con Cristian para el resto de la marca
+- [ ] Validar esas tipografías con Christian para el resto de la marca
 - [ ] Validar la frase de posicionamiento
 - [ ] Producir el paquete final: SVG, PNG, favicon, avatar, versión monocromo

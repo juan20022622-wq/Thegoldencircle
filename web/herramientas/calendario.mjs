@@ -7,9 +7,9 @@
 
    Reglas que no se negocian (CLAUDE.md raíz y marca/identidad.md):
    · Nada de promesas de rentabilidad. Se habla de proceso, no de resultado.
-   · Cristian no es asesor: nunca "deberías", nunca una recomendación dirigida.
+   · Christian no es asesor: nunca "deberías", nunca una recomendación dirigida.
    · Sin emojis de dinero, cohetes ni fuego. Sin mayúsculas para gritar.
-   · Las frases atribuidas a Cristian son las suyas, ya publicadas en el canal.
+   · Las frases atribuidas a Christian son las suyas, ya publicadas en el canal.
      No se le inventan citas.
    · Lo que va entre {{llaves}} lo escribe él esa mañana: es dato de mercado y
      no se inventa. El sistema lo marca en pantalla.
@@ -38,7 +38,7 @@ const partner =
   'The Golden Syndicate es partner independiente de Exness: recibe una comisión del ' +
   'broker cuando alguien opera a través de su enlace. No forma parte del broker ni lo representa.';
 
-/* Las frases de Cristian, tal cual las publicó en el canal (mayo–junio 2026).
+/* Las frases de Christian, tal cual las publicó en el canal (mayo–junio 2026).
    Son la tesis dicha por él y son verificables. No se retocan. */
 const frases = [
   'Recuerden que no se trata de operar más… se trata de operar mejor.',
@@ -92,7 +92,7 @@ Hoy es un día de {{agenda fuerte / agenda tranquila}}. Con agenda fuerte el pre
 Regla del día: {{frase}}`,
 ];
 
-/* Lunes · el audio de Cristian. Voz, no texto: es lo que más acerca. 2 a 4
+/* Lunes · el audio de Christian. Voz, no texto: es lo que más acerca. 2 a 4
    minutos, grabado con el celular, sin editar. Estos son guiones de esquema,
    no para leer. */
 const audioLunes = [
@@ -162,7 +162,7 @@ No hay cifra en esta historia a propósito. Lo que se construye aquí es criteri
 ];
 
 /* Miércoles · educación. Un concepto por semana, explicado como lo explicaría
-   Cristian en el canal. Termina con una pregunta que se pueda responder. */
+   Christian en el canal. Termina con una pregunta que se pueda responder. */
 const educacion = [
   {
     tema: 'El stop no se mueve',
@@ -377,13 +377,13 @@ Esto es la puerta de entrada. Aquí ves cómo trabajamos antes de decidir nada.
 
 Cada día de mercado, entre las 7:00 y las 7:45, sale la apertura: qué hay en agenda, qué se mira y qué no se hace. Los lunes, un audio. Los martes, la historia de un miembro. Los miércoles, un concepto explicado. Los jueves, mercado. Los viernes, el cierre de la semana.
 
-Nadie te va a escribir por privado para venderte nada. Si tú quieres escribir, aquí está Cristian: ${enlaces.cristian}`,
+Nadie te va a escribir por privado para venderte nada. Si tú quieres escribir, aquí está Christian: ${enlaces.cristian}`,
   },
   {
     dia: 1, titulo: 'Quién está detrás', texto:
 `Quién está detrás de esto.
 
-Cristian opera oro (XAUUSD) y publica lo que opera él mismo, con el porqué. No revende señales de nadie.
+Christian opera oro (XAUUSD) y publica lo que opera él mismo, con el porqué. No revende señales de nadie.
 
 Lo que hace distinto al club no es el gráfico: es lo que hay alrededor. Dinero, propósito, cuerpo, mentalidad, educación. Cinco frentes. Si esto fuera solo señales, sería un canal más.
 
@@ -443,7 +443,7 @@ Si prefieres otro broker, puedes quedarte aquí en el grupo abierto todo el tiem
 
 Se valida y se te pasa al canal. Al club no le pagas nada.
 
-Si más adelante quieres ir más a fondo, está el Premium (US$330 al mes o US$2.000 al año; 1.000.000 o 6.000.000 COP) y las clases privadas con Cristian. No hacen falta para estar aquí, y aquí nadie te los va a estar recordando.
+Si más adelante quieres ir más a fondo, está el Premium (US$330 al mes o US$2.000 al año; 1.000.000 o 6.000.000 COP) y las clases privadas con Christian. No hacen falta para estar aquí, y aquí nadie te los va a estar recordando.
 
 ${descargo}`,
   },
@@ -481,7 +481,7 @@ Información por privado: ${enlaces.cristian}. Este mensaje no se repite hasta e
   },
   {
     titulo: 'Clases privadas', texto:
-`Clases privadas con Cristian.
+`Clases privadas con Christian.
 
 Es lo más cercano que hay: tu operativa, tus errores, tu plan, uno a uno. {{Formato, duración, precio, cupos disponibles este mes.}}
 
@@ -494,9 +494,9 @@ Si es tu caso, escríbele: ${enlaces.cristian}`,
 /* ======================================================================
    INSTAGRAM · @thegoldensyndicate
    ------------------------------------------------------------------
-   La cuenta que publica es la del club. Cristian es la cara y habla en
+   La cuenta que publica es la del club. Christian es la cara y habla en
    primera persona desde ella —es la marca personal del fundador— pero la casa
-   es The Golden Syndicate. La cuenta personal de Cristian solo hace una cosa:
+   es The Golden Syndicate. La cuenta personal de Christian solo hace una cosa:
    la migración de sus seguidores al principio (ver más abajo).
 
    Cuatro ejes del marco estratégico: método 35 %, mercado en vivo 20 %,
@@ -506,7 +506,7 @@ Si es tu caso, escríbele: ${enlaces.cristian}`,
    ====================================================================== */
 const instagram = {
   reelMetodo: [
-    { gancho: 'Esta entrada era una trampa. Te muestro por qué.', grabar: 'Pantalla del gráfico con la zona marcada. Cristian explica en 30 s qué la hacía parecer buena y qué la invalidaba. Sin cifra de resultado.', pie: 'El nivel es lo de menos. Lo que importa es saber qué lo tumba. En el canal, cada idea va con eso.' },
+    { gancho: 'Esta entrada era una trampa. Te muestro por qué.', grabar: 'Pantalla del gráfico con la zona marcada. Christian explica en 30 s qué la hacía parecer buena y qué la invalidaba. Sin cifra de resultado.', pie: 'El nivel es lo de menos. Lo que importa es saber qué lo tumba. En el canal, cada idea va con eso.' },
     { gancho: 'Por qué no entré aunque el precio llegó a la zona.', grabar: 'Cara a cámara 10 s, luego pantalla. La confirmación que faltaba. Cierre: "una operación que no tomas nunca será una pérdida".', pie: 'La paciencia también es parte de la estrategia. Lo dije en el canal hace meses y lo sigo diciendo.' },
     { gancho: 'Lo primero que miro antes de abrir el gráfico no es el gráfico.', grabar: 'El calendario económico en pantalla. Qué dato sale hoy y a qué hora. Por qué eso decide si se opera o no.', pie: 'El oro se mueve por noticias antes que por velas. Si no sabes qué sale hoy, no sabes qué estás operando.' },
     { gancho: 'El error que más veo en la gente que me escribe.', grabar: 'Cara a cámara. Entrar tarde porque "se va". Explica qué es perseguir el precio y qué cuesta.', pie: 'Perder una oportunidad sale más barato que entrar fuera de las condiciones. Siempre.' },
@@ -514,7 +514,7 @@ const instagram = {
   vida: [
     { idea: 'Gimnasio a las 5. Luz dura, sin filtro.', grabar: 'Foto o reel corto en el gym. Texto sobre la imagen: "La disciplina es una sola."', pie: 'La persona que no aguanta una repetición más tampoco aguanta esperar la confirmación. Cuerpo y gráfico se entrenan igual.' },
     { idea: 'El escritorio antes de la apertura.', grabar: 'Plano fijo del escritorio: café, pantalla apagada, cuaderno. Sin gráfico todavía.', pie: 'A las 7 se publica la apertura en el canal. Antes de eso, veinte minutos sin pantalla. La cabeza se prepara igual que el cuerpo.' },
-    { idea: 'Lo que estoy leyendo.', grabar: 'El libro en la mano, una página marcada. Cristian lee una frase en voz alta.', pie: 'Educación no es solo velas. Es lo que llena la cabeza entre una operación y otra.' },
+    { idea: 'Lo que estoy leyendo.', grabar: 'El libro en la mano, una página marcada. Christian lee una frase en voz alta.', pie: 'Educación no es solo velas. Es lo que llena la cabeza entre una operación y otra.' },
     { idea: 'Un día sin operar.', grabar: 'Calle, comida, familia o entreno. Sin gráfico en todo el reel.', pie: 'Hoy no había nada que cumpliera las condiciones. También se publica. También es el método.' },
   ],
   carrusel: [
@@ -558,14 +558,14 @@ const semanaIG = {
 
 /* La bio de @thegoldensyndicate. El enlace va a la landing, nunca al broker. */
 const bioClub = [
-  'El club de Cristian. Oro (XAUUSD) con el porqué de cada idea.',
+  'El club de Christian. Oro (XAUUSD) con el porqué de cada idea.',
   'dinero · propósito · cuerpo · mentalidad · educación',
   'La apertura a las 7:00, cada día de mercado.',
   '↓ Entra al canal gratis',
 ];
 
 /* ======================================================================
-   LA MIGRACIÓN · la cuenta personal de Cristian, solo al principio
+   LA MIGRACIÓN · la cuenta personal de Christian, solo al principio
    ------------------------------------------------------------------
    La cuenta personal no publica el método: publica, durante diez días, lo
    justo para llevar a sus seguidores a @thegoldensyndicate. Historias sobre
@@ -585,7 +585,7 @@ const migracion = {
       publicacion: {
         formato: 'Reel · cara a cámara, 30–45 s · se deja fijado',
         gancho: 'Abrí la cuenta del club. Todo lo que hago con el oro va a estar allá.',
-        grabar: 'Cristian en su escritorio o en el gym. Qué es The Golden Syndicate en una frase; qué se va a publicar allá: la apertura de las 7, el método con su porqué, la rutina; y que esta cuenta se queda para él. Termina señalando arriba: "@thegoldensyndicate, síguela".',
+        grabar: 'Christian en su escritorio o en el gym. Qué es The Golden Syndicate en una frase; qué se va a publicar allá: la apertura de las 7, el método con su porqué, la rutina; y que esta cuenta se queda para él. Termina señalando arriba: "@thegoldensyndicate, síguela".',
         pie: 'Abrí @thegoldensyndicate. Ahí va todo: la apertura de las 7 cada día de mercado, el método con su porqué, la rutina. Esta cuenta se queda para lo mío. Síguela allá.',
       },
       historias: [
@@ -627,7 +627,7 @@ const migracion = {
       publicacion: {
         formato: 'Foto o reel corto',
         gancho: 'Una semana del club. Si no la sigues, te estás perdiendo la apertura de las 7.',
-        grabar: 'Captura del feed del club con la primera semana publicada, o Cristian con el teléfono en la mano. Sin cifras de seguidores.',
+        grabar: 'Captura del feed del club con la primera semana publicada, o Christian con el teléfono en la mano. Sin cifras de seguidores.',
         pie: 'Una semana de @thegoldensyndicate: siete aperturas, un audio, un concepto, una historia de un miembro. Todo allá. Esta cuenta vuelve a ser la mía.',
       },
       historias: [
@@ -636,7 +636,7 @@ const migracion = {
       ],
     },
   ],
-  despues: 'Las cuatro semanas siguientes, una story al día en la personal reposteando lo del club, con mención. Después, la personal publica lo que Cristian quiera; el método vive en el club. Fijado en la personal queda el reel del anuncio.',
+  despues: 'Las cuatro semanas siguientes, una story al día en la personal reposteando lo del club, con mención. Después, la personal publica lo que Christian quiera; el método vive en el club. Fijado en la personal queda el reel del anuncio.',
 };
 
 /* ======================================================================
@@ -649,7 +649,7 @@ const semana = {
     nombre: 'lunes', tema: 'Arranque · la semana que empieza',
     telegram: [
       { hora: '07:00', titulo: 'La apertura', banco: 'apertura', fijo: true },
-      { hora: '12:00', titulo: 'El audio de Cristian', banco: 'audioLunes', tipo: 'audio' },
+      { hora: '12:00', titulo: 'El audio de Christian', banco: 'audioLunes', tipo: 'audio' },
     ],
   },
   2: {
@@ -700,7 +700,7 @@ const reglas = {
   si: [
     'Proceso, no resultado: qué se vio, qué se decidió, qué se aprendió.',
     'Las que salen mal se comentan igual que las otras.',
-    'Frases de Cristian ya publicadas, con fecha. Verificables.',
+    'Frases de Christian ya publicadas, con fecha. Verificables.',
     'Cuerpo y mentalidad como prueba de la tesis, no como relleno.',
     'La agenda económica: qué sale, a qué hora, por qué importa.',
     'El descargo de riesgo y la condición de partner, donde corresponda.',
@@ -712,7 +712,7 @@ const reglas = {
     'Carros, relojes, billetes, jets, playa como premio.',
     'Emojis de dinero, cohetes o fuego. Mayúsculas para gritar.',
     'Urgencia: "últimos cupos", "hoy se cierra", "aprovecha".',
-    '"Deberías entrar", "te conviene": eso es asesoría, y Cristian no es asesor.',
+    '"Deberías entrar", "te conviene": eso es asesoría, y Christian no es asesor.',
     'Predicciones: "va a subir", "va a romper". Se explica lo que pasó, no lo que pasará.',
     'Nombres o caras de terceros sin permiso. Saldos de cuenta ajenos.',
     'Una señal pelada, sin el porqué ni lo que la invalida.',

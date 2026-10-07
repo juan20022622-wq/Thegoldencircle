@@ -35,7 +35,7 @@ probar en un deploy de Netlify.
 ## Despliegue
 
 Netlify conectado al repo, con **base directory `web`**. Cada push a `main`
-publica; cada rama genera un *deploy preview* para que Cristian revise antes.
+publica; cada rama genera un *deploy preview* para que Christian revise antes.
 
 El formulario usa **Netlify Forms**: se detecta en el build por el atributo
 `data-netlify="true"` de `index.html`, y `main.js` lo envía por `fetch` para
@@ -46,7 +46,7 @@ en `localStorage` y se reintenta en la siguiente visita.
 cuanto arranque la pauta eso se queda corto. Cuando pase, hay dos salidas:
 subir al plan de formularios de Netlify, o cambiar `GS.endpoint` en
 `assets/js/config.js` por una función serverless que escriba en una hoja de
-Cristian. La segunda es una línea de configuración más la función; el
+Christian. La segunda es una línea de configuración más la función; el
 formulario no cambia.
 
 ## Qué hay que rellenar antes de publicar
@@ -57,7 +57,7 @@ Todo esto está marcado en el código y **bloquea el lanzamiento**:
 |---|---|---|
 | Enlace del canal de Telegram | `assets/js/config.js` → `telegram` | `[POR CONFIRMAR]` |
 | ID del píxel de Meta | `assets/js/config.js` → `pixelId` | puesto (1358077623073009) · verificar eventos con tráfico real |
-| Video de Cristian (60–90 s) | `index.html`, «La cara» | pendiente de grabar |
+| Video de Christian (60–90 s) | `index.html`, «La cara» | pendiente de grabar |
 
 | Años operando | `index.html`, «La cara» → `[X]` | `[POR CONFIRMAR]` |
 | Frecuencia real de publicación | consola, paso 01 | `[POR CONFIRMAR]` |

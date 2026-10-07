@@ -1,4 +1,4 @@
-# Brief de descubrimiento · sesión con Cristian
+# Brief de descubrimiento · sesión con Christian
 
 Una sola sesión de 60-90 minutos. El objetivo no es "conocerlo": es cerrar los
 huecos que hoy bloquean decisiones de pauta y de mensaje. Las respuestas se

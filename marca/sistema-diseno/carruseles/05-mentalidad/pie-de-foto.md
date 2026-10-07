@@ -8,7 +8,7 @@ La cuarta llave es la que más se nota cuando falta.
 
 Una pérdida no es un veredicto, es un dato: se revisa, se anota y la fila sigue en pie. La paciencia se entrena antes, con calma, no cuando el precio ya se fue.
 
-Como dice Cristian en el canal: «A veces la mejor operación también es saber esperar.»
+Como dice Christian en el canal: «A veces la mejor operación también es saber esperar.»
 
 La cabeza fría se nota en lo que no haces.
 

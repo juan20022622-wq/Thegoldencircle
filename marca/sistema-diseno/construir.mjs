@@ -57,7 +57,7 @@ pieza('01-frase', 'Publicaciones', 'Frase · negro', '', `
   <div class="centro">
     <p class="cita">Recuerden que no se trata de operar más… <em>se trata de operar mejor.</em></p>
     <div class="nivel nivel--corta"></div>
-    <p class="rotulo">Cristian · en el canal</p>
+    <p class="rotulo">Christian · en el canal</p>
   </div>
   ${riel('Mentalidad')}
 </div>`);
@@ -67,7 +67,7 @@ pieza('02-frase-hueso', 'Publicaciones', 'Frase · hueso', '', `
   <div class="centro">
     <p class="cita">Una operación que no tomas por falta de confirmación <em>nunca será una pérdida.</em></p>
     <div class="nivel nivel--corta"></div>
-    <p class="rotulo">Cristian · en el canal</p>
+    <p class="rotulo">Christian · en el canal</p>
   </div>
   ${riel('Mentalidad')}
 </div>`);
@@ -207,7 +207,7 @@ pieza('13-historia-frase', 'Vertical 9:16', 'Historia · frase', 'vertical', `
   <div class="centro">
     <p class="cita">A veces la mejor operación también es <em>saber esperar.</em></p>
     <div class="nivel nivel--corta"></div>
-    <p class="rotulo">Cristian · en el canal</p>
+    <p class="rotulo">Christian · en el canal</p>
   </div>
   ${riel('Mentalidad')}
 </div>`);

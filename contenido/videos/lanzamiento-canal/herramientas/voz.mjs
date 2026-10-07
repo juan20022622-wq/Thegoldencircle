@@ -3,7 +3,7 @@
    Es una voz sintética: Kokoro v1.0 con la voz española «em_alex» (licencia
    Apache-2.0), en local con sherpa-onnx. Otras: VOZ=santa, VOZ=dora, o la
    primera que se usó, VOZ=piper (Piper es_MX «claude», más robótica). Sirve para montar y aprobar el video; la versión que
-   se publique debería ir con la voz de Cristian. Para cambiarla basta con dejar
+   se publique debería ir con la voz de Christian. Para cambiarla basta con dejar
    sus tomas en public/voz/ con los mismos nombres: la banda sonora las coloca
    en los mismos segundos y ajusta la mezcla sola.
 
@@ -20,7 +20,7 @@ export const GUION = [
   { id: 'dificil', en: 2.75, techo: 0.95, texto: 'Lo difícil...' },
   { id: 'solo', en: 3.85, techo: 1.2, texto: 'es hacerlo solo.' },
   { id: 'puerta', en: 5.15, techo: 1.8, texto: 'Por eso abrimos el canal.' },
-  { id: 'cristian', en: 7.95, techo: 2.9, texto: 'Cristian opera su cuenta, y te muestra cada paso.' },
+  { id: 'cristian', en: 7.95, techo: 2.9, texto: 'Christian opera su cuenta, y te muestra cada paso.' },
   { id: 'porque', en: 10.95, techo: 2.8, texto: 'Dónde entra. Dónde corta. Y por qué.' },
   { id: 'nosolo', en: 13.85, techo: 1.1, texto: 'Y no es solo trading.' },
   ...['Dinero.', 'Propósito.', 'Cuerpo.', 'Mentalidad.', 'Educación.'].map((texto, j) => ({ id: 'llave' + j, en: encendido(j) + 0.02, techo: NEGRA - 0.05, maximo: 1.4, texto })),

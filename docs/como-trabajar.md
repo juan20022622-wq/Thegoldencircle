@@ -9,7 +9,7 @@ cd ~/iagination/cristian
 claude
 ```
 
-Al abrir, Claude lee `CLAUDE.md` solo y ya sabe quién es Cristian, qué se le
+Al abrir, Claude lee `CLAUDE.md` solo y ya sabe quién es Christian, qué se le
 vendió, qué no se puede escribir y qué skill usar en cada momento. No hay que
 explicarle nada.
 
@@ -34,7 +34,7 @@ aquí.
 
 Se crea una vez:
 
-1. Nuevo Project en claude.ai, nombre "Cristian · The Golden Syndicate"
+1. Nuevo Project en claude.ai, nombre "Christian · The Golden Syndicate"
 2. Pegar en instrucciones personalizadas el contenido de
    `project-claude/instrucciones-project.md`
 3. Correr `./project-claude/exportar-knowledge.sh` y subir los archivos que
@@ -45,7 +45,7 @@ re-suben. Es manual y son pocos archivos.
 
 ## El ciclo normal
 
-1. Pasa algo — Cristian responde una pregunta, sale un dato del broker, se
+1. Pasa algo — Christian responde una pregunta, sale un dato del broker, se
    decide el logo
 2. Se escribe en el archivo que corresponde (`docs/contexto-cliente.md` para
    datos del cliente, `marca/identidad.md` para decisiones de marca,
@@ -57,7 +57,7 @@ re-suben. Es manual y son pocos archivos.
 
 | Cosa | Archivo |
 |---|---|
-| Algo que dijo Cristian | `docs/contexto-cliente.md` |
+| Algo que dijo Christian | `docs/contexto-cliente.md` |
 | Una decisión de marca | `marca/identidad.md` |
 | Un cambio de plan | `estrategia/00-marco-estrategico.md` |
 | Un guion o un gancho | `contenido/` |
@@ -66,5 +66,5 @@ re-suben. Es manual y son pocos archivos.
 
 ## Lo que nunca entra a git
 
-Correos, teléfonos, cifras de la cuenta de Cristian, tokens. Todo eso vive en
+Correos, teléfonos, cifras de la cuenta de Christian, tokens. Todo eso vive en
 `data/` o en `.env`, ambos ignorados.

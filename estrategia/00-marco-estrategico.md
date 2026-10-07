@@ -12,7 +12,7 @@ entra aquí, sal allá. Se parecen todos y la gente rota entre ellos hasta que
 pierde el dinero o el interés.
 
 Golden Syndicate no compite ahí. Compite en **la vida alrededor del gráfico**:
-dinero, propósito, cuerpo, mentalidad, educación. Cristian no es un tipo que
+dinero, propósito, cuerpo, mentalidad, educación. Christian no es un tipo que
 manda niveles — es alguien cuya forma de vivir explica por qué opera como opera.
 La disciplina del entreno, la cabeza fría, el estudio constante: eso *es* el
 método, no el adorno del método.
@@ -20,7 +20,7 @@ método, no el adorno del método.
 Ese es el foso. Un canal de señales se copia en una semana. Una comunidad que
 crece en cinco frentes, no.
 
-**Frase de posicionamiento (v1, validar con Cristian):**
+**Frase de posicionamiento (v1, validar con Christian):**
 > No vendemos entradas. Construimos traders — y la gente que hay detrás.
 
 El león, el negro y el dorado sostienen esa idea si se ejecutan con sobriedad.
@@ -30,7 +30,7 @@ otra cosa que un león sobre un Lamborghini.
 
 ## 2. La decisión de marca que hay que tomar primero
 
-Hoy hay dos marcas: **Cristian** (persona, con comunidad real ya construida) y
+Hoy hay dos marcas: **Christian** (persona, con comunidad real ya construida) y
 **The Golden Syndicate** (comunidad, sin cuenta todavía). El plan declarado es
 crear la cuenta de Golden Syndicate y migrar ahí a la gente de la personal.
 
@@ -44,7 +44,7 @@ necesita.
 
 | Cuenta | Rol | Qué publica |
 |---|---|---|
-| **Cristian (personal)** | El motor de alcance. Sigue siendo la principal. | Método, mercado en vivo, disciplina y vida. Es la cara. |
+| **Christian (personal)** | El motor de alcance. Sigue siendo la principal. | Método, mercado en vivo, disciplina y vida. Es la cara. |
 | **@thegoldensyndicate** | La casa de la comunidad. Crece por arrastre. | Lo que pasa dentro: miembros, cultura, resultados de la comunidad, el canal. |
 
 La landing y el canal se llaman Golden Syndicate desde el día uno — la marca de
@@ -85,7 +85,7 @@ realidad hay tres, con horizontes muy distintos:
 | **Fee IAGINATION** | Mensual | — | Acordado |
 
 **Consecuencia estratégica:** los cursos deben entrar al embudo. Son el ingreso
-puente mientras el volumen del broker madura, y son lo único que Cristian
+puente mientras el volumen del broker madura, y son lo único que Christian
 controla del todo. El canal gratis alimenta a los dos: la mayoría se queda
 gratis y opera con el enlace; una minoría paga por acompañamiento.
 
@@ -103,12 +103,12 @@ El plan declarado es acumular gente y **después** preguntarle a Exness cuánto
 paga. Eso invierte el orden y es el riesgo más caro del proyecto: significa
 gastar meses de pauta sin saber si el modelo cierra.
 
-Lo que ya se sabe (agosto 2026, verificar en el panel de Cristian):
+Lo que ya se sabe (agosto 2026, verificar en el panel de Christian):
 
 - El programa de Introducing Broker de Exness paga **hasta 40% del revenue**
   generado por los referidos, con pagos diarios o instantáneos.
 - El % real depende de condiciones que no son públicas.
-- Cristian **ya tiene enlace de partner activo**.
+- Christian **ya tiene enlace de partner activo**.
 
 **Acción inmediata, antes de gastar en pauta:** entrar al panel de partner y
 sacar tres números — cuánto ha generado hasta hoy, cuántos referidos activos
@@ -149,10 +149,10 @@ Todo lo que se graba entra en uno. Si no entra, no se graba.
 4. **La comunidad** (15%) — qué pasa dentro del canal, miembros, cultura,
    propósito. Es lo que empuja el registro.
 
-**Cadencia base:** 5 piezas/semana en el IG de Cristian, 3 nacidas de las
+**Cadencia base:** 5 piezas/semana en el IG de Christian, 3 nacidas de las
 grabaciones con equipo y 2 grabadas con celular. La cuenta de Golden Syndicate
 publica 3/semana, alimentada del mismo banco. Stories diarias sin producción.
-`[POR CONFIRMAR]` según disponibilidad real de Cristian.
+`[POR CONFIRMAR]` según disponibilidad real de Christian.
 
 **Regla del banco de ganchos** (en `contenido/`): el gancho promete un
 aprendizaje o una idea, nunca un retorno. "Por qué esta entrada era una trampa"
@@ -194,7 +194,7 @@ Seis principios, en orden de importancia:
 
 1. **Una sola acción.** Entrar al canal. Nada compite.
 2. **La promesa arriba y concreta.** Qué recibe, con qué frecuencia, gratis.
-3. **Video de Cristian presentando el Syndicate.** El elemento de confianza más
+3. **Video de Christian presentando el Syndicate.** El elemento de confianza más
    barato que existe para una marca personal. Sin él la página es de cualquiera.
 4. **La promesa de los cinco frentes visible.** Es lo que hace que esta página no
    sea otra página de señales. Dinero, propósito, cuerpo, mentalidad, educación.
@@ -210,12 +210,12 @@ Estética: negro y dorado, león. Sobriedad, no ostentación.
   sea "hoy no hay setup". La previsibilidad crea el hábito.
 - **Contexto con cada señal.** Nunca el nivel solo: por qué, qué invalida la
   idea, qué se hace si falla. Eso convierte una señal en educación — y es lo que
-  justifica que Cristian opere lo mismo que publica.
+  justifica que Christian opere lo mismo que publica.
 - **Los cinco frentes también dentro.** Si el canal es solo señales y frases
   motivacionales, la promesa de la landing no se cumple y la gente se va.
   `[POR CONFIRMAR]` cómo se estructura la semana dentro del canal.
 - **Bienvenida en secuencia.** Los primeros 7 días definen si se queda:
-  bienvenida, cómo se usa el canal, quién es Cristian, y recién ahí el broker.
+  bienvenida, cómo se usa el canal, quién es Christian, y recién ahí el broker.
 - **El broker no se empuja el día uno.** Se presenta cuando el miembro ya vio
   valor. Empujarlo temprano quema la lista.
 
@@ -236,16 +236,16 @@ Texto base de descargo, en landing, bio y canal:
 > constituye asesoría de inversión. Los resultados pasados no garantizan
 > resultados futuros. Opera solo con capital que puedas permitirte perder.
 
-**"Cristian ya es rentable" no se usa como argumento público.** Es verdad y es
+**"Christian ya es rentable" no se usa como argumento público.** Es verdad y es
 valioso, pero dicho de frente es exactamente lo que Meta castiga y Exness
 prohíbe. Se comunica como método y consistencia, no como resultado.
 
-**Transparencia sobre la comisión.** Que Cristian gane cuando alguien opera en
+**Transparencia sobre la comisión.** Que Christian gane cuando alguien opera en
 Exness debe estar declarado ante la comunidad. Ocultarlo destruye una marca de
 confianza de un día para otro; declararlo cuesta una línea — y Exness lo exige.
 
 Esto es criterio de marketing y de riesgo reputacional, no asesoría legal. Para
-la exposición regulatoria real de Cristian frente a la normativa colombiana
+la exposición regulatoria real de Christian frente a la normativa colombiana
 sobre promoción de servicios financieros, que lo revise un abogado.
 
 ## 12. Los primeros 90 días
@@ -271,5 +271,5 @@ estratégico real.
 | Perder alcance al migrar | Apagar el IG personal por la cuenta nueva | Arquitectura de dos cuentas (sección 2) |
 | Ingreso cero durante meses | Depender solo de comisiones diferidas | Meter los cursos al embudo |
 | Dependencia de un solo broker | Cambio de condiciones o cierre del programa | La base de datos propia es el activo que sobrevive |
-| Cristian no sostiene el ritmo | Producción que depende solo de 2 sesiones/mes | Dirección para contenido de celular, banco de ganchos lleno |
+| Christian no sostiene el ritmo | Producción que depende solo de 2 sesiones/mes | Dirección para contenido de celular, banco de ganchos lleno |
 | Estética que traiciona la tesis | Dorado + lujo = uniforme del gurú | Sobriedad; el lujo es la disciplina, no el objeto |

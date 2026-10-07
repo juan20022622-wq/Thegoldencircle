@@ -39,7 +39,7 @@ const P = {
     { t: 'Calma, <em>cuando todo se mueve.</em>', c: 'La cuarta llave es la que más se nota cuando falta.', estrecho: true },
     { t: 'Una pérdida no es un veredicto. <em>Es un dato.</em>', c: 'Se revisa, se anota y la fila sigue en pie.' },
     { t: 'La paciencia <em>se entrena antes.</em>', c: 'Cuando el precio se va, llega la prisa. Lo que la contiene se decidió con calma, mucho antes.' },
-    { t: '«A veces la mejor operación también es <em>saber esperar.</em>»', c: 'Un día sin operar también es método.', cita: 'Cristian · en el canal' },
+    { t: '«A veces la mejor operación también es <em>saber esperar.</em>»', c: 'Un día sin operar también es método.', cita: 'Christian · en el canal' },
     { t: 'La cabeza fría se nota <em>en lo que no haces.</em>', c: 'No perseguir el precio. No desquitarse con el mercado. No doblar para recuperar.' } ] },
   educacion: { n: '05', nombre: 'educación', ordinal: 'la quinta', carpeta: '06-educacion', laminas: [
     { t: 'Entender <em>el porqué.</em>', c: 'La quinta llave es la que vuelve tuyas las otras cuatro.' },

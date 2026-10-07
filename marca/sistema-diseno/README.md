@@ -180,7 +180,7 @@ resultado. Toda pieza con gráfico dice que es una ilustración del método.
 
 | Archivo | Para qué | Día del plan |
 |---|---|---|
-| `01-frase` · `02-frase-hueso` | Frase de Cristian ya publicada en el canal, verbatim | Viernes |
+| `01-frase` · `02-frase-hueso` | Frase de Christian ya publicada en el canal, verbatim | Viernes |
 | `03` `04` `05` carrusel | Portada, interior y cierre con entrada y descargo | Miércoles |
 | `06-mensaje-del-canal` | Cómo se ve un mensaje, con sello «Ejemplo» y niveles tapados | Viernes |
 | `07-agenda` | Qué dato sale hoy y a qué hora | Jueves y domingo |
@@ -204,7 +204,7 @@ cuenta publicitaria de Meta y la cuenta de partner del broker.
 
 - Proceso, no resultado: qué se vio, qué se decidió, qué se aprendió.
 - Las que salen mal se cuentan igual que las otras.
-- Frases de Cristian ya publicadas, **verbatim**. No se le inventan citas.
+- Frases de Christian ya publicadas, **verbatim**. No se le inventan citas.
 - Cuerpo y mentalidad como prueba de la tesis, no como relleno.
 - La agenda económica: qué sale, a qué hora, por qué importa.
 - Historias de miembros: la decisión, con permiso, sin la cifra.
@@ -216,7 +216,7 @@ cuenta publicitaria de Meta y la cuenta de partner del broker.
 - Cifras de ganancia, porcentajes, pips como gancho, capturas de P&L.
 - «Vive del trading», «ingreso pasivo», «libertad financiera», «duplica».
 - Urgencia: «últimos cupos», «hoy se cierra».
-- «Deberías entrar», «te conviene»: Cristian es educador, no asesor.
+- «Deberías entrar», «te conviene»: Christian es educador, no asesor.
 - Predicciones. Se explica lo que pasó, no lo que pasará.
 - Presumir la situación de quien lee: «¿cansado de perder dinero?».
 - Emojis de dinero, cohetes o fuego. Mayúsculas para gritar. Exclamaciones.
@@ -231,7 +231,7 @@ Descargo completo:
 > resultados futuros. Opera solo con capital que puedas permitirte perder.
 
 **Voz:** frases cortas, verbos concretos, se explica el porqué. Habla el club;
-la primera persona es solo para las citas de Cristian. Las cinco llaves se
+la primera persona es solo para las citas de Christian. Las cinco llaves se
 escriben siempre en este orden y en minúscula: dinero · propósito · cuerpo ·
 mentalidad · educación. El nombre es «The Golden Syndicate», nunca «TGS».
 
@@ -249,8 +249,8 @@ Para pegar en Claude Design con el sistema ya cargado.
 
 **Frase**
 > Pieza de frase a 1080 × 1350 sobre [negro | hueso] con esta cita verbatim de
-> Cristian: «[cita]». Una sola parte en oro. Línea corta y atribución
-> «Cristian · en el canal» en mono. Riel con el dato «Mentalidad».
+> Christian: «[cita]». Una sola parte en oro. Línea corta y atribución
+> «Christian · en el canal» en mono. Riel con el dato «Mentalidad».
 
 **Agenda**
 > Pieza de agenda sobre azul noche con estos datos reales de hoy, hora de

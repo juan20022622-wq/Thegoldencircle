@@ -11,12 +11,12 @@ salen el sistema diario y la página de estrategia. No hay dos versiones de nada
 ## Decisiones
 
 **Las cuentas que publican son las del club: @thegoldensyndicate y el canal.**
-Se manejan como marca personal del fundador —Cristian es la cara y habla en
+Se manejan como marca personal del fundador —Christian es la cara y habla en
 primera persona— pero la casa es The Golden Syndicate. Decisión del cliente
 (2026-09-06), distinta a la recomendación del marco (sección 2), que proponía la
 personal como motor.
 
-**La cuenta personal de Cristian solo hace la migración.** Diez días de historias
+**La cuenta personal de Christian solo hace la migración.** Diez días de historias
 con mención al club y tres publicaciones (anuncio, porqué, cierre), y una story
 al día durante un mes. Después vuelve a ser suya. La secuencia completa está en
 `calendario.mjs` → `migracion` y en el sistema.
@@ -30,7 +30,7 @@ que Meta penaliza en categoría financiera.
 Instagram → landing → Telegram Free → canal de análisis (cuenta Exness por el
 enlace del club; al club no se paga) → Premium (US$330/mes o US$2.000/año, en dólares primero; 1.000.000 o 6.000.000 COP:
 más set-ups, más educación, más información; en la landing desde 2026-09-08) →
-clases privadas con Cristian (fee, `[POR CONFIRMAR]`).
+clases privadas con Christian (fee, `[POR CONFIRMAR]`).
 
 **El grupo Free promete que nadie te vende nada, y se cumple con calendario.**
 La invitación al canal de análisis sale una vez a la semana, en el cierre del
@@ -53,7 +53,7 @@ Meta revisa el contenido de la plataforma. No hay destacada de "Resultados".
 
 | Día | Telegram | Instagram (@thegoldensyndicate) |
 |---|---|---|
-| Lunes | Apertura 7:00 · Audio de Cristian 12:00 | Reel · método |
+| Lunes | Apertura 7:00 · Audio de Christian 12:00 | Reel · método |
 | Martes | Apertura · Historia de un miembro 18:00 | Foto o reel · vida |
 | Miércoles | Apertura · Educación (un concepto) 18:00 | Carrusel · educación |
 | Jueves | Apertura · Mercado (qué pasó y por qué) 18:00 | Reel · mercado en vivo |
@@ -89,8 +89,8 @@ Lo que no hace, a propósito: no inventa datos de mercado y no publica solo.
 ## Lo que sigue abierto
 
 - Premium: qué incluye exactamente y si hay cupo (el precio ya está)
-- Clases privadas: formato, duración, precio, cuántas al mes puede dar Cristian
+- Clases privadas: formato, duración, precio, cuántas al mes puede dar Christian
 - Píxel de Meta
 - Términos del programa de Exness sobre condicionar acceso a un depósito
-- Validar con Cristian la bio, la frase de posicionamiento y las seis destacadas
+- Validar con Christian la bio, la frase de posicionamiento y las seis destacadas
 - El bot (fase 2)

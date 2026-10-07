@@ -1,5 +1,5 @@
 /* La tipografía de los seis actos. El copy pasó por revision-copy-trading
-   (2026-09-28): sin promesas, sin cifras, sin instrumento ni broker, Cristian
+   (2026-09-28): sin promesas, sin cifras, sin instrumento ni broker, Christian
    como alguien que opera su cuenta y lo enseña, no como asesor. */
 import { staticFile } from 'remotion';
 import { LEON } from './leon';
@@ -107,7 +107,7 @@ const Tarjeta: React.FC = () => {
           <img src={staticFile('simbolo.svg')} style={{ width: 44, height: 60, filter: 'invert(71%) sepia(40%) saturate(600%) hue-rotate(2deg) brightness(92%)' }} />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 30, fontWeight: 600, letterSpacing: '-0.01em' }}>The Golden Syndicate</div>
-            <div style={{ fontFamily: MONO, fontSize: 22, color: C.gris, letterSpacing: '0.04em' }}>canal · Cristian</div>
+            <div style={{ fontFamily: MONO, fontSize: 22, color: C.gris, letterSpacing: '0.04em' }}>canal · Christian</div>
           </div>
           <div style={{ fontFamily: MONO, fontSize: 22, color: C.gris }}>07:42</div>
         </div>
@@ -133,7 +133,7 @@ const Tarjeta: React.FC = () => {
 const Porque: React.FC = () => (
   <>
     <div style={bloque(300)}>
-      <Palabras texto="Cristian opera su cuenta" desde={ACTOS.porque + 0.35} hasta={10.9} tam={76} />
+      <Palabras texto="Christian opera su cuenta" desde={ACTOS.porque + 0.35} hasta={10.9} tam={76} />
       <Palabras texto="y te muestra cada paso." desde={ACTOS.porque + 0.35 + NEGRA} hasta={10.95} tam={76} color={C.gris} />
     </div>
     <div style={bloque(300)}>

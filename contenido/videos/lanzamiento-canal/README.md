@@ -13,7 +13,7 @@ El porqué de cada decisión está en `BRIEF.md`.
   desenfoque de movimiento ópticos (`src/mundo/Lienzo3D.tsx`).
 - **Tipografía** en HTML encima (`src/texto/`): Manrope e IBM Plex Mono.
 - **Locución** guía con voz neuronal local, Kokoro «em_alex» (`herramientas/voz.mjs` →
-  `public/voz/`). Para publicar, sustituir por la voz de Cristian con los
+  `public/voz/`). Para publicar, sustituir por la voz de Christian con los
   mismos nombres de archivo.
 - **Banda sonora** sintetizada desde cero, sin muestras de terceros, con la
   voz mezclada encima (`herramientas/banda-sonora.mjs` → `public/banda-sonora.wav`).
@@ -39,5 +39,5 @@ Borrador rápido: `--props='{"muestras":4,"escala":0.5}'` (30 fps, ~1 min).
 
 El texto en pantalla pasó por `revision-copy-trading`: sin promesas ni cifras,
 sin nombrar el broker ni el instrumento (el oro en Exness es un CFD y Meta no
-deja anunciarlo), Cristian como alguien que opera su cuenta y la enseña, y
+deja anunciarlo), Christian como alguien que opera su cuenta y la enseña, y
 descargo fijo de principio a fin, completo en el cierre.

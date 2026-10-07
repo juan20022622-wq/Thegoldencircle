@@ -60,32 +60,32 @@ const portada = `
   <svg class="portada__simbolo" viewBox="391 475 250 393" fill="none" stroke="#D2A64B" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">${simbolo}</svg>
   <p class="rotulo">The Golden Syndicate · Instagram y Telegram del club</p>
   <h1>Estrategia digital<br>en redes y canal</h1>
-  <p class="portada__sub">Las cuentas del club, con Cristian como cara. La migración de su cuenta personal, la escalera que va del contenido a la clase privada, y el sistema diario que lo publica.</p>
-  <p class="portada__pie">IAGINATION · ${e(fecha)} · versión 1, para validar con Cristian</p>
+  <p class="portada__sub">Las cuentas del club, con Christian como cara. La migración de su cuenta personal, la escalera que va del contenido a la clase privada, y el sistema diario que lo publica.</p>
+  <p class="portada__pie">IAGINATION · ${e(fecha)} · versión 1, para validar con Christian</p>
 </section>`;
 
 const idea = `
 <section class="seccion" id="idea">
   <p class="rotulo">01 · La idea en una página</p>
   <h2>No vendemos entradas. Construimos traders, y la gente que hay detrás.</h2>
-  <p class="lead">El mercado de señales está saturado de canales que venden un número. Golden Syndicate compite en <strong>la vida alrededor del gráfico</strong>: dinero, propósito, cuerpo, mentalidad, educación. Cristian no es un tipo que manda niveles; es alguien cuya forma de vivir explica por qué opera como opera. Eso es lo que se publica.</p>
+  <p class="lead">El mercado de señales está saturado de canales que venden un número. Golden Syndicate compite en <strong>la vida alrededor del gráfico</strong>: dinero, propósito, cuerpo, mentalidad, educación. Christian no es un tipo que manda niveles; es alguien cuya forma de vivir explica por qué opera como opera. Eso es lo que se publica.</p>
 
   <h3>La escalera</h3>
   <ol class="escalera">
-    <li><b>@thegoldensyndicate</b><span>La cuenta que publica. Cristian es la cara y habla en primera persona; la casa es el club. Estilo de vida como las cinco llaves vividas, frases suyas, educación.</span></li>
+    <li><b>@thegoldensyndicate</b><span>La cuenta que publica. Christian es la cara y habla en primera persona; la casa es el club. Estilo de vida como las cinco llaves vividas, frases suyas, educación.</span></li>
     <li><b>Landing</b><span>thegoldensyndicate.com. Una sola acción: registrarse gratis y entrar al canal.</span></li>
     <li><b>Telegram Free</b><span>La puerta de entrada. Ritual diario, educación, historias. Aquí se construye la confianza.</span></li>
     <li><b>Canal de análisis</b><span>Los niveles con su porqué. Se entra con cuenta en Exness por el enlace del club; al club no se le paga.</span></li>
     <li><b>El Premium</b><span>El grupo de pago: más set-ups, más educación, mucha más información. 1.000.000 COP al mes o 6.000.000 al año. Está en la landing con el precio de frente.</span></li>
-    <li><b>Clases privadas</b><span>Uno a uno con Cristian, con fee. Para quien ya opera y sabe qué le falla. <em>[POR CONFIRMAR: formato, duración, precio, cupos]</em></span></li>
+    <li><b>Clases privadas</b><span>Uno a uno con Christian, con fee. Para quien ya opera y sabe qué le falla. <em>[POR CONFIRMAR: formato, duración, precio, cupos]</em></span></li>
   </ol>
 
   <h3>Dos cuentas, dos roles</h3>
   <table>
-    <tr><th>@thegoldensyndicate</th><td>La cuenta que publica, todos los días. Es la marca personal del fundador dentro de la casa del club: Cristian es la cara, habla en primera persona, y lo que muestra es su método y su rutina. Cinco piezas a la semana e historias diarias.</td></tr>
-    <tr><th>Cristian (personal)</th><td>Solo al principio: la migración. Diez días de historias y tres publicaciones para llevar a sus seguidores a la cuenta del club, y una story al día durante un mes. Después vuelve a ser suya.</td></tr>
+    <tr><th>@thegoldensyndicate</th><td>La cuenta que publica, todos los días. Es la marca personal del fundador dentro de la casa del club: Christian es la cara, habla en primera persona, y lo que muestra es su método y su rutina. Cinco piezas a la semana e historias diarias.</td></tr>
+    <tr><th>Christian (personal)</th><td>Solo al principio: la migración. Diez días de historias y tres publicaciones para llevar a sus seguidores a la cuenta del club, y una story al día durante un mes. Después vuelve a ser suya.</td></tr>
   </table>
-  <p class="nota">La gente sigue personas, no logos, y una cuenta nueva arranca sin historial. Por eso la migración no es un anuncio: es una campaña de diez días con seguimiento de un mes, y por eso Cristian es la cara de la cuenta nueva desde el primer reel.</p>
+  <p class="nota">La gente sigue personas, no logos, y una cuenta nueva arranca sin historial. Por eso la migración no es un anuncio: es una campaña de diez días con seguimiento de un mes, y por eso Christian es la cara de la cuenta nueva desde el primer reel.</p>
 </section>`;
 
 const reglas = `
@@ -100,7 +100,7 @@ const reglas = `
   <h3>Dos textos que van siempre</h3>
   <blockquote class="cita">${e(C.descargo)}</blockquote>
   <blockquote class="cita">${e(C.partner)}</blockquote>
-  <p class="nota">El descargo va en la landing, en la bio (destacada «Empieza aquí») y fijado en el canal. La declaración de partner, cada vez que se mencione el broker. «Cristian ya es rentable» no se usa como argumento público: se comunica como método y constancia, nunca como resultado.</p>
+  <p class="nota">El descargo va en la landing, en la bio (destacada «Empieza aquí») y fijado en el canal. La declaración de partner, cada vez que se mencione el broker. «Christian ya es rentable» no se usa como argumento público: se comunica como método y constancia, nunca como resultado.</p>
 </section>`;
 
 const instagram1 = `
@@ -185,9 +185,9 @@ const instagram4 = `
 
 const migracionHTML = `
 <section class="seccion" id="migracion">
-  <p class="rotulo">07 · La migración · la cuenta personal de Cristian</p>
-  <h2>La cuenta de Cristian no publica el método. Publica, diez días, lo justo para llevar a su gente al club.</h2>
-  <p class="lead">Historias sobre todo, con el sticker de mención a @thegoldensyndicate, y tres publicaciones: el anuncio, el porqué y el cierre. La gente sigue personas, así que Cristian es la cara de la cuenta nueva desde el primer reel; lo que se mueve es dónde se publica, no quién habla.</p>
+  <p class="rotulo">07 · La migración · la cuenta personal de Christian</p>
+  <h2>La cuenta de Christian no publica el método. Publica, diez días, lo justo para llevar a su gente al club.</h2>
+  <p class="lead">Historias sobre todo, con el sticker de mención a @thegoldensyndicate, y tres publicaciones: el anuncio, el porqué y el cierre. La gente sigue personas, así que Christian es la cara de la cuenta nueva desde el primer reel; lo que se mueve es dónde se publica, no quién habla.</p>
 
   <h3>La bio, desde el día 0</h3>
   <blockquote class="cita bio">${e(C.migracion.bio)}</blockquote>
@@ -215,7 +215,7 @@ const telegram1 = `
   <h3>Qué es cada cosa</h3>
   <ul class="lista">
     <li><b>La apertura (L–V, 7:00).</b> Agenda del día, qué mira, qué no hace, la regla del día. En el grupo Free no van niveles: van al canal de análisis. Es lo que hace que el grupo abierto tenga valor sin regalar el producto.</li>
-    <li><b>El audio del lunes.</b> Voz de Cristian, 2 a 4 minutos, celular, sin editar. Es lo que más acerca. Empieza siempre señalando a los nuevos el mensaje fijado.</li>
+    <li><b>El audio del lunes.</b> Voz de Christian, 2 a 4 minutos, celular, sin editar. Es lo que más acerca. Empieza siempre señalando a los nuevos el mensaje fijado.</li>
     <li><b>Historia de un miembro (martes).</b> La decisión, con permiso, sin la cifra. El modelo es el mensaje del lotaje: alguien que ganó y aun así se corrigió.</li>
     <li><b>Educación (miércoles).</b> Un concepto, explicado como lo explicaría él. Termina con una pregunta que se pueda responder: es lo que activa el grupo.</li>
     <li><b>Mercado (jueves).</b> Qué pasó y por qué importa. Nunca «va a subir». Se explica lo que pasó, no lo que pasará.</li>
@@ -230,7 +230,7 @@ const ejemplo = (titulo, hora, texto) => `<div class="burbuja"><span class="burb
 const telegram2 = `
 <section class="seccion" id="suenan">
   <p class="rotulo">09 · Telegram · así suenan</p>
-  <h2>Uno de cada. Lo que va <mark>[entre corchetes]</mark> lo escribe Cristian esa mañana: es dato de mercado y no se inventa.</h2>
+  <h2>Uno de cada. Lo que va <mark>[entre corchetes]</mark> lo escribe Christian esa mañana: es dato de mercado y no se inventa.</h2>
   <div class="burbujas">
     ${ejemplo('La apertura', '7:00', C.bancos.apertura[0].replace('{{frase}}', C.frases[0]))}
     ${ejemplo('Historia de un miembro', 'martes 18:00', C.bancos.historiaMiembro[0])}
@@ -287,11 +287,11 @@ const sistema = `
     <li><b>Sabe qué viernes es.</b> El mensaje mensual solo aparece el primer viernes del mes, y rota entre transparencia, formación y clases privadas.</li>
     <li><b>La semana entera a la vista.</b> Y las reglas de qué sí y qué no, todos los días, antes de publicar.</li>
     <li><b>La bienvenida, lista para fijar.</b> Los siete mensajes, con botón de copiar.</li>
-    <li><b>La migración, día por día.</b> Lo que publica la cuenta personal de Cristian los primeros diez días.</li>
+    <li><b>La migración, día por día.</b> Lo que publica la cuenta personal de Christian los primeros diez días.</li>
     <li><b>Editable.</b> Todo sale de un solo archivo, <code>calendario.mjs</code>. Cambiar un mensaje ahí cambia el sistema y esta página.</li>
   </ul>
   <h3>Lo que el sistema no hace, a propósito</h3>
-  <p class="nota">No inventa datos de mercado. Lo que va entre corchetes lo escribe Cristian esa mañana, porque es lo único que no puede saberse antes. Y no publica solo: en categoría financiera, un mensaje que nadie leyó antes de salir es un riesgo que no compensa el minuto que ahorra.</p>
+  <p class="nota">No inventa datos de mercado. Lo que va entre corchetes lo escribe Christian esa mañana, porque es lo único que no puede saberse antes. Y no publica solo: en categoría financiera, un mensaje que nadie leyó antes de salir es un riesgo que no compensa el minuto que ahorra.</p>
 </section>`;
 
 const medicion = `
@@ -303,7 +303,7 @@ const medicion = `
     <tr><th>Landing</th><td>Conversión a registro. Ya mide con UTM: se sabe de qué contenido vino cada uno.</td></tr>
     <tr><th>Telegram Free</th><td>% de registrados que entran. Retención a 7 y 30 días. Vistas de la apertura sobre miembros.</td></tr>
     <tr><th>Canal de análisis</th><td>% de miembros del Free que abren cuenta y pasan. % que sigue operando al mes.</td></tr>
-    <tr><th>Premium y privadas</th><td>% que pregunta por privado tras el mensaje mensual. % que compra. <em>[POR CONFIRMAR: capacidad de Cristian]</em></td></tr>
+    <tr><th>Premium y privadas</th><td>% que pregunta por privado tras el mensaje mensual. % que compra. <em>[POR CONFIRMAR: capacidad de Christian]</em></td></tr>
   </table>
   <h3>Revisión semanal, quince minutos</h3>
   <ul class="lista">
@@ -315,7 +315,7 @@ const medicion = `
   <h3>Lo que sigue abierto</h3>
   <ul class="lista">
     <li><b>Premium:</b> el precio ya está (1.000.000/mes · 6.000.000/año). Falta el detalle de qué incluye exactamente, y si hay cupo.</li>
-    <li><b>Clases privadas:</b> formato, duración, precio, cuántas al mes puede dar Cristian.</li>
+    <li><b>Clases privadas:</b> formato, duración, precio, cuántas al mes puede dar Christian.</li>
     <li><b>El píxel de Meta:</b> sin él no hay medición de la landing desde pauta.</li>
     <li><b>Términos del programa de Exness</b> sobre condicionar el acceso a un depósito: leerlos antes de seguir con ese paso.</li>
     <li><b>El bot de Telegram</b>, fase 2, cuando el ritmo semanal lleve un mes rodando.</li>

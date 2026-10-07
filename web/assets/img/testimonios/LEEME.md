@@ -1,6 +1,6 @@
 # Capturas de testimonios
 
-Las quince capturas que mandó Cristian, en WebP y **todas a 600x800 (3:4)**. Van en un mazo
+Las quince capturas que mandó Christian, en WebP y **todas a 600x800 (3:4)**. Van en un mazo
 deslizable y una proporción distinta rompe la fila.
 
 **Las capturas van con su marco, no recortadas al panel.** Fondo de Telegram a

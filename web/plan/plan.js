@@ -4,7 +4,7 @@
    escritos, el post de Instagram, las historias, la semana entera y las reglas.
 
    Nada se inventa aquí. Lo que el JSON deja entre {{llaves}} es dato de mercado
-   y se marca en pantalla para que Cristian lo rellene esa mañana. Lo único que
+   y se marca en pantalla para que Christian lo rellene esa mañana. Lo único que
    se rellena solo es {{frase}}: la regla del día, que sale de las suyas.
 
    "Copiar y abrir el canal": copia el texto y abre Telegram en el canal. Un
@@ -242,7 +242,7 @@
     $('[data-no]').innerHTML = datos.reglas.no.map(function (r) { return '<li>' + escapar(r) + '</li>'; }).join('');
     $('[data-descargo]').textContent = datos.descargo + ' ' + datos.partner;
 
-    /* la migración: la cuenta personal de Cristian, los primeros diez días */
+    /* la migración: la cuenta personal de Christian, los primeros diez días */
     var mg = $('[data-migracion]');
     if (mg) {
       var html = '<p class="bloque__nota"><strong>Bio de la personal desde el día 0:</strong> ' + escapar(datos.migracion.bio) + '</p>';

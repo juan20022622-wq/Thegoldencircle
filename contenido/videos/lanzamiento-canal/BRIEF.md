@@ -11,7 +11,7 @@ a la siguiente. La v3 es la que se produce.
 
 > Video motion graphics de 25 s para anunciar el canal de Telegram de The Golden
 > Syndicate. Fondo negro, oro, león. Texto animado: «Nuevo canal», «Señales
-> diarias», «Aprende con Cristian», «Únete gratis». Transiciones rápidas, música
+> diarias», «Aprende con Christian», «Únete gratis». Transiciones rápidas, música
 > épica, partículas doradas, logo al final.
 
 **Crítica.** Es la plantilla que usa todo el nicho. «Señales diarias» vende el
@@ -62,7 +62,7 @@ cuando se enciende el oro.
 |---|---|---|---|---|
 | 1 · Adivinar | 0,0–3,75 | Esfera de oro quieta entre varas de grafito torcidas, niebla, un foco. La cámara baja despacio | «Aprender trading solo» / «es adivinar.» | Palabra a palabra desde abajo con máscara; «adivinar» tiembla un instante y se desenfoca |
 | 2 · La puerta | 3,75–7,5 | El hilo nace de la esfera, las varas se alinean (ordenar), dos monolitos se abren y sale luz. La cámara empuja hacia el hueco | «Por eso abrimos» / «el canal.» | Línea que se barre de izquierda a derecha; «el canal» en oro |
-| 3 · El porqué | 7,5–13,75 | Tras la luz, el hilo corre horizontal sobre losas. Una tarjeta del canal flota en 3D con los niveles tapados | «Cristian opera su cuenta» / «y te muestra cada paso:» / «dónde entra, dónde se sale si sale mal, y por qué.» | La tarjeta se escribe línea a línea como un mensaje que llega |
+| 3 · El porqué | 7,5–13,75 | Tras la luz, el hilo corre horizontal sobre losas. Una tarjeta del canal flota en 3D con los niveles tapados | «Christian opera su cuenta» / «y te muestra cada paso:» / «dónde entra, dónde se sale si sale mal, y por qué.» | La tarjeta se escribe línea a línea como un mensaje que llega |
 | 4 · Cinco llaves | 13,75–19,375 | Travelling lateral por cinco losas; el hilo las atraviesa y cada una se enciende en oro al pasar | «Y no es solo trading.» / dinero · propósito · cuerpo · mentalidad · educación | Cada palabra aparece con su losa, en negras |
 | 5 · La casa | 19,375–23,125 | La cámara sube; las losas quedan abajo desenfocadas. El león se dibuja con un solo trazo de oro | «The Golden Syndicate» | Trazo del símbolo y nombre que se abre en interletrado |
 | 6 · Entrar | 23,125–27,0 | La esfera rueda hacia la luz. Fundido a negro al final | «Entrar es gratis.» / «Empiezas desde cero.» / thegoldensyndicate.com | Aparición limpia, el dominio en mono |
@@ -142,7 +142,7 @@ que verlo dé satisfacción. 28 s.
 es_MX «claude» (Apache-2.0, en local con sherpa-onnx). Cada frase cae en su
 segundo y las cinco llaves se dicen justo cuando se enciende su losa. La
 música se aparta sola cuando habla la voz. **Es una voz de maqueta:** la que
-se publique debería ser la de Cristian. Basta con grabar las mismas frases
+se publique debería ser la de Christian. Basta con grabar las mismas frases
 (`herramientas/voz.mjs`, lista `GUION`), dejarlas en `public/voz/` con los
 mismos nombres y regenerar la banda sonora.
 
@@ -169,7 +169,7 @@ aberración cromática hacia los bordes, y el grano y la viñeta de antes.
 
 **La voz.** Piper sonaba robótica. Se cambió a Kokoro v1.0 (Apache-2.0), un
 modelo más reciente y con mejor entonación, voz española «em_alex». Sigue
-siendo sintética: para publicar lo ideal es la voz de Cristian. Hay tres
+siendo sintética: para publicar lo ideal es la voz de Christian. Hay tres
 muestras en `salida/muestras-voz/` (alex, santa, dora) para elegir.
 En la voz, «Dónde entra. Dónde corta si sale mal. Y por qué.» se dice más
 corto («Dónde entra. Dónde corta. Y por qué.») porque Kokoro habla más
