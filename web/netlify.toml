@@ -10,6 +10,18 @@
 # Redirect propio al broker. NO se enlaza desde la landing:
 # se usa en la bio de Instagram y dentro del canal de Telegram.
 # ir.html registra el origen (píxel + UTM) y de ahí manda a Exness.
+# ---- PAUSA (rama "pausa"): todo el sitio responde con la pantalla de pausa.
+# Para levantar: volver a main. Los registros del formulario y el plan no se tocan.
+[[redirects]]
+  from = "/assets/*"
+  to = "/assets/:splat"
+  status = 200
+[[redirects]]
+  from = "/*"
+  to = "/pausa.html"
+  status = 200
+  force = true
+
 [[redirects]]
   from   = "/broker"
   to     = "/ir.html"
